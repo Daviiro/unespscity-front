@@ -16,6 +16,7 @@ export const ContainerBase = styled.div`
 export const ContainerRow = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     margin-bottom: 10vh;
 `;
 
@@ -24,24 +25,37 @@ export const ContainerColumn = styled.div`
     flex-direction: column;
     width: 50%;
     align-items: center;
+    text-align: center;
 
     img {
-        height: 12.5vh;
+        height: 12vh;
         width: auto;
         opacity: 1; 
     }
 
-    img:hover { 
-        -webkit-filter: drop-shadow(0px 0px 15px #3282B8);
-        cursor: pointer; 
-    }
-
     h4 {
+        font-size: 15px;
         margin-bottom: -3vh;
         color: #1B262C;
     }
 
     h5 { color: #3282B8; }
+`;
+
+export const Square = styled.div`
+    display: flex;
+    height: 25vh;
+    width: 13vw;
+    border: 0.25vh solid lightgray;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px gray;
+
+    :hover {
+        cursor: pointer;
+        box-shadow: 0 0 4em #0F4C75;
+    }
 `;
 
 export const Header = styled.div`
