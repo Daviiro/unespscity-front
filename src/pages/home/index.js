@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { ContainerBase, Header, ContainerRow, ContainerColumn, Square } from './styles'; 
 
@@ -28,9 +29,9 @@ const Home = () => {
 		<>
 			<ContainerBase>
 				<Header>
-					<img src = {Logo} alt = "Logo" />
+					<Link to = "/"> <img src = {Logo} alt = "Logo" /> </Link>
 					<h1> UnespSCity </h1>
-					<h2> Login </h2>
+					<Link to = "/login" style = {{ textDecoration: "none" }}> <h2> Login </h2> </Link>
 					<img src = {Configuracoes} alt = "config" />
 				</Header>
 				<ContainerRow>

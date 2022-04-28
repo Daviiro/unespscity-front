@@ -66,7 +66,6 @@ export const Header = styled.div`
     margin-bottom: 15vh;
     border-top: 1vh solid #133D59;
     border-bottom: 1vh solid #133D59;
-    display: fixed;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
