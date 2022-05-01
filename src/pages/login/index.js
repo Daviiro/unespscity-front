@@ -1,30 +1,98 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { ContainerBase, Square, ContainerRow, GrayLine, ContainerColumn, InputField, LoginButton } from './styles';
+import {
+	ContainerBase,
+	Square,
+	GrayLine,
+	ContainerColumn,
+	InputField,
+	LoginButton,
+	LoginSignupSpan,
+	TopContainer,
+	MidContainer,
+	BottomContainer,
+} from "./styles";
 
 const Login = () => {
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
+	const [toggle, setToggle] = useState(true);
+	const [titleLoginColor, setTitleLoginColor] = useState("#3282b8");
+	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
+
+	useEffect(() => {
+		if (toggle) {
+			setTitleLoginColor("#000000");
+			setTitleSignupColor("#3282b8");
+		} else {
+			setTitleLoginColor("#3282b8");
+			setTitleSignupColor("#000000");
+		}
+	});
+
 	return (
 		<>
 			<ContainerBase>
 				<Square>
-					<ContainerRow>
-						<Link to = "/" style = {{ textDecoration: "none" }}> <h4> Voltar </h4> </Link>
-						<Link to = "/" style = {{ textDecoration: "none" }}> <h4> Não tem uma conta? Cadastre-se </h4> </Link>
-					</ContainerRow>
-					<GrayLine/>
-					<ContainerColumn>
-						<h2> Login </h2>
-						<InputField type = "email" placeholder = "e-mail"/>
-						<InputField type = "password" placeholder = "senha"/>
-						<LoginButton>
-							<h3> Entrar </h3>
-						</LoginButton>
-						<GrayLine/>
-						<Link to = "/" style = {{ textDecoration: "none" }}> <h4> Esqueceu sua senha? </h4> </Link>
-					</ContainerColumn>
+					<TopContainer>
+						<div
+							style={{ cursor: "pointer" }}
+							onClick={() =>
+								toggle ? setToggle(!toggle) : <></>
+							}
+						>
+							<LoginSignupSpan toggle={titleLoginColor}>
+								{" "}
+								Signup{" "}
+							</LoginSignupSpan>
+						</div>
+						<div
+							style={{ cursor: "pointer" }}
+							onClick={() =>
+								toggle ? <></> : setToggle(!toggle)
+							}
+						>
+							<LoginSignupSpan toggle={titleSignupColor}>
+								{" "}
+								Login{" "}
+							</LoginSignupSpan>
+						</div>
+					</TopContainer>
+					<GrayLine />
+					<MidContainer>
+						{toggle ? (
+							<>
+								<InputField type="email" placeholder="E-mail" />
+								<InputField
+									type="password"
+									placeholder="Senha"
+								/>
+								<LoginButton>
+									<h3> Entrar </h3>
+								</LoginButton>
+							</>
+						) : (
+							<>
+								<InputField type="nome" placeholder="Nome" />
+								<InputField type="email" placeholder="E-mail" />
+								<InputField
+									type="password"
+									placeholder="Senha"
+								/>
+								<LoginButton>
+									<h3> Signup </h3>
+								</LoginButton>
+							</>
+						)}
+					</MidContainer>
+					<GrayLine />
+					<BottomContainer>
+						<Link to="/" style={{ textDecoration: "none" }}>
+							{" "}
+							<h4> Esqueceu sua senha? </h4>{" "}
+						</Link>
+					</BottomContainer>
 				</Square>
 			</ContainerBase>
 		</>
