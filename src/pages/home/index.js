@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../../components/footer";
 import { ContainerBase, ContainerRow } from "./styles";
 import Header from "../../components/header";
 import Card from "./card";
+import Footer from "../../components/footer";
 
 const Home = () => {
 	return (

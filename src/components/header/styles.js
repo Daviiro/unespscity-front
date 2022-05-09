@@ -42,6 +42,8 @@ export const HeaderContainer = styled.div`
 		text-shadow: 0 0 15px #ffffff;
 		cursor: pointer;
 	}
+
+	span:hover { text-shadow: 0px 0px 10px #ffffff; }
 `;
 
 export const LoginButton = styled.div`
