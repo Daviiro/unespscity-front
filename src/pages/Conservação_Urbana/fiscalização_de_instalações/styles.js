@@ -5,13 +5,30 @@ export const ContainerBase = styled.div`
 	justify-content: space-around;
 	height: 100vh;
 	width: 100%;
+`;
 
-	img {
-		width: 100%;
-		height: auto;
-		margin: 0;
-		opacity: 0.95;
+export const SubHeader = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-top: -10.5vh;
+	margin-bottom: 10vh;
+	flex-wrap: wrap;
+	padding-left: 2.5vw;
+
+	h1 {
+		margin-top: 4vh; 
+		margin-left: 2.5vw; 
 	}
+
+	h4 { margin-top: 0vh; }
+`;
+
+export const ContainerColumn = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-bottom: 10vh;
+	flex-wrap: wrap;
 `;
 
 export const ContainerRow = styled.div`

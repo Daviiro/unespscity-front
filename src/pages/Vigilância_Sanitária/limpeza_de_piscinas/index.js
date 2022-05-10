@@ -1,6 +1,8 @@
 import React from "react";
-import { ContainerBase, ContainerRow } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, ContainerRow } from "./styles";
 import Header from "../../../components/header";
+import MiniCard from "../../../components/mini-card";
+import Line from "../../../components/line";
 import Footer from "../../../components/footer";
 
 const Piscinas = () => {
@@ -8,9 +10,16 @@ const Piscinas = () => {
         <>
             <ContainerBase>
                 <Header/>
-                <ContainerRow>
-
-                </ContainerRow>
+                <SubHeader>
+                    <MiniCard
+                        source = "/assets/img/home_vigilancia_sanitaria.png"
+                        titulo = "Vigilância Sanitária"
+                    />
+                    <ContainerColumn>
+                        <h1> Limpeza de Piscinas </h1>
+                        <Line />
+                    </ContainerColumn>
+                </SubHeader>
                 <Footer/>
             </ContainerBase>
         </>
