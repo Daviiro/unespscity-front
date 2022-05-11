@@ -38,3 +38,12 @@ export const ContainerRow = styled.div`
 	margin-bottom: 10vh;
 	flex-wrap: wrap;
 `;
+
+export const Square = styled.div`
+	height: 62.5vh;
+	width: 31.25vw;
+	border: 0.25vh solid lightgray;
+	border-radius: 5px;
+	box-shadow: 5px 5px 10px gray;
+	padding: 1rem;
+`;

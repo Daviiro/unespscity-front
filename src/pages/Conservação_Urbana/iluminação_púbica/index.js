@@ -1,9 +1,12 @@
 import React from "react";
-import { ContainerBase, SubHeader, ContainerColumn, ContainerRow } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, ContainerRow, Square } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Line from "../../../components/line";
 import Footer from "../../../components/footer";
+import DescriptionInput from "../../../components/description-input";
+import InputAddress from "../../../components/input-address";
+import Button from '../../../components/form-button';
 
 const Iluminacao = () => {
     return (
@@ -20,6 +23,11 @@ const Iluminacao = () => {
                         <Line />
                     </ContainerColumn>
                 </SubHeader>
+                <Square>
+                    <InputAddress />
+                    <DescriptionInput/>
+                    <Button text="Enviar"/> 
+                </Square>
                 <Footer/>
             </ContainerBase>
         </>

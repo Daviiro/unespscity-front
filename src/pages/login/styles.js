@@ -70,29 +70,6 @@ export const InputField = styled.input`
 	}
 `;
 
-export const LoginButton = styled.div`
-	height: 5.25vh;
-	width: 80%;
-	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
-	border: none;
-	border-radius: 5px;
-	margin-top: 2.4vh;
-	margin-bottom: 3vh;
-	text-align: center;
-	align-items: center;
-
-	h3 {
-		color: #ffffff;
-		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-		margin-top: 1.15vh;
-	}
-
-	:hover {
-		cursor: pointer;
-		box-shadow: 0 0 1em #0f4c75;
-	}
-`;
-
 export const LoginSignupSpan = styled.span`
 	font-size: 1.5rem;
 	margin-bottom: -3vh;
@@ -104,7 +81,7 @@ export const TopContainer = styled.div`
 	height: 20%;
 	padding: 0 2.5rem;
 	display: flex;
-	flex-direcion: row;
+	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 `;

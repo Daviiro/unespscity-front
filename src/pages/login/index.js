@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "../../components/form-button";
+
 import {
 	ContainerBase,
 	Square,
 	GrayLine,
 	ContainerColumn,
 	InputField,
-	LoginButton,
 	LoginSignupSpan,
 	TopContainer,
 	MidContainer,
@@ -44,7 +45,7 @@ const Login = () => {
 						>
 							<LoginSignupSpan toggle={titleLoginColor}>
 								{" "}
-								Signup{" "}
+								Cadastrar{" "}
 							</LoginSignupSpan>
 						</div>
 						<div
@@ -55,7 +56,7 @@ const Login = () => {
 						>
 							<LoginSignupSpan toggle={titleSignupColor}>
 								{" "}
-								Login{" "}
+								Entrar{" "}
 							</LoginSignupSpan>
 						</div>
 					</TopContainer>
@@ -68,9 +69,8 @@ const Login = () => {
 									type="password"
 									placeholder="Senha"
 								/>
-								<LoginButton>
-									<h3> Entrar </h3>
-								</LoginButton>
+								<Button text="Entrar"
+								/>
 							</>
 						) : (
 							<>
@@ -80,9 +80,8 @@ const Login = () => {
 									type="password"
 									placeholder="Senha"
 								/>
-								<LoginButton>
-									<h3> Signup </h3>
-								</LoginButton>
+								<Button text="Cadastrar"
+								/>
 							</>
 						)}
 					</MidContainer>
