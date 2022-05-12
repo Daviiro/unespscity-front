@@ -1,12 +1,12 @@
 import React from "react";
-import { ContainerBase, SubHeader, ContainerColumn, ContainerRow, Square } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Line from "../../../components/line";
 import Footer from "../../../components/footer";
 import DescriptionInput from "../../../components/description-input";
-import InputAddress from "../../../components/input-address";
 import Button from '../../../components/form-button';
+import Input from "../../../components/input";
 
 const Iluminacao = () => {
     return (
@@ -24,7 +24,11 @@ const Iluminacao = () => {
                     </ContainerColumn>
                 </SubHeader>
                 <Square>
-                    <InputAddress />
+                    <InputAddressContainer>
+                        <Input title="Endereço" width="36vw"/>
+                        <Input title="Nº" width="7vw"/>
+                    </InputAddressContainer>
+                    <Input title="Ponto de Referência" placeholder="Opcional"/>
                     <DescriptionInput/>
                     <Button text="Enviar"/> 
                 </Square>

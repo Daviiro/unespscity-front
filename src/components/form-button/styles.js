@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
 	height: 5.25vh;
-	width: 80%;
-	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
+	width: 26vw;
+	background: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	border: none;
 	border-radius: 5px;
 	margin-top: 2.4vh;
