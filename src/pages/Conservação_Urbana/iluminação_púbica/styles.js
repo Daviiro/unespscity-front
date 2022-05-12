@@ -67,5 +67,4 @@ export const InputAddressContainer = styled.div`
 	width: 45vw;
 	display: flex; 
 	justify-content: space-between;
-	
 `;

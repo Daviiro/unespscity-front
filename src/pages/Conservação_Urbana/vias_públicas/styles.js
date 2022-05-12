@@ -38,3 +38,32 @@ export const ContainerRow = styled.div`
 	margin-bottom: 10vh;
 	flex-wrap: wrap;
 `;
+
+export const Square = styled.div`
+	height: 100%;
+	width: auto;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+	justify-content: center; 
+`;
+
+export const Details = styled.div`
+	height: 67.5%;
+	width: 47.5vw;
+	border: 0.25vh solid lightgray;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px gray;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+	justify-content: center;
+	padding-bottom: 4vh;
+`;
+
+export const InputAddressContainer = styled.div`
+	margin-top: 10vh;
+	width: 45vw;
+	display: flex; 
+	justify-content: space-between;
+`;
