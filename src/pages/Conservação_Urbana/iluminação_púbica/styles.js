@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContainerBase = styled.div`
 	display: block;
 	justify-content: space-around;
+	align-items: center; 
 	height: 100vh;
 	width: 100%;
 `;
@@ -40,10 +41,31 @@ export const ContainerRow = styled.div`
 `;
 
 export const Square = styled.div`
-	height: 62.5vh;
-	width: 31.25vw;
+	height: 100%;
+	width: auto;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+	justify-content: center; 
+`;
+
+export const Details = styled.div`
+	height: 67.5%;
+	width: 47.5vw;
 	border: 0.25vh solid lightgray;
-	border-radius: 5px;
+	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
-	padding: 1rem;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+	justify-content: center;
+	padding-bottom: 4vh;
+`;
+
+export const InputAddressContainer = styled.div`
+	margin-top: 10vh;
+	width: 45vw;
+	display: flex; 
+	justify-content: space-between;
+	
 `;

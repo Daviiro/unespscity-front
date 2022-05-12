@@ -1,10 +1,12 @@
 import React from "react";
-import { ServiceContainer } from "./styles";
+import { GrayLine, ServiceContainer } from "./styles";
 
 const ServiceDescription = (props) => {
     return (
         <ServiceContainer>
-            <h2> {props.description} </h2>
+            <GrayLine/>
+            <h3> {props.description} </h3>
+            <GrayLine/>
         </ServiceContainer>
     );
 };

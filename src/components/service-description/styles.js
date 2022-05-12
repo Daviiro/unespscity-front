@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
 export const ServiceContainer = styled.div`
+	margin-top: -22.5vh;
 	height: 25vh;
-    width: 50vw;
+    width: 45vw;
     display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items: center;
 
-    h2 { color: lightgray; }
+    h3 { color: gray; }
+`;
+
+export const GrayLine = styled.div`
+	height: 0.4vh;
+	width: 90vw;
+	background-image: linear-gradient(to right, #ffffff, gray, #ffffff);
 `;
