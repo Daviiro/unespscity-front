@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
 	height: 9vh;
+	min-height: 3rem;
 	width: 100%;
 	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	margin: 0;
@@ -16,7 +17,6 @@ export const HeaderContainer = styled.div`
 		width: auto;
 		max-height: 2.5rem;
 		max-width: 2.5rem;
-
 		opacity: 1;
 	}
 
@@ -43,7 +43,9 @@ export const HeaderContainer = styled.div`
 		cursor: pointer;
 	}
 
-	span:hover { text-shadow: 0px 0px 10px #ffffff; }
+	span:hover {
+		text-shadow: 0px 0px 10px #ffffff;
+	}
 `;
 
 export const LoginButton = styled.div`

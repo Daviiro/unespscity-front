@@ -16,10 +16,10 @@ export const WrapContainer = styled.div`
 	@media (max-width: 799px) {
 		width: 96vw;
 	}
-	@media (min-width: 800px) and (max-width: 1365px) {
+	@media (min-width: 800px) and (max-width: 1279px) {
 		width: 80vw;
 	}
-	@media (min-width: 1366px) {
+	@media (min-width: 1280px) {
 		width: 65vw;
 	}
 `;

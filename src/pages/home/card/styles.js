@@ -5,8 +5,10 @@ export const CardContainer = styled.div`
 	flex-direction: column;
 	height: 25vh;
 	min-height: 11rem;
+	max-height: 15rem;
 	width: 13vw;
 	min-width: 7rem;
+	max-width: 12rem;
 	border: 0.25vh solid lightgray;
 	border-radius: 5px;
 	justify-content: space-between;
