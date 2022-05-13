@@ -7,96 +7,26 @@ export const ContainerBase = styled.div`
 	width: 100%;
 `;
 
-export const ContainerRow = styled.div`
+export const WrapContainer = styled.div`
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	margin-bottom: 10vh;
+	flex-direcion: row;
 	flex-wrap: wrap;
+	justify-content: space-between;
+
+	@media (max-width: 799px) {
+		width: 96vw;
+	}
+	@media (min-width: 800px) and (max-width: 1365px) {
+		width: 80vw;
+	}
+	@media (min-width: 1366px) {
+		width: 65vw;
+	}
 `;
 
-export const ContainerColumn = styled.div`
+export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 0%;
-	align-items: center;
-	text-align: center;
-
-	img {
-		height: 12vh;
-		width: auto;
-		opacity: 1;
-	}
-
-	h4 {
-		font-size: 15px;
-		margin-bottom: -3vh;
-		color: #1b262c;
-	}
-
-	h5 {
-		color: #3282b8;
-	}
-`;
-
-export const Square = styled.div`
-	display: flex;
-	height: 25vh;
-	width: 13vw;
-	border: 0.25vh solid lightgray;
-	border-radius: 5px;
-	align-items: center;
 	justify-content: center;
-	box-shadow: 5px 5px 10px gray;
-
-	:hover {
-		cursor: pointer;
-		box-shadow: 0 0 4em #0f4c75;
-	}
-`;
-
-export const Header = styled.div`
-	height: 12.5vh;
-	width: 95.5vw;
-	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
-	margin: 0;
-	margin-bottom: 15vh;
-	border-top: 1vh solid #133d59;
-	border-bottom: 1vh solid #133d59;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	padding-left: 1.8vw;
-	padding-right: 1.8vw;
-
-	img {
-		height: 6.75vh;
-		width: auto;
-		margin-top: 2.75vh;
-		opacity: 1;
-	}
-
-	img:hover {
-		-webkit-filter: drop-shadow(0px 0px 10px #ffffff);
-		cursor: pointer;
-	}
-
-	h1 {
-		color: #ffffff;
-		text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black,
-			0 -1.5px black;
-		margin-top: 3.5vh;
-	}
-
-	h2 {
-		color: #ffffff;
-		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-		margin-right: -32vw;
-		margin-top: 4.25vh;
-	}
-
-	h2:hover {
-		text-shadow: 0 0 15px #ffffff;
-		cursor: pointer;
-	}
+	align-items: center;
 `;
