@@ -10,6 +10,8 @@ import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import Button from '../../../components/form-button';
 import Footer from "../../../components/footer";
+import InputPhotos from "../../../components/input-photos";
+import InputLocalization from "../../../components/input-localization";
 
 const Iluminacao = () => {
     return (
@@ -31,12 +33,15 @@ const Iluminacao = () => {
                         description = "Utilize este serviço para informar ocorrências com a iluminação de áreas públicas da cidade, como postes e outras fontes de luz queimadas, danificadas, oscilando e/ou irregulares."
                     />
                     <Details>
+                        <InputLocalization />
+                        <p>OU</p>
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
                         <DescriptionInput/>
+                        <InputPhotos/>
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>
