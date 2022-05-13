@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, ModalContent, CloseModal } from "./styles";
+import { Modal, ModalContent, CloseModal, Table, Tbody, Tr } from "./styles";
 import { Link } from "react-router-dom";
 
 const PopUp = (props) => {
@@ -11,14 +11,28 @@ const PopUp = (props) => {
 				<Modal>
 					<Modal className="overlay">
 						<ModalContent>
+							{/*
 							<CloseModal onClick={props.setTrigger}>
 								X
 							</CloseModal>
-							{props.linkItems.map((item) => (
-								<Link to={item.link}>
-									<div>{item.name}</div>
-								</Link>
-							))}
+							*/}
+
+							<Table style={{ textDecoration: "none" }}>
+								<Tbody>
+									{props.linkItems.map((item) => (
+										<Tr>
+											<Link
+												to={item.link}
+												style={{
+													textDecoration: "none",
+												}}
+											>
+												<span>{item.name}</span>
+											</Link>
+										</Tr>
+									))}
+								</Tbody>
+							</Table>
 						</ModalContent>
 					</Modal>
 				</Modal>

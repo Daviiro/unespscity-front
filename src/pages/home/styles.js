@@ -14,7 +14,7 @@ export const WrapContainer = styled.div`
 	justify-content: space-between;
 
 	@media (max-width: 799px) {
-		width: 96vw;
+		width: 86vw;
 	}
 	@media (min-width: 800px) and (max-width: 1279px) {
 		width: 80vw;
