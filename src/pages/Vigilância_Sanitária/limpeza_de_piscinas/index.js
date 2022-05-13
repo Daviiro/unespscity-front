@@ -10,6 +10,8 @@ import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import Button from '../../../components/form-button';
 import Footer from "../../../components/footer";
+import InputPhotos from "../../../components/input-photos";
+import InputLocalization from "../../../components/input-localization";
 
 const Piscinas = () => {
     return (
@@ -28,15 +30,18 @@ const Piscinas = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares."
                     />
                     <Details>
+                        <InputLocalization />
+                        <p>OU</p>
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
                         <DescriptionInput/>
+                        <InputPhotos/>
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>

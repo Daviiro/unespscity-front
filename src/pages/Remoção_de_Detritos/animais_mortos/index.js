@@ -30,7 +30,7 @@ const Animais_Mortos = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para solicitar a remoção de corpos de animais mortos localizados dentro dos limites do município."
                     />
                     <Details>
                         <InputLocalization/>

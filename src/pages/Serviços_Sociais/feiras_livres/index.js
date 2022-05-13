@@ -28,7 +28,7 @@ const Feiras = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Consulte a listagem das feiras livres da cidade com suas respectivas localizações, dias e horários!"
                     />
                     <Details>
                         <InputAddressContainer>

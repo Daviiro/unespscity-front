@@ -28,7 +28,7 @@ const Pragas = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar a localização de focos de insetos, roedores e caramujos que fornecem perigo à população."
                     />
                     <Details>
                         <InputAddressContainer>

@@ -30,7 +30,7 @@ const Pracas = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar ocorrências em praças públicas da cidade, como solicitação de limpeza, informar ocupação indevida, problemas infraestruturais e demais irregularidades e/ou sugestões."
                     />
                     <Details>
                         <InputLocalization/>

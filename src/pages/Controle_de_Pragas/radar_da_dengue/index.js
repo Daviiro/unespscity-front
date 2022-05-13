@@ -28,7 +28,7 @@ const Dengue = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Dengue, o pernilongo-rajado (Aedes aegypti)."
                     />
                     <Details>
                         <InputAddressContainer>
