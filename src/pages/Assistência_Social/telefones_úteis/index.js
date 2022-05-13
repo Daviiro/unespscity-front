@@ -28,7 +28,7 @@ const Telefones = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Confira a listagem de telefones úteis ao cidadão, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre muitas outros:"
                     />
                     <Details>
                         <InputAddressContainer>

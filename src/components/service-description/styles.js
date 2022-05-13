@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ServiceContainer = styled.div`
-	margin-top: -22.5vh;
+	margin-top: -20.5vh;
 	height: 25vh;
     width: 45vw;
     display: flex;

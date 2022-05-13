@@ -10,8 +10,8 @@ import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import Button from '../../../components/form-button';
 import Footer from "../../../components/footer";
-import InputLocalization from "../../../components/input-localization";
 import InputPhotos from "../../../components/input-photos";
+import InputLocalization from "../../../components/input-localization";
 
 const Terreno = () => {
     return (
@@ -30,7 +30,7 @@ const Terreno = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para solicitar a limpeza de terrenos públicos pertencentes ao município."
                     />
                     <Details>
                         <InputLocalization/>

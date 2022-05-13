@@ -28,7 +28,7 @@ const Leishmaniose = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Leishmaniose, o mosquito-palha (Phlebotomus pappatasi)."
                     />
                     <Details>
                         <InputAddressContainer>

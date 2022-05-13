@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: 10vh;
+	margin-bottom: -1vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -42,6 +42,7 @@ export const ContainerRow = styled.div`
 export const Square = styled.div`
 	height: 100%;
 	width: auto;
+	margin-bottom: 5vh;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 

@@ -30,7 +30,7 @@ const Pavimentacao = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar ocorrências com a pavimentação da cidade, como buracos, rachaduras, desníveis, invasão de terra e/ou outras irregularidades."
                     />
                     <Details>
                         <InputLocalization/>

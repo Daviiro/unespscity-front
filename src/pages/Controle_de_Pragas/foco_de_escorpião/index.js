@@ -28,7 +28,7 @@ const Escorpiao = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para informar a localização de focos de escorpiões e demais aracnídeos que fornecem perigo à população."
                     />
                     <Details>
                         <InputAddressContainer>

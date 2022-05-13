@@ -28,7 +28,7 @@ const Gestores = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Conheça os atuais gestores que trabalham diariamente servindo às necessidades da sua grande cidade!"
                     />
                     <Details>
                         <InputAddressContainer>

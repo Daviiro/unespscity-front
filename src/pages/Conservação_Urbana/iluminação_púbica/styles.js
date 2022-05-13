@@ -43,6 +43,7 @@ export const ContainerRow = styled.div`
 export const Square = styled.div`
 	height: 100%;
 	width: auto;
+	margin-bottom: 10vh;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 

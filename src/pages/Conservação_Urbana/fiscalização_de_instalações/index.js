@@ -30,7 +30,7 @@ const Instalacoes = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "(texto)"
+                        description = "Utilize este serviço para solicitar fiscalização em instalações públicas do município (fornecer justificativa)."
                     />
                     <Details>
                         <InputLocalization/>
