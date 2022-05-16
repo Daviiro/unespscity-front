@@ -6,8 +6,8 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Line from "../../../components/line";
 import ServiceDescription from "../../../components/service-description";
+import ListCard from "../../../components/list-card";
 import Footer from "../../../components/footer";
-import UsefulPhoneCard from "../../../components/useful-phone-card";
 
 const Telefones = () => {
     return (
@@ -29,10 +29,16 @@ const Telefones = () => {
                         description = "Confira a listagem de telefones úteis ao cidadão, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre muitas outros:"
                     />
                     <Details>
-                        <UsefulPhoneCard name="Policia Militar" phone="190" text="Sempre ligue pra Policia quando alguem te encher o saco"/>
-                        <UsefulPhoneCard name="Secretaria Do Meio Ambiente" phone="3903-1920" text="Ligue quando tiver problemas relacionado ao meio ambiente"/>
-                        <UsefulPhoneCard name="Secretaria X" phone="xxxx-xxxx" text="Ligue se xxxxxxxxxxxxxxxxx."/>
-                        <UsefulPhoneCard name="Secretaria Y" phone="yyyy-yyyy" text="yyyyyyyyyyy"/>
+                    <ListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "[Número] - Nome"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <ListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "[Número] - Nome"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
                     </Details>
                 </Square>
                 <Footer/>
