@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import AdminIluminacao from './pages/Admin/Admin_Conservação_Urbana/iluminação_púbica';
+import AdminAnimaisMortos from './pages/Admin/Admin_Remoção_Detritos/animais_mortos';
+import AdminGestores from './pages/Admin/Admin_Administração_Pública/conheça_os_gestores';
+
 import Home from "./pages/home";															// Home e Login //
 import Login from "./pages/login";
 
@@ -39,6 +43,9 @@ ReactDOM.render(
 		<Router>
 			<Routes>
 				<Route exact path="/" element={<Home />} />
+				<Route exact path="/admin/iluminacao" element={<AdminIluminacao />} />
+				<Route exact path="/admin/animais_mortos" element={<AdminAnimaisMortos />} />
+				<Route exact path="/admin/gestores" element={<AdminGestores />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route exact path="/conheca_os_gestores" element={<Gestores />} />
 				<Route exact path="/telefones_uteis" element={<Telefones />} />
