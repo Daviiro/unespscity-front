@@ -6,6 +6,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminIluminacao from './pages/Admin/Admin_Conservação_Urbana/iluminação_púbica';
 import AdminAnimaisMortos from './pages/Admin/Admin_Remoção_Detritos/animais_mortos';
 import AdminGestores from './pages/Admin/Admin_Administração_Pública/conheça_os_gestores';
+import AdminTelefones from './pages/Admin/Admin_Assistência_Social/telefones_úteis';
+import AdminParques from './pages/Admin/Admin_Conservação_Rural-Áreas_Verdes/parques';
+import AdminPontes from './pages/Admin/Admin_Conservação_Rural-Áreas_Verdes/pontes_em_estradas_rurais';
+import AdminPracas from './pages/Admin/Admin_Conservação_Rural-Áreas_Verdes/praças';
 
 import Home from "./pages/home";															// Home e Login //
 import Login from "./pages/login";
@@ -46,6 +50,10 @@ ReactDOM.render(
 				<Route exact path="/admin/iluminacao" element={<AdminIluminacao />} />
 				<Route exact path="/admin/animais_mortos" element={<AdminAnimaisMortos />} />
 				<Route exact path="/admin/gestores" element={<AdminGestores />} />
+				<Route exact path="/admin/telefones" element={<AdminTelefones />} />
+				<Route exact path="/admin/parques" element={<AdminParques />} />
+				<Route exact path="/admin/pontes" element={<AdminPontes />} />
+				<Route exact path="/admin/pracas" element={<AdminPracas />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route exact path="/conheca_os_gestores" element={<Gestores />} />
 				<Route exact path="/telefones_uteis" element={<Telefones />} />
