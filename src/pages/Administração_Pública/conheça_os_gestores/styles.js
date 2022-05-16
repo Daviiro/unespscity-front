@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: -1vh;
+	margin-bottom: 10.5vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -40,7 +40,7 @@ export const ContainerRow = styled.div`
 `;
 
 export const Square = styled.div`
-	height: 100%;
+	height: 140%;
 	width: auto;
 	margin-bottom: 5vh;
 	display: flex; 
@@ -50,21 +50,15 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 67.5%;
-	width: 47.5vw;
+	margin-top: 0;
+	height: 63.5vw;
+	width: 63.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 
-	justify-content: center;
-	padding-bottom: 4vh;
-`;
-
-export const InputAddressContainer = styled.div`
-	margin-top: 10vh;
-	width: 45vw;
-	display: flex; 
-	justify-content: space-between;
+	padding: 4vh;
+	overflow-y: auto;
 `;
