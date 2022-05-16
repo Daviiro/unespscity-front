@@ -36,7 +36,10 @@ const AdminTelefones = () => {
                             <Input title="Nome do Local:" width="32vw"/>
                             <Input title="Telefone" width="11vw"/>
                         </InputAddressContainer>
-                        <DescriptionInput/>
+                        <DescriptionInput
+                            title="Descrição:"
+                            placeholder='Nos conte em detalhes sobre o Local.'
+                        />
                         <InputPhotos/>
                         <Button text="Enviar"/>
                     </Details> 

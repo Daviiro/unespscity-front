@@ -30,7 +30,7 @@ const Terreno = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "Utilize este serviço para solicitar a limpeza de terrenos públicos pertencentes ao município."
+                        description = "Utilize este serviço para solicitar a limpeza de terrenos públicos pertencentes ao município ou para denunciar terrenos baldios particulares com irregularidades."
                     />
                     <Details>
                         <InputLocalization/>
@@ -40,7 +40,10 @@ const Terreno = () => {
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput
+                            title="Descrição:"
+                            placeholder='Conte com detalhes o problema encontrado'
+                        />
                         <InputPhotos/>
                         <Button text="Enviar"/>
                     </Details> 

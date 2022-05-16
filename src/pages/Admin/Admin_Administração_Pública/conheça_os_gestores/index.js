@@ -7,6 +7,10 @@ import MiniCard from "../../../../components/mini-card";
 import Line from "../../../../components/line";
 import ServiceDescription from "../../../../components/service-description";
 import Footer from "../../../../components/footer";
+import Input from "../../../../components/input";
+import DescriptionInput from "../../../../components/description-input";
+import InputPhotos from "../../../../components/input-photos";
+import Button from '../../../../components/form-button';
 
 const AdminGestores = () => {
     return (
@@ -25,10 +29,16 @@ const AdminGestores = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "Conheça os atuais gestores que trabalham diariamente servindo às necessidades da sua grande cidade!"
+                        description = "Cadastre aqui todas as informações do Gestor para que fique disponível à população!"
                     />
                     <Details>
-                        
+                        <Input title="Nome do Gestor:" />
+                        <DescriptionInput
+                            title="Descrição:"
+                            placeholder='Nos conte em detalhes sobre o Gestor e seu Cargo.'
+                        />
+                        <InputPhotos/>
+                        <Button text="Enviar"/>
                     </Details> 
                 </Square>
                 <Footer/>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, TextInput, Title } from './styles';
 
-const DescriptionInput = () => {
+const DescriptionInput = (props) => {
     return (
         <Container>
-            <Title>Descrição:</Title>
+            <Title>{props.title}</Title>
             <TextInput
-                placeholder='Conte com detalhes o problema encontrado'
+                placeholder={props.placeholder}
                 rows={7}
             />
         </Container>

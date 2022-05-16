@@ -40,7 +40,10 @@ const Pavimentacao = () => {
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput
+                            title="Descrição:"
+                            placeholder='Conte com detalhes o problema encontrado'
+                        />
                         <InputPhotos/>
                         <Button text="Enviar"/>
                     </Details> 
