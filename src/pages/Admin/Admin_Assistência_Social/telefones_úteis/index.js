@@ -1,13 +1,16 @@
 import React from "react";
 
-import { ContainerBase, Details, SubHeader, ContainerColumn, Square } from "./styles";
+import { ContainerBase, Details, SubHeader, ContainerColumn, Square, InputAddressContainer } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import Line from "../../../../components/line";
 import ServiceDescription from "../../../../components/service-description";
-import ListCard from "../../../../components/list-card";
 import Footer from "../../../../components/footer";
+import InputPhotos from "../../../../components/input-photos";
+import Input from "../../../../components/input";
+import DescriptionInput from "../../../../components/description-input";
+import Button from '../../../../components/form-button';
 
 const AdminTelefones = () => {
     return (
@@ -26,20 +29,17 @@ const AdminTelefones = () => {
                 </SubHeader>
                 <Square>
                     <ServiceDescription 
-                        description = "Confira a listagem de telefones úteis ao cidadão, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre muitas outros:"
+                        description = "Cadastre aqui telefones que sejam úteis para a população, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre outros."
                     />
                     <Details>
-                        <ListCard
-                            source = "/assets/img/home_assistencia_social.png"
-                            nome = "[Número] - Nome"
-                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-                        />
-                        <ListCard
-                            source = "/assets/img/home_assistencia_social.png"
-                            nome = "[Número] - Nome"
-                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-                        />
-                    </Details>
+                        <InputAddressContainer>
+                            <Input title="Nome do Local:" width="32vw"/>
+                            <Input title="Telefone" width="11vw"/>
+                        </InputAddressContainer>
+                        <DescriptionInput/>
+                        <InputPhotos/>
+                        <Button text="Enviar"/>
+                    </Details> 
                 </Square>
                 <Footer/>
             </ContainerBase>
