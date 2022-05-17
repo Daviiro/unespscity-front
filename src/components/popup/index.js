@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Modal, ModalContent, CloseModal, Table, Tbody, Tr } from "./styles";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PopUp = (props) => {
-	console.log(props.linkItems);
-
+	const navigate = useNavigate();
 	return (
 		<div onClick={props.setTrigger}>
 			{props.trigger && (
@@ -20,15 +19,28 @@ const PopUp = (props) => {
 							<Table style={{ textDecoration: "none" }}>
 								<Tbody>
 									{props.linkItems.map((item) => (
-										<Tr>
-											<Link
-												to={item.link}
-												style={{
-													textDecoration: "none",
-												}}
-											>
-												<span>{item.name}</span>
-											</Link>
+										<Tr
+											onClick={() =>
+												navigate(`../${item.link}`)
+											}
+										>
+											<td>
+												{/*<Link
+													to={item.link}
+													style={{
+														textDecoration: "none",
+														width: "100%",
+													}}
+												>*/}
+												<span
+													style={{
+														width: "100%",
+													}}
+												>
+													{item.name}
+												</span>
+												{/*</Link>*/}
+											</td>
 										</Tr>
 									))}
 								</Tbody>
