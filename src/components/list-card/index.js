@@ -10,6 +10,7 @@ const ListCard = (props) => {
             />
             <ContainerColumn>
                 <h2> {props.nome} </h2>
+                <h3> {props.sobrenome} </h3>
                 <h4> {props.descricao} </h4>
             </ContainerColumn>
         </ListCardContainer>

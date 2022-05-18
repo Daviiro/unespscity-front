@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: -1vh;
+	margin-bottom: 4.75vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -50,7 +50,7 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 67.5%;
+	height: 72%;
 	width: 47.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
@@ -59,11 +59,12 @@ export const Details = styled.div`
 	flex-direction: column; 
 	align-items: center; 
 	justify-content: center;
+	padding-top: 7.15vh;
 	padding-bottom: 4vh;
 `;
 
 export const InputAddressContainer = styled.div`
-	margin-top: 10vh;
+	margin-top: 4vh;
 	width: 45vw;
 	display: flex; 
 	justify-content: space-between;
