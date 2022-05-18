@@ -11,10 +11,18 @@ export const ContainerColumn = styled.div`
 		text-align: left; 
 	}
 
+	h3 {
+		color: #133d59;
+		text-align: left;
+		margin-top: -1.9vh;
+		margin-left: 0.5vw;
+	}
+
 	h4 {
 		margin-bottom: 10vh;
 		color: #1b262c;
 		text-align: left;
+		font-size: 14px;
 		font-weight: normal;
 		margin-top: -1.5vh;
 		margin-left: 1vw;

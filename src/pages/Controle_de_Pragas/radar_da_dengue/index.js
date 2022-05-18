@@ -31,6 +31,10 @@ const Dengue = () => {
                         description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Dengue, o pernilongo-rajado (Aedes aegypti)."
                     />
                     <Details>
+                        <MiniCard
+                                source = "/assets/img/Radar_da_Dengue.png"
+                                titulo = "Aedes aegypti"
+                            />
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>

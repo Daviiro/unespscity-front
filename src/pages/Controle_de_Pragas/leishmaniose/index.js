@@ -31,13 +31,17 @@ const Leishmaniose = () => {
                         description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Leishmaniose, o mosquito-palha (Phlebotomus pappatasi)."
                     />
                     <Details>
+                        <MiniCard
+                            source = "/assets/img/Leishmaniose.png"
+                            titulo = "Mosquito-Palha"
+                        />
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
                         <DescriptionInput/>
-                        <Button text="Enviar"/>
+                        <Button text = "Enviar"/>
                     </Details> 
                 </Square>
                 <Footer/>
