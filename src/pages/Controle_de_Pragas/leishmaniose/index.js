@@ -31,16 +31,18 @@ const Leishmaniose = () => {
                         description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Leishmaniose, o mosquito-palha (Phlebotomus pappatasi)."
                     />
                     <Details>
-                        <MiniCard
-                            source = "/assets/img/Leishmaniose.png"
-                            titulo = "Mosquito-Palha"
-                        />
+                        <a style = {{textDecoration: "none"}} target = "_blank" href = "https://www.google.com.br/search?q=mosquito+palha&tbm=isch&ved=2ahUKEwi07taox-v3AhVVMrkGHdwDBw8Q2-cCegQIABAA&oq=mosquito+palha&gs_lcp=CgNpbWcQAzIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BAgAEB46CwgAEIAEELEDEIMBOgQIABBDOggIABCxAxCDAVDwCVjVH2CmJmgAcAB4AIABlAOIAbESkgEKMS4xMi4wLjEuMZgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=BTeGYvTXNtXk5OUP3IeceA&bih=723&biw=1496&hl=pt-BR">
+                            <MiniCard
+                                source = "/assets/img/Leishmaniose.png"
+                                titulo = "Mosquito-Palha"
+                            />
+                        </a>
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput placeholder = "Conte-nos em detalhes sobre o problema encontrado." />
                         <Button text = "Enviar"/>
                     </Details> 
                 </Square>

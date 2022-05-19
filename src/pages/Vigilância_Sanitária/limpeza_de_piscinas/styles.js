@@ -49,7 +49,7 @@ export const Square = styled.div`
 	justify-content: center; 
 `;
 
-export const Details = styled.div`
+export const Details1 = styled.div`
 	height: 90%;
 	width: 47.5vw;
 	border: 0.25vh solid lightgray;
@@ -60,6 +60,27 @@ export const Details = styled.div`
 	align-items: center; 
 	justify-content: center;
 	padding-bottom: 4vh;
+`;
+
+export const Details2 = styled.div`
+	height: 23.75vw;
+	width: 47.5vw;
+	border: 0.25vh solid lightgray;
+	border-radius: 10px;
+	box-shadow: 5px 5px 10px gray;
+	display: flex; 
+	flex-direction: column; 
+	align-items: center;
+
+	p { margin-top: 5vh; }
+
+	a {
+		color: #0f4c75;
+		font-size: 14px;
+		font-weight: bold;
+		text-decoration: none;
+		margin-bottom: 0.5vh;
+	}
 `;
 
 export const InputAddressContainer = styled.div`

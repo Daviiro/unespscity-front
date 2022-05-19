@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details1, Details2 } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -32,7 +32,7 @@ const Piscinas = () => {
                     <ServiceDescription 
                         description = "Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares."
                     />
-                    <Details>
+                    <Details1>
                         <InputLocalization />
                         <p>OU</p>
                         <InputAddressContainer>
@@ -40,10 +40,21 @@ const Piscinas = () => {
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput
+                            title="Descrição:"
+                            placeholder='Conte-nos em detalhes sobre o problema encontrado.'
+                        />
                         <InputPhotos/>
                         <Button text="Enviar"/>
-                    </Details> 
+                    </Details1> 
+                </Square>
+                <Square style = {{height: "50%"}}>
+                    <Details2>
+                        <p> Como limpar piscinas particulares: </p>
+                        <a target = "_blank" href = "https://diario-de-casa.shoptime.com.br/como-limpar-a-piscina/?epar=bp_nb_nb_go_sch_saz_blogs&utm_medium=buscappc&utm_source=google&utm_campaign=marca:shop%3Bmidia:buscappc%3Bformato:nobranding%3Bsubformato:nobranding%3Bidcampanha:sch_saz_blogs&gclid=EAIaIQobChMI2d6X8dTr9wIVzUFIAB2jQA6HEAAYASAAEgJyTfD_BwE"> ⇒ Link Externo 1 </a>
+                        <a target = "_blank" href = "https://www.poolpiscina.com/como-limpar-piscina-manual-passo-passo-para-iniciantes/"> ⇒ Link Externo 2 </a>
+                        <a target = "_blank" href = "https://www.cleanipedia.com/br/area-externa/como-limpar-piscina.html"> ⇒ Link Externo 3 </a>
+                    </Details2>
                 </Square>
                 <Footer/>
             </ContainerBase>
