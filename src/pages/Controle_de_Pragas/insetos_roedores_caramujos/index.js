@@ -36,7 +36,19 @@ const Pragas = () => {
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <div>
+                            <input type = "checkbox" id = "Insetos"/>
+                            <label for = "Insetos" style = {{fontSize: "14px"}}> Insetos </label>
+                        </div>
+                        <div>
+                            <input type = "checkbox" id = "Roedores"/>
+                            <label for = "Roedores" style = {{fontSize: "14px"}}> Roedores </label>
+                        </div>
+                        <div>
+                            <input type = "checkbox" id = "Caramujos"/>
+                            <label for = "Caramujos" style = {{fontSize: "14px"}}> Caramujos </label>
+                        </div>
+                        <DescriptionInput placeholder = "Conte-nos em detalhes sobre o problema encontrado." />
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>

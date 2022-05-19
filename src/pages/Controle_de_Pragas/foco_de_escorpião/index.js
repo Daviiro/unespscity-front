@@ -36,7 +36,7 @@ const Escorpiao = () => {
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput placeholder = "Conte-nos em detalhes sobre o problema encontrado." />
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>

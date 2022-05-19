@@ -31,16 +31,18 @@ const Dengue = () => {
                         description = "Utilize este serviço para informar a localização de focos do mosquito transmissor da Dengue, o pernilongo-rajado (Aedes aegypti)."
                     />
                     <Details>
-                        <MiniCard
-                                source = "/assets/img/Radar_da_Dengue.png"
-                                titulo = "Aedes aegypti"
-                            />
+                        <a style = {{textDecoration: "none"}} target = "_blank" href = "https://www.google.com.br/search?q=aedes+aegypti&hl=pt-BR&tbm=isch&source=hp&biw=1496&bih=723&ei=iTmGYrWrF6-G5OUPuI-OuAs&iflsig=AJiK0e8AAAAAYoZHmWnZNcrsQDAjrtAqUIf5D7XKHlYE&oq=aedes+&gs_lcp=CgNpbWcQAxgAMggIABCABBCxAzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMgsIABCABBCxAxCDATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoICAAQsQMQgwFQAFjHCGChEmgAcAB4AIABqwGIAZYGkgEDMS41mAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img">
+                            <MiniCard
+                                    source = "/assets/img/Radar_da_Dengue.png"
+                                    titulo = "Aedes aegypti"
+                                />
+                        </a>
                         <InputAddressContainer>
                             <Input title="Endereço:" width="36vw"/>
                             <Input title="Nº" width="7vw"/>
                         </InputAddressContainer>
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
-                        <DescriptionInput/>
+                        <DescriptionInput placeholder = "Conte-nos em detalhes sobre o problema encontrado." />
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>

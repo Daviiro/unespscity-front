@@ -42,7 +42,7 @@ const Iluminacao = () => {
                         <Input title="Ponto de Referência:" placeholder="Opcional"/>
                         <DescriptionInput
                             title="Descrição:"
-                            placeholder='Conte com detalhes o problema encontrado'
+                            placeholder='Conte-nos em detalhes sobre o problema encontrado.'
                         />
                         <InputPhotos/>
                         <Button text="Enviar"/>
