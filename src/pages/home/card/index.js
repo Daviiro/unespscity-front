@@ -7,7 +7,7 @@ const Card = (props) => {
 	const toggleTrigger = () => {
 		setTrigger(!trigger);
 	};
-	console.log("trigger " + trigger);
+	//console.log("trigger " + trigger);
 
 	return (
 		<CardContainer onClick={toggleTrigger}>

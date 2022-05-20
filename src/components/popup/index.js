@@ -20,6 +20,7 @@ const PopUp = (props) => {
 								<Tbody>
 									{props.linkItems.map((item) => (
 										<Tr
+											key={item.id}
 											onClick={() =>
 												navigate(`../${item.link}`)
 											}
