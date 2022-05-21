@@ -30,7 +30,7 @@ const Header = () => {
 		};
 	}, [windowDimenion]);
 
-	const [sidebar, setSidebar] = useState(true);
+	const [sidebar, setSidebar] = useState(false);
 	const showSidebar = () => {
 		setSidebar(!sidebar);
 		console.log("clicado");
