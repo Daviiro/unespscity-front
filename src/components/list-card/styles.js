@@ -27,6 +27,18 @@ export const ContainerColumn = styled.div`
 		margin-top: -1.5vh;
 		margin-left: 1vw;
 	}
+
+	::-webkit-scrollbar {
+		width: 12px; 
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 30px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 30px;
+	}
 `;
 
 export const ListCardContainer = styled.div`

@@ -61,4 +61,16 @@ export const Details = styled.div`
 	align-items: center; 
 	padding: 4vh;
 	overflow-y: auto;
+
+	::-webkit-scrollbar {
+		width: 12px; 
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 30px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 30px;
+	}
 `;
