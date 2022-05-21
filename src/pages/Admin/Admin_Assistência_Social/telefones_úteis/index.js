@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContainerBase, Details, SubHeader, ContainerColumn, Square, InputAddressContainer } from "./styles";
+import { ContainerBase, Details, Form, SubHeader, ContainerColumn, Square, InputAddressContainer } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
@@ -11,6 +11,8 @@ import InputPhotos from "../../../../components/input-photos";
 import Input from "../../../../components/input";
 import DescriptionInput from "../../../../components/description-input";
 import Button from '../../../../components/form-button';
+import AdminServiceDescription from "../../../../components/admin-service-description";
+import AdminListCard from "../../../../components/admin-list-card";
 
 const AdminTelefones = () => {
     return (
@@ -31,7 +33,7 @@ const AdminTelefones = () => {
                     <ServiceDescription 
                         description = "Cadastre aqui telefones que sejam úteis para a população, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre outros."
                     />
-                    <Details>
+                    <Form>
                         <InputAddressContainer>
                             <Input title="Nome do Local:" width="32vw"/>
                             <Input title="Telefone" width="11vw"/>
@@ -42,6 +44,47 @@ const AdminTelefones = () => {
                         />
                         <InputPhotos/>
                         <Button text="Enviar"/>
+                    </Form> 
+                    <AdminServiceDescription 
+                        description = "Aqui está a lista de todos os telefones úteis cadastrados até o momento."
+                    />
+                    <Details>
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
+                        <AdminListCard
+                            source = "/assets/img/home_assistencia_social.png"
+                            nome = "Nome"
+                            sobrenome = "Telefone"
+                            descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+                        />
                     </Details> 
                 </Square>
                 <Footer/>
