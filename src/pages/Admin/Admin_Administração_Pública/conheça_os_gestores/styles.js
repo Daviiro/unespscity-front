@@ -40,7 +40,7 @@ export const ContainerRow = styled.div`
 `;
 
 export const Square = styled.div`
-	height: 100%;
+	height: 120%;
 	width: auto;
 	margin-bottom: 5vh;
 	display: flex; 
@@ -49,8 +49,8 @@ export const Square = styled.div`
 	justify-content: center; 
 `;
 
-export const Details = styled.div`
-	height: 67.5%;
+export const Details = styled.form`
+	height: 70%;
 	width: 47.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
@@ -60,6 +60,7 @@ export const Details = styled.div`
 	align-items: center; 
 	justify-content: center;
 	padding-bottom: 4vh;
+	padding-top: 3vh;
 `;
 
 export const InputAddressContainer = styled.div`

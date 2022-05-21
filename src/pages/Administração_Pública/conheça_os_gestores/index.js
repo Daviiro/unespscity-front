@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { ContainerBase, SubHeader, ContainerColumn, Square, Details } from "./styles";
 
@@ -10,6 +10,8 @@ import ListCard from "../../../components/list-card";
 import Footer from "../../../components/footer";
 
 const Gestores = () => {
+    const [gestores, setGestores] = useState([]);
+
     return (
         <>
             <ContainerBase>

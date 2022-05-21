@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { ContainerBase, SubHeader, ContainerColumn, Square, Details } from "./styles";
 
 import Header from "../../../../components/header";
@@ -13,6 +12,10 @@ import InputPhotos from "../../../../components/input-photos";
 import Button from '../../../../components/form-button';
 
 const AdminGestores = () => {
+    const [name, setName] = useState('');
+    const [cargo, setCargo] = useState('');
+    const [description, setDescription] = useState('');
+
     return (
         <>
             <ContainerBase>
@@ -32,13 +35,21 @@ const AdminGestores = () => {
                         description = "Cadastre aqui todas as informações do Gestor para que fique disponível à população!"
                     />
                     <Details>
-                        <Input title="Nome do Gestor:" />
+                        <Input 
+                            onChange={(e) => setName(e.target.value)}
+                            title="Nome do Gestor:" 
+                        />
+                        <Input 
+                            onChange={(e) => setCargo(e.target.value)}
+                            title="Cargo:" 
+                        />
                         <DescriptionInput
                             title="Descrição:"
                             placeholder='Nos conte em detalhes sobre o Gestor e seu Cargo.'
+                            onChange={(e) => setDescription(e.target.value)}
                         />
                         <InputPhotos/>
-                        <Button text="Enviar"/>
+                        <Button text="Enviar" onClick/>
                     </Details> 
                 </Square>
                 <Footer/>
