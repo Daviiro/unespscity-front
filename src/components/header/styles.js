@@ -62,7 +62,8 @@ export const LoginButton = styled.div`
 
 export const ContainerActions = styled.div`
 	width: 10rem;
-	padding-right: 2rem;
+	padding-right: 1rem;
+	padding-left: 2rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
