@@ -29,50 +29,69 @@ const Header = () => {
 			window.removeEventListener("resize", detectSize);
 		};
 	}, [windowDimenion]);
-	return (
-		<HeaderContainer>
-			<ContainerLogo>
-				<Link to="/">
-					{" "}
-					<img
-						src={
-							process.env.PUBLIC_URL +
-							"/assets/img/home_logo_temporario.png"
-						}
-						alt="Logo"
-					/>
-				</Link>
-			</ContainerLogo>
-			<ContainerCenter>
-				<h1 style={{ cursor: "default" }}> UnespSCity </h1>
-			</ContainerCenter>
 
-			{windowDimenion.winWidth >= 958 ? (
-				<ContainerActions>
-					<div>
-						<Link to="/login" style={{ textDecoration: "none" }}>
-							<LoginButton style={{ textDecoration: "none" }}>
-								<span>Login </span>
-							</LoginButton>
-						</Link>
-					</div>
-					<div>
+	const [sidebar, setSidebar] = useState(true);
+	const showSidebar = () => {
+		setSidebar(!sidebar);
+		console.log("clicado");
+	};
+	console.log(sidebar);
+
+	return (
+		<>
+			<Sidebar sidebar={sidebar} showSidebar={showSidebar} />
+			<HeaderContainer>
+				<ContainerLogo>
+					<Link to="/">
+						{" "}
 						<img
 							src={
 								process.env.PUBLIC_URL +
-								"/assets/img/home_engrenagem.png"
+								"/assets/img/home_logo_temporario.png"
 							}
 							alt="Logo"
 						/>
-					</div>
-				</ContainerActions>
-			) : (
-				<ContainerActions>
-					<div></div>
-					<FaIcons.FaBars color={"white"} size={20} />
-				</ContainerActions>
-			)}
-		</HeaderContainer>
+					</Link>
+				</ContainerLogo>
+				<ContainerCenter>
+					<h1 style={{ cursor: "default" }}> UnespSCity </h1>
+				</ContainerCenter>
+
+				{windowDimenion.winWidth >= 958 ? (
+					<ContainerActions>
+						<div>
+							<Link
+								to="/login"
+								style={{ textDecoration: "none" }}
+							>
+								<LoginButton style={{ textDecoration: "none" }}>
+									<span>Login </span>
+								</LoginButton>
+							</Link>
+						</div>
+						<div>
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/assets/img/home_engrenagem.png"
+								}
+								alt="Logo"
+							/>
+						</div>
+					</ContainerActions>
+				) : (
+					<ContainerActions>
+						<div></div>
+						<FaIcons.FaBars
+							style={{ cursor: "pointer" }}
+							color={"white"}
+							size={20}
+							onClick={() => showSidebar()}
+						/>
+					</ContainerActions>
+				)}
+			</HeaderContainer>
+		</>
 	);
 };
 
