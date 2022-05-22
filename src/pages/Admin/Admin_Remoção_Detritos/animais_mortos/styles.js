@@ -50,7 +50,7 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	margin-top: 0;
+	margin-top: 7vh;
 	height: 63.5vw;
 	width: 63.5vw;
 	border: 0.25vh solid lightgray;

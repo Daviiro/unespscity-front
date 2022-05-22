@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: -1vh;
+	margin-bottom: 10vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -50,21 +50,27 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 67.5%;
-	width: 47.5vw;
+	margin-top: 7vh;
+	height: 63.5vw;
+	width: 63.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 
-	justify-content: center;
-	padding-bottom: 4vh;
-`;
+	padding: 4vh;
+	overflow-y: auto;
 
-export const InputAddressContainer = styled.div`
-	margin-top: 10vh;
-	width: 45vw;
-	display: flex; 
-	justify-content: space-between;
+	::-webkit-scrollbar {
+		width: 12px; 
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 30px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 30px;
+	}
 `;

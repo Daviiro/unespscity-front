@@ -51,20 +51,27 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 90%;
-	width: 47.5vw;
+	margin-top: 0;
+	height: 63.5vw;
+	width: 63.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 
-	justify-content: center;
-	padding-bottom: 4vh;
-`;
+	padding: 4vh;
+	overflow-y: auto;
 
-export const InputAddressContainer = styled.div`
-	width: 45vw;
-	display: flex; 
-	justify-content: space-between;
+	::-webkit-scrollbar {
+		width: 12px; 
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 30px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 30px;
+	}
 `;
