@@ -101,14 +101,20 @@ root.render(
 					path="/admin/pavimentacao"
 					element={<AdminPavimentacao />}
 				/>
-				<Route exact path="/admin/vias" element={<AdminVias />} />
+				<Route 
+					exact path="/admin/vias" 
+					element={<AdminVias />} 
+				/>
 				<Route exact path="/admin/feiras" element={<AdminFeiras />} />
 				<Route
 					exact
 					path="/admin/piscinas"
 					element={<AdminPiscinas />}
 				/>
-				<Route exact path="/admin/terreno" element={<AdminTerreno />} />
+				<Route 
+					exact path="/admin/terreno" 
+					element={<AdminTerreno />} 
+				/>
 				<Route
 					exact
 					path="/admin/escorpiao"
