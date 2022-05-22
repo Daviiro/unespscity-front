@@ -9,7 +9,7 @@ export const ContainerBase = styled.div`
 
 export const WrapContainer = styled.div`
 	display: flex;
-	flex-direcion: row;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
 
@@ -20,7 +20,7 @@ export const WrapContainer = styled.div`
 		width: 80vw;
 	}
 	@media (min-width: 1280px) {
-		width: 65vw;
+		width: 86vw;
 	}
 `;
 
