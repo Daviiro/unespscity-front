@@ -12,13 +12,14 @@ import SidebarSubmenu from "./sidebarSubmenu";
 
 const Sidebar = (props) => {
 	console.log(props.sidebar);
+
 	return (
 		<SidebarNav sidebar={props.sidebar}>
 			<SidebarWrap>
 				<NavIcon to="#">
 					<AiIcons.AiOutlineClose
 						color={"white"}
-						size={20}
+						size={25}
 						onClick={props.showSidebar}
 					/>
 				</NavIcon>

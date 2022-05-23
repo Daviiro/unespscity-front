@@ -21,7 +21,7 @@ export const SidebarData = [
 	},
 	{
 		title: "Cadastro",
-		path: "/cadastro",
+		path: "/login",
 		icon: <AiIcons.AiOutlineFolderOpen />,
 		iconClosed: <RiIcons.RiArrowDownFill />,
 		iconOpened: <RiIcons.RiArrowUpSFill />,
@@ -85,7 +85,7 @@ export const SidebarData = [
 	},
 	{
 		title: "Sistema",
-		path: "/system",
+		path: "/sistema",
 		icon: <AiIcons.AiFillSetting />,
 		iconClosed: <RiIcons.RiArrowDownFill />,
 		iconOpened: <RiIcons.RiArrowUpSFill />,

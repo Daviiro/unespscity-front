@@ -17,7 +17,7 @@ export const Overlay = styled.div`
 `;
 
 export const SidebarNav = styled.nav`
-	background: blue;
+	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	width: 16.5rem;
 	height: 100vh;
 	display: flex;

@@ -13,7 +13,7 @@ const SidebarLink = styled(Link)`
 	font-size: 18px;
 
 	&:hover {
-		background: #252831;
+		background: #c3cae0;
 		color: var(--citybensThird);
 		border-left: 4px solid var(--citybensThird);
 		cursor: pointer;

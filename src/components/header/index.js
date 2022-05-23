@@ -25,6 +25,10 @@ const Header = () => {
 	useEffect(() => {
 		window.addEventListener("resize", detectSize);
 
+		if (window.innerWidth >= 958) {
+			setSidebar(false);
+		}
+
 		return () => {
 			window.removeEventListener("resize", detectSize);
 		};
@@ -33,7 +37,7 @@ const Header = () => {
 	const [sidebar, setSidebar] = useState(false);
 	const showSidebar = () => {
 		setSidebar(!sidebar);
-		console.log("clicado");
+		//console.log("clicado");
 	};
 	console.log(sidebar);
 
@@ -85,7 +89,7 @@ const Header = () => {
 						<FaIcons.FaBars
 							style={{ cursor: "pointer" }}
 							color={"white"}
-							size={20}
+							size={25}
 							onClick={() => showSidebar()}
 						/>
 					</ContainerActions>
