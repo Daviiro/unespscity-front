@@ -30,3 +30,11 @@ export const Content = styled.div`
 	justify-content: center;
 	align-items: center;
 `;
+
+export const GrayLine = styled.div`
+	height: 0.3vh;
+	width: 90%;
+	background-color: lightgray;
+	margin-top: 12.5vh;
+	margin-bottom: 12.5vh;
+`;

@@ -1,7 +1,8 @@
 import React from "react";
-import { ContainerBase, Content, WrapContainer } from "./styles";
+import { ContainerBase, Content, WrapContainer, GrayLine } from "./styles";
 import Header from "../../components/header";
 import Card from "./card";
+import Chart1 from "./charts/chart1";
 import Footer from "../../components/footer";
 
 const Home = () => {
@@ -252,6 +253,8 @@ const Home = () => {
 							]}
 						/>
 					</WrapContainer>
+					<GrayLine />
+					<Chart1 />
 				</Content>
 				<Footer />
 			</ContainerBase>
