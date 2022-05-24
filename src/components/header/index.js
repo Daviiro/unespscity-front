@@ -9,6 +9,8 @@ import {
 import { Link } from "react-router-dom";
 import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";
+import { BsFillGearFill } from "react-icons/bs";
+import { BiUser } from "react-icons/bi";
 
 const Header = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -39,7 +41,7 @@ const Header = () => {
 		setSidebar(!sidebar);
 		//console.log("clicado");
 	};
-	console.log(sidebar);
+	//console.log(sidebar);
 
 	return (
 		<>
@@ -68,19 +70,26 @@ const Header = () => {
 								to="/login"
 								style={{ textDecoration: "none" }}
 							>
-								<LoginButton style={{ textDecoration: "none" }}>
-									<span>Login </span>
-								</LoginButton>
+								<BiUser
+									style={{ cursor: "pointer" }}
+									color={"white"}
+									size={30}
+									className="glow-effect"
+								/>
 							</Link>
 						</div>
 						<div>
-							<img
-								src={
-									process.env.PUBLIC_URL +
-									"/assets/img/home_engrenagem.png"
-								}
-								alt="Logo"
-							/>
+							<Link
+								to="/sistema"
+								style={{ textDecoration: "none" }}
+							>
+								<BsFillGearFill
+									style={{ cursor: "pointer" }}
+									color={"white"}
+									size={30}
+									className="glow-effect"
+								/>
+							</Link>
 						</div>
 					</ContainerActions>
 				) : (

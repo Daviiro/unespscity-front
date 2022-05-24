@@ -25,6 +25,13 @@ export const HeaderContainer = styled.div`
 		cursor: pointer;
 	}
 
+	.glow-effect {
+		:hover {
+			-webkit-filter: drop-shadow(0px 0px 10px #ffffff);
+			cursor: pointer;
+		}
+	}
+
 	h1 {
 		color: #ffffff;
 		text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black,
@@ -61,7 +68,7 @@ export const LoginButton = styled.div`
 `;
 
 export const ContainerActions = styled.div`
-	width: 10rem;
+	width: 7rem;
 	padding-right: 1rem;
 	padding-left: 2rem;
 	display: flex;
