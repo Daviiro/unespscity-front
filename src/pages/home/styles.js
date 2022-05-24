@@ -38,3 +38,13 @@ export const GrayLine = styled.div`
 	margin-top: 12.5vh;
 	margin-bottom: 12.5vh;
 `;
+
+export const ContainerRow = styled.div`
+	height: 50vh;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 6.25vh;
+	margin-bottom: 12.5vh;
+`;
