@@ -31,6 +31,8 @@ import Gestores from "./pages/Administração_Pública/conheça_os_gestores"; //
 
 import Telefones from "./pages/Assistência_Social/telefones_úteis"; // Assistência Social //
 
+import AnimaisAbandonados from "./pages/Animais_Domésticos/animais_abandonados"; // Assistência Domésticos //
+
 import Parques from "./pages/Conservação_Rural-Áreas_Verdes/parques"; // Conservação Rural e Áreas Verdes //
 import Pontes from "./pages/Conservação_Rural-Áreas_Verdes/pontes_em_estradas_rurais";
 import Pracas from "./pages/Conservação_Rural-Áreas_Verdes/praças";
@@ -52,6 +54,7 @@ import Feiras from "./pages/Serviços_Sociais/feiras_livres"; // Serviços Socia
 
 import Piscinas from "./pages/Vigilância_Sanitária/limpeza_de_piscinas"; // Vigilância Sanitária //
 import Terreno from "./pages/Vigilância_Sanitária/limpeza_de_terreno";
+import Restaurante from "./pages/Vigilância_Sanitária/restaurantes_ambientes";
 
 import TodasRotas from "./todasrotas"; // Rotas //
 
@@ -217,6 +220,11 @@ root.render(
 					path="/animais_mortos"
 					element={<Animais_Mortos />}
 				/>
+				<Route
+					exact
+					path="/animais_abandonados"
+					element={<AnimaisAbandonados />}
+				/>		
 				<Route 
 					exact path="/feiras_livres" 
 					element={<Feiras />} 
@@ -229,6 +237,10 @@ root.render(
 				<Route 
 					exact path="/limpeza_de_terreno" 
 					element={<Terreno />} 
+				/>
+				<Route 
+					exact path="/restaurantes" 
+					element={<Restaurante />} 
 				/>
 				<Route 
 					exact path="/todas-rotas" 

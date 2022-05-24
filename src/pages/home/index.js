@@ -90,6 +90,11 @@ const Home = () => {
 									name: "Limpeza de Terreno",
 									link: "/limpeza_de_terreno",
 								},
+								{
+									id: 3,
+									name: "Restaurantes/Ambientes Irregulares",
+									link: "/restaurantes",
+								},
 							]}
 						/>
 						<Card
@@ -125,8 +130,8 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Animais Abandonados",
+									link: "/animais_abandonados",
 								},
 							]}
 						/>
