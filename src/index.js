@@ -62,7 +62,7 @@ import AnimaisSilvestres from "./pages/faunaFlora/animaisSilvestres";
 import AnimaisGrandePorte from "./pages/faunaFlora/capturaAnimaisGrandePorte";
 
 import YourLocation from "./pages/yourLocation";
-import TodasRotas from "./todasrotas"; // Rotas //
+import Sistema from "./pages/sistema";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -207,7 +207,7 @@ root.render(
 					element={<AnimaisSilvestres />}
 				/>
 				<Route exact path="/location" element={<YourLocation />} />
-				<Route exact path="/todas-rotas" element={<TodasRotas />} />
+				<Route exact path="/sistema" element={<Sistema />} />
 			</Routes>
 		</Router>
 	</StrictMode>
