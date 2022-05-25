@@ -31,31 +31,10 @@ const AdminListCard = (props) => {
                 </ContainerColumn>
             </InfoContainer>
             <ButtonDiv>
-                <Button variant="outlined" onClick={handleClickOpen}>
+                <Button variant="outlined">
                     Editar
                 </Button>
-                <Dialog
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-title"
-                    aria-describedby="alert-dialog-description"
-                >
-                    <DialogTitle id="alert-dialog-title">
-                    {"Use Google's location service?"}
-                    </DialogTitle>
-                    <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
-                    </DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose} autoFocus>
-                        Agree
-                    </Button>
-                    </DialogActions>
-                </Dialog>
+
                 <Button variant="outlined" onClick={handleClickOpen}>
                     Excluir
                 </Button>
@@ -66,18 +45,17 @@ const AdminListCard = (props) => {
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                    {"Use Google's location service?"}
+                    {"Excluir Arquivo?"}
                     </DialogTitle>
                     <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
+                        Você deseja excluir o arquivo permanentemente?
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
+                    <Button onClick={handleClose}>Cancelar</Button>
                     <Button onClick={handleClose} autoFocus>
-                        Agree
+                        Excluir
                     </Button>
                     </DialogActions>
                 </Dialog>
