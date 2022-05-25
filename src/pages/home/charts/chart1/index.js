@@ -6,7 +6,7 @@ const Chart1 = () => {				    // Administração Pública...), maxValue deve rec
     const maxValue = 190;				// da categoria com mais problemas resolvidos //
 	return (
         <>		
-			<h3 style = {{marginTop: "0vh", marginBottom: "5.5vh"}}> Total de Problemas Resolvidos </h3>						
+			<h3 style = {{marginTop: "0vh", marginBottom: "5.5vh"}}> Total de Problemas Resolvidos: </h3>						
             <ContainerRow>
 				<img src = "/assets/img/home_conservacao_urbana.png" alt = "Conservação Urbana"/>
 			    <ProgressBar value = {95} max = {maxValue}/>
