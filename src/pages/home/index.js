@@ -1,5 +1,11 @@
 import React from "react";
-import { ContainerBase, Content, WrapContainer, GrayLine, ContainerRow } from "./styles";
+import {
+	ContainerBase,
+	Content,
+	WrapContainer,
+	GrayLine,
+	ContainerRow,
+} from "./styles";
 import Header from "../../components/header";
 import Card from "./card";
 import Chart1 from "./charts/chart1";
@@ -133,6 +139,11 @@ const Home = () => {
 									name: "Animais Abandonados",
 									link: "/animais_abandonados",
 								},
+								{
+									id: 2,
+									name: "Animais Sinantrópicos",
+									link: "/animais-sinantropicos",
+								},
 							]}
 						/>
 						<Card
@@ -152,8 +163,13 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Animais de Grande Porte",
+									link: "/animais-grande-porte",
+								},
+								{
+									id: 2,
+									name: "Animais Silvestres",
+									link: "/animais-silvestres",
 								},
 							]}
 						/>

@@ -31,6 +31,7 @@ import Gestores from "./pages/Administração_Pública/conheça_os_gestores"; //
 
 import Telefones from "./pages/Assistência_Social/telefones_úteis"; // Assistência Social //
 
+import AnimaisSinantropicos from "./pages/Animais_Domésticos/animaisSinantropicos";
 import AnimaisAbandonados from "./pages/Animais_Domésticos/animais_abandonados"; // Assistência Domésticos //
 
 import Parques from "./pages/Conservação_Rural-Áreas_Verdes/parques"; // Conservação Rural e Áreas Verdes //
@@ -56,6 +57,11 @@ import Piscinas from "./pages/Vigilância_Sanitária/limpeza_de_piscinas"; // Vi
 import Terreno from "./pages/Vigilância_Sanitária/limpeza_de_terreno";
 import Restaurante from "./pages/Vigilância_Sanitária/restaurantes_ambientes";
 
+//fauna e flora//
+import AnimaisSilvestres from "./pages/faunaFlora/animaisSilvestres";
+import AnimaisGrandePorte from "./pages/faunaFlora/capturaAnimaisGrandePorte";
+
+import YourLocation from "./pages/yourLocation";
 import TodasRotas from "./todasrotas"; // Rotas //
 
 const rootElement = document.getElementById("root");
@@ -81,18 +87,9 @@ root.render(
 					path="/admin/telefones"
 					element={<AdminTelefones />}
 				/>
-				<Route 
-					exact path="/admin/parques" 
-					element={<AdminParques />} 
-				/>
-				<Route 
-					exact path="/admin/pontes" 
-					element={<AdminPontes />} 
-				/>
-				<Route 
-					exact path="/admin/pracas" 
-					element={<AdminPracas />} 
-				/>
+				<Route exact path="/admin/parques" element={<AdminParques />} />
+				<Route exact path="/admin/pontes" element={<AdminPontes />} />
+				<Route exact path="/admin/pracas" element={<AdminPracas />} />
 				<Route
 					exact
 					path="/admin/iluminacao"
@@ -113,67 +110,40 @@ root.render(
 					path="/admin/pavimentacao"
 					element={<AdminPavimentacao />}
 				/>
-				<Route 
-					exact path="/admin/vias" 
-					element={<AdminVias />} 
-				/>
-				<Route 
-					exact path="/admin/feiras" 
-					element={<AdminFeiras />}
-				/>
+				<Route exact path="/admin/vias" element={<AdminVias />} />
+				<Route exact path="/admin/feiras" element={<AdminFeiras />} />
 				<Route
 					exact
 					path="/admin/piscinas"
 					element={<AdminPiscinas />}
 				/>
-				<Route 
-					exact path="/admin/terreno" 
-					element={<AdminTerreno />} 
-				/>
+				<Route exact path="/admin/terreno" element={<AdminTerreno />} />
 				<Route
 					exact
 					path="/admin/escorpiao"
 					element={<AdminEscorpiao />}
 				/>
-				<Route 
-					exact path="/admin/pragas" 
-					element={<AdminPragas />}
-				/>
+				<Route exact path="/admin/pragas" element={<AdminPragas />} />
 				<Route
 					exact
 					path="/admin/leishmaniose"
 					element={<AdminLeishmaniose />}
 				/>
-				<Route 
-					exact path="/admin/dengue" 
-					element={<AdminDengue />} 
-				/>
-				<Route 
-					exact path="/login" 
-					element={<Login />} 
-				/>
+				<Route exact path="/admin/dengue" element={<AdminDengue />} />
+				<Route exact path="/login" element={<Login />} />
 				<Route
 					exact
 					path="/conheca_os_gestores"
 					element={<Gestores />}
 				/>
-				<Route 
-					exact path="/telefones_uteis" 
-					element={<Telefones />} 
-				/>
-				<Route 
-					exact path="/parques" 
-					element={<Parques />} 
-				/>
+				<Route exact path="/telefones_uteis" element={<Telefones />} />
+				<Route exact path="/parques" element={<Parques />} />
 				<Route
 					exact
 					path="/pontes_em_estradas_rurais"
 					element={<Pontes />}
 				/>
-				<Route 
-					exact path="/pracas" 
-					element={<Pracas />} 
-				/>
+				<Route exact path="/pracas" element={<Pracas />} />
 				<Route
 					exact
 					path="/fiscalizacao_de_instalacoes"
@@ -189,14 +159,8 @@ root.render(
 					path="/monumentos_e_chafarizes"
 					element={<Monumentos />}
 				/>
-				<Route 
-					exact path="/pavimentacao" 
-					element={<Pavimentacao />} 
-				/>
-				<Route 
-					exact path="/vias_publicas" 
-					element={<Vias />} 
-				/>
+				<Route exact path="/pavimentacao" element={<Pavimentacao />} />
+				<Route exact path="/vias_publicas" element={<Vias />} />
 				<Route
 					exact
 					path="/foco_de_escorpiao"
@@ -207,14 +171,8 @@ root.render(
 					path="/insetos_roedores_caramujos"
 					element={<Pragas />}
 				/>
-				<Route 
-					exact path="/leishmaniose" 
-					element={<Leishmaniose />}
-				/>
-				<Route 
-					exact path="/radar_da_dengue" 
-					element={<Dengue />} 
-				/>
+				<Route exact path="/leishmaniose" element={<Leishmaniose />} />
+				<Route exact path="/radar_da_dengue" element={<Dengue />} />
 				<Route
 					exact
 					path="/animais_mortos"
@@ -224,28 +182,32 @@ root.render(
 					exact
 					path="/animais_abandonados"
 					element={<AnimaisAbandonados />}
-				/>		
-				<Route 
-					exact path="/feiras_livres" 
-					element={<Feiras />} 
 				/>
+				<Route exact path="/feiras_livres" element={<Feiras />} />
 				<Route
 					exact
 					path="/limpeza_de_piscinas"
 					element={<Piscinas />}
 				/>
-				<Route 
-					exact path="/limpeza_de_terreno" 
-					element={<Terreno />} 
+				<Route exact path="/limpeza_de_terreno" element={<Terreno />} />
+				<Route exact path="/restaurantes" element={<Restaurante />} />
+				<Route
+					exact
+					path="/animais-sinantropicos"
+					element={<AnimaisSinantropicos />}
 				/>
-				<Route 
-					exact path="/restaurantes" 
-					element={<Restaurante />} 
+				<Route
+					exact
+					path="/animais-grande-porte"
+					element={<AnimaisGrandePorte />}
 				/>
-				<Route 
-					exact path="/todas-rotas" 
-					element={<TodasRotas />} 
+				<Route
+					exact
+					path="/animais-silvestres"
+					element={<AnimaisSilvestres />}
 				/>
+				<Route exact path="/location" element={<YourLocation />} />
+				<Route exact path="/todas-rotas" element={<TodasRotas />} />
 			</Routes>
 		</Router>
 	</StrictMode>
