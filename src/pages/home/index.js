@@ -10,6 +10,7 @@ import Header from "../../components/header";
 import Card from "./card";
 import Chart1 from "./charts/chart1";
 import Chart2 from "./charts/chart2";
+import Chart3 from "./charts/chart3";
 import Footer from "../../components/footer";
 
 const Home = () => {
@@ -279,7 +280,9 @@ const Home = () => {
 					<Chart1 />
 					<ContainerRow>
 						<Chart2 />
+						<Chart3 />
 					</ContainerRow>
+					<GrayLine style = {{marginTop: "-10vh"}}/>
 				</Content>
 				<Footer />
 			</ContainerBase>
