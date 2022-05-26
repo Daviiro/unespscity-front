@@ -20,40 +20,40 @@ import DescriptionInput from "../../../components/DescriptionInput";
 import Button from "../../../components/StyledComponents/form-button";
 import GrayLine from "../../../components/StyledComponents/gray-line";
 import Footer from "../../../components/Footer";
-import InputLocalization from "../../../components/UserLocationInput";
 import InputPhotos from "../../../components/ImagesInput";
+import InputLocalization from "../../../components/UserLocationInput";
 
-const Vias = () => {
+const Restaurante = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 78;
-	const totalResolvidos = 58;
+	const totalSolicitados = 25;
+	const totalResolvidos = 9;
 	return (
 		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source="/assets/img/home_conservacao_urbana.png"
-						titulo="Conservação Urbana"
+						source="/assets/img/home_vigilancia_sanitaria.png"
+						titulo="Vigilância Sanitária"
 					/>
 					<ContainerColumn>
-						<h1> Vias Públicas </h1>
+						<h1> Restaurantes / Ambientes Irregularess </h1>
 						<Line />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Utilize este serviço para informar ocorrências com as vias públicas da cidade, como obstrução, problemas infraestruturais, solicitação de limpeza, ocupação indevida e/ou outras irregularidades." />
+					<ServiceDescription description="Utilize este serviço para solicitar a vistoria em restaurantes e outros estabelecimentos que estejam descumprindo as normas da vigilância sanitária." />
 					<Details>
 						<InputLocalization />
 						<p>OU</p>
+						<Input
+							title="Nome do Local:"
+							placeholder="Nome do lugar com a irregularidade"
+						/>
 						<InputAddressContainer>
 							<Input title="Endereço:" width="36vw" />
 							<Input title="Nº" width="7vw" />
 						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
 						<DescriptionInput
 							title="Descrição:"
 							placeholder="Conte-nos em detalhes sobre o problema encontrado."
@@ -64,7 +64,7 @@ const Vias = () => {
 				</Square>
 				<GrayLine />
 				<ChartContainer>
-					<h3> Serviços solicitados e resolvidos: </h3>
+					<h3> Vistorias solicitadas e processadas/realizadas: </h3>
 					<HomePieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
@@ -75,4 +75,4 @@ const Vias = () => {
 		</>
 	);
 };
-export default Vias;
+export default Restaurante;

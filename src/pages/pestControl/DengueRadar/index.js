@@ -20,32 +20,38 @@ import DescriptionInput from "../../../components/DescriptionInput";
 import Button from "../../../components/StyledComponents/form-button";
 import GrayLine from "../../../components/StyledComponents/gray-line";
 import Footer from "../../../components/Footer";
-import InputLocalization from "../../../components/UserLocationInput";
-import InputPhotos from "../../../components/ImagesInput";
 
-const Vias = () => {
+const Dengue = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 78;
-	const totalResolvidos = 58;
+	const totalSolicitados = 93;
+	const totalResolvidos = 22;
 	return (
 		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source="/assets/img/home_conservacao_urbana.png"
-						titulo="Conservação Urbana"
+						source="/assets/img/home_controle_pragas.png"
+						titulo="Controle de Pragas"
 					/>
 					<ContainerColumn>
-						<h1> Vias Públicas </h1>
+						<h1> Radar da Dengue </h1>
 						<Line />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Utilize este serviço para informar ocorrências com as vias públicas da cidade, como obstrução, problemas infraestruturais, solicitação de limpeza, ocupação indevida e/ou outras irregularidades." />
+					<ServiceDescription description="Utilize este serviço para informar a localização de focos do mosquito transmissor da Dengue, o pernilongo-rajado (Aedes aegypti)." />
 					<Details>
-						<InputLocalization />
-						<p>OU</p>
+						<a
+							style={{ textDecoration: "none" }}
+							target="_blank"
+							href="https://www.google.com.br/search?q=aedes+aegypti&hl=pt-BR&tbm=isch&source=hp&biw=1496&bih=723&ei=iTmGYrWrF6-G5OUPuI-OuAs&iflsig=AJiK0e8AAAAAYoZHmWnZNcrsQDAjrtAqUIf5D7XKHlYE&oq=aedes+&gs_lcp=CgNpbWcQAxgAMggIABCABBCxAzILCAAQgAQQsQMQgwEyCwgAEIAEELEDEIMBMgsIABCABBCxAxCDATIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDoICAAQsQMQgwFQAFjHCGChEmgAcAB4AIABqwGIAZYGkgEDMS41mAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img"
+						>
+							<MiniCard
+								source="/assets/img/Radar_da_Dengue.png"
+								titulo="Aedes aegypti"
+							/>
+						</a>
 						<InputAddressContainer>
 							<Input title="Endereço:" width="36vw" />
 							<Input title="Nº" width="7vw" />
@@ -54,17 +60,13 @@ const Vias = () => {
 							title="Ponto de Referência:"
 							placeholder="Opcional"
 						/>
-						<DescriptionInput
-							title="Descrição:"
-							placeholder="Conte-nos em detalhes sobre o problema encontrado."
-						/>
-						<InputPhotos />
+						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado." />
 						<Button text="Enviar" />
 					</Details>
 				</Square>
 				<GrayLine />
 				<ChartContainer>
-					<h3> Serviços solicitados e resolvidos: </h3>
+					<h3> Eliminações solicitadas e efetuadas: </h3>
 					<HomePieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
@@ -75,4 +77,4 @@ const Vias = () => {
 		</>
 	);
 };
-export default Vias;
+export default Dengue;

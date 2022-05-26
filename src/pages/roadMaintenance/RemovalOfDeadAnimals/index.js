@@ -1,6 +1,4 @@
 import React from "react";
-import HomePieChart from "../../../charts/Donut";
-
 import {
 	ContainerBase,
 	SubHeader,
@@ -22,27 +20,28 @@ import GrayLine from "../../../components/StyledComponents/gray-line";
 import Footer from "../../../components/Footer";
 import InputLocalization from "../../../components/UserLocationInput";
 import InputPhotos from "../../../components/ImagesInput";
+import HomePieChart from "../../../charts/Donut";
 
-const Vias = () => {
+const Animais_Mortos = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 78;
-	const totalResolvidos = 58;
+	const totalSolicitados = 91;
+	const totalResolvidos = 45;
 	return (
 		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source="/assets/img/home_conservacao_urbana.png"
-						titulo="Conservação Urbana"
+						source="/assets/img/home_remocao_detritos.png"
+						titulo="Remoção de Detritos"
 					/>
 					<ContainerColumn>
-						<h1> Vias Públicas </h1>
+						<h1> Animais Mortos </h1>
 						<Line />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Utilize este serviço para informar ocorrências com as vias públicas da cidade, como obstrução, problemas infraestruturais, solicitação de limpeza, ocupação indevida e/ou outras irregularidades." />
+					<ServiceDescription description="Utilize este serviço para solicitar a remoção de corpos de animais mortos localizados dentro dos limites do município." />
 					<Details>
 						<InputLocalization />
 						<p>OU</p>
@@ -64,7 +63,7 @@ const Vias = () => {
 				</Square>
 				<GrayLine />
 				<ChartContainer>
-					<h3> Serviços solicitados e resolvidos: </h3>
+					<h3> Remoções solicitadas e efetuadas: </h3>
 					<HomePieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
@@ -75,4 +74,4 @@ const Vias = () => {
 		</>
 	);
 };
-export default Vias;
+export default Animais_Mortos;

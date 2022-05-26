@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-	SidebarNav,
-	SidebarWrap,
-	LogoSidebar,
-	NavIcon,
-	Overlay,
-} from "./styles";
+import React from "react";
+import { SidebarNav, SidebarWrap, LogoSidebar, NavIcon } from "./styles";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData } from "./sidebarData";
-import SidebarSubmenu from "./sidebarSubmenu";
+import { SidebarData } from "./SidebarData";
+import SidebarSubmenu from "./SidebarSubmenu";
 
 const Sidebar = (props) => {
 	console.log(props.sidebar);

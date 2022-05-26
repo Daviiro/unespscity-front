@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
 	HeaderContainer,
-	LoginButton,
 	ContainerActions,
 	ContainerLogo,
 	ContainerCenter,
 } from "./styles";
 import { Link } from "react-router-dom";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 import * as FaIcons from "react-icons/fa";
 import { BsFillGearFill } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";

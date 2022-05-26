@@ -3,7 +3,7 @@ import Header from "../../../components/header";
 import Footer from "../../../components/Footer";
 import { ContainerBase } from "../../../components/StyledComponents/PageStyles";
 
-const AnimaisSinantropicos = () => {
+const AnimaisSilvestres = () => {
 	return (
 		<ContainerBase>
 			<Header />
@@ -12,4 +12,4 @@ const AnimaisSinantropicos = () => {
 	);
 };
 
-export default AnimaisSinantropicos;
+export default AnimaisSilvestres;

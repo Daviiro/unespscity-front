@@ -1,6 +1,4 @@
 import React from "react";
-import HomePieChart from "../../../charts/Donut";
-
 import {
 	ContainerBase,
 	SubHeader,
@@ -10,7 +8,7 @@ import {
 	Details,
 	ChartContainer,
 } from "./styles";
-
+import HomePieChart from "../../../charts/Donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/MiniCard";
 import Line from "../../../components/StyledComponents/line";
@@ -20,29 +18,29 @@ import DescriptionInput from "../../../components/DescriptionInput";
 import Button from "../../../components/StyledComponents/form-button";
 import GrayLine from "../../../components/StyledComponents/gray-line";
 import Footer from "../../../components/Footer";
-import InputLocalization from "../../../components/UserLocationInput";
 import InputPhotos from "../../../components/ImagesInput";
+import InputLocalization from "../../../components/UserLocationInput";
 
-const Vias = () => {
+const Terreno = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 78;
-	const totalResolvidos = 58;
+	const totalSolicitados = 37;
+	const totalResolvidos = 17;
 	return (
 		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source="/assets/img/home_conservacao_urbana.png"
-						titulo="Conservação Urbana"
+						source="/assets/img/home_vigilancia_sanitaria.png"
+						titulo="Vigilância Sanitária"
 					/>
 					<ContainerColumn>
-						<h1> Vias Públicas </h1>
+						<h1> Limpeza de Terreno </h1>
 						<Line />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Utilize este serviço para informar ocorrências com as vias públicas da cidade, como obstrução, problemas infraestruturais, solicitação de limpeza, ocupação indevida e/ou outras irregularidades." />
+					<ServiceDescription description="Utilize este serviço para solicitar a limpeza de terrenos públicos pertencentes ao município ou para denunciar terrenos baldios particulares com irregularidades." />
 					<Details>
 						<InputLocalization />
 						<p>OU</p>
@@ -64,7 +62,7 @@ const Vias = () => {
 				</Square>
 				<GrayLine />
 				<ChartContainer>
-					<h3> Serviços solicitados e resolvidos: </h3>
+					<h3> Limpezas solicitadas e efetuadas: </h3>
 					<HomePieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
@@ -75,4 +73,4 @@ const Vias = () => {
 		</>
 	);
 };
-export default Vias;
+export default Terreno;

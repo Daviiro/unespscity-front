@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import Button from "../../components/form-button";
+import Button from "../../components/StyledComponents/form-button";
 
 import {
 	ContainerBase,
@@ -69,8 +69,7 @@ const Login = () => {
 									type="password"
 									placeholder="Senha"
 								/>
-								<Button text="Entrar"
-								/>
+								<Button text="Entrar" />
 							</>
 						) : (
 							<>
@@ -80,8 +79,7 @@ const Login = () => {
 									type="password"
 									placeholder="Senha"
 								/>
-								<Button text="Cadastrar"
-								/>
+								<Button text="Cadastrar" />
 							</>
 						)}
 					</MidContainer>

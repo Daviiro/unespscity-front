@@ -7,7 +7,8 @@ import {
 	ContainerColumn,
 	InputAddressContainer,
 	Square,
-	Details,
+	Details1,
+	Details2,
 	ChartContainer,
 } from "./styles";
 
@@ -20,30 +21,30 @@ import DescriptionInput from "../../../components/DescriptionInput";
 import Button from "../../../components/StyledComponents/form-button";
 import GrayLine from "../../../components/StyledComponents/gray-line";
 import Footer from "../../../components/Footer";
-import InputLocalization from "../../../components/UserLocationInput";
 import InputPhotos from "../../../components/ImagesInput";
+import InputLocalization from "../../../components/UserLocationInput";
 
-const Vias = () => {
+const Piscinas = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 78;
-	const totalResolvidos = 58;
+	const totalSolicitados = 93;
+	const totalResolvidos = 27;
 	return (
 		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source="/assets/img/home_conservacao_urbana.png"
-						titulo="Conservação Urbana"
+						source="/assets/img/home_vigilancia_sanitaria.png"
+						titulo="Vigilância Sanitária"
 					/>
 					<ContainerColumn>
-						<h1> Vias Públicas </h1>
+						<h1> Limpeza de Piscinas </h1>
 						<Line />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Utilize este serviço para informar ocorrências com as vias públicas da cidade, como obstrução, problemas infraestruturais, solicitação de limpeza, ocupação indevida e/ou outras irregularidades." />
-					<Details>
+					<ServiceDescription description="Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares." />
+					<Details1>
 						<InputLocalization />
 						<p>OU</p>
 						<InputAddressContainer>
@@ -60,11 +61,37 @@ const Vias = () => {
 						/>
 						<InputPhotos />
 						<Button text="Enviar" />
-					</Details>
+					</Details1>
+				</Square>
+				<Square style={{ height: "50%" }}>
+					<Details2>
+						<p> Como limpar piscinas particulares: </p>
+						<a
+							target="_blank"
+							href="https://diario-de-casa.shoptime.com.br/como-limpar-a-piscina/?epar=bp_nb_nb_go_sch_saz_blogs&utm_medium=buscappc&utm_source=google&utm_campaign=marca:shop%3Bmidia:buscappc%3Bformato:nobranding%3Bsubformato:nobranding%3Bidcampanha:sch_saz_blogs&gclid=EAIaIQobChMI2d6X8dTr9wIVzUFIAB2jQA6HEAAYASAAEgJyTfD_BwE"
+						>
+							{" "}
+							⇒ Link Externo 1{" "}
+						</a>
+						<a
+							target="_blank"
+							href="https://www.poolpiscina.com/como-limpar-piscina-manual-passo-passo-para-iniciantes/"
+						>
+							{" "}
+							⇒ Link Externo 2{" "}
+						</a>
+						<a
+							target="_blank"
+							href="https://www.cleanipedia.com/br/area-externa/como-limpar-piscina.html"
+						>
+							{" "}
+							⇒ Link Externo 3{" "}
+						</a>
+					</Details2>
 				</Square>
 				<GrayLine />
 				<ChartContainer>
-					<h3> Serviços solicitados e resolvidos: </h3>
+					<h3> Limpezas solicitadas e efetuadas: </h3>
 					<HomePieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
@@ -75,4 +102,4 @@ const Vias = () => {
 		</>
 	);
 };
-export default Vias;
+export default Piscinas;

@@ -25,11 +25,11 @@ import AdminLeishmaniose from "./pages/Admin/Admin_Controle_de_Pragas/leishmanio
 import AdminDengue from "./pages/Admin/Admin_Controle_de_Pragas/radar_da_dengue";
 
 import Home from "./pages/home"; // Home e Login //
-import Login from "./pages/login";
+import Login from "./pages/Login";
 
 import Gestores from "./pages/Administração_Pública/conheça_os_gestores"; // Administração Pública //
 
-import Telefones from "./pages/Assistência_Social/telefones_úteis"; // Assistência Social //
+import Telefones from "./pages/socialCare/UsefulPhoneNumbers"; // Assistência Social //
 
 import AnimaisSinantropicos from "./pages/Animais_Domésticos/animaisSinantropicos";
 import AnimaisAbandonados from "./pages/Animais_Domésticos/animais_abandonados"; // Assistência Domésticos //
@@ -44,25 +44,24 @@ import Monumentos from "./pages/Conservação_Urbana/monumentos_e_chafarizes";
 import Pavimentacao from "./pages/Conservação_Urbana/pavimentação";
 import Vias from "./pages/Conservação_Urbana/vias_públicas";
 
-import Escorpiao from "./pages/Controle_de_Pragas/foco_de_escorpião"; // Controle de Pragas //
-import Pragas from "./pages/Controle_de_Pragas/insetos_roedores_caramujos";
-import Leishmaniose from "./pages/Controle_de_Pragas/leishmaniose";
-import Dengue from "./pages/Controle_de_Pragas/radar_da_dengue";
+import Escorpiao from "./pages/pestControl/ScorpionsHabitat"; // Controle de Pragas //
+import Pragas from "./pages/pestControl/InsectsRodentsSnails";
+import Leishmaniose from "./pages/pestControl/Leishmaniose";
+import Dengue from "./pages/pestControl/DengueRadar";
 
-import Animais_Mortos from "./pages/Remoção_de_Detritos/animais_mortos"; // Remoção de Detritos //
+import Animais_Mortos from "./pages/roadMaintenance/RemovalOfDeadAnimals"; // Remoção de Detritos //
 
-import Feiras from "./pages/Serviços_Sociais/feiras_livres"; // Serviços Sociais //
+import Feiras from "./pages/socialServices/Fair"; // Serviços Sociais //
 
-import Piscinas from "./pages/Vigilância_Sanitária/limpeza_de_piscinas"; // Vigilância Sanitária //
-import Terreno from "./pages/Vigilância_Sanitária/limpeza_de_terreno";
-import Restaurante from "./pages/Vigilância_Sanitária/restaurantes_ambientes";
+import Piscinas from "./pages/sanitarySurveillance/PoolCleaning"; // Vigilância Sanitária //
+import Terreno from "./pages/sanitarySurveillance/LandCleaning";
+import Restaurante from "./pages/sanitarySurveillance/ReportAPlace";
 
 //fauna e flora//
-import AnimaisSilvestres from "./pages/faunaFlora/animaisSilvestres";
-import AnimaisGrandePorte from "./pages/faunaFlora/capturaAnimaisGrandePorte";
+import HandlingWildAnimals from "./pages/faunaFlora/HandlingWildAnimals";
 
-import YourLocation from "./pages/yourLocation";
-import Sistema from "./pages/sistema";
+import UserLocation from "./pages/UserLocation";
+import Sistema from "./pages/System";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -88,7 +87,11 @@ root.render(
 					element={<AdminTelefones />}
 				/>
 				<Route exact path="/admin/parques" element={<AdminParques />} />
-				<Route exact path="/admin/pontes_em_estradas_rurais" element={<AdminPontes />} />
+				<Route
+					exact
+					path="/admin/pontes_em_estradas_rurais"
+					element={<AdminPontes />}
+				/>
 				<Route exact path="/admin/pracas" element={<AdminPracas />} />
 				<Route
 					exact
@@ -110,26 +113,46 @@ root.render(
 					path="/admin/pavimentacao"
 					element={<AdminPavimentacao />}
 				/>
-				<Route exact path="/admin/vias_publicas" element={<AdminVias />} />
-				<Route exact path="/admin/feiras_livres" element={<AdminFeiras />} />
+				<Route
+					exact
+					path="/admin/vias_publicas"
+					element={<AdminVias />}
+				/>
+				<Route
+					exact
+					path="/admin/feiras_livres"
+					element={<AdminFeiras />}
+				/>
 				<Route
 					exact
 					path="/admin/limpeza_de_piscinas"
 					element={<AdminPiscinas />}
 				/>
-				<Route exact path="/admin/limpeza_de_terreno" element={<AdminTerreno />} />
+				<Route
+					exact
+					path="/admin/limpeza_de_terreno"
+					element={<AdminTerreno />}
+				/>
 				<Route
 					exact
 					path="/admin/foco_de_escorpiao"
 					element={<AdminEscorpiao />}
 				/>
-				<Route exact path="/admin/insetos_roedores_caramujos" element={<AdminPragas />} />
+				<Route
+					exact
+					path="/admin/insetos_roedores_caramujos"
+					element={<AdminPragas />}
+				/>
 				<Route
 					exact
 					path="/admin/leishmaniose"
 					element={<AdminLeishmaniose />}
 				/>
-				<Route exact path="/admin/radar_da_dengue" element={<AdminDengue />} />
+				<Route
+					exact
+					path="/admin/radar_da_dengue"
+					element={<AdminDengue />}
+				/>
 				<Route exact path="/login" element={<Login />} />
 				<Route
 					exact
@@ -196,17 +219,13 @@ root.render(
 					path="/animais-sinantropicos"
 					element={<AnimaisSinantropicos />}
 				/>
-				<Route
-					exact
-					path="/animais-grande-porte"
-					element={<AnimaisGrandePorte />}
-				/>
+
 				<Route
 					exact
 					path="/animais-silvestres"
-					element={<AnimaisSilvestres />}
+					element={<HandlingWildAnimals />}
 				/>
-				<Route exact path="/location" element={<YourLocation />} />
+				<Route exact path="/location" element={<UserLocation />} />
 				<Route exact path="/sistema" element={<Sistema />} />
 			</Routes>
 		</Router>
