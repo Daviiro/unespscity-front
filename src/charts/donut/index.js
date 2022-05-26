@@ -2,8 +2,8 @@ import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 const HomePieChart = ({solved, unsolved}) => {
-    let title1 = "Solicitados: " + toString(unsolved);
-    let title2 = "Resolvidos: " + toString(solved);
+    let title1 = "Solicitados: " + unsolved;
+    let title2 = "Resolvidos: " + solved;
     solved = parseInt(solved);
     unsolved = parseInt(unsolved);
     return (

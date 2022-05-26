@@ -1,6 +1,7 @@
 import React from "react";
+import HomePieChart from "../../../charts/donut";
 
-import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -8,10 +9,13 @@ import Line from "../../../components/line";
 import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
+import GrayLine from "../../../components/gray-line";
 import Button from '../../../components/form-button';
 import Footer from "../../../components/footer";
 
-const Escorpiao = () => {
+const Escorpiao = () => {  // posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+    const totalSolicitados = 44;
+    const totalResolvidos = 19;
     return (
         <>
             <ContainerBase>
@@ -40,6 +44,11 @@ const Escorpiao = () => {
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>
+                <GrayLine />
+                <ChartContainer>
+                    <h3> Eliminações solicitadas e efetuadas: </h3>
+                    <HomePieChart solved = {totalResolvidos} unsolved = {totalSolicitados} />
+                </ChartContainer>
                 <Footer/>
             </ContainerBase>
         </>

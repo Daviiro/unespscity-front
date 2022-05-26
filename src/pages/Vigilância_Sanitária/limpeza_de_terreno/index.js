@@ -1,6 +1,7 @@
 import React from "react";
+import HomePieChart from "../../../charts/donut";
 
-import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details } from "./styles";
+import { ContainerBase, SubHeader, ContainerColumn, InputAddressContainer, Square, Details, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -9,11 +10,14 @@ import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import Button from '../../../components/form-button';
+import GrayLine from "../../../components/gray-line";
 import Footer from "../../../components/footer";
 import InputPhotos from "../../../components/input-photos";
 import InputLocalization from "../../../components/input-localization";
 
-const Terreno = () => {
+const Terreno = () => {  // posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+    const totalSolicitados = 37;
+    const totalResolvidos = 17;
     return (
         <>
             <ContainerBase>
@@ -48,6 +52,11 @@ const Terreno = () => {
                         <Button text="Enviar"/>
                     </Details> 
                 </Square>
+                <GrayLine />
+                <ChartContainer>
+                    <h3> Limpezas solicitadas e efetuadas: </h3>
+                    <HomePieChart solved = {totalResolvidos} unsolved = {totalSolicitados} />
+                </ChartContainer>
                 <Footer/>
             </ContainerBase>
         </>

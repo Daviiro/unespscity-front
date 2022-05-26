@@ -79,30 +79,30 @@ root.render(
 				/>
 				<Route
 					exact
-					path="/admin/gestores"
+					path="/admin/conheca_os_gestores"
 					element={<AdminGestores />}
 				/>
 				<Route
 					exact
-					path="/admin/telefones"
+					path="/admin/telefones_uteis"
 					element={<AdminTelefones />}
 				/>
 				<Route exact path="/admin/parques" element={<AdminParques />} />
-				<Route exact path="/admin/pontes" element={<AdminPontes />} />
+				<Route exact path="/admin/pontes_em_estradas_rurais" element={<AdminPontes />} />
 				<Route exact path="/admin/pracas" element={<AdminPracas />} />
 				<Route
 					exact
-					path="/admin/iluminacao"
+					path="/admin/iluminacao_publica"
 					element={<AdminIluminacao />}
 				/>
 				<Route
 					exact
-					path="/admin/instalacao"
+					path="/admin/fiscalizacao_de_instalacoes"
 					element={<AdminInstalacoes />}
 				/>
 				<Route
 					exact
-					path="/admin/monumentos"
+					path="/admin/monumentos_e_chafarizes"
 					element={<AdminMonumentos />}
 				/>
 				<Route
@@ -110,26 +110,26 @@ root.render(
 					path="/admin/pavimentacao"
 					element={<AdminPavimentacao />}
 				/>
-				<Route exact path="/admin/vias" element={<AdminVias />} />
-				<Route exact path="/admin/feiras" element={<AdminFeiras />} />
+				<Route exact path="/admin/vias_publicas" element={<AdminVias />} />
+				<Route exact path="/admin/feiras_livres" element={<AdminFeiras />} />
 				<Route
 					exact
-					path="/admin/piscinas"
+					path="/admin/limpeza_de_piscinas"
 					element={<AdminPiscinas />}
 				/>
-				<Route exact path="/admin/terreno" element={<AdminTerreno />} />
+				<Route exact path="/admin/limpeza_de_terreno" element={<AdminTerreno />} />
 				<Route
 					exact
-					path="/admin/escorpiao"
+					path="/admin/foco_de_escorpiao"
 					element={<AdminEscorpiao />}
 				/>
-				<Route exact path="/admin/pragas" element={<AdminPragas />} />
+				<Route exact path="/admin/insetos_roedores_caramujos" element={<AdminPragas />} />
 				<Route
 					exact
 					path="/admin/leishmaniose"
 					element={<AdminLeishmaniose />}
 				/>
-				<Route exact path="/admin/dengue" element={<AdminDengue />} />
+				<Route exact path="/admin/radar_da_dengue" element={<AdminDengue />} />
 				<Route exact path="/login" element={<Login />} />
 				<Route
 					exact
