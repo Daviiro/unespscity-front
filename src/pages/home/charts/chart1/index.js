@@ -1,5 +1,5 @@
 import React from "react";
-import ProgressBar from "../../../../charts/Progress";
+import ProgressBar from "../../../../charts/progress";
 import { ContainerRow } from "./styles";
 // Dada a lista de problemas resolvidos para cada categoria (Conservação Urbana,
 const Chart1 = () => {

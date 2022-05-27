@@ -6,7 +6,7 @@ import {
 	ContainerCenter,
 } from "./styles";
 import { Link } from "react-router-dom";
-import Sidebar from "./Sidebar";
+import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";
 import { BsFillGearFill } from "react-icons/bs";
 import { BiUser } from "react-icons/bi";

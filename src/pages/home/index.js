@@ -8,10 +8,10 @@ import {
 } from "./styles";
 import Header from "../../components/header";
 import Card from "./ServiceCard";
-import Chart1 from "./charts/Chart1";
-import Chart2 from "./charts/Chart2";
-import Chart3 from "./charts/Chart3";
-import Footer from "../../components/Footer";
+import Chart1 from "./charts/chart1";
+import Chart2 from "./charts/chart2";
+import Chart3 from "./charts/chart3";
+import Footer from "../../components/footer";
 
 const Home = () => {
 	return (

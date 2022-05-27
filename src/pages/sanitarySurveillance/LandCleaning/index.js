@@ -8,16 +8,16 @@ import {
 	Details,
 	ChartContainer,
 } from "./styles";
-import HomePieChart from "../../../charts/Donut";
+import HomePieChart from "../../../charts/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/MiniCard";
 import Line from "../../../components/StyledComponents/line";
 import ServiceDescription from "../../../components/ServiceDescription";
-import Input from "../../../components/Input";
+import Input from "../../../components/input";
 import DescriptionInput from "../../../components/DescriptionInput";
 import Button from "../../../components/StyledComponents/form-button";
 import GrayLine from "../../../components/StyledComponents/gray-line";
-import Footer from "../../../components/Footer";
+import Footer from "../../../components/footer";
 import InputPhotos from "../../../components/ImagesInput";
 import InputLocalization from "../../../components/UserLocationInput";
 

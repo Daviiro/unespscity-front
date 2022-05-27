@@ -1,5 +1,5 @@
 import React from "react";
-import HomePieChart from "../../../../charts/Donut";
+import HomePieChart from "../../../../charts/donut";
 
 const Chart2 = () => {
 	const totalSolicitados = 233; // Número total de serviços solicitados //

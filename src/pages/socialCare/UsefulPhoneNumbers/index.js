@@ -13,7 +13,7 @@ import MiniCard from "../../../components/MiniCard";
 import Line from "../../../components/StyledComponents/line";
 import ServiceDescription from "../../../components/ServiceDescription";
 import ListCard from "../../../components/CardList";
-import Footer from "../../../components/Footer";
+import Footer from "../../../components/footer";
 
 const Telefones = () => {
 	return (

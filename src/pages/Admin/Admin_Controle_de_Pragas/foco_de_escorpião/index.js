@@ -4,7 +4,6 @@ import {
 	ContainerBase,
 	SubHeader,
 	ContainerColumn,
-	InputAddressContainer,
 	Square,
 	Details,
 } from "./styles";
@@ -13,7 +12,7 @@ import Header from "../../../../components/header";
 import MiniCard from "../../../../components/MiniCard";
 import Line from "../../../../components/StyledComponents/line";
 import ServiceDescription from "../../../../components/ServiceDescription";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/AdminListCard";
 
 const AdminEscorpiao = () => {

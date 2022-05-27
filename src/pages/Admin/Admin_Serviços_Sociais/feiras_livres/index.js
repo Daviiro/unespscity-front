@@ -7,16 +7,15 @@ import {
 	SubHeader,
 	ContainerColumn,
 	Square,
-	InputAddressContainer,
 } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/MiniCard";
 import Line from "../../../../components/StyledComponents/line";
 import ServiceDescription from "../../../../components/ServiceDescription";
-import Footer from "../../../../components/Footer";
+import Footer from "../../../../components/footer";
 import InputPhotos from "../../../../components/ImagesInput";
-import Input from "../../../../components/Input";
+import Input from "../../../../components/input";
 import DescriptionInput from "../../../../components/DescriptionInput";
 import Button from "../../../../components/StyledComponents/form-button";
 import AdminListCard from "../../../../components/AdminListCard";

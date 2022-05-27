@@ -25,7 +25,7 @@ import AdminLeishmaniose from "./pages/Admin/Admin_Controle_de_Pragas/leishmanio
 import AdminDengue from "./pages/Admin/Admin_Controle_de_Pragas/radar_da_dengue";
 
 import Home from "./pages/home"; // Home e Login //
-import Login from "./pages/Login";
+import Login from "./pages/login";
 
 import Gestores from "./pages/Administração_Pública/conheça_os_gestores"; // Administração Pública //
 
