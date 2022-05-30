@@ -2,50 +2,40 @@ import React, { useState } from "react";
 import { Container } from "./styles";
 
 const InputPhotos = () => {
-    const [postImage, setPostImage] = useState({
-        myFile: "",
-    });
-    const [isPhoto, setIsPhoto] = useState(false);
-    let base64;
+    const [photos, setPhotos] = useState([]);
 
-    const convertToBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const fileReader = new FileReader();
-            fileReader.readAsDataURL(file);
-            fileReader.onload = () => {
-                resolve(fileReader.result);
-            };
-            fileReader.onerror = (error) => {
-                reject(error);
-            };
-        });
-    };
-    const handleFileUpload = async (e) => {
-        const file = e.target.files[0];
-        base64 = await convertToBase64(file);
-        setPostImage({ ...postImage, myFile: base64 });
-        setIsPhoto(true);
-    };
+    function handleFileInputChange(e){ 
+        let reader = new FileReader();
+        reader.readAsDataURL(e.currentTarget.files[0]);
+        const hasPhoto = photos.find(photo => photo === reader.result)
+        reader.onload = () => {
+            if(hasPhoto !== undefined)
+                return; 
+            setPhotos((prevState) => [...prevState, reader.result]);
+        };
+        console.log(photos)
+      }
     
-    console.log(base64)
-
     return (
         <Container>
             <label>Insira as Fotos (Opcional): </label>
             <input 
                 type="file"
                 accept="image/*"
-                onChange={(e) => handleFileUpload(e)}
+                multiple
+                onChange={(e) => handleFileInputChange(e)}
             />
-            {
-                isPhoto && 
-                (
-                    <img 
-                        src={base64}
-                        alt="foto"
-                    />
-                )
-            }
+            <div>
+                {
+                    photos.map( (photo) => (                    
+                        <img 
+                            src={photo}
+                            alt="foto"
+                            key={photo}
+                        />
+                    ))
+                }
+            </div>
         </Container>
     )
 }
