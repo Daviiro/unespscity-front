@@ -12,7 +12,7 @@ import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../../components/service-description";
-import footer from "../../../../components/footer";
+import Footer from "../../../../components/footer";
 import Input from "../../../../components/input";
 import DescriptionInput from "../../../../components/description-input";
 import InputPhotos from "../../../../components/images-input";
@@ -111,7 +111,7 @@ const AdminGestores = () => {
 						/>
 					</Details>
 				</Square>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);

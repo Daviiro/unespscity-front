@@ -20,7 +20,7 @@ import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
-import footer from "../../../components/footer";
+import Footer from "../../../components/footer";
 
 const Leishmaniose = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -96,7 +96,7 @@ const Leishmaniose = () => {
 						unsolved={totalSolicitados}
 					/>
 				</ChartContainer>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);

@@ -13,7 +13,7 @@ import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import ListCard from "../../../components/card-list";
-import footer from "../../../components/footer";
+import Footer from "../../../components/footer";
 
 const Feiras = () => {
 	return (
@@ -90,7 +90,7 @@ const Feiras = () => {
 						/>
 					</Details>
 				</Square>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);

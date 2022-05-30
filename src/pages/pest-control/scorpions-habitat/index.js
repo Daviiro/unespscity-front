@@ -20,7 +20,7 @@ import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Button from "../../../components/styled-components/form-button";
-import footer from "../../../components/footer";
+import Footer from "../../../components/footer";
 
 const Escorpiao = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -86,7 +86,7 @@ const Escorpiao = () => {
 						unsolved={totalSolicitados}
 					/>
 				</ChartContainer>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);

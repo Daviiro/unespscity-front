@@ -19,7 +19,7 @@ import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
-import footer from "../../../components/footer";
+import Footer from "../../../components/footer";
 import InputLocalization from "../../../components/user-location-input";
 import InputPhotos from "../../../components/images-input";
 
@@ -87,7 +87,7 @@ const Parques = () => {
 						unsolved={totalSolicitados}
 					/>
 				</ChartContainer>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);

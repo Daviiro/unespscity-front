@@ -7,14 +7,13 @@ import {
 	SubHeader,
 	ContainerColumn,
 	Square,
-	InputAddressContainer,
 } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../../components/service-description";
-import footer from "../../../../components/footer";
+import Footer from "../../../../components/footer";
 import InputPhotos from "../../../../components/images-input";
 import Input from "../../../../components/input";
 import DescriptionInput from "../../../../components/description-input";
@@ -102,7 +101,7 @@ const AdminFeiras = () => {
 						/>
 					</Details>
 				</Square>
-				<footer />
+				<Footer />
 			</ContainerBase>
 		</>
 	);
