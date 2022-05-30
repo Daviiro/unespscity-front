@@ -5,9 +5,7 @@ import {
 	ContainerBase,
 	SubHeader,
 	ContainerColumn,
-	InputAddressContainer,
 	Square,
-	Details1,
 	Details2,
 	ChartContainer,
 } from "./styles";
@@ -16,13 +14,9 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import InputPhotos from "../../../components/images-input";
-import InputLocalization from "../../../components/user-location-input";
+import Form from "../../../components/form";
 
 const Piscinas = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -61,24 +55,7 @@ const Piscinas = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares." />
-					<Details1>
-						<InputLocalization />
-						<p>OU</p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<DescriptionInput
-							title="Descrição:"
-							placeholder="Conte-nos em detalhes sobre o problema encontrado."
-						/>
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details1>
+					<Form/>
 				</Square>
 				<Square style={{ height: "50%" }}>
 					<Details2>

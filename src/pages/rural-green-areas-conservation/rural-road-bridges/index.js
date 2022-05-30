@@ -6,7 +6,6 @@ import {
 	SubHeader,
 	ContainerColumn,
 	Square,
-	Details,
 	ChartContainer,
 } from "./styles";
 
@@ -14,13 +13,9 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import InputLocalization from "../../../components/user-location-input";
-import InputPhotos from "../../../components/images-input";
+import Form from "../../../components/form";
 
 const Pontes = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -59,20 +54,7 @@ const Pontes = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para informar ocorrências em pontes rurais sob os limites do município, como problemas infraestruturais, obstruções (como acúmulo de terra ou invasão de vegetação), falha estrututal e/ou semelhantes." />
-					<Details>
-						<InputLocalization />
-						<p>OU</p>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<DescriptionInput
-							title="Descrição:"
-							placeholder="Conte-nos em detalhes sobre o problema encontrado."
-						/>
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details>
+					<Form/>
 				</Square>
 				<GrayLine />
 				<ChartContainer>

@@ -5,9 +5,7 @@ import {
 	ContainerBase,
 	SubHeader,
 	ContainerColumn,
-	InputAddressContainer,
 	Square,
-	Details,
 	ChartContainer,
 } from "./styles";
 
@@ -15,13 +13,9 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import InputPhotos from "../../../components/images-input";
-import InputLocalization from "../../../components/user-location-input";
+import Form from "../../../components/form";
 
 const Monumentos = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -43,24 +37,7 @@ const Monumentos = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para informar ocorrências com monumentos e chafarizes da cidade, como problemas infraestruturais, vandalização, solicitação de limpeza, destruição e/ou outras irregularidades." />
-					<Details>
-						<InputLocalization />
-						<p>OU</p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<DescriptionInput
-							title="Descrição:"
-							placeholder="Conte-nos em detalhes sobre o problema encontrado."
-						/>
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details>
+					<Form/>
 				</Square>
 				<GrayLine />
 				<ChartContainer>

@@ -4,7 +4,6 @@ import {
 	ContainerBase,
 	SubHeader,
 	ContainerColumn,
-	InputAddressContainer,
 	Square,
 	Details,
 } from "./styles";

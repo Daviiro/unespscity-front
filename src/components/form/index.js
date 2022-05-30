@@ -22,7 +22,7 @@ const Form = () => {
             </InputAddressContainer>
             <Input
                 title="Ponto de Referência:"
-                placeholder="Opcional"
+                placeholder="Um local de referência proximo (Opcional)"
             />
             <DescriptionInput
                 title="Descrição:"
