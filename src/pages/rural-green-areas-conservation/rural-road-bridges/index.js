@@ -5,7 +5,6 @@ import {
 	ContainerBase,
 	SubHeader,
 	ContainerColumn,
-	InputAddressContainer,
 	Square,
 	Details,
 	ChartContainer,
@@ -35,6 +34,23 @@ const Pontes = () => {
 					<MiniCard
 						source="/assets/img/home_conservacao_rural.png"
 						titulo="Conservação Rural"
+						linkItems={[
+							{
+								id: 1,
+								name: "Parques",
+								link: "/parques",
+							},
+							{
+								id: 2,
+								name: "Pontes em estradas rurais",
+								link: "/pontes_em_estradas_rurais",
+							},
+							{
+								id: 3,
+								name: "Praças",
+								link: "/pracas",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Pontes em Estradas Rurais </h1>
@@ -46,10 +62,6 @@ const Pontes = () => {
 					<Details>
 						<InputLocalization />
 						<p>OU</p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
 						<Input
 							title="Ponto de Referência:"
 							placeholder="Opcional"

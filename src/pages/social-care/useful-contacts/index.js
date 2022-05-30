@@ -24,6 +24,13 @@ const Telefones = () => {
 					<MiniCard
 						source="/assets/img/home_assistencia_social.png"
 						titulo="Assistência Social"
+						linkItems={[
+							{
+								id: 1,
+								name: "Telefones Úteis",
+								link: "/telefones_uteis",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Telefones Úteis </h1>

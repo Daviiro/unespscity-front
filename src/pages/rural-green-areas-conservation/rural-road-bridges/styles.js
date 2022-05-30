@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: 10vh;
+	margin-bottom: 2.5vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -50,7 +50,7 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 90%;
+	height: 75%;
 	width: 47.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;

@@ -41,18 +41,15 @@ export const Table = styled.table`
 	/*padding: 1rem;*/
 `;
 export const Tbody = styled.tbody`
-	tr:nth-child(even) {
-		background-color: rgb(220, 220, 220);
-	}
 	tr:hover {
-		background-color: rgb(150, 150, 150);
+		background-color: #3282b8;
 		cursor: pointer;
 	}
 `;
 
 export const Tr = styled.tr`
 	span {
-		color: rgb(60, 60, 60);
+		color: #1b262c;
 		text-shadow: 0 0 15px #ffffff;
 	}
 `;

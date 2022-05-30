@@ -278,11 +278,11 @@ const Home = () => {
 					</WrapContainer>
 					<GrayLine />
 					<Chart1 />
-					<ContainerRow>
+				{/*	<ContainerRow>
 						<Chart2 />
 						<Chart3 />
-					</ContainerRow>
-					<GrayLine style={{ marginTop: "-10vh" }} />
+						</ContainerRow>
+					<GrayLine style={{ marginTop: "-10vh" }} /> */}
 				</Content>
 				<footer />
 			</ContainerBase>

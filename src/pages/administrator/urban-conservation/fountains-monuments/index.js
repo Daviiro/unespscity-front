@@ -25,6 +25,33 @@ const AdminMonumentos = () => {
 					<MiniCard
 						source="/assets/img/home_conservacao_urbana.png"
 						titulo="Conservação Urbana"
+						linkItems={[
+							{
+								id: 1,
+								name: "Fiscalização de Instalações",
+								link: "/admin/fiscalizacao_de_instalacoes",
+							},
+							{
+								id: 2,
+								name: "Iluminação Pública",
+								link: "/admin/iluminacao_publica",
+							},
+							{
+								id: 3,
+								name: "Monumentos e Chafarizes",
+								link: "/admin/monumentos_e_chafarizes",
+							},
+							{
+								id: 4,
+								name: "Pavimentação",
+								link: "/admin/pavimentacao",
+							},
+							{
+								id: 5,
+								name: "Vias Públicas",
+								link: "/admin/vias_publicas",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Monumentos e Chafarizes </h1>

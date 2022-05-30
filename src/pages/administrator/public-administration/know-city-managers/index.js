@@ -33,6 +33,13 @@ const AdminGestores = () => {
 					<MiniCard
 						source="/assets/img/home_administracao_publica.png"
 						titulo="Administração Pública"
+						linkItems={[
+							{
+								id: 1,
+								name: "Conheça os Gestores",
+								link: "/admin/conheca_os_gestores",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Conheça os Gestores </h1>

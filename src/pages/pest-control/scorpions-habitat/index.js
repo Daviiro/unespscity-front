@@ -17,6 +17,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
+import InputPhotos from "../../../components/images-input";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Button from "../../../components/styled-components/form-button";
 import footer from "../../../components/footer";
@@ -33,6 +34,28 @@ const Escorpiao = () => {
 					<MiniCard
 						source="/assets/img/home_controle_pragas.png"
 						titulo="Controle de Pragas"
+						linkItems={[
+							{
+								id: 1,
+								name: "Foco de Escorpião",
+								link: "/foco_de_escorpiao",
+							},
+							{
+								id: 2,
+								name: "Insetos Roedores e Caramujos",
+								link: "/insetos_roedores_caramujos",
+							},
+							{
+								id: 3,
+								name: "Leishmaniose",
+								link: "/leishmaniose",
+							},
+							{
+								id: 4,
+								name: "Radar da Dengue",
+								link: "/radar_da_dengue",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Foco de Escorpião </h1>
@@ -51,6 +74,7 @@ const Escorpiao = () => {
 							placeholder="Opcional"
 						/>
 						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado." />
+						<InputPhotos />
 						<Button text="Enviar" />
 					</Details>
 				</Square>

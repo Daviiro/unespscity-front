@@ -22,4 +22,6 @@ export const MiniCardContainer = styled.div`
 		margin-bottom: 10vh;
 		color: #1b262c;
 	}
+
+	:hover { cursor: pointer; }
 `;

@@ -33,6 +33,23 @@ const Terreno = () => {
 					<MiniCard
 						source="/assets/img/home_vigilancia_sanitaria.png"
 						titulo="Vigilância Sanitária"
+						linkItems={[
+							{
+								id: 1,
+								name: "Limpeza de Piscinas",
+								link: "/limpeza_de_piscinas",
+							},
+							{
+								id: 2,
+								name: "Limpeza de Terreno",
+								link: "/limpeza_de_terreno",
+							},
+							{
+								id: 3,
+								name: "Restaurantes/Ambientes Irregulares",
+								link: "/restaurantes",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Limpeza de Terreno </h1>

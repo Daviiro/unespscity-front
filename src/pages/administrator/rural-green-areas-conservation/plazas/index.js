@@ -25,6 +25,23 @@ const AdminPracas = () => {
 					<MiniCard
 						source="/assets/img/home_conservacao_rural.png"
 						titulo="Áreas Verdes"
+						linkItems={[
+							{
+								id: 1,
+								name: "Parques",
+								link: "/admin/parques",
+							},
+							{
+								id: 2,
+								name: "Pontes em estradas rurais",
+								link: "/admin/pontes_em_estradas_rurais",
+							},
+							{
+								id: 3,
+								name: "Praças",
+								link: "/admin/pracas",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Praças </h1>

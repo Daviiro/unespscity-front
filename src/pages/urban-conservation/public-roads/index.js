@@ -35,6 +35,33 @@ const Vias = () => {
 					<MiniCard
 						source="/assets/img/home_conservacao_urbana.png"
 						titulo="Conservação Urbana"
+						linkItems={[
+							{
+								id: 1,
+								name: "Fiscalização de Instalações",
+								link: "/fiscalizacao_de_instalacoes",
+							},
+							{
+								id: 2,
+								name: "Iluminação Pública",
+								link: "/iluminacao_publica",
+							},
+							{
+								id: 3,
+								name: "Monumentos e Chafarizes",
+								link: "/monumentos_e_chafarizes",
+							},
+							{
+								id: 4,
+								name: "Pavimentação",
+								link: "/pavimentacao",
+							},
+							{
+								id: 5,
+								name: "Vias Públicas",
+								link: "/vias_publicas",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Vias Públicas </h1>

@@ -34,6 +34,13 @@ const Animais_Mortos = () => {
 					<MiniCard
 						source="/assets/img/home_remocao_detritos.png"
 						titulo="Remoção de Detritos"
+						linkItems={[
+							{
+								id: 1,
+								name: "Animais Mortos",
+								link: "/animais_mortos",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Animais Mortos </h1>

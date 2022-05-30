@@ -31,6 +31,13 @@ const AdminFeiras = () => {
 					<MiniCard
 						source="/assets/img/home_servicos_sociais.png"
 						titulo="Serviços Sociais"
+						linkItems={[
+							{
+								id: 1,
+								name: "Feiras Livres",
+								link: "/admin/feiras_livres",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Feiras Livres </h1>

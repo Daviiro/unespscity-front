@@ -25,6 +25,28 @@ const AdminLeishmaniose = () => {
 					<MiniCard
 						source="/assets/img/home_controle_pragas.png"
 						titulo="Controle de Pragas"
+						linkItems={[
+							{
+								id: 1,
+								name: "Foco de Escorpião",
+								link: "/admin/foco_de_escorpiao",
+							},
+							{
+								id: 2,
+								name: "Insetos Roedores e Caramujos",
+								link: "/admin/insetos_roedores_caramujos",
+							},
+							{
+								id: 3,
+								name: "Leishmaniose",
+								link: "/admin/leishmaniose",
+							},
+							{
+								id: 4,
+								name: "Radar da Dengue",
+								link: "/admin/radar_da_dengue",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Leishmaniose </h1>

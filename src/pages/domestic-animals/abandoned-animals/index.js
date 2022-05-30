@@ -35,6 +35,18 @@ const AnimaisAbandonados = () => {
 					<MiniCard
 						source="/assets/img/home_animais_domesticos.png"
 						titulo="Animais Domésticos"
+						linkItems={[
+							{
+								id: 1,
+								name: "Animais Abandonados",
+								link: "/admin/animais_abandonados",
+							},
+							{
+								id: 2,
+								name: "Animais Sinantrópicos",
+								link: "/admin/animais-sinantropicos",
+							},
+						]}
 					/>
 					<ContainerColumn>
 						<h1> Animais Abandonados </h1>
