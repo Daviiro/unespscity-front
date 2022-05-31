@@ -4,13 +4,10 @@ import {
 	Content,
 	WrapContainer,
 	GrayLine,
-	ContainerRow,
 } from "./styles";
 import Header from "../../components/header";
 import Card from "./service-card";
-import Chart1 from "./charts/chart1";
-import Chart2 from "./charts/chart2";
-import Chart3 from "./charts/chart3";
+import ChartHome from "./chart";
 import Footer from "../../components/footer";
 
 const Home = () => {
@@ -277,16 +274,13 @@ const Home = () => {
 						/>
 					</WrapContainer>
 					<GrayLine />
-					<Chart1 />
-				{/*	<ContainerRow>
-						<Chart2 />
-						<Chart3 />
-						</ContainerRow>
-					<GrayLine style={{ marginTop: "-10vh" }} /> */}
+					<ChartHome />
+					<GrayLine />
 				</Content>
 				<Footer />
 			</ContainerBase>
 		</>
 	);
 };
+
 export default Home;

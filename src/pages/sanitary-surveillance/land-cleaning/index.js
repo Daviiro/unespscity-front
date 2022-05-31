@@ -6,7 +6,7 @@ import {
 	Square,
 	ChartContainer,
 } from "./styles";
-import HomePieChart from "../../../charts/donut";
+import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
@@ -57,7 +57,7 @@ const Terreno = () => {
 				<GrayLine />
 				<ChartContainer>
 					<h3> Limpezas solicitadas e efetuadas: </h3>
-					<HomePieChart
+					<PagesPieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
 					/>

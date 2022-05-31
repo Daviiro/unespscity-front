@@ -1,8 +1,8 @@
 import React from "react";
-import ProgressBar from "../../../../charts/progress";
+import ProgressBar from "../../../charts/types/progress";
 import { ContainerRow } from "./styles";
 // Dada a lista de problemas resolvidos para cada categoria (Conservação Urbana,
-const Chart1 = () => {
+const ChartHome = () => {
 	// Administração Pública...), maxValue deve receber o número de problemas resolvidos
 	const maxValue = 190; // da categoria com mais problemas resolvidos //
 	return (
@@ -134,4 +134,4 @@ const Chart1 = () => {
 	);
 };
 
-export default Chart1;
+export default ChartHome;

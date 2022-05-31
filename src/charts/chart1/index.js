@@ -1,7 +1,7 @@
 import React from "react";
-import HomePieChart from "../../../../charts/donut";
+import HomePieChart from "../types/donut";
 
-const Chart2 = () => {
+const DashboardChart1 = () => {
 	const totalSolicitados = 233; // Número total de serviços solicitados //
 	const totalResolvidos = 186; // Número total de serviços resolvios //
 	let totalTotal = totalSolicitados + totalResolvidos;
@@ -29,4 +29,4 @@ const Chart2 = () => {
 	);
 };
 
-export default Chart2;
+export default DashboardChart1;

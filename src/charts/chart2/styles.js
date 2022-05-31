@@ -1,29 +1,30 @@
 import styled from "styled-components";
 
 export const ContainerColumn = styled.div`
-    height: 100%;
-    width: 30vw;
+    height: 150vh;
+    width: 25vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    margin-top: -2.4vh;
 `;
 
 export const Card = styled.div`
     height: 7.5vh;
-    width: 100%;
+    width: 97.5%;
     border: 0.25vh solid lightgray;
 	border-radius: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 0.25vh;
 
     img {
         height: 5.5vh;
         width: auto;
         opacity: 1;
-        margin-left: 1.25vw;
+        margin-left: 1.4vw;
+        margin-right: 0.1vw;
     }
 
     h3 {
@@ -43,6 +44,11 @@ export const ContainerColumn2 = styled.div`
     margin-left: 0.75vw;
 
     h3 { 
+        margin-top: 3.5vh;
+        margin-bottom: -3.25vh; 
+    }
+
+    h4 { 
         margin-top: 3.5vh;
         margin-bottom: -3.25vh; 
     }

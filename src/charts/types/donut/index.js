@@ -1,7 +1,7 @@
 import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
-const HomePieChart = ({solved, unsolved}) => {
+const PagesPieChart = ({solved, unsolved}) => {
     let title1 = "Solicitados: " + unsolved;
     let title2 = "Resolvidos: " + solved;
     solved = parseInt(solved);
@@ -22,4 +22,4 @@ const HomePieChart = ({solved, unsolved}) => {
     )
 };
 
-export default HomePieChart;
+export default PagesPieChart;
