@@ -8,8 +8,10 @@ import {
 import { Link } from "react-router-dom";
 import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";
-import { BsFillGearFill } from "react-icons/bs";
+
 import { BiUser } from "react-icons/bi";
+import SlideDownMenu from "./slide-down-menu";
+import { FiSettings } from "react-icons/fi";
 
 const Header = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -36,6 +38,7 @@ const Header = () => {
 	}, [windowDimenion]);
 
 	const [sidebar, setSidebar] = useState(false);
+
 	const showSidebar = () => {
 		setSidebar(!sidebar);
 		//console.log("clicado");
@@ -78,17 +81,9 @@ const Header = () => {
 							</Link>
 						</div>
 						<div>
-							<Link
-								to="/sistema"
-								style={{ textDecoration: "none" }}
-							>
-								<BsFillGearFill
-									style={{ cursor: "pointer" }}
-									color={"white"}
-									size={30}
-									className="glow-effect"
-								/>
-							</Link>
+							<Settings>
+								<SlideDownMenu />
+							</Settings>
 						</div>
 					</ContainerActions>
 				) : (
@@ -103,6 +98,25 @@ const Header = () => {
 					</ContainerActions>
 				)}
 			</HeaderContainer>
+		</>
+	);
+};
+
+const Settings = (props) => {
+	const [open, setOpen] = useState(false);
+
+	return (
+		<>
+			<a href="#" onClick={() => setOpen(!open)}>
+				<FiSettings
+					style={{ cursor: "pointer" }}
+					color={"white"}
+					size={30}
+					className="glow-effect"
+				/>
+			</a>
+
+			{open && props.children}
 		</>
 	);
 };

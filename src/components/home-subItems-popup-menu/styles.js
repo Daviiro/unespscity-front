@@ -45,6 +45,9 @@ export const Tbody = styled.tbody`
 		background-color: #3282b8;
 		cursor: pointer;
 	}
+	tr:hover span {
+		color: #ffffff;
+	}
 `;
 
 export const Tr = styled.tr`
