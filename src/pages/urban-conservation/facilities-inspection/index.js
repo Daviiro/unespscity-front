@@ -1,5 +1,5 @@
 import React from "react";
-import HomePieChart from "../../../charts/donut";
+import PagesPieChart from "../../../charts/types/donut";
 
 import {
 	ContainerBase,
@@ -72,7 +72,7 @@ const Instalacoes = () => {
 						{" "}
 						Fiscalizações solicitadas e processadas/resolvidas:{" "}
 					</h3>
-					<HomePieChart
+					<PagesPieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
 					/>

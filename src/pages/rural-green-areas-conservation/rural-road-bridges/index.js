@@ -1,5 +1,5 @@
 import React from "react";
-import HomePieChart from "../../../charts/donut";
+import PagesPieChart from "../../../charts/types/donut";
 
 import {
 	ContainerBase,
@@ -59,7 +59,7 @@ const Pontes = () => {
 				<GrayLine />
 				<ChartContainer>
 					<h3> Serviços solicitados e resolvidos: </h3>
-					<HomePieChart
+					<PagesPieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
 					/>

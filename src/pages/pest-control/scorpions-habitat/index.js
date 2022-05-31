@@ -1,5 +1,5 @@
 import React from "react";
-import HomePieChart from "../../../charts/donut";
+import PagesPieChart from "../../../charts/types/donut";
 
 import {
 	ContainerBase,
@@ -81,7 +81,7 @@ const Escorpiao = () => {
 				<GrayLine />
 				<ChartContainer>
 					<h3> Eliminações solicitadas e efetuadas: </h3>
-					<HomePieChart
+					<PagesPieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
 					/>

@@ -5,6 +5,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import Dashboard from "./pages/administrator";
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts";
@@ -71,6 +72,11 @@ root.render(
 		<Router>
 			<Routes>
 				<Route exact path="/" element={<Home />} />
+				<Route
+					exact
+					path="/admin"
+					element={<Dashboard />}
+				/>
 				<Route
 					exact
 					path="/admin/animais_mortos"

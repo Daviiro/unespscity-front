@@ -13,7 +13,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import HomePieChart from "../../../charts/donut";
+import PagesPieChart from "../../../charts/types/donut";
 import Form from "../../../components/form";
 
 const Animais_Mortos = () => {
@@ -48,7 +48,7 @@ const Animais_Mortos = () => {
 				<GrayLine />
 				<ChartContainer>
 					<h3> Remoções solicitadas e efetuadas: </h3>
-					<HomePieChart
+					<PagesPieChart
 						solved={totalResolvidos}
 						unsolved={totalSolicitados}
 					/>
