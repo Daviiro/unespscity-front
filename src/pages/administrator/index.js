@@ -20,7 +20,8 @@ const Dashboard = () => {
                 <Content>
                     <ContainerColumn>
                         <h1> Dashboard </h1>
-                        <StyledHr style = {{ width: "95%" }}/>
+                        <StyledHr style = {{ width: "95%" }} />
+                        <DashboardChart1 />
                     </ContainerColumn>
                     <DashboardChart2 />
                 </Content>
