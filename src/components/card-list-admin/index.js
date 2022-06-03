@@ -55,10 +55,20 @@ const AdminListCard = (props) => {
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                    <Button onClick={handleClose}>Cancelar</Button>
-                    <Button onClick={handleClose} autoFocus>
-                        Excluir
-                    </Button>
+                    {
+                        props.report 
+                        ? (
+                            <Button onClick={handleClose}>Arrumado</Button>
+                        ) : (
+                            <>
+                                <Button onClick={handleClose}>Cancelar</Button>
+                                <Button onClick={handleClose} autoFocus>
+                                    Excluir
+                                </Button>
+                            </>
+                        )
+                    }
+                    
                     </DialogActions>
                 </Dialog>
             </ButtonDiv>
