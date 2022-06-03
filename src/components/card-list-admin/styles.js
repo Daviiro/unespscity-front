@@ -14,16 +14,10 @@ export const ListCardContainer = styled.div`
 export const InfoContainer = styled.div`
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
 	height: 32vh;
 	width: 100%;
-
-	img {
-		align-self: center;
-		height: 29vh;
-		width: auto;
-		opacity: 1;
-		margin-right: 2vw;
-	}
 `;
 
 export const ButtonDiv = styled.div`
@@ -42,6 +36,7 @@ export const Button = styled.button`
 
 export const ContainerColumn = styled.div`
 	display: flex;
+	width: 75%;	
 	flex-direction: column;
 	overflow-y: auto;
 

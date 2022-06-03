@@ -5,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import ImageCarousel from "../images-carousel";
 
 const AdminListCard = (props) => {
     const [open, setOpen] = useState(false);
@@ -20,9 +21,10 @@ const AdminListCard = (props) => {
     return (
         <ListCardContainer>
             <InfoContainer>
-                <img
-                    src = {process.env.PUBLIC_URL + props.source}
-                    alt = {props.titulo}
+                <ImageCarousel 
+                    images={["https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027.jpg", 
+                "https://st2.depositphotos.com/6544740/9337/i/600/depositphotos_93376372-stock-photo-sunset-over-sea-pier.jpg",
+                "https://thumbs.dreamstime.com/b/paisagem-vertical-no-por-do-sol-63763253.jpg"]}
                 />
                 <ContainerColumn>
                     <h2> {props.nome} </h2>
