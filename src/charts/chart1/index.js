@@ -15,13 +15,13 @@ const DashboardChart1 = () => {
 					alignItems: "center",
 				}}
 			>
-				<h3 style={{ marginTop: "0vh", marginBottom: "0vh" }}>
+				<h3 style={{ marginTop: "0.5vh", marginBottom: "0vh", marginLeft: "-2.75vw" }}>
 					{" "}
-					Problemas Resolvidos: {" "}
+					Problemas já Resolvidos: {" "}
 				</h3>
-				<span style={{ marginBottom: "4vh" }}> {totalTotal} </span>
+				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> {totalTotal} </span>
 				<PieChart
-            		center = {[75, 50]}
+            		center = {[69, 50]}
             		data = {[
                 		{title: "Conservação Urbana: " + totalSolicitados[0], value: totalSolicitados[0], color: "#b83333"},
                 		{title: "Conservação Rural/Áreas Verdes: " + totalSolicitados[1], value: totalSolicitados[1], color: "#691b1b"},
