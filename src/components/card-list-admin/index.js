@@ -33,13 +33,24 @@ const AdminListCard = (props) => {
                 </ContainerColumn>
             </InfoContainer>
             <ButtonDiv>
-                <Button variant="outlined">
-                    Editar
-                </Button>
 
-                <Button variant="outlined" onClick={handleClickOpen}>
-                    Excluir
-                </Button>
+                { 
+                    props.report ? (
+                        <Button variant="outlined"  onClick={handleClickOpen}>
+                            Arrumado 
+                        </Button>
+                    ) : (
+                        <>
+                            <Button variant="outlined">
+                                Editar
+                            </Button>
+                            <Button variant="outlined" onClick={handleClickOpen}>
+                                Excluir
+                            </Button>
+                        </>
+                    )
+                }
+
                 <Dialog
                     open={open}
                     onClose={handleClose}
@@ -55,20 +66,10 @@ const AdminListCard = (props) => {
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                    {
-                        props.report 
-                        ? (
-                            <Button onClick={handleClose}>Arrumado</Button>
-                        ) : (
-                            <>
-                                <Button onClick={handleClose}>Cancelar</Button>
-                                <Button onClick={handleClose} autoFocus>
-                                    Excluir
-                                </Button>
-                            </>
-                        )
-                    }
-                    
+                    <Button onClick={handleClose}>Cancelar</Button>
+                    <Button onClick={handleClose} autoFocus>
+                        Excluir
+                    </Button>
                     </DialogActions>
                 </Dialog>
             </ButtonDiv>
