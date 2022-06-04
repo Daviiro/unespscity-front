@@ -16,7 +16,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const Piscinas = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -55,7 +55,7 @@ const Piscinas = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares." />
-					<Form/>
+					<Form />
 				</Square>
 				<Square style={{ height: "50%" }}>
 					<Details2>

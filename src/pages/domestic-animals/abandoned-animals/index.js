@@ -15,7 +15,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const AnimaisAbandonados = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -49,7 +49,7 @@ const AnimaisAbandonados = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para informar o último local em que o animal foi avistado para que assim seja feito o resgate do animal. " />
-					<Form/>
+					<Form />
 				</Square>
 				<GrayLine />
 				<ChartContainer>

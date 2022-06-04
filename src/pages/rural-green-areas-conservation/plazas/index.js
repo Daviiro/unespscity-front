@@ -15,7 +15,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const Pracas = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -54,7 +54,7 @@ const Pracas = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para informar ocorrências em praças públicas da cidade, como solicitação de limpeza, informar ocupação indevida, problemas infraestruturais e demais irregularidades e/ou sugestões." />
-					<Form/>
+					<Form />
 				</Square>
 				<GrayLine />
 				<ChartContainer>

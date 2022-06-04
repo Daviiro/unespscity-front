@@ -13,7 +13,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const Terreno = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -52,7 +52,7 @@ const Terreno = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para solicitar a limpeza de terrenos públicos pertencentes ao município ou para denunciar terrenos baldios particulares com irregularidades." />
-					<Form/>
+					<Form />
 				</Square>
 				<GrayLine />
 				<ChartContainer>

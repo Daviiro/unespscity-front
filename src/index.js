@@ -72,11 +72,7 @@ root.render(
 		<Router>
 			<Routes>
 				<Route exact path="/" element={<Home />} />
-				<Route
-					exact
-					path="/admin"
-					element={<Dashboard />}
-				/>
+				<Route exact path="/admin" element={<Dashboard />} />
 				<Route
 					exact
 					path="/admin/animais_mortos"

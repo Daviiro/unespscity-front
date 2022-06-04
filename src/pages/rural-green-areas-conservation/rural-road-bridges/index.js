@@ -15,7 +15,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const Pontes = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -54,7 +54,7 @@ const Pontes = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para informar ocorrências em pontes rurais sob os limites do município, como problemas infraestruturais, obstruções (como acúmulo de terra ou invasão de vegetação), falha estrututal e/ou semelhantes." />
-					<Form/>
+					<Form />
 				</Square>
 				<GrayLine />
 				<ChartContainer>

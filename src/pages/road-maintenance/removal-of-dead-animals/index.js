@@ -14,7 +14,7 @@ import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 import PagesPieChart from "../../../charts/types/donut";
-import Form from "../../../components/form";
+import Form from "../../../components/forms";
 
 const Animais_Mortos = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -43,7 +43,7 @@ const Animais_Mortos = () => {
 				</SubHeader>
 				<Square>
 					<ServiceDescription description="Utilize este serviço para solicitar a remoção de corpos de animais mortos localizados dentro dos limites do município." />
-					<Form/>
+					<Form />
 				</Square>
 				<GrayLine />
 				<ChartContainer>
