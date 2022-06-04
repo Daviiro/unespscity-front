@@ -26,8 +26,8 @@ export const SidebarData = [
 		iconOpened: <RiIcons.RiArrowUpSFill />,
 		subNav: [
 			{
-				title: "Dashboards",
-				path: "/",
+				title: "Admin",
+				path: "/admin",
 				icon: <AiIcons.AiOutlineAreaChart />,
 			},
 		],

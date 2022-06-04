@@ -5,8 +5,6 @@ import { SidebarData } from "./SidebarData";
 import SidebarSubmenu from "./SidebarSubmenu";
 
 const Sidebar = (props) => {
-	console.log(props.sidebar);
-
 	return (
 		<SidebarNav sidebar={props.sidebar}>
 			<SidebarWrap>
