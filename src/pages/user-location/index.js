@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import DropdownBrazilianCities from "../../components/forms/DropdownBrazilianCities";
+import DropdownBrazilianStates from "../../components/forms/DropdownBrazilianStates";
 import { Page, Container } from "./styles";
 const YourLocation = () => {
 	useEffect(() => {
@@ -7,22 +9,30 @@ const YourLocation = () => {
 			console.log(location);
 		});
 	});
+
+	const [formValues, setFormValues] = useState({});
+
+	const handleInputChange = (e) => {
+		e.preventDefault();
+		const { value, name } = e.target;
+		setFormValues({ ...formValues, [name]: value });
+	};
+
 	return (
 		<Page>
 			<Container>
 				<form className="space-control">
 					<div>
 						<label htmlFor="state">Estado: </label>
-						<select id="state">
-							<option value="">Selecione um estado...</option>
-						</select>
+						<DropdownBrazilianStates onChange={handleInputChange} />
 					</div>
 
 					<div>
 						<label htmlFor="city">Cidade: </label>
-						<select id="city">
-							<option value="">Selecione uma cidade...</option>
-						</select>
+						<DropdownBrazilianCities
+							state={formValues.state}
+							onChange={handleInputChange}
+						/>
 					</div>
 				</form>
 			</Container>
