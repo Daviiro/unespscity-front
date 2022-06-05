@@ -21,11 +21,12 @@ export const ContainerColumn = styled.div`
 	h4 {
 		margin-bottom: 10vh;
 		color: #1b262c;
-		text-align: left;
+		text-align: justify;
 		font-size: 14px;
 		font-weight: normal;
 		margin-top: -1.5vh;
 		margin-left: 1vw;
+		margin-right: 2vw;
 	}
 
 	::-webkit-scrollbar {

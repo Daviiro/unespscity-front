@@ -6,6 +6,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/administrator";
+import AdminAnimaisAbandonados from "./pages/administrator/domestic-animals/abandoned-animals";
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts";
@@ -20,6 +21,7 @@ import AdminVias from "./pages/administrator/urban-conservation/public-roads";
 import AdminFeiras from "./pages/administrator/social-services/fair";
 import AdminPiscinas from "./pages/administrator/sanitary-surveillance/pool-cleaning";
 import AdminTerreno from "./pages/administrator/sanitary-surveillance/land-cleaning";
+import AdminAmbienteIrregular from "./pages/administrator/sanitary-surveillance/report-place";
 import AdminEscorpiao from "./pages/administrator/pest-control/scorpions-habitat";
 import AdminPragas from "./pages/administrator/pest-control/insects-rodents-snails";
 import AdminLeishmaniose from "./pages/administrator/pest-control/leishmaniose";
@@ -73,6 +75,11 @@ root.render(
 			<Routes>
 				<Route exact path="/" element={<Home />} />
 				<Route exact path="/admin" element={<Dashboard />} />
+				<Route
+					exact
+					path="/admin/animais_abandonados"
+					element={<AdminAnimaisAbandonados />}
+				/>
 				<Route
 					exact
 					path="/admin/animais_mortos"
@@ -134,6 +141,11 @@ root.render(
 					exact
 					path="/admin/limpeza_de_terreno"
 					element={<AdminTerreno />}
+				/>
+				<Route
+					exact
+					path="/admin/restaurantes"
+					element={<AdminAmbienteIrregular />}
 				/>
 				<Route
 					exact
