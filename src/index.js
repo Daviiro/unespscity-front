@@ -33,6 +33,7 @@ import Login from "./pages/login";
 import Gestores from "./pages/public-administration/know-city-managers"; // Administração Pública //
 
 import Telefones from "./pages/social-care/useful-contacts"; // Assistência Social //
+import Tumulos from "./pages/social-care/grave-registration";
 
 import AnimaisSinantropicos from "./pages/domestic-animals/synanthropic-animals";
 import AnimaisAbandonados from "./pages/domestic-animals/abandoned-animals"; // Assistência Domésticos //
@@ -174,6 +175,7 @@ root.render(
 					element={<Gestores />}
 				/>
 				<Route exact path="/telefones_uteis" element={<Telefones />} />
+				<Route exact path="/tumulos" element={<Tumulos />} />
 				<Route exact path="/parques" element={<Parques />} />
 				<Route
 					exact

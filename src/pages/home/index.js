@@ -180,6 +180,11 @@ const Home = () => {
 									name: "Telefones Úteis",
 									link: "/telefones_uteis",
 								},
+								{
+									id: 2,
+									name: "Cadastro de Túmulos e Falecidos",
+									link: "/tumulos",
+								},
 							]}
 						/>
 						<Card
