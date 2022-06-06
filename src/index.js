@@ -10,6 +10,7 @@ import AdminAnimaisAbandonados from "./pages/administrator/domestic-animals/aban
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts";
+import AdminTumulos from "./pages/administrator/social-care/grave-registration";
 import AdminParques from "./pages/administrator/rural-green-areas-conservation/parks";
 import AdminPontes from "./pages/administrator/rural-green-areas-conservation/rural-road-bridges";
 import AdminPracas from "./pages/administrator/rural-green-areas-conservation/plazas";
@@ -96,6 +97,7 @@ root.render(
 					path="/admin/telefones_uteis"
 					element={<AdminTelefones />}
 				/>
+				<Route exact path="/admin/tumulos" element={<AdminTumulos />} />
 				<Route exact path="/admin/parques" element={<AdminParques />} />
 				<Route
 					exact
