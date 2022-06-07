@@ -139,6 +139,11 @@ const Home = () => {
 								},
 								{
 									id: 2,
+									name: "Animais Perdidos",
+									link: "/animais_perdidos_opcoes",
+								},
+								{
+									id: 3,
 									name: "Animais Sinantrópicos",
 									link: "/animais-sinantropicos",
 								},

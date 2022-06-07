@@ -7,7 +7,6 @@ import {
 	ContainerBase,
 	Square,
 	GrayLine,
-	ContainerColumn,
 	InputField,
 	LoginSignupSpan,
 	TopContainer,
