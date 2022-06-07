@@ -4,16 +4,9 @@ import DropdownBrazilianStates from "../../components/forms/DropdownBrazilianSta
 import { Page, Container } from "./styles";
 import FormControl from "@mui/material/FormControl";
 import LocalContext from "./Context";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const YourLocation = () => {
-	useEffect(() => {
-		//pegar a geocalizacao de forma automatica
-		navigator.geolocation.getCurrentPosition((location) => {
-			console.log(location);
-		});
-	});
-
 	const [formValues, setFormValues] = useContext(LocalContext);
 
 	const handleInputChange = (e) => {
@@ -21,6 +14,20 @@ const YourLocation = () => {
 		const { value, name } = e.target;
 		setFormValues({ ...formValues, [name]: value });
 	};
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		//pegar a geocalizacao de forma automatica
+		navigator.geolocation.getCurrentPosition((location) => {
+			console.log(location);
+		});
+
+		//caso o valor de estado e cidade forem diferentes de nulo eu navego direto para a tela da Home
+		if (formValues.state && formValues.city) {
+			navigate(`../`);
+		}
+	});
 
 	return (
 		<Page>

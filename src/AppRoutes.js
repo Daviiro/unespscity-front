@@ -1,10 +1,5 @@
 import React from "react";
-//import React from "react";
-//import ReactDOM from "react-dom";
-import { useState } from "react";
-import "./index.css";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/administrator";
@@ -82,7 +77,19 @@ const AppRoutes = () => {
 		<Router>
 			<LocalContext.Provider value={[formValues, setFormValues]}>
 				<Routes>
-					<Route exact path="/" element={<Home />} />
+					<Route
+						exact
+						path="/"
+						element={
+							formValues.state === undefined ||
+							formValues.city === undefined ? (
+								<UserLocation />
+							) : (
+								<Home />
+							)
+						}
+					/>
+
 					<Route exact path="/admin" element={<Dashboard />} />
 					<Route
 						exact
