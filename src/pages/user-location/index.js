@@ -5,6 +5,7 @@ import { Page, Container } from "./styles";
 import FormControl from "@mui/material/FormControl";
 import LocalContext from "./Context";
 import { useNavigate } from "react-router-dom";
+import { fetchLocation } from "../../services/GoogleMaps";
 
 const YourLocation = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -20,7 +21,14 @@ const YourLocation = () => {
 	useEffect(() => {
 		//pegar a geocalizacao de forma automatica
 		navigator.geolocation.getCurrentPosition((location) => {
-			console.log(location);
+			console.log(location.coords.latitude);
+			console.log(location.coords.longitude);
+			fetchLocation(
+				location.coords.latitude,
+				location.coords.longitude
+			).then((data) => {
+				console.log(data);
+			});
 		});
 
 		//caso o valor de estado e cidade forem diferentes de nulo eu navego direto para a tela da Home
