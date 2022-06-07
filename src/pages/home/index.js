@@ -1,16 +1,15 @@
-import React from "react";
-import {
-	ContainerBase,
-	Content,
-	WrapContainer,
-	GrayLine,
-} from "./styles";
+import React, { useContext } from "react";
+import { ContainerBase, Content, WrapContainer, GrayLine } from "./styles";
 import Header from "../../components/header";
 import Card from "./service-card";
 import ChartHome from "./chart";
 import Footer from "../../components/footer";
+import LocalContext from "../user-location/Context";
 
 const Home = () => {
+	const [formValues, setFormValues] = useContext(LocalContext);
+	console.log("teste " + formValues.state);
+	console.log("teste " + formValues.city);
 	return (
 		<>
 			<ContainerBase>

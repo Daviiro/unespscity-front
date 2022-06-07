@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DropdownBrazilianCities from "../../components/forms/DropdownBrazilianCities";
 import DropdownBrazilianStates from "../../components/forms/DropdownBrazilianStates";
 import { Page, Container } from "./styles";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
+import LocalContext from "./Context";
+import { Link } from "react-router-dom";
 
 const YourLocation = () => {
 	useEffect(() => {
@@ -13,7 +14,7 @@ const YourLocation = () => {
 		});
 	});
 
-	const [formValues, setFormValues] = useState({});
+	const [formValues, setFormValues] = useContext(LocalContext);
 
 	const handleInputChange = (e) => {
 		e.preventDefault();

@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Page = styled.div`
 	width: 100%;
 	height: 100vh;
-	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
+	/*background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);*/
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
