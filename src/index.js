@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/administrator";
 import AdminAnimaisAbandonados from "./pages/administrator/domestic-animals/abandoned-animals";
+import AdminAnimaisPerdidos from "./pages/administrator/domestic-animals/lost-animals";
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts";
@@ -36,8 +37,11 @@ import Gestores from "./pages/public-administration/know-city-managers"; // Admi
 import Telefones from "./pages/social-care/useful-contacts"; // Assistência Social //
 import Tumulos from "./pages/social-care/grave-registration";
 
+import AnimaisAbandonados from "./pages/domestic-animals/abandoned-animals"; // Animais Domésticos //
+import AnimaisPerdidosOpcoes from "./pages/domestic-animals/lost-animals/option";
+import AnimaisPerdidosNovo from "./pages/domestic-animals/lost-animals/index1";
+import AnimaisPerdidosLista from "./pages/domestic-animals/lost-animals/index2";
 import AnimaisSinantropicos from "./pages/domestic-animals/synanthropic-animals";
-import AnimaisAbandonados from "./pages/domestic-animals/abandoned-animals"; // Assistência Domésticos //
 
 import Parques from "./pages/rural-green-areas-conservation/parks"; // Conservação Rural e Áreas Verdes //
 import Pontes from "./pages/rural-green-areas-conservation/rural-road-bridges";
@@ -82,6 +86,7 @@ root.render(
 					path="/admin/animais_abandonados"
 					element={<AdminAnimaisAbandonados />}
 				/>
+				<Route exact path = "/admin/animais_perdidos" element = {<AdminAnimaisPerdidos />} />
 				<Route
 					exact
 					path="/admin/animais_mortos"
@@ -219,6 +224,9 @@ root.render(
 					path="/animais_mortos"
 					element={<Animais_Mortos />}
 				/>
+				<Route exact path = "/animais_perdidos_opcoes" element = {<AnimaisPerdidosOpcoes />} />
+				<Route exact path = "/animais_perdidos_novo" element = {<AnimaisPerdidosNovo />} />
+				<Route exact path = "/animais_perdidos_lista" element = {<AnimaisPerdidosLista />} />
 				<Route
 					exact
 					path="/animais_abandonados"

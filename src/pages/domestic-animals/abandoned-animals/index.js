@@ -33,12 +33,17 @@ const AnimaisAbandonados = () => {
 							{
 								id: 1,
 								name: "Animais Abandonados",
-								link: "/admin/animais_abandonados",
+								link: "/animais_abandonados",
 							},
 							{
 								id: 2,
+								name: "Animais Perdidos",
+								link: "/animais_perdidos_opcoes",
+							},
+							{
+								id: 3,
 								name: "Animais Sinantrópicos",
-								link: "/admin/animais-sinantropicos",
+								link: "/animais-sinantropicos",
 							},
 						]}
 					/>
