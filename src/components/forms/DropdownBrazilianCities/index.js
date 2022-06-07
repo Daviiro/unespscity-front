@@ -1,28 +1,20 @@
 import { useState, useEffect } from "react";
-import { fetchCitiesForState } from "../../../helpers/IBGE";
+import { fetchCitiesForState, parseCities } from "../../../helpers/IBGE";
+import Dropdown from "../Dropdown";
 
-const DropdownBrazilianCities = ({ state, onChange = () => {} }) => {
+const DropdownBrazilianCities = ({ id, name, state, onChange = () => {} }) => {
 	const [cities, setCities] = useState([]);
 
 	useEffect(() => {
-		fetchCitiesForState(state).then((cities) => {
-			setCities(cities);
-		});
+		setCities([{ label: "Carreggando...", value: "" }]);
+		fetchCitiesForState(state)
+			.then(parseCities)
+			.then((cities) => {
+				setCities(cities);
+			});
 	}, [state]);
 
-	return (
-		<select id="city" name="city" onChange={onChange}>
-			<option value="">Selecione uma cidade...</option>
-			{cities.map((city) => {
-				const { id, nome } = city;
-				return (
-					<option key={id} value={id}>
-						{nome}
-					</option>
-				);
-			})}
-		</select>
-	);
+	return <Dropdown id={id} name={name} onChange={onChange} data={cities} />;
 };
 
 export default DropdownBrazilianCities;

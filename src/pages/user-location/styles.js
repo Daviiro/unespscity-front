@@ -12,6 +12,10 @@ export const Page = styled.div`
 
 export const Container = styled.div`
 	width: 480px;
+	height: 8rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	form select {
 		width: 100%;
 		border-radius: 0.25rem;
@@ -22,9 +26,6 @@ export const Container = styled.div`
 	}
 
 	.space-control {
-		height: 200px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
+		min-width: 480px;
 	}
 `;

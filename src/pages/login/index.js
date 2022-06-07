@@ -19,15 +19,15 @@ const Login = () => {
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
 	const [toggle, setToggle] = useState(true);
-	const [titleLoginColor, setTitleLoginColor] = useState("#3282b8");
+	const [titleLoginColor, setTitleLoginColor] = useState("var(--secondary)");
 	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
 
 	useEffect(() => {
 		if (toggle) {
 			setTitleLoginColor("#000000");
-			setTitleSignupColor("#3282b8");
+			setTitleSignupColor("var(--secondary)");
 		} else {
-			setTitleLoginColor("#3282b8");
+			setTitleLoginColor("var(--secondary)");
 			setTitleSignupColor("#000000");
 		}
 	});

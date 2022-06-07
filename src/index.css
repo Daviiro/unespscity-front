@@ -4,6 +4,10 @@ body {
 	font-family: sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	/*cores padrões*/
+	--primary: #0f4c75;
+	--secondary: #3282b8;
 }
 
 code {
