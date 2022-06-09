@@ -220,9 +220,19 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Vítimas de Violência Doméstica",
+									link: "/violencia_domestica",
 								},
+								{
+									id: 2,
+									name: "Registro de Ocorrências de Acidentes",
+									link: "/ocorrencia_acidentes",
+								},
+								{
+									id: 3,
+									name: "Registro de Ocorrências de Furto/Roubo",
+									link: "/ocorrencia_furto_roubo",
+								}
 							]}
 						/>
 						<Card
@@ -244,6 +254,16 @@ const Home = () => {
 									id: 1,
 									name: "Conheça os Gestores",
 									link: "/conheca_os_gestores",
+								},
+								{
+									id: 2,
+									name: "Consultar as propostas apresentadas e aprovadas",
+									link: "/consultar_propostas",
+								},
+								{
+									id: 3,
+									name: "Central Anticorrupção",
+									link: "/denuncia_corrupcao",
 								},
 							]}
 						/>

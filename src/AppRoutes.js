@@ -30,6 +30,8 @@ import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 
 import Gestores from "./pages/public-administration/know-city-managers"; // Administração Pública //
+import Propostas from "./pages/public-administration/consult_proposals";
+import DenunciaCorrupcao from "./pages/public-administration/report_corruption";
 
 import Telefones from "./pages/social-care/useful-contacts"; // Assistência Social //
 import Tumulos from "./pages/social-care/grave-registration";
@@ -66,6 +68,10 @@ import Restaurante from "./pages/sanitary-surveillance/report-place";
 //fauna e flora//
 import HandlingWildAnimals from "./pages/fauna-flora/wild-animals";
 
+import ViolenciaDomestica from "./pages/security-and-civil-defence/domestic-violence"; // Segurança e Defesa Civil //
+import OcorrenciaAcidentes from "./pages/security-and-civil-defence/report-accidents";
+import FurtoRoubo from "./pages/security-and-civil-defence/theft-robbery";
+
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
 
@@ -82,7 +88,7 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-							formValues.city === undefined ? (
+								formValues.city === undefined ? (
 								<UserLocation />
 							) : (
 								<Home />
@@ -308,6 +314,31 @@ const AppRoutes = () => {
 						exact
 						path="/animais-silvestres"
 						element={<HandlingWildAnimals />}
+					/>
+					<Route
+						exact
+						path="/violencia_domestica"
+						element={<ViolenciaDomestica />}
+					/>
+					<Route
+						exact
+						path="/ocorrencia_acidentes"
+						element={<OcorrenciaAcidentes />}
+					/>
+					<Route
+						exact
+						path="/ocorrencia_furto_roubo"
+						element={<FurtoRoubo />}
+					/>
+					<Route
+						exact
+						path="/consultar_propostas"
+						element={<Propostas />}
+					/>
+					<Route
+						exact
+						path="/denuncia_corrupcao"
+						element={<DenunciaCorrupcao />}
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />
