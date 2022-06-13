@@ -23,11 +23,11 @@ const Dashboard = () => {
                 <Content>
                     <ContainerColumn>
                         <h1> Dashboard </h1>
-                        <StyledHr style = {{ width: "95%" }} />
+                        <StyledHr style = {{ width: "95%", marginLeft: "-2vw" }} />
                         <ProblemsButtom> <h3> Visualizar novos problemas </h3> </ProblemsButtom>
                         <ContainerRow>
                             <DashboardChart1 />
-                            <DashboardChart2 />
+                            <DashboardChart2 style />
                         </ContainerRow>
                         <GrayLine />
                     </ContainerColumn>
