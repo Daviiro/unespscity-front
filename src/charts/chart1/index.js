@@ -21,7 +21,7 @@ const DashboardChart1 = () => {
 				</h3>
 				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> {totalTotal} </span>
 				<PieChart
-            		center = {[69, 50]}
+            		center = {[74, 50]}
             		data = {[
                 		{title: "Conservação Urbana: " + totalSolicitados[0], value: totalSolicitados[0], color: "#b83333"},
                 		{title: "Conservação Rural/Áreas Verdes: " + totalSolicitados[1], value: totalSolicitados[1], color: "#691b1b"},
@@ -45,7 +45,7 @@ const DashboardChart1 = () => {
             		lengthAngle = {360}
             		lineWidth = {30}
             		radius = {50}
-            		viewBoxSize = {[150, 150]}
+            		viewBoxSize = {[160, 160]}
         		/>
 			</div>
 		</>

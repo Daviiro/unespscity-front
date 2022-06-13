@@ -9,11 +9,12 @@ export const ContainerBase = styled.div`
 
 export const Content = styled.div`
 	display: flex;
-	width: 100%;
+	width: 92.5%;
 	margin-top: -6.5vh;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	margin-left: 7.5vw;
 `;
 
 export const ProblemsButtom = styled.div`
@@ -22,9 +23,9 @@ export const ProblemsButtom = styled.div`
 	background: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	border: none;
 	border-radius: 10px;
-	margin-top: 1.6vh;
-	margin-bottom: 3vh;
-	margin-left: 38.5vw;
+	margin-top: 2.5vh;
+	margin-bottom: 5vh;
+	margin-left: 18.5vw;
 	text-align: center;
 
 	h3 {
@@ -41,11 +42,11 @@ export const ProblemsButtom = styled.div`
 
 export const GrayLine = styled.div`
 	height: 0.3vh;
-	width: 90%;
+	width: 93%;
 	background-color: lightgray;
-	margin-top: -9.25vh;
+	margin-top: -18.2vh;
 	margin-bottom: 12.5vh;
-	margin-left: 5%;
+	margin-left: -2vw;
 `;
 
 export const ContainerColumn = styled.div`
@@ -64,6 +65,7 @@ export const ContainerRow = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	margin-left: -5vw;
 	
 	h1 {
 		margin-top: 0vh; 

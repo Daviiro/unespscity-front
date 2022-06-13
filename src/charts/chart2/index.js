@@ -13,6 +13,7 @@ const DashboardChart2 = () => {
 					display: "flex",
 					flexDirection: "column",
 					alignItems: "center",
+					marginLeft: "-12vw"
 				}}
 			>
 				<h3 style={{ marginTop: "0.5vh", marginBottom: "0vh", marginLeft: "-2.75vw" }}>
@@ -21,7 +22,7 @@ const DashboardChart2 = () => {
 				</h3>
 				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> Serviços solicitados/resolvidos </span>
 				<PieChart
-            		center = {[69, 50]}
+            		center = {[74, 50]}
             		data = {[
                 		{title: "Total Resolvidos: " + totalResolvidos, value: totalResolvidos, color: "#3282b8"},
                 		{title: "Total Solicitados: " + totalSolicitados, value: totalSolicitados, color: "#133d59"},
@@ -30,7 +31,7 @@ const DashboardChart2 = () => {
             		lengthAngle = {360}
             		lineWidth = {30}
             		radius = {50}
-            		viewBoxSize = {[150, 150]}
+            		viewBoxSize = {[160, 160]}
         		/>
 			</div>
 		</>
