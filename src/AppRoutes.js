@@ -71,6 +71,8 @@ import Sistema from "./pages/system";
 
 import LocalContext from "./pages/user-location/Context";
 
+import Teste from "./pages/teste";
+
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
 	return (
@@ -311,6 +313,7 @@ const AppRoutes = () => {
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />
+					<Route exact path="/teste" element={<Teste />} />
 				</Routes>
 			</LocalContext.Provider>
 		</Router>
