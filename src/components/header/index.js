@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
 	HeaderContainer,
 	ContainerActions,
@@ -12,6 +12,8 @@ import * as FaIcons from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
 import SlideDownMenu from "./slide-down-menu";
 import { FiSettings } from "react-icons/fi";
+import LocalContext from "../../pages/user-location/Context";
+import { fetchCityForID } from "../../services/IBGE";
 
 const Header = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -41,16 +43,21 @@ const Header = () => {
 
 	const showSidebar = () => {
 		setSidebar(!sidebar);
-		//console.log("clicado");
 	};
-	//console.log(sidebar);
+
+	const [formValues, setFormValues] = useContext(LocalContext);
+	const [cityName, setCityName] = useState("");
+
+	fetchCityForID(formValues.city).then((city) => {
+		setCityName(city);
+	});
 
 	return (
 		<>
 			<Sidebar sidebar={sidebar} showSidebar={showSidebar} />
 			<HeaderContainer>
 				<ContainerLogo>
-					<Link to="/">
+					<Link to="/" className="logo">
 						{" "}
 						<img
 							src={
@@ -60,7 +67,16 @@ const Header = () => {
 							alt="Logo"
 						/>
 					</Link>
+					<div
+						style={{ color: "white", cursor: "pointer" }}
+						onClick={() => setFormValues({ undefined })}
+					>
+						<span>
+							{formValues.state}, {cityName}
+						</span>
+					</div>
 				</ContainerLogo>
+
 				<ContainerCenter>
 					<h1 style={{ cursor: "default" }}> UnespSCity </h1>
 				</ContainerCenter>

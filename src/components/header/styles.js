@@ -86,10 +86,14 @@ export const ContainerCenter = styled.div`
 `;
 
 export const ContainerLogo = styled.div`
-	width: 10rem;
+	width: 12rem;
 	padding-left: 2rem;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
+	font-size: 14px;
+	.logo {
+		padding-right: 1rem;
+	}
 `;

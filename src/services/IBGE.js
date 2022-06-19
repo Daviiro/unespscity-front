@@ -13,6 +13,16 @@ export const fetchCitiesForState = (state) => {
 	return fetch(url, { cache: "force-cache" }).then(responseToJson);
 };
 
+export const fetchCityForID = (id) => {
+	if (!id) return Promise.resolve([]);
+	const url = `${BASE_URL}/localidades/municipios/${id}`;
+	return fetch(url)
+		.then(responseToJson)
+		.then((responseJson) => {
+			return responseJson.nome;
+		});
+};
+
 export const parseStates = (states) => {
 	const data = states
 		.map((state) => {
