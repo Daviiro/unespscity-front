@@ -84,7 +84,10 @@ const Login = () => {
 					</MidContainer>
 					<GrayLine />
 					<BottomContainer>
-						<Link to="/" style={{ textDecoration: "none" }}>
+						<Link
+							to="/password-reset"
+							style={{ textDecoration: "none" }}
+						>
 							{" "}
 							<h4> Esqueceu sua senha? </h4>{" "}
 						</Link>

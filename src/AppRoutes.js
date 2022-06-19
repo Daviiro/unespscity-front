@@ -68,7 +68,7 @@ import HandlingWildAnimals from "./pages/fauna-flora/wild-animals";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
-
+import PasswordReset from "./pages/password-reset";
 import LocalContext from "./pages/user-location/Context";
 
 import Teste from "./pages/teste";
@@ -313,6 +313,11 @@ const AppRoutes = () => {
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />
+					<Route
+						exact
+						path="/password-reset"
+						element={<PasswordReset />}
+					/>
 					<Route exact path="/teste" element={<Teste />} />
 				</Routes>
 			</LocalContext.Provider>

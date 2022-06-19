@@ -9,12 +9,13 @@ export const ContainerBase = styled.div`
 
 export const Square = styled.div`
 	display: block;
-	height: 62.5vh;
+	height: auto;
 	width: 31.25vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 5px;
 	box-shadow: 5px 5px 10px gray;
-	padding: 1rem;
+
+	padding: 5rem 1rem;
 `;
 
 export const ContainerRow = styled.div`
@@ -79,7 +80,7 @@ export const LoginSignupSpan = styled.span`
 
 export const TopContainer = styled.div`
 	height: 20%;
-	padding: 0 2.5rem;
+	padding: 0 4rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
