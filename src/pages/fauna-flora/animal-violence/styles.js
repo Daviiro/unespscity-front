@@ -74,7 +74,7 @@ export const ServiceDescription = styled.div`
 `;
 
 export const GrayLine2 = styled.div`
-	margin-top: -10.75vh;
+	margin-top: -12.75vh;
 	margin-bottom: 5vh;
 	height: 0.4vh;
 	width: 90vw;

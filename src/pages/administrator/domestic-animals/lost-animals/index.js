@@ -37,6 +37,11 @@ const AdminAnimaisPerdidos = () => {
 							},
 							{
 								id: 3,
+								name: "Maus tratos à Animais",
+								link: "/admin/maus_tratos",
+							},
+							{
+								id: 4,
 								name: "Animais Sinantrópicos",
 								link: "/admin/animais-sinantropicos",
 							},

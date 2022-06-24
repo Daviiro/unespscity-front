@@ -24,10 +24,10 @@ import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 
-const AnimaisSilvestres = () => {
+const MausTratosAnimais = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 23;
-	const totalResolvidos = 14;
+	const totalSolicitados = 25;
+	const totalResolvidos = 4;
 	return (
 		<>
 			<ContainerBase>
@@ -50,13 +50,13 @@ const AnimaisSilvestres = () => {
 						]}
 					/>
 					<ContainerColumn>
-						<h1> Fiscalização de Animais Silvestres </h1>
+						<h1> Maus tratos à Animais </h1>
 						<StyledHr />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
 					<ServiceDescription> 
-						<h3> Utilize este serviço para denunciar o comércio ilegal de animais silvestres, informar a localização de um deles perdido/preso/em cativeiro, ou ainda informar um deles causando perturbação pública. </h3>	
+						<h3> Utilize este serviço para denunciar a prática de maus tratos à animais silvestres ou domésticos. </h3>	
 					</ServiceDescription>
 					<GrayLine2 />
 					<Details>
@@ -71,24 +71,17 @@ const AnimaisSilvestres = () => {
 							placeholder="Opcional"
 						/>
 						<div>
-							<input type="checkbox" id="Comércio Ilegal de animais silvestres" />
-							<label for="Comércio Ilegal de animais silvestres" style={{ fontSize: "14px" }}>
+							<input type="checkbox" id="Maus tratos à Animais Silvestres" />
+							<label for="Maus tratos à Animais Silvestres" style={{ fontSize: "14px" }}>
 								{" "}
-								Comércio Ilegal de animais selvagens{" "}
+								Maus tratos à Animais Silvestres{" "}
 							</label>
 						</div>
 						<div>
-							<input type="checkbox" id="Animal Silvestre perdido, preso ou em cativeiro" />
-							<label for="Animal Silvestre perdido, preso ou em cativeiro" style={{ fontSize: "14px" }}>
+							<input type="checkbox" id="Maus tratos à Animais Domésticos" />
+							<label for="Maus tratos à Animais Domésticos" style={{ fontSize: "14px" }}>
 								{" "}
-								Animal Selvagem perdido, preso ou em cativeiro{" "}
-							</label>
-						</div>
-						<div>
-							<input type="checkbox" id="Animal silvestre causando perturbação pública" />
-							<label for="Animal silvestre causando perturbação pública" style={{ fontSize: "14px" }}>
-								{" "}
-								Animal selvagem causando perturbação pública{" "}
+								Maus tratos à Animais Domésticos{" "}
 							</label>
 						</div>
 						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
@@ -110,4 +103,4 @@ const AnimaisSilvestres = () => {
 	);
 };
 
-export default AnimaisSilvestres;
+export default MausTratosAnimais;
