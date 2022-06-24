@@ -42,6 +42,11 @@ const AnimaisAbandonados = () => {
 							},
 							{
 								id: 3,
+								name: "Maus tratos à Animais",
+								link: "/maus_tratos",
+							},
+							{
+								id: 4,
 								name: "Animais Sinantrópicos",
 								link: "/animais-sinantropicos",
 							},

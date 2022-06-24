@@ -11,7 +11,7 @@ export const SubHeader = styled.div`
 	display: flex;
 	flex-direction: row;
 	margin-top: -10.5vh;
-	margin-bottom: 3vh;
+	margin-bottom: 10vh;
 	flex-wrap: wrap;
 	padding-left: 2.5vw;
 
@@ -50,59 +50,27 @@ export const Square = styled.div`
 `;
 
 export const Details = styled.div`
-	height: 95%;
-	width: 47.5vw;
+	margin-top: 7vh;
+	height: 63.5vw;
+	width: 63.5vw;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
 	display: flex; 
 	flex-direction: column; 
 	align-items: center; 
-	justify-content: center;
-	padding-bottom: 4vh;
-`;
+	padding: 4vh;
+	overflow-y: auto;
 
-export const ServiceDescription = styled.div`
-	margin-top: -12.75vh;
-	height: 25vh;
-    width: 45vw;
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-
-    h3 { color: gray; }
-`;
-
-export const GrayLine2 = styled.div`
-	margin-top: -10.75vh;
-	margin-bottom: 5vh;
-	height: 0.4vh;
-	width: 90vw;
-	background-image: linear-gradient(to right, #ffffff, gray, #ffffff);
-`;
-
-export const InputAddressContainer = styled.div`
-	margin-top: 0vh;
-	width: 45vw;
-	display: flex; 
-	justify-content: space-between;
-`;
-
-export const InputLocalization = styled.button`
-    margin-top: 7.5vh;
-`;
-
-export const ChartContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 50vh;
-	width: 100%;
-	margin-top: 12.5vh;
-
-	h3 {
-		margin-top: 0vh;
-		margin-bottom: 5vh;
+	::-webkit-scrollbar {
+		width: 12px; 
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 30px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 30px;
 	}
 `;

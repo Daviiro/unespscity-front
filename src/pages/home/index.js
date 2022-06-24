@@ -143,6 +143,11 @@ const Home = () => {
 								},
 								{
 									id: 3,
+									name: "Maus tratos à Animais",
+									link: "/maus_tratos",
+								},
+								{
+									id: 4,
 									name: "Animais Sinantrópicos",
 									link: "/animais-sinantropicos",
 								},
@@ -165,13 +170,13 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "Animais de Grande Porte",
-									link: "/animais-grande-porte",
+									name: "Fiscalização de Animais Silvestres",
+									link: "/animais_silvestres",
 								},
 								{
 									id: 2,
-									name: "Animais Silvestres",
-									link: "/animais-silvestres",
+									name: "Maus tratos à Animais",
+									link: "/maus_tratos",
 								},
 							]}
 						/>

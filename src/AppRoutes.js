@@ -6,6 +6,8 @@ import Dashboard from "./pages/administrator";
 import AdminAnimaisAbandonados from "./pages/administrator/domestic-animals/abandoned-animals";
 import AdminAnimaisPerdidos from "./pages/administrator/domestic-animals/lost-animals";
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
+import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence";
+import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts";
 import AdminTumulos from "./pages/administrator/social-care/grave-registration";
@@ -63,8 +65,8 @@ import Piscinas from "./pages/sanitary-surveillance/pool-cleaning"; // Vigilânc
 import Terreno from "./pages/sanitary-surveillance/land-cleaning";
 import Restaurante from "./pages/sanitary-surveillance/report-place";
 
-//fauna e flora//
-import HandlingWildAnimals from "./pages/fauna-flora/wild-animals";
+import AnimaisSilvestres from "./pages/fauna-flora/wild-animals";	//Fauna e Flora//
+import MausTratosAnimais from "./pages/fauna-flora/animal-violence";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -107,6 +109,16 @@ const AppRoutes = () => {
 						exact
 						path="/admin/animais_mortos"
 						element={<AdminAnimaisMortos />}
+					/>
+					<Route
+						exact
+						path="/admin/animais_silvestres"
+						element={<AdminAnimaisSilvestres />}
+					/>
+					<Route
+						exact
+						path="/admin/maus_tratos"
+						element={<AdminMausTratosAnimais />}
 					/>
 					<Route
 						exact
@@ -308,8 +320,13 @@ const AppRoutes = () => {
 
 					<Route
 						exact
-						path="/animais-silvestres"
-						element={<HandlingWildAnimals />}
+						path="/animais_silvestres"
+						element={<AnimaisSilvestres />}
+					/>
+					<Route
+						exact
+						path="/maus_tratos"
+						element={<MausTratosAnimais />}
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />
