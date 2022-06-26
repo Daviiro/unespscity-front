@@ -19,8 +19,14 @@ export const WrapContainer = styled.div`
 	@media (min-width: 800px) and (max-width: 1279px) {
 		width: 80vw;
 	}
-	@media (min-width: 1280px) {
+	@media (min-width: 1280px) and (max-width: 1510px) {
 		width: 86vw;
+	}
+	@media (min-width: 1511px) and (max-width: 1708px) {
+		width: 76vw;
+	}
+	@media (min-width: 1708px) {
+		width: 66vw;
 	}
 `;
 
