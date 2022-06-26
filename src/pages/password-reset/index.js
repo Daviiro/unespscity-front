@@ -14,7 +14,7 @@ const PasswordReset = () => {
 
 	return (
 		<ContainerBase>
-			<Square className="teste">
+			<Square>
 				<TopContainer>
 					<h4>Esqueceu a senha? </h4>
 				</TopContainer>
@@ -34,7 +34,16 @@ const PasswordReset = () => {
 					value={email}
 					onChange={handleChange}
 				/>
-				<Button text="Confirmar" />
+				<div
+					style={{
+						marginLeft: "auto",
+						marginRight: "auto",
+						display: "flex",
+						justifyContent: "center",
+					}}
+				>
+					<Button text="Confirmar" />
+				</div>
 			</Square>
 		</ContainerBase>
 	);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import TextField from "@mui/material/TextField";
 import Button from "../../components/styled-components/form-button";
 
 import {
@@ -17,6 +17,7 @@ import {
 const Login = () => {
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState("");
 	const [toggle, setToggle] = useState(true);
 	const [titleLoginColor, setTitleLoginColor] = useState("var(--secondary)");
 	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
@@ -30,6 +31,19 @@ const Login = () => {
 			setTitleSignupColor("#000000");
 		}
 	});
+
+	const handleUserChange = (event) => {
+		setUser(event.target.value);
+		console.log(email);
+	};
+	const handleEmailChange = (event) => {
+		setEmail(event.target.value);
+		console.log(email);
+	};
+	const handlePasswordChange = (event) => {
+		setPassword(event.target.value);
+		console.log(email);
+	};
 
 	return (
 		<>
@@ -63,20 +77,54 @@ const Login = () => {
 					<MidContainer>
 						{toggle ? (
 							<>
-								<InputField type="email" placeholder="E-mail" />
-								<InputField
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="E-mail"
+									variant="outlined"
+									value={email}
+									onChange={handleEmailChange}
+								/>
+								<br />
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Senha"
+									variant="outlined"
 									type="password"
-									placeholder="Senha"
+									value={password}
+									onChange={handlePasswordChange}
 								/>
 								<Button text="Entrar" />
 							</>
 						) : (
 							<>
-								<InputField type="nome" placeholder="Nome" />
-								<InputField type="email" placeholder="E-mail" />
-								<InputField
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Nome"
+									variant="outlined"
+									value={user}
+									onChange={handleUserChange}
+								/>
+								<br />
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="E-mail"
+									variant="outlined"
+									value={email}
+									onChange={handleEmailChange}
+								/>
+								<br />
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Senha"
+									variant="outlined"
 									type="password"
-									placeholder="Senha"
+									value={password}
+									onChange={handlePasswordChange}
 								/>
 								<Button text="Cadastrar" />
 							</>
