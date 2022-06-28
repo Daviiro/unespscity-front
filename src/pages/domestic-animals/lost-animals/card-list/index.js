@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, ButtonDiv, ContainerColumn, InfoContainer, ListCardContainer } from "./styles";
 import ImageCarousel from "../../../../components/images-carousel";
 
-const AnimalsListCard = (props) => {
+const ListCard = (props) => {
     const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
@@ -36,7 +36,7 @@ const AnimalsListCard = (props) => {
                         </Button>
                     ) : (
                         <>
-                            <Button variant="outlined"> Falar com o dono </Button>
+                            <Button variant="outlined"> {props.button} </Button>
                         </>
                     )
                 }
@@ -44,4 +44,4 @@ const AnimalsListCard = (props) => {
         </ListCardContainer>
     );
 };
-export default AnimalsListCard;
+export default ListCard;

@@ -6,6 +6,7 @@ import Dashboard from "./pages/administrator";
 import AdminAnimaisAbandonados from "./pages/administrator/domestic-animals/abandoned-animals";
 import AdminAnimaisPerdidos from "./pages/administrator/domestic-animals/lost-animals";
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";
+import AdminAdocaoAreas from "./pages/administrator/environment/public-areas-adoption";
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence";
 import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers";
@@ -41,6 +42,11 @@ import AnimaisPerdidosOpcoes from "./pages/domestic-animals/lost-animals/option"
 import AnimaisPerdidosNovo from "./pages/domestic-animals/lost-animals/index1";
 import AnimaisPerdidosLista from "./pages/domestic-animals/lost-animals/index2";
 import AnimaisSinantropicos from "./pages/domestic-animals/synanthropic-animals";
+
+import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option";	// Meio Ambiente //
+import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
+import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
+import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
 
 import Parques from "./pages/rural-green-areas-conservation/parks"; // Conservação Rural e Áreas Verdes //
 import Pontes from "./pages/rural-green-areas-conservation/rural-road-bridges";
@@ -109,6 +115,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/animais_mortos"
 						element={<AdminAnimaisMortos />}
+					/>
+					<Route
+						exact
+						path="/admin/adocao_areas_publicas"
+						element={<AdminAdocaoAreas />}
 					/>
 					<Route
 						exact
@@ -295,6 +306,26 @@ const AppRoutes = () => {
 						exact
 						path="/animais_abandonados"
 						element={<AnimaisAbandonados />}
+					/>
+					<Route
+						exact
+						path="/adocao_areas_opcoes"
+						element={<AdocaoAreasOpcoes />}
+					/>
+					<Route
+						exact
+						path="/adocao_areas_disponiveis"
+						element={<AdocaoAreasDisponiveis />}
+					/>
+					<Route
+						exact
+						path="/adocao_areas_adotadas"
+						element={<AdocaoAreasAdotadas />}
+					/>
+					<Route
+						exact
+						path="/adocao_areas_regras"
+						element={<AdocaoAreasRegras />}
 					/>
 					<Route exact path="/feiras_livres" element={<Feiras />} />
 					<Route
