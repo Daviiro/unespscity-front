@@ -7,6 +7,7 @@ import Dashboard from "./pages/administrator";  // DASHBOARD PARA O ADMIN
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
+import Map from "./components/pop-up-map/index1";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -227,6 +228,10 @@ const AppRoutes = () => {
 					<Route 
 						exact path="/login" 
 						element={<Login />} 
+					/>
+					<Route 
+						exact path="/location" 
+						element={<Map />} 
 					/>
 					<Route
 						exact path="/conheca_os_gestores"
