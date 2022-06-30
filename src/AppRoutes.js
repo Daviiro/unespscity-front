@@ -7,7 +7,7 @@ import Dashboard from "./pages/administrator";  // DASHBOARD PARA O ADMIN
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import Map from "./components/pop-up-map/index1";
+import Map from "./services/map-page-test/index1";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -85,8 +85,6 @@ import Escorpiao from "./pages/pest-control/scorpions-habitat";
 import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
-
-import Teste from "./pages/teste";
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -389,7 +387,6 @@ const AppRoutes = () => {
 						path="/password-reset"
 						element={<PasswordReset />}
 					/>
-					<Route exact path="/teste" element={<Teste />} />
 				</Routes>
 			</LocalContext.Provider>
 		</Router>
