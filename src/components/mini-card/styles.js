@@ -10,7 +10,9 @@ export const MiniCardContainer = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-
+	margin: 0.5rem;
+	min-width: 97px;
+	min-height: 120px;
 	img {
 		height: 9vh;
 		width: auto;
@@ -23,5 +25,7 @@ export const MiniCardContainer = styled.div`
 		color: #1b262c;
 	}
 
-	:hover { cursor: pointer; }
+	:hover {
+		cursor: pointer;
+	}
 `;

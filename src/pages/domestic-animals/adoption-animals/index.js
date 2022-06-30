@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
 	ContainerBase,
@@ -12,18 +12,19 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
-import ListCard from "./card-list";
+//import ListCard from "./card-list";
+import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
 
 const AdoptionAnimals = () => {
-    return (
-        <>
+	return (
+		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source = "/assets/img/home_animais_domesticos.png"
-						titulo = "Animais Domésticos"
+						source="/assets/img/home_animais_domesticos.png"
+						titulo="Animais Domésticos"
 						linkItems={[
 							{
 								id: 1,
@@ -45,7 +46,7 @@ const AdoptionAnimals = () => {
 								name: "Animais Sinantrópicos",
 								link: "/animais-sinantropicos",
 							},
-                            {
+							{
 								id: 5,
 								name: "Adoção de Animais",
 								link: "/adocao_animais",
@@ -58,56 +59,56 @@ const AdoptionAnimals = () => {
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description = "Aqui você pode checar a lista de animais disponíveis para a adoção." />
+					<ServiceDescription description="Aqui você pode checar a lista de animais disponíveis para a adoção." />
 					<Details>
-					<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+						<ListCard
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 						<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 						<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 						<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 						<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 						<ListCard
-							source = "/assets/img/home_animais_domesticos.png"
-							nome = "[última vez visto]"
-							sobrenome = "[último local visto]"
-							descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button = "Falar com o dono"
+							source="/assets/img/home_animais_domesticos.png"
+							nome="[última vez visto]"
+							sobrenome="[último local visto]"
+							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+							button="Falar com o dono"
 						/>
 					</Details>
 				</Square>
 				<Footer />
 			</ContainerBase>
 		</>
-    )
-}
+	);
+};
 
 export default AdoptionAnimals;

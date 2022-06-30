@@ -80,7 +80,8 @@ export const LoginSignupSpan = styled.span`
 
 export const TopContainer = styled.div`
 	height: 20%;
-	padding: 0 4rem;
+	width: 31vw;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
