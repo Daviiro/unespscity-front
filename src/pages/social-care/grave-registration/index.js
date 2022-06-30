@@ -15,7 +15,6 @@ import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import Button from "../../../components/styled-components/form-button";
-import DescriptionInput from "../../../components/description-input";
 import InputQR from "./input-qr";
 import Input from "../../../components/input";
 import GrayLine from "../../../components/styled-components/gray-line";
@@ -42,6 +41,11 @@ const Tumulos = () => {
 								id: 2,
 								name: "Cadastro de Túmulos e Falecidos",
 								link: "/tumulos",
+							},
+							{
+								id: 3,
+								name: "Programação Cultural",
+								link: "/programacao_cultural",
 							},
 						]}
 					/>

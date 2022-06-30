@@ -30,6 +30,11 @@ const AdocaoAreasRegras = () => {	// posteriormente, cada secretaria modificaria
                                 name: "Adoção de Áreas Públicas",
                                 link: "/adocao_areas_opcoes",
                             },
+							{
+                                id: 2,
+                                name: "Monitoramento do Tempo",
+                                link: "/monitoramento",
+                            },
 						]}
 					/>
 					<ContainerColumn>

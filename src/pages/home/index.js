@@ -151,6 +151,11 @@ const Home = () => {
 									name: "Animais Sinantrópicos",
 									link: "/animais-sinantropicos",
 								},
+								{
+									id: 5,
+									name: "Adoção de Animais",
+									link: "/adocao_animais",
+								},
 							]}
 						/>
 						<Card
@@ -161,6 +166,11 @@ const Home = () => {
 									id: 1,
 									name: "Adoção de Áreas Públicas",
 									link: "/adocao_areas_opcoes",
+								},
+								{
+									id: 2,
+									name: "Monitoramento",
+									link: "/monitoramento",
 								},
 							]}
 						/>
@@ -193,6 +203,11 @@ const Home = () => {
 									id: 2,
 									name: "Cadastro de Túmulos e Falecidos",
 									link: "/tumulos",
+								},
+								{
+									id: 3,
+									name: "Programação Cultural",
+									link: "/programacao_cultural",
 								},
 							]}
 						/>

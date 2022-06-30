@@ -56,6 +56,11 @@ const AnimaisPerdidosNovo = () => {
 								name: "Animais Sinantrópicos",
 								link: "/animais-sinantropicos",
 							},
+							{
+								id: 5,
+								name: "Adoção de Animais",
+								link: "/adocao_animais",
+							},
 						]}
 					/>
 					<ContainerColumn>

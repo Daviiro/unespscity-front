@@ -1,4 +1,11 @@
-import React from "react";
+import React from 'react';
+
+import Header from "../../../components/header";
+import MiniCard from "../../../components/mini-card";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceDescription from "../../../components/service-description";
+import ListCard from "../../../components/card-list";
+import Footer from "../../../components/footer";
 
 import {
 	ContainerBase,
@@ -8,16 +15,9 @@ import {
 	Square,
 } from "./styles";
 
-import Header from "../../../components/header";
-import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../components/service-description";
-import ListCard from "../../../components/card-list";
-import Footer from "../../../components/footer";
-
-const Telefones = () => {
-	return (
-		<>
+const CulturalProgram = () => {
+    return(
+        <>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
@@ -43,12 +43,12 @@ const Telefones = () => {
 						]}
 					/>
 					<ContainerColumn>
-						<h1> Telefones Úteis </h1>
+						<h1> Programação Cultural </h1>
 						<StyledHr />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="Confira a listagem de telefones úteis ao cidadão, como os números de secretarias, edifícios públicos (como hospitais), linhas de apoio ao cidadão, entre muitas outros:" />
+					<ServiceDescription description="Confira a programação de todos os eventos culturais que acontecerão na cidade nos próximos dias!" />
 					<Details>
 						<ListCard
 							source="/assets/img/home_assistencia_social.png"
@@ -103,6 +103,9 @@ const Telefones = () => {
 				<Footer />
 			</ContainerBase>
 		</>
-	);
-};
-export default Telefones;
+    )
+}
+
+export default CulturalProgram;
+
+
