@@ -228,7 +228,7 @@ const AppRoutes = () => {
 						element={<Login />} 
 					/>
 					<Route 
-						exact path="/location" 
+						exact path="/localizacao" 
 						element={<Map />} 
 					/>
 					<Route

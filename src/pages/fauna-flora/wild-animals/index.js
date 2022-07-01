@@ -8,7 +8,6 @@ import {
 	ServiceDescription,
 	GrayLine2,
 	InputAddressContainer,
-	InputLocalization,
 	Square,
 	Details,
 	ChartContainer,
@@ -18,6 +17,7 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Input from "../../../components/input";
+import InputLocalization from "../../../components/input-localization-button";
 import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
@@ -60,7 +60,7 @@ const AnimaisSilvestres = () => {
 					</ServiceDescription>
 					<GrayLine2 />
 					<Details>
-						<InputLocalization> Usar Localização Atual</InputLocalization>
+						<InputLocalization/>
 						<p>OU</p>
 						<InputAddressContainer>
 							<Input title="Endereço:" width="36vw" />

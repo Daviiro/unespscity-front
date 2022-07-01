@@ -18,8 +18,3 @@ export const InputAddressContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 `;
-
-export const InputLocalization = styled.button`
-    margin-top: 10px;
-`;
-

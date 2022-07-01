@@ -82,7 +82,9 @@ const AnimaisPerdidosNovo = () => {
 							placeholder = "pontos de referência, endereço, o que for possível..."
 						/>
 						<p> OU </p>
-						<InputLocalization style = {{ marginBottom: "4vh" }}> Usar Localização Atual </InputLocalization>
+						<Link to = "/localizacao" target = "_blank" rel = "noopener noreferrer">	
+							<InputLocalization style = {{ marginBottom: "4vh" }}> Usar Localização Atual </InputLocalization>
+						</Link>
 						<DescriptionInput
 							title = "Descrição do animal:"
 							placeholder = "conte-nos em detalhes a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal."

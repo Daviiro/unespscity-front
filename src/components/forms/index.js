@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Button from "../styled-components/form-button";
+import InputLocalization from "../input-localization-button";
 import DescriptionInput from "../description-input";
 import InputPhotos from "../images-input";
 import Input from "../input";
 
-import { Container, InputAddressContainer, InputLocalization } from "./styles";
+import { Container, InputAddressContainer } from "./styles";
 
 const Form = () => {
 	return (
 		<Container>
-			<InputLocalization>Usar Localização Atual</InputLocalization>
+			<InputLocalization/>
 			<p>OU</p>
 			<InputAddressContainer>
 				<Input title="Endereço:" width="36vw" />
