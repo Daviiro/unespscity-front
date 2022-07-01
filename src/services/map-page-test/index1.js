@@ -1,12 +1,12 @@
 import React from "react";
-import  MyComponent from "./index2";
+import  MapComponent from "./index2";
 import { ContainerBase } from "./styles";
 
 const Map = () => {
     return (
         <>
             <ContainerBase>
-                <MyComponent />
+                <MapComponent />
             </ContainerBase>
         </>
     );

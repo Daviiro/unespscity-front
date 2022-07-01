@@ -88,10 +88,6 @@ export const InputAddressContainer = styled.div`
 	justify-content: space-between;
 `;
 
-export const InputLocalization = styled.button`
-    margin-top: 7.5vh;
-`;
-
 export const ChartContainer = styled.div`
 	display: flex;
 	flex-direction: column;
