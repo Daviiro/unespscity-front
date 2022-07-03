@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 
 import {
-	ContainerBase,
 	SubHeader,
 	ContainerColumn,
 	Square,
@@ -12,21 +11,35 @@ import {
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 import Form from "../../../components/forms";
-
+import Typography from "@mui/material/Typography";
+import {
+	ContainerBase,
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../components/styled-components/PageStyles";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
 const Piscinas = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 93;
 	const totalResolvidos = 27;
+	const [isFavorite, setIsFavorite] = useState(false);
+	const handleFavorite = () => {
+		setIsFavorite(!isFavorite);
+		console.log("você favoritou este serviço");
+	};
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_vigilancia_sanitaria.png"
 						titulo="Vigilância Sanitária"
@@ -48,16 +61,50 @@ const Piscinas = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Limpeza de Piscinas </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Utilize este serviço para solicitar a limpeza/manutenção de piscinas públicas do município. Você também pode checar links externos de como realizar a limpeza/manutenção em piscinas particulares." />
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">
+								Limpeza de Piscinas
+							</Typography>
+						</div>
+						<DescriptionText>
+							Utilize este serviço para solicitar a
+							limpeza/manutenção de piscinas públicas do
+							município. Você também pode checar links externos de
+							como realizar a limpeza/manutenção em piscinas
+							particulares.
+						</DescriptionText>
+					</div>
+					{isFavorite ? (
+						<span>
+							<AiFillStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								color={"yellow"}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						</span>
+					) : (
+						<AiOutlineStar
+							style={{
+								cursor: "pointer",
+								margin: ".8rem",
+								stroke: "black",
+								strokeWidth: "5",
+							}}
+							size={25}
+							onClick={() => handleFavorite()}
+						/>
+					)}
+					<StyledHr />
+				</TopContentContainer>
+				<MidContentContainer>
 					<Form />
-				</Square>
-				<Square style={{ height: "50%" }}>
 					<Details2>
 						<p> Como limpar piscinas particulares: </p>
 						<a
@@ -82,18 +129,18 @@ const Piscinas = () => {
 							⇒ Link Externo 3{" "}
 						</a>
 					</Details2>
-				</Square>
-				<GrayLine />
-				<ChartContainer>
-					<h3> Limpezas solicitadas e efetuadas: </h3>
-					<PagesPieChart
-						solved={totalResolvidos}
-						unsolved={totalSolicitados}
-					/>
-				</ChartContainer>
-				<Footer />
-			</ContainerBase>
-		</>
+				</MidContentContainer>
+			</ContentContainer>
+			<GrayLine />
+			<ChartContainer>
+				<h3> Limpezas solicitadas e efetuadas: </h3>
+				<PagesPieChart
+					solved={totalResolvidos}
+					unsolved={totalSolicitados}
+				/>
+			</ChartContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 export default Piscinas;

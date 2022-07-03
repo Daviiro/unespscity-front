@@ -16,11 +16,13 @@ export const SubHeader = styled.div`
 	padding-left: 2.5vw;
 
 	h1 {
-		margin-top: 4vh; 
-		margin-left: 2.5vw; 
+		margin-top: 4vh;
+		margin-left: 2.5vw;
 	}
 
-	h4 { margin-top: 0vh; }
+	h4 {
+		margin-top: 0vh;
+	}
 `;
 
 export const ContainerColumn = styled.div`
@@ -43,23 +45,22 @@ export const Square = styled.div`
 	height: 100%;
 	width: auto;
 	margin-bottom: 10vh;
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	justify-content: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const Details2 = styled.div`
 	height: 23.75vw;
 	width: 47.5vw;
-	border: 0.25vh solid lightgray;
-	border-radius: 10px;
-	box-shadow: 5px 5px 10px gray;
-	display: flex; 
-	flex-direction: column; 
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 
-	p { margin-top: 5vh; }
+	p {
+		margin-top: 5vh;
+	}
 
 	a {
 		color: #0f4c75;

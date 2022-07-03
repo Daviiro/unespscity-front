@@ -1,19 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 
-import {
-	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	InputAddressContainer,
-	Square,
-	Details,
-	ChartContainer,
-} from "./styles";
+import { InputAddressContainer, Details, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
@@ -22,15 +13,32 @@ import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 
+import Typography from "@mui/material/Typography";
+import {
+	ContainerBase,
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../components/styled-components/PageStyles";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
+
 const Dengue = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 93;
 	const totalResolvidos = 22;
+	const [isFavorite, setIsFavorite] = useState(false);
+	const handleFavorite = () => {
+		setIsFavorite(!isFavorite);
+		console.log("você favoritou este serviço");
+	};
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_controle_pragas.png"
 						titulo="Controle de Pragas"
@@ -57,13 +65,47 @@ const Dengue = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Radar da Dengue </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Utilize este serviço para informar a localização de focos do mosquito transmissor da Dengue, o pernilongo-rajado (Aedes aegypti)." />
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">
+								Radar da Dengue
+							</Typography>
+						</div>
+						<DescriptionText>
+							Utilize este serviço para informar a localização de
+							focos do mosquito transmissor da Dengue, o
+							pernilongo-rajado (Aedes aegypti).
+						</DescriptionText>
+					</div>
+					{isFavorite ? (
+						<span>
+							<AiFillStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								color={"yellow"}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						</span>
+					) : (
+						<AiOutlineStar
+							style={{
+								cursor: "pointer",
+								margin: ".8rem",
+								stroke: "black",
+								strokeWidth: "5",
+							}}
+							size={25}
+							onClick={() => handleFavorite()}
+						/>
+					)}
+					<StyledHr />
+				</TopContentContainer>
+				<MidContentContainer>
 					<Details>
 						<a
 							style={{ textDecoration: "none" }}
@@ -87,18 +129,19 @@ const Dengue = () => {
 						<InputPhotos />
 						<Button text="Enviar" />
 					</Details>
-				</Square>
-				<GrayLine />
-				<ChartContainer>
-					<h3> Eliminações solicitadas e efetuadas: </h3>
-					<PagesPieChart
-						solved={totalResolvidos}
-						unsolved={totalSolicitados}
-					/>
-				</ChartContainer>
-				<Footer />
-			</ContainerBase>
-		</>
+				</MidContentContainer>
+			</ContentContainer>
+
+			<GrayLine />
+			<ChartContainer>
+				<h3> Eliminações solicitadas e efetuadas: </h3>
+				<PagesPieChart
+					solved={totalResolvidos}
+					unsolved={totalSolicitados}
+				/>
+			</ChartContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 export default Dengue;

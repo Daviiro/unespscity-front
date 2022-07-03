@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-
 import {
-	ContainerBase,
 	SubHeader,
 	ContainerColumn,
 	ServiceDescription,
@@ -15,7 +13,6 @@ import {
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Input from "../../../components/input";
 import InputLocalization from "../../../components/input-localization-button";
 import DescriptionInput from "../../../components/description-input";
@@ -24,15 +21,32 @@ import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 
+import Typography from "@mui/material/Typography";
+import {
+	ContainerBase,
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../components/styled-components/PageStyles";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
+
 const AnimaisSilvestres = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 23;
 	const totalResolvidos = 14;
+	const [isFavorite, setIsFavorite] = useState(false);
+	const handleFavorite = () => {
+		setIsFavorite(!isFavorite);
+		console.log("você favoritou este serviço");
+	};
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_fauna_flora.png"
 						titulo="Fauna e Flora"
@@ -49,18 +63,50 @@ const AnimaisSilvestres = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Fiscalização de Animais Silvestres </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription> 
-						<h3> Utilize este serviço para denunciar o comércio ilegal de animais silvestres, informar a localização de um deles perdido/preso/em cativeiro, ou ainda informar um deles causando perturbação pública. </h3>	
-					</ServiceDescription>
-					<GrayLine2 />
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">
+								Fiscalização de Animais Silvestres
+							</Typography>
+						</div>
+						<DescriptionText>
+							Utilize este serviço para denunciar o comércio
+							ilegal de animais silvestres, informar a localização
+							de um deles perdido/preso/em cativeiro, ou ainda
+							informar um deles causando perturbação pública.
+						</DescriptionText>
+					</div>
+					{isFavorite ? (
+						<span>
+							<AiFillStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								color={"yellow"}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						</span>
+					) : (
+						<AiOutlineStar
+							style={{
+								cursor: "pointer",
+								margin: ".8rem",
+								stroke: "black",
+								strokeWidth: "5",
+							}}
+							size={25}
+							onClick={() => handleFavorite()}
+						/>
+					)}
+					<StyledHr />
+				</TopContentContainer>
+				<MidContentContainer>
 					<Details>
-						<InputLocalization/>
+						<InputLocalization />
 						<p>OU</p>
 						<InputAddressContainer>
 							<Input title="Endereço:" width="36vw" />
@@ -71,22 +117,40 @@ const AnimaisSilvestres = () => {
 							placeholder="Opcional"
 						/>
 						<div>
-							<input type="checkbox" id="Comércio Ilegal de animais silvestres" />
-							<label for="Comércio Ilegal de animais silvestres" style={{ fontSize: "14px" }}>
+							<input
+								type="checkbox"
+								id="Comércio Ilegal de animais silvestres"
+							/>
+							<label
+								for="Comércio Ilegal de animais silvestres"
+								style={{ fontSize: "14px" }}
+							>
 								{" "}
 								Comércio Ilegal de animais selvagens{" "}
 							</label>
 						</div>
 						<div>
-							<input type="checkbox" id="Animal Silvestre perdido, preso ou em cativeiro" />
-							<label for="Animal Silvestre perdido, preso ou em cativeiro" style={{ fontSize: "14px" }}>
+							<input
+								type="checkbox"
+								id="Animal Silvestre perdido, preso ou em cativeiro"
+							/>
+							<label
+								for="Animal Silvestre perdido, preso ou em cativeiro"
+								style={{ fontSize: "14px" }}
+							>
 								{" "}
 								Animal Selvagem perdido, preso ou em cativeiro{" "}
 							</label>
 						</div>
 						<div>
-							<input type="checkbox" id="Animal silvestre causando perturbação pública" />
-							<label for="Animal silvestre causando perturbação pública" style={{ fontSize: "14px" }}>
+							<input
+								type="checkbox"
+								id="Animal silvestre causando perturbação pública"
+							/>
+							<label
+								for="Animal silvestre causando perturbação pública"
+								style={{ fontSize: "14px" }}
+							>
 								{" "}
 								Animal selvagem causando perturbação pública{" "}
 							</label>
@@ -95,18 +159,18 @@ const AnimaisSilvestres = () => {
 						<InputPhotos />
 						<Button text="Enviar" />
 					</Details>
-				</Square>
-				<GrayLine />
-				<ChartContainer>
-					<h3> Serviços solicitados e serviços efetuados: </h3>
-					<PagesPieChart
-						solved={totalResolvidos}
-						unsolved={totalSolicitados}
-					/>
-				</ChartContainer>
-				<Footer />
-			</ContainerBase>
-		</>
+				</MidContentContainer>
+			</ContentContainer>
+			<GrayLine />
+			<ChartContainer>
+				<h3> Serviços solicitados e serviços efetuados: </h3>
+				<PagesPieChart
+					solved={totalResolvidos}
+					unsolved={totalSolicitados}
+				/>
+			</ChartContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 

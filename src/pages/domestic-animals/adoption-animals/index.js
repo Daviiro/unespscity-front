@@ -1,27 +1,34 @@
-import React from "react";
-
-import {
-	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "../../public-administration/know-city-managers/styles";
-
+import React, { useState } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../components/service-description";
 //import ListCard from "./card-list";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
 
+import Typography from "@mui/material/Typography";
+import {
+	ContainerBase,
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../components/styled-components/PageStyles";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
+
 const AdoptionAnimals = () => {
+	const [isFavorite, setIsFavorite] = useState(false);
+	const handleFavorite = () => {
+		setIsFavorite(!isFavorite);
+		console.log("você favoritou este serviço");
+	};
+
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_animais_domesticos.png"
 						titulo="Animais Domésticos"
@@ -53,61 +60,92 @@ const AdoptionAnimals = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Adoção de Animais </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Aqui você pode checar a lista de animais disponíveis para a adoção." />
-					<Details>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">
+								Adoção de Animais
+							</Typography>
+						</div>
+						<DescriptionText>
+							Aqui você pode checar a lista de animais disponíveis
+							para a adoção.
+						</DescriptionText>
+					</div>
+					{isFavorite ? (
+						<span>
+							<AiFillStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								color={"yellow"}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						</span>
+					) : (
+						<AiOutlineStar
+							style={{
+								cursor: "pointer",
+								margin: ".8rem",
+								stroke: "black",
+								strokeWidth: "5",
+							}}
+							size={25}
+							onClick={() => handleFavorite()}
 						/>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
-						/>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
-						/>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
-						/>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
-						/>
-						<ListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome="[última vez visto]"
-							sobrenome="[último local visto]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							button="Falar com o dono"
-						/>
-					</Details>
-				</Square>
-				<Footer />
-			</ContainerBase>
-		</>
+					)}
+					<StyledHr />
+				</TopContentContainer>
+				<MidContentContainer>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+					<ListCard
+						source="/assets/img/home_animais_domesticos.png"
+						nome="[última vez visto]"
+						sobrenome="[último local visto]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						button="Falar com o dono"
+					/>
+				</MidContentContainer>
+			</ContentContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 
