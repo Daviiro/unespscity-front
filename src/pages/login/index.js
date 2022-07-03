@@ -139,6 +139,18 @@ const Login = () => {
 							{" "}
 							<h4> Esqueceu sua senha? </h4>{" "}
 						</Link>
+						<a
+							style={{
+								textDecoration: "none",
+								color: "#000000",
+								fontWeight: "550",
+								fontSize: "14px",
+							}}
+							href="mailto:unespscity@unesp.br"
+						>
+							Deseja se tornar um administrador na plataforma para
+							sua cidade?
+						</a>
 					</BottomContainer>
 				</Square>
 			</ContainerBase>
