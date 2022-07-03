@@ -10,11 +10,17 @@ export const ContainerBase = styled.div`
 export const ContentContainer = styled.div`
 	display: block;
 	width: 80%;
-	min-width: 764px;
 	margin-left: auto;
 	margin-right: auto;
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
+
+	@media (max-width: 747px) {
+		width: 100vw;
+	}
+	@media (min-width: 748px) and (max-width: 913px) {
+		width: 96vw;
+	}
 `;
 
 export const TopContentContainer = styled.div`
@@ -23,6 +29,11 @@ export const TopContentContainer = styled.div`
 	justify-content: space-between;
 	margin-bottom: 10vh;
 	flex-wrap: wrap;
+	@media (max-width: 747px) {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 `;
 
 export const MidContentContainer = styled.div`
