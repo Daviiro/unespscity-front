@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
 	height: 9vh;
-	min-height: 3rem;
+	min-height: 70px;
 	width: 100%;
 	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	margin: 0;
-	margin-bottom: 15vh;
+	margin-bottom: 15vh; /*20px*/
 	border-top: 1vh solid #133d59;
 	border-bottom: 1vh solid #133d59;
 	display: flex;

@@ -5,6 +5,7 @@ import Card from "./service-card";
 import ChartHome from "./chart";
 import Footer from "../../components/footer";
 import LocalContext from "../user-location/Context";
+import Favorites from "../../components/favorites";
 
 const Home = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -14,6 +15,7 @@ const Home = () => {
 		<>
 			<ContainerBase>
 				<Header />
+				<Favorites />
 				<Content>
 					<WrapContainer>
 						<Card

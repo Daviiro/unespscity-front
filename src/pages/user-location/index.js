@@ -20,6 +20,7 @@ const YourLocation = () => {
 
 	useEffect(() => {
 		//pegar a geocalizacao de forma automatica
+		/*
 		navigator.geolocation.getCurrentPosition((location) => {
 			console.log(location.coords.latitude);
 			console.log(location.coords.longitude);
@@ -27,10 +28,11 @@ const YourLocation = () => {
 				location.coords.latitude,
 				location.coords.longitude
 			).then((data) => {
+				console.log("localizacao abaixo");
 				console.log(data);
 			});
 		});
-
+		*/
 		//caso o valor de estado e cidade forem diferentes de nulo eu navego direto para a tela da Home
 		if (formValues.state && formValues.city) {
 			navigate(`../`);
