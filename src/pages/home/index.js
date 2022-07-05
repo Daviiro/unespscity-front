@@ -219,9 +219,15 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Registro de Familias Carentes",
+									link: "/familias_carentes",
 								},
+								{
+									id: 2,
+									name: "Moradores de Rua",
+									link: "/moradores_rua",
+								},
+								
 							]}
 						/>
 

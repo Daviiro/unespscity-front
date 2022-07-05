@@ -34,7 +34,7 @@ import AnimaisSinantropicos from "./pages/domestic-animals/synanthropic-animals"
 import AdocaoAnimais from "./pages/domestic-animals/adoption-animals";
 
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals";	// Remoção de Detritos //
-import Animais_Mortos from "./pages/road-maintenance/removal-of-dead-animals"; 
+import AnimaisMortos from "./pages/road-maintenance/removal-of-dead-animals"; 
 
 import AdminAdocaoAreas from "./pages/administrator/environment/public-areas-adoption";	// Meio Ambiente //
 import AdminMonitoramentoTempo from "./pages/administrator/environment/monitoring";
@@ -56,6 +56,11 @@ import Parques from "./pages/rural-green-areas-conservation/parks";
 import Pontes from "./pages/rural-green-areas-conservation/rural-road-bridges";
 import Pracas from "./pages/rural-green-areas-conservation/plazas";
 
+import AdminHomelessPeople from "./pages/administrator/needy-families/homeless-people"; 	// Familias Carentes //
+import AdminNeedyFamilies from "./pages/administrator/needy-families/needy-families-register"; 	
+import HomelessPeople from "./pages/needy-families/homeless-people";
+import NeedyFamilies from "./pages/needy-families/needy-families-register";
+
 import AdminIluminacao from "./pages/administrator/urban-conservation/street-lighting";	 // Conservação Urbana //
 import AdminInstalacoes from "./pages/administrator/urban-conservation/facilities-inspection";
 import AdminMonumentos from "./pages/administrator/urban-conservation/fountains-monuments";
@@ -69,6 +74,9 @@ import Vias from "./pages/urban-conservation/public-roads";
 
 import AdminFeiras from "./pages/administrator/social-services/fair"; // Serviços Sociais //
 import Feiras from "./pages/social-services/fair";
+
+import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; 	// Segurança e Defesa //
+import TheftRegister from "./pages/security-defense/theft-register";
 
 import AdminPiscinas from "./pages/administrator/sanitary-surveillance/pool-cleaning";	// Vigilância Sanitária //
 import AdminTerreno from "./pages/administrator/sanitary-surveillance/land-cleaning";
@@ -214,14 +222,24 @@ const AppRoutes = () => {
 						element={<AdminPragas />}
 					/>
 					<Route
-						exact
-						path="/admin/leishmaniose"
+						exact path="/admin/leishmaniose"
 						element={<AdminLeishmaniose />}
 					/>
 					<Route
-						exact
-						path="/admin/radar_da_dengue"
+						exact path="/admin/radar_da_dengue"
 						element={<AdminDengue />}
+					/> 
+					<Route
+						exact path="/admin/registro_roubos"
+						element={<AdminTheftRegister />}
+					/>
+					<Route
+						exact path="/admin/moradores_rua"
+						element={<AdminHomelessPeople /> }
+					/> 
+					<Route
+						exact path="/admin/familias_carentes"
+						element={<AdminNeedyFamilies /> }
 					/>
 					<Route 
 						exact path="/login" 
@@ -252,61 +270,59 @@ const AppRoutes = () => {
 						element={<Parques />} 
 					/>
 					<Route
-						exact
-						path="/pontes_em_estradas_rurais"
+						exact path="/pontes_em_estradas_rurais"
 						element={<Pontes />}
 					/>
-					<Route exact path="/pracas" element={<Pracas />} />
+					<Route 
+						exact path="/pracas" 
+						element={<Pracas />} 
+					/>
 					<Route
-						exact
-						path="/fiscalizacao_de_instalacoes"
+						exact path="/fiscalizacao_de_instalacoes"
 						element={<Instalacoes />}
 					/>
 					<Route
-						exact
-						path="/iluminacao_publica"
+						exact path="/iluminacao_publica"
 						element={<Iluminacao />}
 					/>
 					<Route
-						exact
-						path="/monumentos_e_chafarizes"
+						exact path="/monumentos_e_chafarizes"
 						element={<Monumentos />}
 					/>
 					<Route
-						exact
-						path="/pavimentacao"
+						exact path="/pavimentacao"
 						element={<Pavimentacao />}
 					/>
-					<Route exact path="/vias_publicas" element={<Vias />} />
+					<Route 
+						exact path="/vias_publicas" 
+						element={<Vias />}
+					/>
 					<Route
-						exact
-						path="/foco_de_escorpiao"
+						exact path="/foco_de_escorpiao"
 						element={<Escorpiao />}
 					/>
 					<Route
-						exact
-						path="/insetos_roedores_caramujos"
+						exact path="/insetos_roedores_caramujos"
 						element={<Pragas />}
 					/>
 					<Route
-						exact
-						path="/leishmaniose"
+						exact path="/leishmaniose"
 						element={<Leishmaniose />}
 					/>
-					<Route exact path="/radar_da_dengue" element={<Dengue />} />
-					<Route
-						exact
-						path="/animais_mortos"
-						element={<Animais_Mortos />}
+					<Route 
+						exact path="/radar_da_dengue" 
+						element={<Dengue />} 
 					/>
 					<Route
-						exact
-						path="/animais_perdidos_opcoes"
+						exact path="/animais_mortos"
+						element={<AnimaisMortos />}
+					/>
+					<Route
+						exact path="/animais_perdidos_opcoes"
 						element={<AnimaisPerdidosOpcoes />}
 					/>
 					<Route
-						exact
-						path="/animais_perdidos_novo"
+						exact path="/animais_perdidos_novo"
 						element={<AnimaisPerdidosNovo />}
 					/>
 					<Route
@@ -314,41 +330,37 @@ const AppRoutes = () => {
 						element={<AdocaoAnimais />}
 					/>
 					<Route
-						exact
-						path="/animais_perdidos_lista"
+						exact path="/animais_perdidos_lista"
 						element={<AnimaisPerdidosLista />}
 					/>
 					<Route
-						exact
-						path="/animais_abandonados"
+						exact path="/animais_abandonados"
 						element={<AnimaisAbandonados />}
 					/>
 					<Route
-						exact
-						path="/adocao_areas_opcoes"
+						exact path="/adocao_areas_opcoes"
 						element={<AdocaoAreasOpcoes />}
 					/>
 					<Route
-						exact
-						path="/adocao_areas_disponiveis"
+						exact path="/adocao_areas_disponiveis"
 						element={<AdocaoAreasDisponiveis />}
 					/>
 					<Route
-						exact
-						path="/adocao_areas_adotadas"
+						exact path="/adocao_areas_adotadas"
 						element={<AdocaoAreasAdotadas />}
 					/>
 					<Route
-						exact
-						path="/adocao_areas_regras"
+						exact path="/adocao_areas_regras"
 						element={<AdocaoAreasRegras />}
 					/>
 					<Route
-						exact
-						path="/monitoramento"
+						exact path="/monitoramento"
 						element={<MonitoramentoTempo />}
 					/>
-					<Route exact path="/feiras_livres" element={<Feiras />} />
+					<Route 
+						exact path="/feiras_livres" 
+						element={<Feiras />} 
+					/>
 					<Route
 						exact
 						path="/limpeza_de_piscinas"
@@ -376,9 +388,20 @@ const AppRoutes = () => {
 						element={<AnimaisSilvestres />}
 					/>
 					<Route
-						exact
-						path="/maus_tratos"
+						exact path="/maus_tratos"
 						element={<MausTratosAnimais />}
+					/> 
+					<Route
+						exact path="/registro_roubos"
+						element={<TheftRegister />}
+					/>
+					<Route
+						exact path="/moradores_rua"
+						element={<HomelessPeople /> }
+					/>
+					<Route
+						exact path="/familias_carentes"
+						element={<NeedyFamilies /> }
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />

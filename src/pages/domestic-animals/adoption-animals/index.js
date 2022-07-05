@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-//import ListCard from "./card-list";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
 
