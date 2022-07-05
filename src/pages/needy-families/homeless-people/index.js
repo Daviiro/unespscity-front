@@ -35,7 +35,7 @@ const HomelessPeople = () => {
 							{
 								id: 1,
 								name: "Registro de Familias Carentes",
-								link: "/familias_carentes",
+								link: "/familia_carente_opcoes",
 							},
 							{
 								id: 2,
@@ -52,7 +52,8 @@ const HomelessPeople = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
+							Aqui você kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+							
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

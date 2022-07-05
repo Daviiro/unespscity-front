@@ -220,7 +220,7 @@ const Home = () => {
 								{
 									id: 1,
 									name: "Registro de Familias Carentes",
-									link: "/familias_carentes",
+									link: "/familia_carente_opcoes",
 								},
 								{
 									id: 2,

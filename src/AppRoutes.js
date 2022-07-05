@@ -59,7 +59,9 @@ import Pracas from "./pages/rural-green-areas-conservation/plazas";
 import AdminHomelessPeople from "./pages/administrator/needy-families/homeless-people"; 	// Familias Carentes //
 import AdminNeedyFamilies from "./pages/administrator/needy-families/needy-families-register"; 	
 import HomelessPeople from "./pages/needy-families/homeless-people";
-import NeedyFamilies from "./pages/needy-families/needy-families-register";
+import NeedyFamiliesOption from './pages/needy-families/needy-families-option';
+import NeedyFamiliesRegister from "./pages/needy-families/needy-families-register";
+import NeedyFamiliesList from "./pages/needy-families/needy-families-list";
 
 import AdminIluminacao from "./pages/administrator/urban-conservation/street-lighting";	 // Conservação Urbana //
 import AdminInstalacoes from "./pages/administrator/urban-conservation/facilities-inspection";
@@ -372,19 +374,16 @@ const AppRoutes = () => {
 						element={<Terreno />}
 					/>
 					<Route
-						exact
-						path="/restaurantes"
+						exact path="/restaurantes"
 						element={<Restaurante />}
 					/>
 					<Route
-						exact
-						path="/animais-sinantropicos"
+						exact path="/animais-sinantropicos"
 						element={<AnimaisSinantropicos />}
 					/>
 
 					<Route
-						exact
-						path="/animais_silvestres"
+						exact path="/animais_silvestres"
 						element={<AnimaisSilvestres />}
 					/>
 					<Route
@@ -400,14 +399,27 @@ const AppRoutes = () => {
 						element={<HomelessPeople /> }
 					/>
 					<Route
-						exact path="/familias_carentes"
-						element={<NeedyFamilies /> }
+						exact path="/familia_carente_opcoes"
+						element={<NeedyFamiliesOption /> }
 					/>
-					<Route exact path="/location" element={<UserLocation />} />
-					<Route exact path="/sistema" element={<Sistema />} />
 					<Route
-						exact
-						path="/password-reset"
+						exact path="/familias_carentes_registro"
+						element={<NeedyFamiliesRegister /> }
+					/>
+					<Route
+						exact path="/familias_carentes_lista"
+						element={<NeedyFamiliesList /> }
+					/>
+					<Route 
+						exact path="/location" 
+						element={<UserLocation />} 
+					/>
+					<Route 
+						exact path="/sistema" 
+						element={<Sistema />} 
+					/>
+					<Route
+						exact path="/password-reset"
 						element={<PasswordReset />}
 					/>
 				</Routes>
