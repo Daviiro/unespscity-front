@@ -248,8 +248,8 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Registro de Roubos e Furtos",
+									link: "/registro_roubos",
 								},
 							]}
 						/>

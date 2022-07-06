@@ -113,7 +113,6 @@ const AppRoutes = () => {
 							)
 						}
 					/>
-
 					<Route 
 						exact path="/admin" 
 						element={<Dashboard />} 
@@ -199,8 +198,7 @@ const AppRoutes = () => {
 						element={<AdminVias />}
 					/>
 					<Route
-						exact
-						path="/admin/feiras_livres"
+						exact path="/admin/feiras_livres"
 						element={<AdminFeiras />}
 					/>
 					<Route
@@ -364,13 +362,11 @@ const AppRoutes = () => {
 						element={<Feiras />} 
 					/>
 					<Route
-						exact
-						path="/limpeza_de_piscinas"
+						exact path="/limpeza_de_piscinas"
 						element={<Piscinas />}
 					/>
 					<Route
-						exact
-						path="/limpeza_de_terreno"
+						exact path="/limpeza_de_terreno"
 						element={<Terreno />}
 					/>
 					<Route
