@@ -35,14 +35,18 @@ const AdminHomelessPeople = () => {
 							{
 								id: 1,
 								name: "Registro de Familias Carentes",
-								link: "/familias_carentes",
+								link: "/admin/familias_carentes",
 							},
 							{
 								id: 2,
 								name: "Moradores de Rua",
-								link: "/moradores_rua",
+								link: "/admin/moradores_rua",
 							},
-							
+							{
+								id: 3,
+								name: "Moradores de Rua",
+								link: "/admin/descarte_solidario",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>

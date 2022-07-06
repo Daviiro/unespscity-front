@@ -42,7 +42,11 @@ const HomelessPeople = () => {
 								name: "Moradores de Rua",
 								link: "/moradores_rua",
 							},
-							
+							{
+								id: 3,
+								name: "Descarte Solidário",
+								link: "/descarte_solidario",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
