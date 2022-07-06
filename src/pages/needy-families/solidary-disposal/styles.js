@@ -13,6 +13,10 @@ export const Details = styled.div`
 	padding-bottom: 4vh;
 `;
 
+export const InputLocalization = styled.button`
+    margin-top: 50px;
+`;
+
 export const InputAddressContainer = styled.div`
 	margin-top: 10vh;
 	width: 45vw;

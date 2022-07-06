@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Details } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";

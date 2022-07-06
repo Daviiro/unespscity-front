@@ -59,9 +59,11 @@ import Pracas from "./pages/rural-green-areas-conservation/plazas";
 import AdminHomelessPeople from "./pages/administrator/needy-families/homeless-people"; 	// Familias Carentes //
 import AdminNeedyFamilies from "./pages/administrator/needy-families/needy-families-register"; 	
 import HomelessPeople from "./pages/needy-families/homeless-people";
+import AdminDescarteSolidario from "./pages/administrator/needy-families/solidary-disposal";
 import NeedyFamiliesOption from './pages/needy-families/needy-families-option';
 import NeedyFamiliesRegister from "./pages/needy-families/needy-families-register";
 import NeedyFamiliesList from "./pages/needy-families/needy-families-list";
+import DescarteSolidario from "./pages/needy-families/solidary-disposal";
 
 import AdminIluminacao from "./pages/administrator/urban-conservation/street-lighting";	 // Conservação Urbana //
 import AdminInstalacoes from "./pages/administrator/urban-conservation/facilities-inspection";
@@ -241,6 +243,10 @@ const AppRoutes = () => {
 						exact path="/admin/familias_carentes"
 						element={<AdminNeedyFamilies /> }
 					/>
+					<Route
+						exact path="/admin/descarte_solidario"
+						element={<AdminDescarteSolidario /> }
+					/>
 					<Route 
 						exact path="/login" 
 						element={<Login />} 
@@ -405,6 +411,10 @@ const AppRoutes = () => {
 					<Route
 						exact path="/familias_carentes_lista"
 						element={<NeedyFamiliesList /> }
+					/>
+					<Route
+						exact path="/descarte_solidario"
+						element={<DescarteSolidario /> }
 					/>
 					<Route 
 						exact path="/location" 
