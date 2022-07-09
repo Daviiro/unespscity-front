@@ -10,18 +10,21 @@ const Map = () => {
 
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 
-	navigator.geolocation.getCurrentPosition((location) => {
-		fetchLocation(location.coords.latitude, location.coords.longitude).then(
-			(data) => {
+	React.useEffect(() => {
+		navigator.geolocation.getCurrentPosition((location) => {
+			fetchLocation(
+				location.coords.latitude,
+				location.coords.longitude
+			).then((data) => {
 				console.log("localizacao abaixo");
 				console.log(data);
-			}
-		);
-		setCenter({
-			lat: location.coords.latitude,
-			lng: location.coords.longitude,
+			});
+			setCenter({
+				lat: location.coords.latitude,
+				lng: location.coords.longitude,
+			});
 		});
-	});
+	}, []); //ese useEffect faz com que isto aqui seja executado somente uma vez
 
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
