@@ -12,6 +12,19 @@ export const Container = styled.div`
 	margin-top: 30px;
 	margin-bottom: 30px;
 
+	::-webkit-scrollbar {
+		width: 7px;
+		scrollbar-width: 7px;
+	}
+	::-webkit-scrollbar-track {
+		background: lightgray;
+		border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: gray;
+		border-radius: 10px;
+	}
+
 	@media (max-width: 799px) {
 		width: 85vw;
 	}
