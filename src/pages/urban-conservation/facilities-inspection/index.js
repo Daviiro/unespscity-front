@@ -18,6 +18,8 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+
 const Instalacoes = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 48;
@@ -104,7 +106,8 @@ const Instalacoes = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation />
+					{/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
 

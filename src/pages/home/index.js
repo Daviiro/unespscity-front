@@ -9,8 +9,8 @@ import Favorites from "../../components/favorites";
 
 const Home = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
-	console.log("teste " + formValues.state);
-	console.log("teste " + formValues.city);
+	//console.log("teste " + formValues.state);
+	//console.log("teste " + formValues.city);
 	return (
 		<>
 			<ContainerBase>
