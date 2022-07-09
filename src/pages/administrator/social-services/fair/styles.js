@@ -16,11 +16,13 @@ export const SubHeader = styled.div`
 	padding-left: 2.5vw;
 
 	h1 {
-		margin-top: 4vh; 
-		margin-left: 2.5vw; 
+		margin-top: 4vh;
+		margin-left: 2.5vw;
 	}
 
-	h4 { margin-top: 0vh; }
+	h4 {
+		margin-top: 0vh;
+	}
 `;
 
 export const ContainerColumn = styled.div`
@@ -43,10 +45,10 @@ export const Square = styled.div`
 	height: 250vh;
 	width: auto;
 	margin-bottom: 5vh;
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	justify-content: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const Form = styled.form`
@@ -55,9 +57,9 @@ export const Form = styled.form`
 	border: 0.25vh solid lightgray;
 	border-radius: 10px;
 	box-shadow: 5px 5px 10px gray;
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 	padding-bottom: 3vh;
 	padding-top: 3vh;
@@ -65,25 +67,23 @@ export const Form = styled.form`
 
 export const InputAddressContainer = styled.div`
 	width: 45vw;
-	display: flex; 
+	display: flex;
 	justify-content: space-between;
 `;
 
 export const Details = styled.div`
 	margin-top: 0;
 	height: 63.5vw;
-	width: 63.5vw;
-	border: 0.25vh solid lightgray;
-	border-radius: 10px;
+	width: 100%;
 	box-shadow: 5px 5px 10px gray;
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	padding: 4vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
 	overflow-y: auto;
 
 	::-webkit-scrollbar {
-		width: 12px; 
+		width: 12px;
 	}
 	::-webkit-scrollbar-track {
 		background: lightgray;
@@ -93,4 +93,8 @@ export const Details = styled.div`
 		background: gray;
 		border-radius: 30px;
 	}
+`;
+
+export const AddFair = styled.div`
+	padding: 0.5rem;
 `;

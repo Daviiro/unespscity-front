@@ -32,7 +32,7 @@ const ServiceOrderInformation = () => {
 		setDescription(event.target.value);
 	};
 	const handleDistrictChange = (event) => {
-		setDescription(event.target.value);
+		setDistrict(event.target.value);
 	};
 
 	return (
