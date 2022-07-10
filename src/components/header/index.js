@@ -5,7 +5,7 @@ import {
 	ContainerLogo,
 	ContainerCenter,
 } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";
 
@@ -52,6 +52,14 @@ const Header = () => {
 		setCityName(city);
 	});
 
+	useEffect(() => {
+		if (formValues.state === undefined || formValues.city === undefined) {
+			navigate("/location");
+		}
+	});
+
+	const navigate = useNavigate();
+
 	return (
 		<>
 			<Sidebar sidebar={sidebar} showSidebar={showSidebar} />
@@ -69,7 +77,13 @@ const Header = () => {
 					</Link>
 					<div
 						style={{ color: "white", cursor: "pointer" }}
-						onClick={() => setFormValues({ undefined })}
+						onClick={() => /*setFormValues({ undefined })*/ {
+							setFormValues({
+								state: undefined,
+								city: undefined,
+							});
+							navigate("/location");
+						}}
 					>
 						<span>
 							{formValues.state}, {cityName}
