@@ -2,10 +2,11 @@ import * as React from "react";
 import { fetchLocation } from "../../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
+
 const Map = () => {
 	const containerStyle = {
-		width: "400px",
-		height: "400px",
+		width: "75vw",
+		height: "75vh",
 	};
 
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
@@ -24,7 +25,7 @@ const Map = () => {
 				lng: location.coords.longitude,
 			});
 		});
-	}, []); //ese useEffect faz com que isto aqui seja executado somente uma vez
+	}, []);										 // Esse useEffect faz com que isto aqui seja executado somente uma vez //
 
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
@@ -35,15 +36,15 @@ const Map = () => {
 
 	const options = {
 		strokeColor: "#FF0000",
-		strokeOpacity: 0.8,
-		strokeWeight: 2,
+		strokeOpacity: 1,
+		strokeWeight: 1.5,
 		fillColor: "#FF0000",
-		fillOpacity: 0.35,
+		fillOpacity: 0.25,
 		clickable: false,
 		draggable: false,
 		editable: false,
 		visible: true,
-		radius: 300,
+		radius: 100,
 		zIndex: 1,
 	};
 
@@ -81,4 +82,4 @@ const Map = () => {
 	);
 };
 
-export default Map;
+export default React.memo(Map);;

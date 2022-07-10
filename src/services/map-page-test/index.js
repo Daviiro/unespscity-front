@@ -1,15 +1,15 @@
 import React from "react";
-import  MapComponent from "./index2";
+import  Map from "../../components/forms/ServiceOrderInformation/Map";
 import { ContainerBase } from "./styles";
 
-const Map = () => {
+const MapComponent = () => {
     return (
         <>
             <ContainerBase>
-                <MapComponent />
+                <Map />
             </ContainerBase>
         </>
     );
 };
 
-export default Map;
+export default MapComponent;
