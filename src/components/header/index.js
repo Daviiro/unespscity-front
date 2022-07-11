@@ -69,10 +69,10 @@ const Header = () => {
 			"locationLocalStorage",
 			JSON.stringify(formValues)
 		);
-		/*
+
 		if (formValues.state === undefined || formValues.city === undefined) {
 			navigate("/location");
-		}*/
+		}
 	});
 
 	const navigate = useNavigate();
