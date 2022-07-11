@@ -35,7 +35,7 @@ const YourLocation = () => {
 		*/
 		//caso o valor de estado e cidade forem diferentes de nulo eu navego direto para a tela da Home
 		if (formValues.state && formValues.city) {
-			navigate(`../`);
+			navigate(-1);
 		}
 	});
 
