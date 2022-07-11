@@ -65,7 +65,9 @@ const Header = () => {
 					city: data.city,
 				});
 			}
-		} else {
+		}
+
+		if (formValues.state === undefined || formValues.city === undefined) {
 			navigate("/location");
 		}
 	}, []);
@@ -76,10 +78,6 @@ const Header = () => {
 				"locationLocalStorage",
 				JSON.stringify(formValues)
 			);
-		}
-
-		if (formValues.state === undefined || formValues.city === undefined) {
-			navigate("/location");
 		}
 	});
 
