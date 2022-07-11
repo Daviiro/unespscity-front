@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Header from "../../../components/header";
-import MiniCard from "../../../components/mini-card";
-import Footer from "../../../components/footer";
-import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -12,11 +7,13 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../components/styled-components/PageStyles";
+import MiniCard from "../../../components/mini-card";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const TheftRegister = () => {
+const ProposedLegislation = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -28,36 +25,35 @@ const TheftRegister = () => {
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
-						source="/assets/img/home_seguranca_defesa_civil.png"
-						titulo="Segurança e Defesa Civil"
+						source="/assets/img/home_administracao_publica.png"
+						titulo="Administração Pública"
 						linkItems={[
 							{
 								id: 1,
-								name: "Registro de Acidentes",
-								link: "/registro_roubos",
+								name: "Conheça os Gestores",
+								link: "/conheca_os_gestores",
 							},
 							{
 								id: 2,
-								name: "Registro de Roubos e Furtos",
-								link: "/registro-acidentes",
+								name: "Consultar as propostas dos vereadores",
+								link: "/consultar-propostas-de-leis",
 							},
 							{
 								id: 3,
-								name: "Vítimas de violência doméstica",
-								link: "/violencia-domestica",
+								name: "Central Anticorrupção",
+								link: "/central-anticorrupcao",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Registro de Roubos e Furtos
+								Consultar propostas dos vereadores
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar ocorrências de
-							roubos e furtos que aconteceram, assim a policia
-							será informada também.
+							Neste serviço você pode acompanhar propostas de leis
+							dos vereadores de sua cidade.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -88,13 +84,10 @@ const TheftRegister = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer>
-					<Form />
-				</MidContentContainer>
+				<MidContentContainer></MidContentContainer>
 			</ContentContainer>
-			<Footer />
 		</ContainerBase>
 	);
 };
 
-export default TheftRegister;
+export default ProposedLegislation;

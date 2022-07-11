@@ -15,25 +15,30 @@ import ServiceDescription from "../../../components/service-description";
 import Footer from "../../../components/footer";
 
 const Monitoring = () => {
-    return (
-        <>
+	return (
+		<>
 			<ContainerBase>
 				<Header />
 				<SubHeader>
 					<MiniCard
-						source = "/assets/img/home_meio_ambiente.png"
-						titulo = "Meio Ambiente"
+						source="/assets/img/home_meio_ambiente.png"
+						titulo="Meio Ambiente"
 						linkItems={[
 							{
-                                id: 1,
-                                name: "Adoção de Áreas Públicas",
-                                link: "/adocao_areas_opcoes",
-                            },
-                            {
-                                id: 2,
-                                name: "Monitoramento do Tempo",
-                                link: "/monitoramento",
-                            },
+								id: 1,
+								name: "Adoção de Áreas Públicas",
+								link: "/adocao_areas_opcoes",
+							},
+							{
+								id: 2,
+								name: "Monitoramento do Tempo",
+								link: "/monitoramento",
+							},
+							{
+								id: 3,
+								name: "Coleta de Lixo",
+								link: "/coleta-de-lixo",
+							},
 						]}
 					/>
 					<ContainerColumn>
@@ -42,15 +47,13 @@ const Monitoring = () => {
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description = "Aqui você pode checar o monitoramento do tempo em tempo real. " />
-					<Details>
-			
-					</Details>
+					<ServiceDescription description="Aqui você pode checar o monitoramento do tempo em tempo real. " />
+					<Details></Details>
 				</Square>
 				<Footer />
 			</ContainerBase>
 		</>
-    )
-}
+	);
+};
 
 export default Monitoring;

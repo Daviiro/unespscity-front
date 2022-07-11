@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Header from "../../../components/header";
-import MiniCard from "../../../components/mini-card";
-import Footer from "../../../components/footer";
-import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -12,11 +7,13 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../components/styled-components/PageStyles";
+import MiniCard from "../../../components/mini-card";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const TheftRegister = () => {
+const AccidentRecords = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -51,13 +48,14 @@ const TheftRegister = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Registro de Roubos e Furtos
+								Registro de Acidentes
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar ocorrências de
-							roubos e furtos que aconteceram, assim a policia
-							será informada também.
+							Neste serviço você poderá realizar o registro de um
+							acidente através da plataforma web ou aplicação
+							mobile, indicando hora, local e envolvidos, buscando
+							facilitar o socorro.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -88,13 +86,10 @@ const TheftRegister = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer>
-					<Form />
-				</MidContentContainer>
+				<MidContentContainer></MidContentContainer>
 			</ContentContainer>
-			<Footer />
 		</ContainerBase>
 	);
 };
 
-export default TheftRegister;
+export default AccidentRecords;

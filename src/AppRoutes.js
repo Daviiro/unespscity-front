@@ -12,7 +12,7 @@ import Dashboard from "./pages/administrator"; // DASHBOARD PARA O ADMIN
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import Map from "./services/map-page-test/index1";
+import Map from "./services/map-page-test";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -20,6 +20,9 @@ import LocalContext from "./pages/user-location/Context";
 
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers"; // Administração Pública //
 import Gestores from "./pages/public-administration/know-city-managers";
+import ProposedLegislation from "./pages/public-administration/proposed-legislation";
+import AntiCorruptionCenter from "./pages/public-administration/anti-corruption-center";
+import SuggestionComplaint from "./pages/communication/suggestion-complaints";
 
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts"; // Assistência Social //
 import AdminTumulos from "./pages/administrator/social-care/grave-registration";
@@ -47,12 +50,14 @@ import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option"
 import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
 import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
-import MonitoramentoTempo from "./pages/environment/monitoring";
+import MonitoramentoTempo from "./pages/environment/climate-monitoring";
+import RefuseCollection from "./pages/environment/refuse-collection";
 
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence"; //Fauna e Flora//
 import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
 import AnimaisSilvestres from "./pages/fauna-flora/wild-animals";
 import MausTratosAnimais from "./pages/fauna-flora/animal-violence";
+import InformationAboutTrees from "./pages/fauna-flora/information-about-trees";
 
 import AdminParques from "./pages/administrator/rural-green-areas-conservation/parks"; // Conservação Rural e Áreas Verdes //
 import AdminPontes from "./pages/administrator/rural-green-areas-conservation/rural-road-bridges";
@@ -86,6 +91,8 @@ import Feiras from "./pages/social-services/fair";
 
 import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; // Segurança e Defesa //
 import TheftRegister from "./pages/security-defense/theft-register";
+import VictimsOfDomesticViolence from "./pages/security-defense/victims-of-domestic-violence";
+import AccidentRecords from "./pages/security-defense/accident-records";
 
 import AdminPiscinas from "./pages/administrator/sanitary-surveillance/pool-cleaning"; // Vigilância Sanitária //
 import AdminTerreno from "./pages/administrator/sanitary-surveillance/land-cleaning";
@@ -102,6 +109,10 @@ import Escorpiao from "./pages/pest-control/scorpions-habitat";
 import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
+
+import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
+
+import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -467,6 +478,51 @@ const AppRoutes = () => {
 						exact
 						path="/password-reset"
 						element={<PasswordReset />}
+					/>
+					<Route
+						exact
+						path="/sugggestion-complaint"
+						element={<SuggestionComplaint />}
+					/>
+					<Route
+						exact
+						path="/consultar-propostas-de-leis"
+						element={<ProposedLegislation />}
+					/>
+					<Route
+						exact
+						path="/central-anticorrupcao"
+						element={<AntiCorruptionCenter />}
+					/>
+					<Route
+						exact
+						path="/coleta-de-lixo"
+						element={<RefuseCollection />}
+					/>
+					<Route
+						exact
+						path="/arvores"
+						element={<InformationAboutTrees />}
+					/>
+					<Route
+						exact
+						path="/violencia-domestica"
+						element={<VictimsOfDomesticViolence />}
+					/>
+					<Route
+						exact
+						path="/registro-acidentes"
+						element={<AccidentRecords />}
+					/>
+					<Route
+						exact
+						path="/monitoramento-pessoas-veiculos"
+						element={<Monitoring />}
+					/>
+					<Route
+						exact
+						path="/comercio-local"
+						element={<LocalTradeOffers />}
 					/>
 				</Routes>
 			</LocalContext.Provider>

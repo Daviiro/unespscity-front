@@ -174,6 +174,11 @@ const Home = () => {
 									name: "Monitoramento",
 									link: "/monitoramento",
 								},
+								{
+									id: 3,
+									name: "Coleta de Lixo",
+									link: "/coleta-de-lixo",
+								},
 							]}
 						/>
 						<Card
@@ -189,6 +194,11 @@ const Home = () => {
 									id: 2,
 									name: "Maus tratos à Animais",
 									link: "/maus_tratos",
+								},
+								{
+									id: 3,
+									name: "Árvores",
+									link: "/arvores",
 								},
 							]}
 						/>
@@ -252,8 +262,18 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
+									name: "Registro de Acidentes",
+									link: "/registro-acidentes",
+								},
+								{
+									id: 2,
 									name: "Registro de Roubos e Furtos",
 									link: "/registro_roubos",
+								},
+								{
+									id: 3,
+									name: "Vítimas de violência doméstica",
+									link: "/violencia-domestica",
 								},
 							]}
 						/>
@@ -277,6 +297,16 @@ const Home = () => {
 									name: "Conheça os Gestores",
 									link: "/conheca_os_gestores",
 								},
+								{
+									id: 2,
+									name: "Consultar as propostas dos vereadores",
+									link: "/consultar-propostas-de-leis",
+								},
+								{
+									id: 3,
+									name: "Central Anticorrupção",
+									link: "/central-anticorrupcao",
+								},
 							]}
 						/>
 						<Card
@@ -285,8 +315,8 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Sugestões e/ou Reclamações",
+									link: "/sugggestion-complaint",
 								},
 							]}
 						/>
@@ -297,8 +327,13 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Monitoramento do Tempo",
+									link: "/monitoramento",
+								},
+								{
+									id: 2,
+									name: "Monitoramento de Pessoas ou veiculos",
+									link: "/monitoramento-pessoas-veiculos",
 								},
 							]}
 						/>
@@ -308,8 +343,8 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Comércio Local",
+									link: "/comercio-local",
 								},
 							]}
 						/>

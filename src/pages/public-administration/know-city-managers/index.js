@@ -37,6 +37,16 @@ const Gestores = () => {
 								name: "Conheça os Gestores",
 								link: "/conheca_os_gestores",
 							},
+							{
+								id: 2,
+								name: "Consultar as propostas dos vereadores",
+								link: "/consultar-propostas-de-leis",
+							},
+							{
+								id: 3,
+								name: "Central Anticorrupção",
+								link: "/central-anticorrupcao",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>

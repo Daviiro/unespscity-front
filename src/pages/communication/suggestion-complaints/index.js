@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Header from "../../../components/header";
-import MiniCard from "../../../components/mini-card";
-import Footer from "../../../components/footer";
-import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -12,11 +7,13 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../components/styled-components/PageStyles";
+import MiniCard from "../../../components/mini-card";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const TheftRegister = () => {
+const SuggestionComplaint = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -28,36 +25,25 @@ const TheftRegister = () => {
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
-						source="/assets/img/home_seguranca_defesa_civil.png"
-						titulo="Segurança e Defesa Civil"
+						source="/assets/img/home_notificacao_comunicacao.png"
+						titulo="Central de Comunicação"
 						linkItems={[
 							{
 								id: 1,
-								name: "Registro de Acidentes",
-								link: "/registro_roubos",
-							},
-							{
-								id: 2,
-								name: "Registro de Roubos e Furtos",
-								link: "/registro-acidentes",
-							},
-							{
-								id: 3,
-								name: "Vítimas de violência doméstica",
-								link: "/violencia-domestica",
+								name: "Sugestões ou Reclamações",
+								link: "/sugggestion-complaint",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Registro de Roubos e Furtos
+								Fiscalização de Instalações
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar ocorrências de
-							roubos e furtos que aconteceram, assim a policia
-							será informada também.
+							Utilize este serviço para sugerir melhorias ou
+							relatar alguma reclamação.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -88,13 +74,10 @@ const TheftRegister = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer>
-					<Form />
-				</MidContentContainer>
+				<MidContentContainer></MidContentContainer>
 			</ContentContainer>
-			<Footer />
 		</ContainerBase>
 	);
 };
 
-export default TheftRegister;
+export default SuggestionComplaint;

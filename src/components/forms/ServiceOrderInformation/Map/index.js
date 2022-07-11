@@ -5,8 +5,8 @@ import { Circle } from "@react-google-maps/api";
 
 const Map = () => {
 	const containerStyle = {
-		width: "75vw",
-		height: "75vh",
+		width: "100%",
+		height: "500px",
 	};
 
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
@@ -25,7 +25,7 @@ const Map = () => {
 				lng: location.coords.longitude,
 			});
 		});
-	}, []);										 // Esse useEffect faz com que isto aqui seja executado somente uma vez //
+	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez //
 
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
@@ -44,7 +44,7 @@ const Map = () => {
 		draggable: false,
 		editable: false,
 		visible: true,
-		radius: 100,
+		radius: 1100,
 		zIndex: 1,
 	};
 
@@ -82,4 +82,4 @@ const Map = () => {
 	);
 };
 
-export default React.memo(Map);;
+export default React.memo(Map);

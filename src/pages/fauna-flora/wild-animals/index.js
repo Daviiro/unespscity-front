@@ -61,6 +61,11 @@ const AnimaisSilvestres = () => {
 								name: "Maus tratos à Animais",
 								link: "/maus_tratos",
 							},
+							{
+								id: 3,
+								name: "Árvores",
+								link: "/arvores",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>

@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import Header from "../../../components/header";
-import MiniCard from "../../../components/mini-card";
-import Footer from "../../../components/footer";
-import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -12,11 +7,13 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../components/styled-components/PageStyles";
+import MiniCard from "../../../components/mini-card";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const TheftRegister = () => {
+const InformationAboutTrees = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -28,36 +25,38 @@ const TheftRegister = () => {
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
-						source="/assets/img/home_seguranca_defesa_civil.png"
-						titulo="Segurança e Defesa Civil"
+						source="/assets/img/home_fauna_flora.png"
+						titulo="Fauna e Flora"
 						linkItems={[
 							{
 								id: 1,
-								name: "Registro de Acidentes",
-								link: "/registro_roubos",
+								name: "Fiscalização de Animais Silvestres",
+								link: "/animais_silvestres",
 							},
 							{
 								id: 2,
-								name: "Registro de Roubos e Furtos",
-								link: "/registro-acidentes",
+								name: "Maus tratos à Animais",
+								link: "/maus_tratos",
 							},
 							{
 								id: 3,
-								name: "Vítimas de violência doméstica",
-								link: "/violencia-domestica",
+								name: "Árvores",
+								link: "/arvores",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">
-								Registro de Roubos e Furtos
-							</Typography>
+							<Typography variant="h4">Árvores</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar ocorrências de
-							roubos e furtos que aconteceram, assim a policia
-							será informada também.
+							Neste serviço você cadastrar, remover ou checar a
+							listagem de árvores no município (remoção quando a
+							árvore é cortada, ou arrancada e colocada em outro
+							lugar). As informações podem ser bem reduzidas pois
+							árvores são simples e existem em grande número. A
+							única informação de alta importância que se deve ter
+							é a espécie dela.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -88,13 +87,10 @@ const TheftRegister = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer>
-					<Form />
-				</MidContentContainer>
+				<MidContentContainer></MidContentContainer>
 			</ContentContainer>
-			<Footer />
 		</ContainerBase>
 	);
 };
 
-export default TheftRegister;
+export default InformationAboutTrees;
