@@ -67,18 +67,16 @@ const Header = () => {
 			}
 		}
 
-		if (formValues.state === undefined || formValues.city === undefined) {
+		/*if (formValues.state === undefined || formValues.city === undefined) {
 			navigate("/location");
-		}
+		}*/
 	}, []);
 
 	useEffect(() => {
-		if (formValues !== null) {
-			localStorage.setItem(
-				"locationLocalStorage",
-				JSON.stringify(formValues)
-			);
-		}
+		localStorage.setItem(
+			"locationLocalStorage",
+			JSON.stringify(formValues)
+		);
 	});
 
 	const navigate = useNavigate();
