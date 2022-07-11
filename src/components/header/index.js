@@ -53,22 +53,30 @@ const Header = () => {
 	});
 
 	useEffect(() => {
-		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		if (JSON.parse(localStorage.getItem("locationLocalStorage")) !== null) {
+			const data = JSON.parse(
+				localStorage.getItem("locationLocalStorage")
+			);
 
-		if (data.city !== undefined && data.state !== undefined) {
-			setFormValues({
-				...formValues,
-				state: data.state,
-				city: data.city,
-			});
+			if (data.city !== undefined && data.state !== undefined) {
+				setFormValues({
+					...formValues,
+					state: data.state,
+					city: data.city,
+				});
+			}
+		} else {
+			navigate("/location");
 		}
 	}, []);
 
 	useEffect(() => {
-		localStorage.setItem(
-			"locationLocalStorage",
-			JSON.stringify(formValues)
-		);
+		if (formValues !== null) {
+			localStorage.setItem(
+				"locationLocalStorage",
+				JSON.stringify(formValues)
+			);
+		}
 
 		if (formValues.state === undefined || formValues.city === undefined) {
 			navigate("/location");
