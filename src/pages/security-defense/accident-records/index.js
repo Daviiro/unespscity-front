@@ -12,6 +12,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import Footer from "../../../components/footer";
 
 const AccidentRecords = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -88,6 +89,7 @@ const AccidentRecords = () => {
 				</TopContentContainer>
 				<MidContentContainer></MidContentContainer>
 			</ContentContainer>
+			<Footer />
 		</ContainerBase>
 	);
 };
