@@ -134,7 +134,7 @@ const ServiceOrderInformation = (props) => {
 						<TextField
 							fullWidth
 							id="outlined-basic"
-							label="Ponto de Referência (opctional)"
+							label="Ponto de Referência (opcional)"
 							variant="outlined"
 							value={referencePoint}
 							onChange={handleReferencePointChange}

@@ -22,6 +22,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const MausTratosAnimais = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -98,6 +99,7 @@ const MausTratosAnimais = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
+					{/*
 					<Details>
 						<InputLocalization />
 						<p>OU</p>
@@ -138,7 +140,8 @@ const MausTratosAnimais = () => {
 						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
 						<InputPhotos />
 						<Button text="Enviar" />
-					</Details>
+					</Details>*/}
+					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
