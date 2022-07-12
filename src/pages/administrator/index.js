@@ -14,6 +14,7 @@ import DashboardButton from "./index-button";
 import DashboardChart1 from "../../charts/chart1";
 import DashboardChart2 from "../../charts/chart2";
 import DashboardChart3 from "../../charts/chart3";
+import DashboardChart4 from "../../charts/chart4";
 import Footer from "../../components/footer";
 
 const Dashboard = () => {
@@ -24,7 +25,7 @@ const Dashboard = () => {
 				<ContainerColumn>
 					<h1> Dashboard </h1>
 					<StyledHr style={{ width: "95%", marginLeft: "-2vw" }} />
-					<DashboardChart3 />
+					<DashboardChart1 />
 					<DashboardButton
 						description = "Visualizar novos problemas"
 						linkItems={[
@@ -128,11 +129,13 @@ const Dashboard = () => {
 					<GrayLine />
 					<ChartContainer> 
 						<ContainerRow>
-							<DashboardChart1 />
 							<DashboardChart2 />
+							<DashboardChart3 />
 						</ContainerRow>
 					</ChartContainer>
-					<ChartContainer> </ChartContainer>
+					<ChartContainer style = {{ paddingTop: "2vh" }}> 
+						<DashboardChart4 />
+					</ChartContainer>
 				</ContainerColumn>
 			</Content>
 			<Footer />
