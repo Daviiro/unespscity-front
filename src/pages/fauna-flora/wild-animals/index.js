@@ -19,6 +19,7 @@ import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";
@@ -110,7 +111,8 @@ const AnimaisSilvestres = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Details>
+					{/**
+						 * <Details>
 						<InputLocalization />
 						<p>OU</p>
 						<InputAddressContainer>
@@ -164,6 +166,8 @@ const AnimaisSilvestres = () => {
 						<InputPhotos />
 						<Button text="Enviar" />
 					</Details>
+						 */}
+					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado (case se trata de um animal selvagem/silvestre causando perturbação pública, animal silvestre preso em cativeiro ou comércio ilegal de animais), descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

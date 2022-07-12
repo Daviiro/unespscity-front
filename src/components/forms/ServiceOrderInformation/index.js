@@ -9,7 +9,7 @@ import Map from "./Map";
 import GrayLine from "../../styled-components/gray-line";
 import InputPhotos from "../../images-input";
 
-const ServiceOrderInformation = () => {
+const ServiceOrderInformation = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -153,6 +153,7 @@ const ServiceOrderInformation = () => {
 						multiline
 						rows={5}
 						value={description}
+						helperText={props.descriptionHelperText}
 						onChange={handleDescriptionChange}
 					/>
 				</Stack>

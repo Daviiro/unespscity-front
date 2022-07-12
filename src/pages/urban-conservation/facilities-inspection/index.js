@@ -104,7 +104,7 @@ const Instalacoes = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation />
+					<ServiceOrderInformation descriptionHelperText="Use o espaço de texto acima para descrever a razão pela qual você acha necessário a realização de uma inspeção." />
 					{/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
