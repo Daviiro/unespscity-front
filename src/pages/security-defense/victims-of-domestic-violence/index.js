@@ -13,6 +13,7 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const VictimsOfDomesticViolence = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -87,7 +88,9 @@ const VictimsOfDomesticViolence = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes a denúncia de violência doméstica acima." />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

@@ -12,6 +12,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Footer from "../../../components/footer";
 
 const AccidentRecords = () => {
@@ -87,7 +88,9 @@ const AccidentRecords = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<ServiceOrderInformation descriptionHelperText="Conte-nos acima a natureza do acidente, e se possível relate se houve vítimas." />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
