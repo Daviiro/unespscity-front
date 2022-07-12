@@ -63,6 +63,7 @@ import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option"
 import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
 import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
+import MonitoramentoTempo from "./pages/environment/monitoring";
 
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence"; //Fauna e Flora//
 import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
@@ -489,6 +490,11 @@ const AppRoutes = () => {
 						exact
 						path="/adocao_areas_regras"
 						element={<AdocaoAreasRegras />}
+					/>
+					<Route
+						exact
+						path="/monitoramento"
+						element={<MonitoramentoTempo />}
 					/>
 					<Route exact path="/feiras_livres" element={<Feiras />} />
 					<Route
