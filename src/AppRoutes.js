@@ -102,6 +102,8 @@ import Feiras from "./pages/social-services/fair";
 
 import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; // Segurança e Defesa //
 import TheftRegister from "./pages/security-defense/theft-register";
+import VictimsOfDomesticViolence from "./pages/security-defense/victims-of-domestic-violence";
+import AccidentRecords from "./pages/security-defense/accident-records";
 
 import AdminPiscinas from "./pages/administrator/sanitary-surveillance/pool-cleaning"; // Vigilância Sanitária //
 import AdminTerreno from "./pages/administrator/sanitary-surveillance/land-cleaning";
@@ -118,6 +120,8 @@ import Escorpiao from "./pages/pest-control/scorpions-habitat";
 import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
+import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
+import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 
 
 const AppRoutes = () => {
@@ -564,6 +568,51 @@ const AppRoutes = () => {
 						exact
 						path="/password-reset"
 						element={<PasswordReset />}
+					/>
+					<Route
+						exact
+						path="/sugggestion-complaint"
+						element={<SuggestionComplaint />}
+					/>
+					<Route
+						exact
+						path="/consultar-propostas-de-leis"
+						element={<ProposedLegislation />}
+					/>
+					<Route
+						exact
+						path="/central-anticorrupcao"
+						element={<AntiCorruptionCenter />}
+					/>
+					<Route
+						exact
+						path="/coleta-de-lixo"
+						element={<RefuseCollection />}
+					/>
+					<Route
+						exact
+						path="/arvores"
+						element={<InformationAboutTrees />}
+					/>
+					<Route
+						exact
+						path="/violencia-domestica"
+						element={<VictimsOfDomesticViolence />}
+					/>
+					<Route
+						exact
+						path="/registro-acidentes"
+						element={<AccidentRecords />}
+					/>
+					<Route
+						exact
+						path="/monitoramento-pessoas-veiculos"
+						element={<Monitoring />}
+					/>
+					<Route
+						exact
+						path="/comercio-local"
+						element={<LocalTradeOffers />}
 					/>
 				</Routes>
 			</LocalContext.Provider>
