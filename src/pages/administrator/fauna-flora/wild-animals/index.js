@@ -36,6 +36,11 @@ const AdminAnimaisSilvestres = () => {
 								name: "Maus tratos à Animais",
 								link: "/admin/maus_tratos",
 							},
+							{
+								id: 3,
+								name: "Maus tratos à Animais",
+								link: "/admin/arvores",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>

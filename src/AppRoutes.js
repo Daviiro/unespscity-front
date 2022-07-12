@@ -74,6 +74,7 @@ import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-anima
 import AnimaisSilvestres from "./pages/fauna-flora/wild-animals";
 import MausTratosAnimais from "./pages/fauna-flora/animal-violence";
 import InformationAboutTrees from "./pages/fauna-flora/information-about-trees";
+import AdminInformationAboutTrees from "./pages/administrator/fauna-flora/information-about-trees";
 
 import AdminParques from "./pages/administrator/rural-green-areas-conservation/parks"; // Conservação Rural e Áreas Verdes //
 import AdminPontes from "./pages/administrator/rural-green-areas-conservation/rural-road-bridges";
@@ -106,6 +107,8 @@ import AdminFeiras from "./pages/administrator/social-services/fair"; // Serviç
 import Feiras from "./pages/social-services/fair";
 
 import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; // Segurança e Defesa //
+import AdminVictimsOfDomesticViolence from "./pages/administrator/security-defense/victims-of-domestic-violence";
+import AdminAccidentRecords from "./pages/administrator/security-defense/accident-records";
 import TheftRegister from "./pages/security-defense/theft-register";
 import VictimsOfDomesticViolence from "./pages/security-defense/victims-of-domestic-violence";
 import AccidentRecords from "./pages/security-defense/accident-records";
@@ -374,18 +377,33 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
+						path="/admin/registro-acidentes"
+						element={<AdminAccidentRecords />}
+					/>
+					<Route
+						exact
+						path="/admin/violencia-domestica"
+						element={<AdminVictimsOfDomesticViolence />}
+					/>
+					<Route
+						exact
 						path="/admin/moradores_rua"
 						element={<AdminHomelessPeople />}
 					/>
 					<Route
 						exact
-						path="/admin/familias_carentes"
+						path="/admin/familias-carentes-list"
 						element={<AdminNeedyFamilies />}
 					/>
 					<Route
 						exact
 						path="/admin/descarte_solidario"
 						element={<AdminDescarteSolidario />}
+					/>
+					<Route
+						exact
+						path="/admin/arvores"
+						element={<AdminInformationAboutTrees />}
 					/>
 					<Route exact path="/login" element={<Login />} />
 					<Route exact path="/localizacao" element={<Map />} />
@@ -598,6 +616,7 @@ const AppRoutes = () => {
 						path="/arvores"
 						element={<InformationAboutTrees />}
 					/>
+
 					<Route
 						exact
 						path="/violencia-domestica"

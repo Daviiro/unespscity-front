@@ -17,26 +17,30 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 
 const AdminTheftRegister = () => {
-    const [isFavorite, setIsFavorite] = useState(false);
-	const handleFavorite = () => {
-		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
-	};
-
 	return (
 		<ContainerBase>
 			<Header />
 			<ContentContainer>
 				<TopContentContainer>
-                    <MiniCard
+					<MiniCard
 						source="/assets/img/home_seguranca_defesa_civil.png"
 						titulo="Segurança e Defesa Civil"
 						linkItems={[
 							{
-                                id: 1,
-                                name: "Registro de Roubos e Furtos",
-                                link: "/registro_roubos",
-                            },
+								id: 1,
+								name: "Registro de Roubos e Furtos",
+								link: "/admin/registro_roubos",
+							},
+							{
+								id: 2,
+								name: "Violência Doméstica",
+								link: "/admin/violencia-domestica",
+							},
+							{
+								id: 3,
+								name: "Registro de Acidentes",
+								link: "/admin/registro-acidentes",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
@@ -49,32 +53,7 @@ const AdminTheftRegister = () => {
 							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
 						</DescriptionText>
 					</div>
-					{isFavorite ? (
-						<span>
-							<AiFillStar
-								style={{
-									cursor: "pointer",
-									margin: ".8rem",
-									stroke: "black",
-									strokeWidth: "5",
-								}}
-								color={"yellow"}
-								size={25}
-								onClick={() => handleFavorite()}
-							/>
-						</span>
-					) : (
-						<AiOutlineStar
-							style={{
-								cursor: "pointer",
-								margin: ".8rem",
-								stroke: "black",
-								strokeWidth: "5",
-							}}
-							size={25}
-							onClick={() => handleFavorite()}
-						/>
-					)}
+					<div></div>
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
@@ -106,12 +85,11 @@ const AdminTheftRegister = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						button="Falar com o dono"
 					/>
-					
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
-    )
-}
+	);
+};
 
 export default AdminTheftRegister;
