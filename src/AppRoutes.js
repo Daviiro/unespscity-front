@@ -8,11 +8,27 @@ import {
 } from "react-router-dom";
 
 import Dashboard from "./pages/administrator"; // DASHBOARD PARA O ADMIN
+import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
+import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
+import AnimaisDomesticosOpcoes from "./pages/administrator/requested-services/domestic-animals";
+import MeioAmbienteOpcoes from "./pages/administrator/requested-services/environment";
+import FaunaFloraOpcoes from "./pages/administrator/requested-services/fauna-flora";
+import FamiliasCarentesOpcoes from "./pages/administrator/requested-services/needy-families";
+import ControlePragasOpcoes from "./pages/administrator/requested-services/pest-control";
+import AdministracaoPublicaOpcoes from "./pages/administrator/requested-services/public-aministration";
+import SensoriamentoRemotoOpcoes from "./pages/administrator/requested-services/remote-sensing";
+import RemocaoDetritosOpcoes from "./pages/administrator/requested-services/road-maintenance";
+import ConservacaoRuralOpcoesOpcoes from "./pages/administrator/requested-services/rural-green-areas-conservation";
+import VigilanciaSanitariaOpcoes from "./pages/administrator/requested-services/sanitary-surveillance";
+import SegurancaDefesaCivilOpcoes from "./pages/administrator/requested-services/security-defense";
+import AssistenciaSocialOpcoes from "./pages/administrator/requested-services/social-care";
+import ServicosSociaisOpcoes from "./pages/administrator/requested-services/social-services";
+import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/urban-conservation";
 
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import Map from "./services/map-page-test/index1";
+import Map from "./services/map-page-test";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -47,7 +63,6 @@ import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option"
 import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
 import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
-import MonitoramentoTempo from "./pages/environment/monitoring";
 
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence"; //Fauna e Flora//
 import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
@@ -103,6 +118,7 @@ import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
 
+
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
 	return (
@@ -122,6 +138,86 @@ const AppRoutes = () => {
 						}
 					/>
 					<Route exact path="/admin" element={<Dashboard />} />
+					<Route
+						exact
+						path="/admin/associacao_comercial"
+						element={<AssociacaoComercialOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/comunicacao"
+						element={<ComunicacaoOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/animais_domesticos"
+						element={<AnimaisDomesticosOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/meio_ambiente"
+						element={<MeioAmbienteOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/fauna_flora"
+						element={<FaunaFloraOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/familias_carentes"
+						element={<FamiliasCarentesOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/controle_pragas"
+						element={<ControlePragasOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/administracao_publica"
+						element={<AdministracaoPublicaOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/sensoriamento_remoto"
+						element={<SensoriamentoRemotoOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/remocao_detritos"
+						element={<RemocaoDetritosOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/conservacao_rural"
+						element={<ConservacaoRuralOpcoesOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/vigilancia_sanitaria"
+						element={<VigilanciaSanitariaOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/seguranca_defesa_civil"
+						element={<SegurancaDefesaCivilOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/assistencia_social"
+						element={<AssistenciaSocialOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/servicos_sociais"
+						element={<ServicosSociaisOpcoes />}
+					/>
+					<Route
+						exact
+						path="/admin/conservacao_urbana"
+						element={<ConservacaoUrbanaOpcoes />}
+					/>
 					<Route
 						exact
 						path="/admin/animais_abandonados"
@@ -393,11 +489,6 @@ const AppRoutes = () => {
 						exact
 						path="/adocao_areas_regras"
 						element={<AdocaoAreasRegras />}
-					/>
-					<Route
-						exact
-						path="/monitoramento"
-						element={<MonitoramentoTempo />}
 					/>
 					<Route exact path="/feiras_livres" element={<Feiras />} />
 					<Route

@@ -1,46 +1,47 @@
 import styled from "styled-components";
 
-export const ContainerColumn = styled.div`
-    height: 150vh;
-    width: 25vw;
+export const ContainerRow = styled.div`
+    height: 13vh;
+    width: 95%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
     overflow-y: auto;
-    margin-top: -10vh;
-    margin-left: -10vw;
 `;
 
 export const Card = styled.div`
-    height: 7.5vh;
-    width: 36%;
+    height: 12vh;
+    width: 6vh;
     border: 0.25vh solid lightgray;
 	border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 0.25vh;
+    margin-right: 0.25vw;
 
     img {
-        height: 5.5vh;
+        height: 5vh;
         width: auto;
         opacity: 1;
-        margin-left: 1vw;
-        margin-right: 0.1vw;
+        margin-left: 0.05vw;
+        margin-top: 1vh;
+        margin-bottom: 0.5vh;
     }
 
-    h1 {
-        font-size: 1.8em;
+    h5 {
+        font-size: 1.2em;
         color: #1b262c;
+        margin-top: 0.5vh;
+        margin-bottom: -0.5vh;
+        margin-left: 0.05vw;
     }
 
-    :hover { box-shadow: 0 0 1em #0f4c75; }
+    :hover { border: 0.25vh solid #0f4c75; }
 `;
 
 export const GrayLine = styled.div`
-	height: 90%;
-	width: 0.25vh;
+	height: 0.2vh;
+	width: 93%;
 	background-color: lightgray;
-	margin-left: 0.75vw;
-	margin-right: 1vw;
 `;

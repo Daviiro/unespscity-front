@@ -5,6 +5,7 @@ import {
 	ContainerLogo,
 	ContainerCenter,
 } from "./styles";
+
 import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";
@@ -53,9 +54,30 @@ const Header = () => {
 	});
 
 	useEffect(() => {
-		if (formValues.state === undefined || formValues.city === undefined) {
-			navigate("/location");
+		if (JSON.parse(localStorage.getItem("locationLocalStorage")) !== null) {
+			const data = JSON.parse(
+				localStorage.getItem("locationLocalStorage")
+			);
+
+			if (data.city !== undefined && data.state !== undefined) {
+				setFormValues({
+					...formValues,
+					state: data.state,
+					city: data.city,
+				});
+			}
 		}
+
+		/*if (formValues.state === undefined || formValues.city === undefined) {
+			navigate("/location");
+		}*/
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem(
+			"locationLocalStorage",
+			JSON.stringify(formValues)
+		);
 	});
 
 	const navigate = useNavigate();
