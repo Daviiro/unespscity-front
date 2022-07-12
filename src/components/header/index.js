@@ -5,6 +5,7 @@ import {
 	ContainerLogo,
 	ContainerCenter,
 } from "./styles";
+
 import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "./sidebar";
 import * as FaIcons from "react-icons/fa";

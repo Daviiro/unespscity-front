@@ -17,40 +17,27 @@ export const Content = styled.div`
 	margin-left: 7.5vw;
 `;
 
-export const ProblemsButtom = styled.div`
-	height: 7.5vh;
-	width: 26vw;
-	background: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
-	border: none;
-	border-radius: 10px;
-	margin-top: 2.5vh;
-	margin-bottom: 5vh;
-	margin-left: 18.5vw;
-	text-align: center;
-
-	h3 {
-		color: #ffffff;
-		text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-		margin-top: 2.35vh;
-	}
-
-	:hover {
-		cursor: pointer;
-		box-shadow: 0 0 1em #0f4c75;
-	}
-`;
-
 export const GrayLine = styled.div`
 	height: 0.3vh;
 	width: 93%;
 	background-color: lightgray;
-	margin-top: -18.2vh;
-	margin-bottom: 12.5vh;
-	margin-left: -2vw;
+	margin-top: 4vh;
+`;
+
+export const ChartContainer = styled.div`
+	display: flex;
+	height: 60vh;
+	width: 93%;
+	margin-top: 10vh;
+	flex-direction: row;
+	border: 0.35vh solid lightgray;
+	border-radius: 20px;
+	justify-content: center;
+	align-items: center;
 `;
 
 export const ContainerColumn = styled.div`
-	height: 150vh;
+	height: 250vh;
 	width: 70vw;
 	display: flex;
 	flex-direction: column;
@@ -62,10 +49,12 @@ export const ContainerColumn = styled.div`
 `;
 
 export const ContainerRow = styled.div`
+	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-	margin-left: -5vw;
+	justify-content: center;
+	align-content: center;
 	
 	h1 {
 		margin-top: 0vh; 
