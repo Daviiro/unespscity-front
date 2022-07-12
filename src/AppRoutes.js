@@ -128,11 +128,6 @@ import Dengue from "./pages/pest-control/dengue-radar";
 import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
 import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 
-
-import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
-
-import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
-
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
 	return (
