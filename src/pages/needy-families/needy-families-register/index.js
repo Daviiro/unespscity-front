@@ -16,9 +16,10 @@ import Form from "../../../components/forms";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const NeedyFamiliesRegister = () => {
-    const totalSolicitados = 81;
+	const totalSolicitados = 81;
 	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
@@ -58,7 +59,8 @@ const NeedyFamiliesRegister = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar familias carentes que precisam receber doações
+							Utilize este serviço para informar familias carentes
+							que precisam receber doações
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -90,12 +92,12 @@ const NeedyFamiliesRegister = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre quais necessidades tal familía está passando." />
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
 	);
-}
+};
 
 export default NeedyFamiliesRegister;
