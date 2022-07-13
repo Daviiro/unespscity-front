@@ -13,7 +13,6 @@ import {
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 
-import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";

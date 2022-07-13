@@ -5,10 +5,9 @@ import { SubHeader, ContainerColumn, Square, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -98,7 +97,7 @@ const Pracas = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está a praça. " />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

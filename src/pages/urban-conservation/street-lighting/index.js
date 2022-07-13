@@ -4,11 +4,10 @@ import { SubHeader, ContainerColumn, Square, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -107,7 +106,7 @@ const Iluminacao = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está a lampada (totalmente queimada, piscando, com a luz fraca, etc)." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

@@ -3,10 +3,9 @@ import PagesPieChart from "../../../charts/types/donut";
 import { SubHeader, ContainerColumn, Square, ChartContainer } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -106,7 +105,7 @@ const Monumentos = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva a situação em que está os Monumentos e/ou Chafarizes. " />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

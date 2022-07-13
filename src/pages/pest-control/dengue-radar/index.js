@@ -5,13 +5,13 @@ import { InputAddressContainer, Details, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
 import Input from "../../../components/input";
 import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {

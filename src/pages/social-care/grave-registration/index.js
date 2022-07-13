@@ -11,7 +11,6 @@ import {
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
 import Button from "../../../components/styled-components/form-button";
 import InputQR from "./input-qr";
 import Input from "../../../components/input";
