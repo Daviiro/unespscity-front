@@ -25,10 +25,12 @@ import AssistenciaSocialOpcoes from "./pages/administrator/requested-services/so
 import ServicosSociaisOpcoes from "./pages/administrator/requested-services/social-services";
 import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/urban-conservation";
 
+import DengueMap from "./pages/administrator/maps/dengue-radar";
+
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import Map from "./services/map-page-test";
+import MapPage from "./services/map-page";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -232,6 +234,11 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
+						path="/admin/mapas/dengue"
+						element={<DengueMap />}
+					/>
+					<Route
+						exact
 						path="/admin/animais_abandonados"
 						element={<AdminAnimaisAbandonados />}
 					/>
@@ -406,7 +413,7 @@ const AppRoutes = () => {
 						element={<AdminInformationAboutTrees />}
 					/>
 					<Route exact path="/login" element={<Login />} />
-					<Route exact path="/localizacao" element={<Map />} />
+					<Route exact path="/localizacao" element={<MapPage />} />
 					<Route
 						exact
 						path="/conheca_os_gestores"

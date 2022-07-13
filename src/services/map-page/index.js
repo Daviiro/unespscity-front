@@ -2,7 +2,7 @@ import React from "react";
 import  Map from "../../components/forms/ServiceOrderInformation/Map";
 import { ContainerBase } from "./styles";
 
-const MapComponent = () => {
+const MapPage = () => {
     return (
         <>
             <ContainerBase>
@@ -12,4 +12,4 @@ const MapComponent = () => {
     );
 };
 
-export default MapComponent;
+export default MapPage;

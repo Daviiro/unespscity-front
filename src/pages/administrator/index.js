@@ -117,12 +117,12 @@ const Dashboard = () => {
 						]}
 					/>
 					<DashboardButton
-						description = "Ver Mapas"
+						description = "Mapas de Calor"
 						linkItems={[
 							{
 								id: 1,
-								name: "Mapas de Calor",
-								link: "/admin",
+								name: "Radar da Dengue",
+								link: "/admin/mapas/dengue",
 							},
 						]}
 					/>
