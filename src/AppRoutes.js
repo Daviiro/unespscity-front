@@ -40,7 +40,9 @@ import AdminGestores from "./pages/administrator/public-administration/know-city
 import Gestores from "./pages/public-administration/know-city-managers";
 import ProposedLegislation from "./pages/public-administration/proposed-legislation";
 import AntiCorruptionCenter from "./pages/public-administration/anti-corruption-center";
-import SuggestionComplaint from "./pages/communication/suggestion-complaints";
+
+import Noticias from "./pages/communication/news";	// Central de Notificação e Comunicação //
+import Sugestoes from "./pages/communication/suggestion-complaints";
 
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts"; // Assistência Social //
 import AdminTumulos from "./pages/administrator/social-care/grave-registration";
@@ -600,8 +602,13 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
-						path="/sugggestion-complaint"
-						element={<SuggestionComplaint />}
+						path="/noticias"
+						element={<Noticias />}
+					/>
+					<Route
+						exact
+						path="/sugestoes"
+						element={<Sugestoes />}
 					/>
 					<Route
 						exact

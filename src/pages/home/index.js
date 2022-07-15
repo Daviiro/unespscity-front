@@ -315,8 +315,13 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
+									name: "Notícias da Cidade",
+									link: "/noticias",
+								},
+								{
+									id: 2,
 									name: "Sugestões e/ou Reclamações",
-									link: "/sugggestion-complaint",
+									link: "/sugestoes",
 								},
 							]}
 						/>
