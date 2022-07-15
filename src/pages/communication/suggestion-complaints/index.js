@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 
-const SuggestionComplaint = () => {
+const Sugestoes = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -27,13 +27,18 @@ const SuggestionComplaint = () => {
 				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_notificacao_comunicacao.png"
-						titulo="Central de Comunicação"
+						titulo="Notificação e Comunicação"
 						linkItems={[
 							{
-								id: 1,
-								name: "Sugestões ou Reclamações",
-								link: "/sugggestion-complaint",
-							},
+                                id: 1,
+                                name: "Notícias da Cidade",
+                                link: "/noticias",
+                            },
+                            {
+                                id: 2,
+                                name: "Sugestões e/ou Reclamações",
+                                link: "/sugestoes",
+                            },
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
@@ -82,4 +87,4 @@ const SuggestionComplaint = () => {
 	);
 };
 
-export default SuggestionComplaint;
+export default Sugestoes;
