@@ -79,6 +79,11 @@ const Home = () => {
 									name: "Animais Mortos",
 									link: "/animais_mortos",
 								},
+								{
+									id: 2,
+									name: "Residuos Solidos",
+									link: "/residuos_solidos",
+								},
 							]}
 						/>
 						<Card

@@ -52,12 +52,11 @@ const HomelessPeople = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Registro de Familias Carentes
+								Moradores de Rua
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-							
+							Aqui você ver pessoas em situação de rua e caso tenha condições, ajuda las doando alimentos, roupas, cobertores, etc. 
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

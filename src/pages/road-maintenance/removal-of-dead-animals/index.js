@@ -6,7 +6,7 @@ import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 import PagesPieChart from "../../../charts/types/donut";
-import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -42,6 +42,11 @@ const Animais_Mortos = () => {
 								id: 1,
 								name: "Animais Mortos",
 								link: "/animais_mortos",
+							},
+							{
+								id: 2,
+								name: "Residuos Solidos",
+								link: "/residuos_solidos",
 							},
 						]}
 					/>
@@ -84,7 +89,7 @@ const Animais_Mortos = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde irá deixar o animal morto. De preferencia deixar em um saco Preto." />
 				</MidContentContainer>
 			</ContentContainer>
 

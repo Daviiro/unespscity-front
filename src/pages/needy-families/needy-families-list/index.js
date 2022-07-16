@@ -56,7 +56,8 @@ const NeedyFamiliesList = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
+							Aqui você ver familias carentes e caso tenha condições, ajuda las doando alimentos, roupas, cobertores, etc. 
+							Basta entrar em contato diretamente com eles! 
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

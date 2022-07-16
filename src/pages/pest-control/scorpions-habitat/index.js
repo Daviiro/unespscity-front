@@ -2,23 +2,15 @@ import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 
 import {
-	SubHeader,
-	ContainerColumn,
-	InputAddressContainer,
-	Square,
-	Details,
 	ChartContainer,
 } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import InputPhotos from "../../../components/images-input";
 import GrayLine from "../../../components/styled-components/gray-line";
-import Button from "../../../components/styled-components/form-button";
 import Footer from "../../../components/footer";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -113,19 +105,7 @@ const Escorpiao = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Details>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado." />
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details>
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de escorpiões." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

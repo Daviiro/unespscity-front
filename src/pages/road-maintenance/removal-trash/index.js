@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-import PagesPieChart from "../../../charts/types/donut";
-
-import {
-	SubHeader,
-	ContainerColumn,
-	InputAddressContainer,
-	Square,
-	Details,
-	ChartContainer,
-} from "./styles";
+import { ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-
-import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
+import PagesPieChart from "../../../charts/types/donut";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -29,10 +20,10 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Leishmaniose = () => {
+const Lixos_Solidos = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 92;
-	const totalResolvidos = 14;
+	const totalSolicitados = 91;
+	const totalResolvidos = 45;
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -44,39 +35,28 @@ const Leishmaniose = () => {
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
-						source="/assets/img/home_controle_pragas.png"
-						titulo="Controle de Pragas"
+						source="/assets/img/home_remocao_detritos.png"
+						titulo="Remoção de Detritos"
 						linkItems={[
 							{
 								id: 1,
-								name: "Foco de Escorpião",
-								link: "/foco_de_escorpiao",
+								name: "Animais Mortos",
+								link: "/animais_mortos",
 							},
 							{
 								id: 2,
-								name: "Insetos Roedores e Caramujos",
-								link: "/insetos_roedores_caramujos",
-							},
-							{
-								id: 3,
-								name: "Leishmaniose",
-								link: "/leishmaniose",
-							},
-							{
-								id: 4,
-								name: "Radar da Dengue",
-								link: "/radar_da_dengue",
+								name: "Residuos Solidos",
+								link: "/residuos_solidos",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">Leishmaniose</Typography>
+							<Typography variant="h4">Animais Mortos</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar a localização de
-							focos do mosquito transmissor da Leishmaniose, o
-							mosquito-palha (Phlebotomus pappatasi).
+							Utilize este serviço para solicitar a remoção de
+							residuos solidos, como galhos, sofás, etc.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -108,12 +88,13 @@ const Leishmaniose = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Leishmaniose." />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde está todo o resíduo sólido." />
 				</MidContentContainer>
 			</ContentContainer>
+
 			<GrayLine />
 			<ChartContainer>
-				<h3> Eliminações solicitadas e efetuadas: </h3>
+				<h3> Remoções solicitadas e efetuadas: </h3>
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}
@@ -123,4 +104,4 @@ const Leishmaniose = () => {
 		</ContainerBase>
 	);
 };
-export default Leishmaniose;
+export default Lixos_Solidos;

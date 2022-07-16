@@ -63,6 +63,8 @@ import AdocaoAnimais from "./pages/domestic-animals/adoption-animals";
 
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals"; // Remoção de Detritos //
 import AnimaisMortos from "./pages/road-maintenance/removal-of-dead-animals";
+import AdminResiduosSolidos from "./pages/administrator/road-maintenance/removal-trash";
+import ResiduosSolidos from "./pages/road-maintenance/removal-trash";
 
 import AdminAdocaoAreas from "./pages/administrator/environment/public-areas-adoption"; // Meio Ambiente //
 import AdminMonitoramentoTempo from "./pages/administrator/environment/monitoring";
@@ -253,6 +255,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/animais_mortos"
 						element={<AdminAnimaisMortos />}
+					/>
+					<Route
+						exact
+						path="/admin/lixos_solidos"
+						element={<AdminResiduosSolidos /> }
 					/>
 					<Route
 						exact
@@ -480,6 +487,11 @@ const AppRoutes = () => {
 						exact
 						path="/animais_mortos"
 						element={<AnimaisMortos />}
+					/>
+					<Route
+						exact
+						path="/residuos_solidos"
+						element={<ResiduosSolidos /> }
 					/>
 					<Route
 						exact
