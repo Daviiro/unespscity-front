@@ -41,7 +41,8 @@ import Gestores from "./pages/public-administration/know-city-managers";
 import ProposedLegislation from "./pages/public-administration/proposed-legislation";
 import AntiCorruptionCenter from "./pages/public-administration/anti-corruption-center";
 
-import Noticias from "./pages/communication/news";	// Central de Notificação e Comunicação //
+import AdminNoticias from "./pages/administrator/communication/news";	// Central de Notificação e Comunicação //
+import Noticias from "./pages/communication/news";
 import Sugestoes from "./pages/communication/suggestion-complaints";
 
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts"; // Assistência Social //
@@ -290,6 +291,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/conheca_os_gestores"
 						element={<AdminGestores />}
+					/>
+					<Route
+						exact
+						path="/admin/noticias"
+						element={<AdminNoticias />}
 					/>
 					<Route
 						exact
