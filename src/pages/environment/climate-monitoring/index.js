@@ -1,4 +1,5 @@
 import React from "react";
+import { gql, useSubscription } from '@apollo/client';
 
 import {
 	ContainerBase,
@@ -15,6 +16,24 @@ import ServiceDescription from "../../../components/service-description";
 import Footer from "../../../components/footer";
 
 const Monitoring = () => {
+	const TEMPERATURE_SUBSCRIPTION = gql`
+    subscription temperatureValues($title: String!) {
+			temperatureValues(data: $title) {
+			title
+			longitude
+			latitude
+			temperature
+			humidity
+		}	
+	}`;
+
+	const { data, loading } = useSubscription(
+		TEMPERATURE_SUBSCRIPTION, 
+		{ variables: { title: "Temperatura em X Lugar" } }
+	);
+	console.log(data);
+	console.log(loading);
+
 	return (
 		<>
 			<ContainerBase>
