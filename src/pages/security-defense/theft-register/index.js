@@ -4,7 +4,7 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";
-import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -89,7 +89,7 @@ const TheftRegister = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde você foi furtado e o que você perdeu." />
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

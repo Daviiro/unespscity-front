@@ -118,3 +118,11 @@ export const BottomContainer = styled.div`
 		color: #3282b8;
 	}
 `;
+
+export const Form = styled.form`
+	width: 100%; 
+	display: flex;
+	flex-direction: column; 
+	align-items: center; 
+	justify-content: space-between;
+`;

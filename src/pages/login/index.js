@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "../../components/styled-components/form-button";
+import { Context } from "../../context/Auth/AuthContext";
 
 import {
 	ContainerBase,
 	Square,
 	GrayLine,
-	InputField,
+	Form,
 	LoginSignupSpan,
 	TopContainer,
 	MidContainer,
@@ -15,12 +16,31 @@ import {
 } from "./styles";
 
 const Login = () => {
+    const navigate = useNavigate();
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState("");
 	const [toggle, setToggle] = useState(true);
 	const [titleLoginColor, setTitleLoginColor] = useState("var(--secondary)");
 	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
+	const { handleLogin } = useContext(Context);
+
+    async function handleSubmitLogin(e) {
+        e.preventDefault();
+
+        const data = {
+            email, 
+            password
+        }
+
+        await handleLogin(data);
+        navigate('/');
+    }
+
+	async function handleSubmitRegister(e) {
+        e.preventDefault();
+        navigate('/');
+    }
 
 	useEffect(() => {
 		if (toggle) {
@@ -31,19 +51,6 @@ const Login = () => {
 			setTitleSignupColor("#000000");
 		}
 	});
-
-	const handleUserChange = (event) => {
-		setUser(event.target.value);
-		console.log(email);
-	};
-	const handleEmailChange = (event) => {
-		setEmail(event.target.value);
-		console.log(email);
-	};
-	const handlePasswordChange = (event) => {
-		setPassword(event.target.value);
-		console.log(email);
-	};
 
 	return (
 		<>
@@ -76,14 +83,14 @@ const Login = () => {
 					<GrayLine />
 					<MidContainer>
 						{toggle ? (
-							<>
+							<Form  onSubmit={handleSubmitLogin}>
 								<TextField
 									fullWidth
 									id="outlined-basic"
 									label="E-mail"
 									variant="outlined"
 									value={email}
-									onChange={handleEmailChange}
+									onChange={(event) => setEmail(event.target.value)}
 								/>
 								<br />
 								<TextField
@@ -93,19 +100,19 @@ const Login = () => {
 									variant="outlined"
 									type="password"
 									value={password}
-									onChange={handlePasswordChange}
+									onChange={(event) => setPassword(event.target.value)}
 								/>
 								<Button text="Entrar" />
-							</>
+							</Form>
 						) : (
-							<>
+							<Form  onSubmit={handleSubmitRegister}>
 								<TextField
 									fullWidth
 									id="outlined-basic"
 									label="Nome"
 									variant="outlined"
 									value={user}
-									onChange={handleUserChange}
+									onChange={(event) => setUser(event.target.value)}
 								/>
 								<br />
 								<TextField
@@ -114,7 +121,7 @@ const Login = () => {
 									label="E-mail"
 									variant="outlined"
 									value={email}
-									onChange={handleEmailChange}
+									onChange={(event) => setEmail(event.target.value)}
 								/>
 								<br />
 								<TextField
@@ -124,10 +131,10 @@ const Login = () => {
 									variant="outlined"
 									type="password"
 									value={password}
-									onChange={handlePasswordChange}
+									onChange={(event) => setPassword(event.target.value)}
 								/>
 								<Button text="Cadastrar" />
-							</>
+							</Form>
 						)}
 					</MidContainer>
 					<GrayLine />

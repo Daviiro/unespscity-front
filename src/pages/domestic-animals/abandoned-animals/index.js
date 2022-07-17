@@ -5,7 +5,7 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -107,7 +107,7 @@ const AnimaisAbandonados = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde você encontrou o animal que foi abandonado." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
