@@ -75,6 +75,12 @@ const ServiceOrderInformation = (props) => {
 								onChange={handleReferencePointChange}
 							/>
 						</Stack>
+						<br />
+						<Typography variant="body2">
+							Caso o endereço desejado não se encontre dentro do
+							círculo vermelho no mapa, por favor, insira o
+							endereço manualmente após apertar o botão abaixo.
+						</Typography>
 					</div>
 				</>
 			)}

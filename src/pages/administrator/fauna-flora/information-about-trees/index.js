@@ -11,6 +11,7 @@ import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import AdminListCard from "../../../../components/card-list-admin";
+import TreesMap from "./trees-map";
 import Footer from "../../../../components/footer";
 
 const AdminInformationAboutTrees = () => {
@@ -59,6 +60,7 @@ const AdminInformationAboutTrees = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						report={true}
 					/>
+					<TreesMap />
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

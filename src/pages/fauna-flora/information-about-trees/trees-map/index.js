@@ -3,7 +3,7 @@ import { fetchLocation } from "../../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
 
-const Map = () => {
+const TreesMap = () => {
 	const containerStyle = {
 		width: "100%",
 		height: "500px",
@@ -82,4 +82,4 @@ const Map = () => {
 	);
 };
 
-export default React.memo(Map);
+export default React.memo(TreesMap);

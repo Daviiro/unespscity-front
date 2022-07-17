@@ -12,7 +12,11 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import TreesMap from "./trees-map";
 import Footer from "../../../components/footer";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
+import Stack from "@mui/material/Stack";
 
 const InformationAboutTrees = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -20,6 +24,20 @@ const InformationAboutTrees = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
 	};
+	const [latitude, setLatitude] = useState(0);
+	const [longitude, setLongitude] = useState(0);
+	const [specie, setSpecie] = useState("");
+
+	const handleLatitudeChange = (event) => {
+		setLatitude(event.target.value);
+	};
+	const handleLongitudeChange = (event) => {
+		setLongitude(event.target.value);
+	};
+	const handleSpecieChange = (event) => {
+		setSpecie(event.target.value);
+	};
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -88,7 +106,42 @@ const InformationAboutTrees = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<form>
+						<Stack spacing={2} direction="row">
+							<TextField
+								fullWidth
+								id="outlined-basic"
+								label="Latitude"
+								type="number"
+								variant="outlined"
+								value={latitude}
+								onChange={handleLatitudeChange}
+							/>
+							<TextField
+								fullWidth
+								id="outlined-basic"
+								label="Longitude"
+								variant="outlined"
+								value={longitude}
+								onChange={handleLongitudeChange}
+							/>
+							<TextField
+								fullWidth
+								id="outlined-basic"
+								label="Espécie"
+								variant="outlined"
+								value={specie}
+								onChange={handleSpecieChange}
+							/>
+						</Stack>
+						<Button fullWidth variant="contained">
+							Adicionar
+						</Button>
+					</form>
+
+					<TreesMap />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
