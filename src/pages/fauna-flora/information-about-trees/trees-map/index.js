@@ -7,8 +7,11 @@ import {
 	LoadScript,
 	MarkerClusterer,
 	Marker,
+	InfoWindow,
 } from "@react-google-maps/api";
 import LocalContext from "../../../user-location/Context";
+import { InfoWindowContainer } from "./styles";
+import { Typography } from "@mui/material";
 
 const TreesMap = () => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
@@ -51,29 +54,64 @@ const TreesMap = () => {
 		console.log("Circle onUnmount circle: ", circle);
 	};
 
+	const [selected, setSelected] = React.useState({});
+
+	const onSelect = (item) => {
+		setSelected(item);
+	};
+
 	const locations = [
-		{ lat: -33.718234, lng: 150.363181 },
-		{ lat: -33.727111, lng: 150.371124 },
-		{ lat: -33.848588, lng: 151.209834 },
-		{ lat: -33.851702, lng: 151.216968 },
-		{ lat: -34.671264, lng: 150.863657 },
-		{ lat: -35.304724, lng: 148.662905 },
-		{ lat: -36.817685, lng: 175.699196 },
-		{ lat: -36.828611, lng: 175.790222 },
-		{ lat: -37.75, lng: 145.116667 },
-		{ lat: -37.759859, lng: 145.128708 },
-		{ lat: -37.765015, lng: 145.133858 },
-		{ lat: -37.770104, lng: 145.143299 },
-		{ lat: -37.7737, lng: 145.145187 },
-		{ lat: -37.774785, lng: 145.137978 },
-		{ lat: -37.819616, lng: 144.968119 },
-		{ lat: -38.330766, lng: 144.695692 },
-		{ lat: -39.927193, lng: 175.053218 },
-		{ lat: -41.330162, lng: 174.865694 },
-		{ lat: -42.734358, lng: 147.439506 },
-		{ lat: -42.734358, lng: 147.501315 },
-		{ lat: -42.735258, lng: 147.438 },
-		{ lat: -22.131951, lng: -51.40933 },
+		{
+			name: "Location 1",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Pata de Vaca",
+			age: 50,
+			location: {
+				lat: 41.3954,
+				lng: 2.162,
+			},
+		},
+		{
+			name: "Location 2",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna",
+			age: 50,
+			location: {
+				lat: 41.3917,
+				lng: 2.1649,
+			},
+		},
+		{
+			name: "Location 3",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Manacá da Serra",
+			age: 50,
+			location: {
+				lat: 41.3773,
+				lng: 2.1585,
+			},
+		},
+		{
+			name: "Location 4",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Quaresmeira ",
+			age: 50,
+			location: {
+				lat: 41.3797,
+				lng: 2.1682,
+			},
+		},
+		{
+			name: "Location 5",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna ",
+			age: 50,
+			location: {
+				lat: -22.131951,
+				lng: -51.40933,
+			},
+		},
+		//{ lat: -22.131951, lng: -51.40933 },
 	];
 
 	function createKey(location) {
@@ -89,17 +127,44 @@ const TreesMap = () => {
 			onLoad={onLoad}
 			onUnmount={onUnmount}
 		>
-			<MarkerClusterer options={options}>
-				{(clusterer) =>
-					locations.map((location) => (
-						<Marker
-							key={createKey(location)}
-							position={location}
-							clusterer={clusterer}
+			{locations.map((location) => (
+				<Marker
+					key={createKey(location)}
+					position={location.location}
+					onClick={() => onSelect(location)}
+					//icon={{ url: options.imagePath }}
+					icon={{
+						url:
+							process.env.PUBLIC_URL +
+							"/assets/img/tree-default-icon.png",
+					}}
+				/>
+			))}
+			{selected.location && (
+				<InfoWindow
+					position={selected.location}
+					clickable={true}
+					onCloseClick={() => setSelected({})}
+				>
+					<InfoWindowContainer>
+						<Typography variant="subtitle2">
+							Titulo: {selected.name}
+						</Typography>
+						<img
+							src={process.env.PUBLIC_URL + selected.imgsrc}
+							width="77"
+							height="77"
 						/>
-					))
-				}
-			</MarkerClusterer>
+
+						<Typography variant="body2">
+							Espécie: {selected.specie}
+						</Typography>
+						<Typography variant="body2">
+							Idade: {selected.age} anos
+						</Typography>
+					</InfoWindowContainer>
+				</InfoWindow>
+			)}
 		</GoogleMap>
 	) : (
 		<></>
