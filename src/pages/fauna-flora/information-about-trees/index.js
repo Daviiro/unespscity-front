@@ -16,6 +16,7 @@ import TreesMap from "./trees-map";
 import Footer from "../../../components/footer";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
+import TreesModal from "./trees-modal";
 import Stack from "@mui/material/Stack";
 
 const InformationAboutTrees = () => {
@@ -37,6 +38,70 @@ const InformationAboutTrees = () => {
 	const handleSpecieChange = (event) => {
 		setSpecie(event.target.value);
 	};
+
+	const [locations, setLocations] = useState([
+		{
+			name: "Location 1",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Pata de Vaca",
+			age: 50,
+			location: {
+				lat: 41.3954,
+				lng: 2.162,
+			},
+		},
+		{
+			name: "Location 2",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna",
+			age: 50,
+			location: {
+				lat: 41.3917,
+				lng: 2.1649,
+			},
+		},
+		{
+			name: "Location 3",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Manacá da Serra",
+			age: 50,
+			location: {
+				lat: 41.3773,
+				lng: 2.1585,
+			},
+		},
+		{
+			name: "Location 4",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Quaresmeira ",
+			age: 50,
+			location: {
+				lat: 41.3797,
+				lng: 2.1682,
+			},
+		},
+		{
+			name: "Location 5",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna ",
+			age: 50,
+			location: {
+				lat: -22.131951,
+				lng: -51.40933,
+			},
+		},
+	]);
+	const [open, setOpen] = useState(false);
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
+	const onMapClick = () => {
+		console.log(open);
+		handleClickOpen();
+	}; //ao clicar no mapa quero abrir um dialog para adicionar uma árvore
 
 	return (
 		<ContainerBase>
@@ -139,8 +204,16 @@ const InformationAboutTrees = () => {
 							Adicionar
 						</Button>
 					</form>
-
-					<TreesMap />
+					<TreesMap
+						locations={locations}
+						icon="/assets/img/tree-default-icon.png"
+						onMapClick={onMapClick}
+					/>
+					<TreesModal
+						locations={locations}
+						open={open}
+						handleClose={handleClose}
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
