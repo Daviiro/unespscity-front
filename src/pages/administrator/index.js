@@ -124,6 +124,11 @@ const Dashboard = () => {
 								name: "Radar da Dengue",
 								link: "/admin/mapas/dengue",
 							},
+							{
+								id: 2,
+								name: "Regiões com Alta Poluição",
+								link: "/admin/mapas/poluicao",
+							},
 						]}
 					/>
 					<GrayLine />

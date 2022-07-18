@@ -26,6 +26,7 @@ import ServicosSociaisOpcoes from "./pages/administrator/requested-services/soci
 import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/urban-conservation";
 
 import DengueMap from "./pages/administrator/maps/dengue-radar";
+import PollutionMap from "./pages/administrator/maps/pollution";
 
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
@@ -69,6 +70,7 @@ import ResiduosSolidos from "./pages/road-maintenance/removal-trash";
 
 import AdminAdocaoAreas from "./pages/administrator/environment/public-areas-adoption"; // Meio Ambiente //
 import AdminMonitoramentoTempo from "./pages/administrator/environment/monitoring";
+import PublicAreasMap from "./pages/environment/public-areas-adoption/map/index";
 import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option";
 import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
@@ -112,6 +114,7 @@ import Vias from "./pages/urban-conservation/public-roads";
 
 import AdminFeiras from "./pages/administrator/social-services/fair"; // Serviços Sociais //
 import Feiras from "./pages/social-services/fair";
+import FairMap from "./pages/social-services/fair/map/index";
 
 import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; // Segurança e Defesa //
 import AdminVictimsOfDomesticViolence from "./pages/administrator/security-defense/victims-of-domestic-violence";
@@ -241,6 +244,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/mapas/dengue"
 						element={<DengueMap />}
+					/>
+					<Route
+						exact
+						path="/admin/mapas/poluicao"
+						element={<PollutionMap />}
 					/>
 					<Route
 						exact
@@ -526,6 +534,11 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
+						path="/adocao_areas_mapa"
+						element={<PublicAreasMap />}
+					/>
+					<Route
+						exact
 						path="/adocao_areas_opcoes"
 						element={<AdocaoAreasOpcoes />}
 					/>
@@ -549,6 +562,7 @@ const AppRoutes = () => {
 						path="/monitoramento"
 						element={<MonitoramentoTempo />}
 					/>
+					<Route exact path="/feiras_livres_mapa" element={<FairMap />} />
 					<Route exact path="/feiras_livres" element={<Feiras />} />
 					<Route
 						exact
