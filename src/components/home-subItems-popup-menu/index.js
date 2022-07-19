@@ -18,32 +18,37 @@ const PopUp = (props) => {
 
 							<Table style={{ textDecoration: "none" }}>
 								<Tbody>
-									{props.linkItems.map((item) => (
-										<Tr
-											key={item.id}
-											onClick={() =>
-												navigate(`../${item.link}`)
-											}
-										>
-											<td>
-												{/*<Link
+									{props.linkItems
+										.sort((a, b) => {
+											//ordenando alfabeticamente
+											return a.name.localeCompare(b.name);
+										})
+										.map((item) => (
+											<Tr
+												key={item.id}
+												onClick={() =>
+													navigate(`../${item.link}`)
+												}
+											>
+												<td>
+													{/*<Link
 													to={item.link}
 													style={{
 														textDecoration: "none",
 														width: "100%",
 													}}
 												>*/}
-												<span
-													style={{
-														width: "100%",
-													}}
-												>
-													{item.name}
-												</span>
-												{/*</Link>*/}
-											</td>
-										</Tr>
-									))}
+													<span
+														style={{
+															width: "100%",
+														}}
+													>
+														{item.name}
+													</span>
+													{/*</Link>*/}
+												</td>
+											</Tr>
+										))}
 								</Tbody>
 							</Table>
 						</ModalContent>
