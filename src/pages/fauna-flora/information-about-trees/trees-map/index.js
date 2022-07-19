@@ -12,6 +12,7 @@ import {
 import LocalContext from "../../../user-location/Context";
 import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
+import { useEffect } from "react";
 
 const TreesMap = (props) => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
@@ -72,11 +73,18 @@ const TreesMap = (props) => {
 			zoom={13}
 			onLoad={onLoad}
 			onUnmount={onUnmount}
-			onClick={props.onMapClick}
+			onClick={(coords) => {
+				//handleCoordChange(coords);
+				props.onMapClick({
+					lat: coords.latLng.lat(),
+					lng: coords.latLng.lng(),
+				});
+				console.log("Coordenadas clickadas: " + coords.latLng);
+			}}
 		>
 			{props.locations.map((location) => (
 				<Marker
-					key={createKey(location)}
+					key={location.id}
 					position={location.location}
 					onClick={() => onSelect(location)}
 					//icon={{ url: options.imagePath }}

@@ -41,6 +41,7 @@ const InformationAboutTrees = () => {
 
 	const [locations, setLocations] = useState([
 		{
+			id: 1,
 			name: "Location 1",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Pata de Vaca",
@@ -51,6 +52,7 @@ const InformationAboutTrees = () => {
 			},
 		},
 		{
+			id: 2,
 			name: "Location 2",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna",
@@ -61,6 +63,7 @@ const InformationAboutTrees = () => {
 			},
 		},
 		{
+			id: 3,
 			name: "Location 3",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Manacá da Serra",
@@ -71,6 +74,7 @@ const InformationAboutTrees = () => {
 			},
 		},
 		{
+			id: 4,
 			name: "Location 4",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Quaresmeira ",
@@ -81,6 +85,7 @@ const InformationAboutTrees = () => {
 			},
 		},
 		{
+			id: 5,
 			name: "Location 5",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna ",
@@ -98,9 +103,28 @@ const InformationAboutTrees = () => {
 	const handleClose = () => {
 		setOpen(false);
 	};
-	const onMapClick = () => {
-		console.log(open);
+	const handleAdd = (tree) => {
+		//console.log("######fdfasdaf#########");
+		//console.log(locations);
+		//console.log(tree);
+		setLocations([...locations, tree]);
+		//console.log(locations);
+		setOpen(false);
+	};
+
+	const [clickedCoordinates, setClickedCoordinates] = useState({
+		lat: 0,
+		lng: 0,
+	});
+
+	const onMapClick = (coords) => {
+		//console.log(open);
+		setClickedCoordinates(coords);
+
 		handleClickOpen();
+
+		console.log("ta aqui oh " + clickedCoordinates.lng);
+		console.log("ta aqui oh " + clickedCoordinates.lat);
 	}; //ao clicar no mapa quero abrir um dialog para adicionar uma árvore
 
 	return (
@@ -172,38 +196,6 @@ const InformationAboutTrees = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<form>
-						<Stack spacing={2} direction="row">
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Latitude"
-								type="number"
-								variant="outlined"
-								value={latitude}
-								onChange={handleLatitudeChange}
-							/>
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Longitude"
-								variant="outlined"
-								value={longitude}
-								onChange={handleLongitudeChange}
-							/>
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Espécie"
-								variant="outlined"
-								value={specie}
-								onChange={handleSpecieChange}
-							/>
-						</Stack>
-						<Button fullWidth variant="contained">
-							Adicionar
-						</Button>
-					</form>
 					<TreesMap
 						locations={locations}
 						icon="/assets/img/tree-default-icon.png"
@@ -212,7 +204,9 @@ const InformationAboutTrees = () => {
 					<TreesModal
 						locations={locations}
 						open={open}
+						clickedCoordinates={clickedCoordinates}
 						handleClose={handleClose}
+						handleAdd={handleAdd}
 					/>
 				</MidContentContainer>
 			</ContentContainer>
