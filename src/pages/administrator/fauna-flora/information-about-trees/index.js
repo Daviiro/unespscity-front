@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -9,12 +9,101 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
+import TreesModal from "../../../fauna-flora/information-about-trees/trees-modal";
 import AdminListCard from "../../../../components/card-list-admin";
 import TreesMap from "./trees-map";
 import Footer from "../../../../components/footer";
 
 const AdminInformationAboutTrees = () => {
+	const [clickedCoordinates, setClickedCoordinates] = useState({
+		lat: 0,
+		lng: 0,
+	});
+
+	const [locations, setLocations] = useState([
+		{
+			id: 1,
+			name: "Location 1",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Pata de Vaca",
+			age: 50,
+			location: {
+				lat: 41.3954,
+				lng: 2.162,
+			},
+		},
+		{
+			id: 2,
+			name: "Location 2",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna",
+			age: 50,
+			location: {
+				lat: 41.3917,
+				lng: 2.1649,
+			},
+		},
+		{
+			id: 3,
+			name: "Location 3",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Manacá da Serra",
+			age: 50,
+			location: {
+				lat: 41.3773,
+				lng: 2.1585,
+			},
+		},
+		{
+			id: 4,
+			name: "Location 4",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Quaresmeira ",
+			age: 50,
+			location: {
+				lat: 41.3797,
+				lng: 2.1682,
+			},
+		},
+		{
+			id: 5,
+			name: "Location 5",
+			imgsrc: "/assets/img/default-tree.png",
+			specie: "Sibipiruna ",
+			age: 50,
+			location: {
+				lat: -22.131951,
+				lng: -51.40933,
+			},
+		},
+	]);
+
+	const [open, setOpen] = useState(false);
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
+	const onMapClick = (coords) => {
+		//console.log(open);
+		setClickedCoordinates(coords);
+		handleClickOpen();
+	};
+	const handleAdd = (tree) => {
+		//console.log(locations);
+		//console.log(tree);
+		setLocations([...locations, tree]); //adiciono a nova arvore no array
+		//console.log(locations);
+		setOpen(false);
+	};
+
+	const handleDelete = (tree) => {
+		console.log(
+			"quero deletar a arvore id: " + tree.id + " nome: " + tree.name
+		);
+	};
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -46,21 +135,34 @@ const AdminInformationAboutTrees = () => {
 							<Typography variant="h4">Árvores</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as árvores e suas respectivas
-							localizações
+							Aqui, você administrador, pode addicionar novas
+							árvores, além de também poder deletar árvores que
+							foram adicionadas por você ou por algum usuário.
 						</DescriptionText>
 					</div>
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<AdminListCard
+					{/*<AdminListCard
 						source="/assets/img/home_fauna_flora.png"
 						nome="Árvore da espécie pau-brasil"
 						sobrenome="[localização]"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						report={true}
+					/>*/}
+					<TreesMap
+						locations={locations}
+						icon="/assets/img/tree-default-icon.png"
+						onMapClick={onMapClick}
+						handleDelete={handleDelete}
 					/>
-					<TreesMap />
+					<TreesModal
+						locations={locations}
+						open={open}
+						clickedCoordinates={clickedCoordinates}
+						handleClose={handleClose}
+						handleAdd={handleAdd}
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

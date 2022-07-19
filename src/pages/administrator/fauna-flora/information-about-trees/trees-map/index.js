@@ -1,61 +1,57 @@
 import * as React from "react";
-import { fetchLocation } from "../../../../../services/GoogleMaps";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { Circle } from "@react-google-maps/api";
-import { TextField } from "@mui/material";
-import Stack from "@mui/material/Stack";
+import { fetchLatLong } from "../../../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../../../services/IBGE";
+import {
+	GoogleMap,
+	useJsApiLoader,
+	Marker,
+	InfoWindow,
+} from "@react-google-maps/api";
+import LocalContext from "../../../../user-location/Context";
+import { InfoWindowContainer } from "./styles";
+import { Typography } from "@mui/material";
+import Button from "@mui/material/Button";
 
-const TreesMap = () => {
+const TreesMap = (props) => {
+	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
+	const [cityName, setCityName] = React.useState("");
+	const [formValues, setFormValues] = React.useContext(LocalContext);
+	const { handleDelete } = props;
+
+	fetchCityForID(formValues.city).then((city) => {
+		setCityName(city);
+	});
+
+	React.useEffect(() => {
+		fetchCityForID(formValues.city).then((city) => {
+			setCityName(city);
+		});
+		console.log(cityName);
+		fetchLatLong(cityName).then((data) => {
+			setCenter({
+				lat: data.results[0].geometry.location.lat,
+				lng: data.results[0].geometry.location.lng,
+			});
+		});
+	}, [cityName]);
+
 	const containerStyle = {
 		width: "100%",
 		height: "500px",
 	};
-
-	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
-
-	React.useEffect(() => {
-		navigator.geolocation.getCurrentPosition((location) => {
-			fetchLocation(
-				location.coords.latitude,
-				location.coords.longitude
-			).then((data) => {
-				console.log("localizacao abaixo");
-				console.log(data);
-			});
-			setCenter({
-				lat: location.coords.latitude,
-				lng: location.coords.longitude,
-			});
-		});
-	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez //
-
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
 	});
-
 	const [map, setMap] = React.useState(null);
-
 	const options = {
-		strokeColor: "#FF0000",
-		strokeOpacity: 1,
-		strokeWeight: 1.5,
-		fillColor: "#FF0000",
-		fillOpacity: 0.25,
-		clickable: false,
-		draggable: false,
-		editable: false,
-		visible: true,
-		radius: 100,
-		zIndex: 1,
+		imagePath: "https://i.stack.imgur.com/ILTQq.png",
 	};
 
-	const onLoad = (circle) => {
-		console.log("Circle onLoad circle: ", circle);
-	};
+	const [selected, setSelected] = React.useState({});
 
-	const onUnmount = (circle) => {
-		console.log("Circle onUnmount circle: ", circle);
+	const onSelect = (item) => {
+		setSelected(item);
 	};
 
 	return isLoaded ? (
@@ -63,21 +59,58 @@ const TreesMap = () => {
 			mapContainerStyle={containerStyle}
 			center={center}
 			radius={100}
-			zoom={15}
-			onLoad={onLoad}
-			onUnmount={onUnmount}
+			zoom={13}
+			onClick={(coords) => {
+				//handleCoordChange(coords);
+				props.onMapClick({
+					lat: coords.latLng.lat(),
+					lng: coords.latLng.lng(),
+				});
+				console.log("Coordenadas clickadas: " + coords.latLng);
+			}}
 		>
-			<Circle
-				// optional
-				onLoad={onLoad}
-				// optional
-				onUnmount={onUnmount}
-				// required
-				center={center}
-				// required
-				options={options}
-			/>
-			<></>
+			{props.locations.map((location) => (
+				<Marker
+					key={location.id}
+					position={location.location}
+					onClick={() => onSelect(location)}
+					//icon={{ url: options.imagePath }}
+					icon={{
+						url: process.env.PUBLIC_URL + props.icon,
+					}}
+				/>
+			))}
+			{selected.location && (
+				<InfoWindow
+					position={selected.location}
+					clickable={true}
+					onCloseClick={() => setSelected({})}
+				>
+					<InfoWindowContainer>
+						<Typography variant="subtitle2">
+							Titulo: {selected.name}
+						</Typography>
+						<img
+							src={process.env.PUBLIC_URL + selected.imgsrc}
+							width="77"
+							height="77"
+						/>
+
+						<Typography variant="body2">
+							Espécie: {selected.specie}
+						</Typography>
+						<Typography variant="body2">
+							Idade: {selected.age} anos
+						</Typography>
+						<Button
+							fulldwith
+							onClick={() => handleDelete(selected)}
+						>
+							Deletar
+						</Button>
+					</InfoWindowContainer>
+				</InfoWindow>
+			)}
 		</GoogleMap>
 	) : (
 		<></>
