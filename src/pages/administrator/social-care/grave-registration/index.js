@@ -28,12 +28,12 @@ const AdminTumulos = () => {
 							{
 								id: 1,
 								name: "Telefones Úteis",
-								link: "/telefones_uteis",
+								link: "/admin/telefones_uteis",
 							},
 							{
 								id: 2,
 								name: "Cadastro de Túmulos e Falecidos",
-								link: "/tumulos",
+								link: "/admin/tumulos",
 							},
 						]}
 					/>

@@ -37,6 +37,11 @@ const AdminTelefones = () => {
 								name: "Telefones Úteis",
 								link: "/admin/telefones_uteis",
 							},
+							{
+								id: 2,
+								name: "Cadastro de Túmulos e Falecidos",
+								link: "/admin/tumulos",
+							},
 						]}
 					/>
 					<ContainerColumn>
