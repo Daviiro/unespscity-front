@@ -4,15 +4,12 @@ import { fetchCityForID } from "../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	LoadScript,
-	MarkerClusterer,
 	Marker,
 	InfoWindow,
 } from "@react-google-maps/api";
 import LocalContext from "../../../user-location/Context";
 import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
-import { useEffect } from "react";
 
 const TreesMap = (props) => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
@@ -48,12 +45,6 @@ const TreesMap = (props) => {
 	const options = {
 		imagePath: "https://i.stack.imgur.com/ILTQq.png",
 	};
-	const onLoad = (circle) => {
-		console.log("Circle onLoad circle: ", circle);
-	};
-	const onUnmount = (circle) => {
-		console.log("Circle onUnmount circle: ", circle);
-	};
 
 	const [selected, setSelected] = React.useState({});
 
@@ -61,18 +52,12 @@ const TreesMap = (props) => {
 		setSelected(item);
 	};
 
-	function createKey(location) {
-		return location.lat + location.lng;
-	}
-
 	return isLoaded ? (
 		<GoogleMap
 			mapContainerStyle={containerStyle}
 			center={center}
 			radius={100}
 			zoom={13}
-			onLoad={onLoad}
-			onUnmount={onUnmount}
 			onClick={(coords) => {
 				//handleCoordChange(coords);
 				props.onMapClick({

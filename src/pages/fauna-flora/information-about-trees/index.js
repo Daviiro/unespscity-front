@@ -14,29 +14,13 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import TreesMap from "./trees-map";
 import Footer from "../../../components/footer";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
 import TreesModal from "./trees-modal";
-import Stack from "@mui/material/Stack";
 
 const InformationAboutTrees = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
-	};
-	const [latitude, setLatitude] = useState(0);
-	const [longitude, setLongitude] = useState(0);
-	const [specie, setSpecie] = useState("");
-
-	const handleLatitudeChange = (event) => {
-		setLatitude(event.target.value);
-	};
-	const handleLongitudeChange = (event) => {
-		setLongitude(event.target.value);
-	};
-	const handleSpecieChange = (event) => {
-		setSpecie(event.target.value);
 	};
 
 	const [locations, setLocations] = useState([
@@ -104,10 +88,9 @@ const InformationAboutTrees = () => {
 		setOpen(false);
 	};
 	const handleAdd = (tree) => {
-		//console.log("######fdfasdaf#########");
 		//console.log(locations);
 		//console.log(tree);
-		setLocations([...locations, tree]);
+		setLocations([...locations, tree]); //adiciono a nova arvore no array
 		//console.log(locations);
 		setOpen(false);
 	};
@@ -123,8 +106,8 @@ const InformationAboutTrees = () => {
 
 		handleClickOpen();
 
-		console.log("ta aqui oh " + clickedCoordinates.lng);
-		console.log("ta aqui oh " + clickedCoordinates.lat);
+		//console.log("ta aqui oh " + clickedCoordinates.lng);
+		//console.log("ta aqui oh " + clickedCoordinates.lat);
 	}; //ao clicar no mapa quero abrir um dialog para adicionar uma árvore
 
 	return (
