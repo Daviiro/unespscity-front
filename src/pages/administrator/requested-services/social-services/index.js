@@ -11,6 +11,9 @@ const ServicosSociaisOpcoes = () => {
                     <Link to = "/admin/feiras_livres">
                         <Button text = "Feiras Livres" />
                     </Link>
+                    <Link to = "/admin/diaristas">
+                        <Button text = "Diaristas" />
+                    </Link>
                 </ContainerColumn>
             </ContainerBase>
         </>

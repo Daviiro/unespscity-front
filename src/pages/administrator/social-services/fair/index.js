@@ -72,6 +72,11 @@ const AdminFeiras = () => {
 								name: "Feiras Livres",
 								link: "/admin/feiras_livres",
 							},
+							{
+								id: 2,
+								name: "Diaristas",
+								link: "/admin/diaristas",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
