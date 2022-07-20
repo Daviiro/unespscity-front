@@ -41,10 +41,10 @@ const TreesMap = (props) => {
 		id: "google-map-script",
 		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
 	});
-	const [map, setMap] = React.useState(null);
+	/*const [map, setMap] = React.useState(null);
 	const options = {
 		imagePath: "https://i.stack.imgur.com/ILTQq.png",
-	};
+	};*/
 
 	const [selected, setSelected] = React.useState({});
 
