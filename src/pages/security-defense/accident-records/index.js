@@ -33,12 +33,12 @@ const AccidentRecords = () => {
 							{
 								id: 1,
 								name: "Registro de Acidentes",
-								link: "/registro_roubos",
+								link: "/registro-acidentes",
 							},
 							{
 								id: 2,
 								name: "Registro de Roubos e Furtos",
-								link: "/registro-acidentes",
+								link: "/registro_roubos",
 							},
 							{
 								id: 3,

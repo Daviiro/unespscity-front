@@ -1,6 +1,5 @@
 import React from "react";
 
-import { SubHeader, ContainerColumn, Square, Details } from "./styles";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -11,8 +10,7 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../../components/service-description";
+
 import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 

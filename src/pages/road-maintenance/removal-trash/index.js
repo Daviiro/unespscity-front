@@ -52,7 +52,7 @@ const Lixos_Solidos = () => {
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">Animais Mortos</Typography>
+							<Typography variant="h4">Residuos Solidos</Typography>
 						</div>
 						<DescriptionText>
 							Utilize este serviço para solicitar a remoção de

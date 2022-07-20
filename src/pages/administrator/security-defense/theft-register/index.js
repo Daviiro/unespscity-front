@@ -50,7 +50,7 @@ const AdminTheftRegister = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
+							Lista com todos os furtos ocorridos que foram registrados na plataforma. 
 						</DescriptionText>
 					</div>
 					<div></div>

@@ -58,7 +58,7 @@ const Restaurante = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Restaurantes / Ambientes Irregularess
+								Restaurantes / Ambientes Irregulares
 							</Typography>
 						</div>
 						<DescriptionText>
@@ -96,7 +96,7 @@ const Restaurante = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está o restaurante" />
+					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está o restaurante / ambiente." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
