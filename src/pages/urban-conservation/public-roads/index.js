@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-import { SubHeader, ContainerColumn, Square, ChartContainer } from "./styles";
+import { ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";

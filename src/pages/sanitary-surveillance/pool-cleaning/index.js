@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 
-import {
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details2,
-	ChartContainer,
-} from "./styles";
+import { Details, ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -104,7 +98,7 @@ const Piscinas = () => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está a piscina" />
-					<Details2>
+					<Details>
 						<p> Como limpar piscinas particulares: </p>
 						<a
 							target="_blank"
@@ -127,7 +121,7 @@ const Piscinas = () => {
 							{" "}
 							⇒ Link Externo 3{" "}
 						</a>
-					</Details2>
+					</Details>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

@@ -115,6 +115,10 @@ import Vias from "./pages/urban-conservation/public-roads";
 import AdminFeiras from "./pages/administrator/social-services/fair"; // Serviços Sociais //
 import Feiras from "./pages/social-services/fair";
 import FairMap from "./pages/social-services/fair/map/index";
+import AdminDiaristas from "./pages/administrator/social-services/diarist-janitors";
+import DiaristasOpcoes from "./pages/social-services/diarist-janitors/option";
+import DiaristasNovo from "./pages/social-services/diarist-janitors/index1";
+import DiaristasLista from "./pages/social-services/diarist-janitors/index2";
 
 import AdminTheftRegister from "./pages/administrator/security-defense/theft-register"; // Segurança e Defesa //
 import AdminVictimsOfDomesticViolence from "./pages/administrator/security-defense/victims-of-domestic-violence";
@@ -362,6 +366,11 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
+						path="/admin/diaristas"
+						element={<AdminDiaristas />}
+					/>
+					<Route
+						exact
 						path="/admin/feiras_livres"
 						element={<AdminFeiras />}
 					/>
@@ -568,6 +577,21 @@ const AppRoutes = () => {
 						element={<FairMap />}
 					/>
 					<Route exact path="/feiras_livres" element={<Feiras />} />
+					<Route
+						exact
+						path="/diaristas_opcoes"
+						element={<DiaristasOpcoes />}
+					/>
+					<Route
+						exact
+						path="/diaristas_novo"
+						element={<DiaristasNovo />}
+					/>
+					<Route
+						exact
+						path="/diaristas_lista"
+						element={<DiaristasLista />}
+					/>
 					<Route
 						exact
 						path="/limpeza_de_piscinas"

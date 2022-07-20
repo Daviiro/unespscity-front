@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import PagesPieChart from "../../../charts/types/donut";
+import { Link } from "react-router-dom";
 
-import { ChartContainer } from "./styles";
+import {
+	FormContainer,
+    InputAddressContainer,
+} from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-
+import Input from "../../../components/input";
+import InputLocalization from "../../../components/input-localization-button";
+import DescriptionInput from "../../../components/description-input";
+import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -22,56 +27,52 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Escorpiao = () => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 44;
-	const totalResolvidos = 19;
+const DiaristasNovo = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
-						source="/assets/img/home_controle_pragas.png"
-						titulo="Controle de Pragas"
+						source="/assets/img/home_servicos_sociais.png"
+						titulo="Serviços Sociais"
 						linkItems={[
 							{
 								id: 1,
-								name: "Foco de Escorpião",
-								link: "/foco_de_escorpiao",
+								name: "Feiras Livres",
+								link: "/feiras_livres",
 							},
 							{
 								id: 2,
-								name: "Insetos Roedores e Caramujos",
-								link: "/insetos_roedores_caramujos",
-							},
-							{
-								id: 3,
-								name: "Leishmaniose",
-								link: "/leishmaniose",
-							},
-							{
-								id: 4,
-								name: "Radar da Dengue",
-								link: "/radar_da_dengue",
+								name: "Cadastro de Diaristas",
+								link: "/diaristas_opcoes",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Foco de Escorpião
+								Cadastro de Diaristas
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para informar a localização de
-							focos de escorpiões e demais aracnídeos que fornecem
-							perigo à população.
+							Utilize este serviço para cadastrar um(a) novo(a)
+							diarista, faxineiro(a) ou zelador(a) na sua cidade.
+							Para ver a lista com todos os cadastros, clique
+							<Link
+								to="/diaristas_lista"
+								style={{ textDecoration: "none" }}
+							>
+								{" "}
+								AQUI
+							</Link>
+							.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -103,19 +104,32 @@ const Escorpiao = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de escorpiões." />
+					<FormContainer>
+                        <InputAddressContainer>
+				            <Input title = "Nome:" width = "30vw" />
+				            <Input title = "Telefone:" width = "13vw" />
+			            </InputAddressContainer>
+						<InputLocalization />
+						<p style = {{ marginTop: "2.5vh" }}> OU </p>
+						<InputAddressContainer>
+				            <Input title = "Endereço:" width = "36vw" />
+				            <Input title = "Nº" width = "7vw" />
+			            </InputAddressContainer>
+						<Input
+				            title = "Ponto de Referência:"
+				            placeholder = "Um local de referência proximo (Opcional)"
+			            />
+						<DescriptionInput
+							title = "Descrição do serviço:"
+							placeholder = "conte-nos em detalhes o seu serviço prestado, horários disponíveis, cálculo de pagamento e o que mais julgar importante."
+						/>
+						<Button text = "Enviar" />
+					</FormContainer>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
-			<ChartContainer>
-				<h3> Eliminações solicitadas e efetuadas: </h3>
-				<PagesPieChart
-					solved={totalResolvidos}
-					unsolved={totalSolicitados}
-				/>
-			</ChartContainer>
 			<Footer />
 		</ContainerBase>
 	);
 };
-export default Escorpiao;
+export default DiaristasNovo;

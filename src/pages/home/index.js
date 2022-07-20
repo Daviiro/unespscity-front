@@ -259,6 +259,11 @@ const Home = () => {
 									name: "Feiras Livres",
 									link: "/feiras_livres",
 								},
+								{
+									id: 2,
+									name: "Cadastro de Diaristas",
+									link: "/diaristas_opcoes",
+								},
 							]}
 						/>
 						<Card
