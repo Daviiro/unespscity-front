@@ -8,8 +8,8 @@ const ComunicacaoOpcoes = () => {
         <>
             <ContainerBase>
                 <ContainerColumn>
-                    <Link to = "/admin">
-                        <Button text = "A se fazer" />
+                    <Link to = "/admin/noticias">
+                        <Button text = "Notícias" />
                     </Link>
                 </ContainerColumn>
             </ContainerBase>
