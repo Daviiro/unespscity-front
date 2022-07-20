@@ -42,7 +42,7 @@ import Gestores from "./pages/public-administration/know-city-managers";
 import ProposedLegislation from "./pages/public-administration/proposed-legislation";
 import AntiCorruptionCenter from "./pages/public-administration/anti-corruption-center";
 
-import AdminNoticias from "./pages/administrator/communication/news";	// Central de Notificação e Comunicação //
+import AdminNoticias from "./pages/administrator/communication/news"; // Central de Notificação e Comunicação //
 import Noticias from "./pages/communication/news";
 import Sugestoes from "./pages/communication/suggestion-complaints";
 
@@ -268,7 +268,7 @@ const AppRoutes = () => {
 					<Route
 						exact
 						path="/admin/lixos_solidos"
-						element={<AdminResiduosSolidos /> }
+						element={<AdminResiduosSolidos />}
 					/>
 					<Route
 						exact
@@ -505,7 +505,7 @@ const AppRoutes = () => {
 					<Route
 						exact
 						path="/residuos_solidos"
-						element={<ResiduosSolidos /> }
+						element={<ResiduosSolidos />}
 					/>
 					<Route
 						exact
@@ -562,7 +562,11 @@ const AppRoutes = () => {
 						path="/monitoramento"
 						element={<MonitoramentoTempo />}
 					/>
-					<Route exact path="/feiras_livres_mapa" element={<FairMap />} />
+					<Route
+						exact
+						path="/feiras_livres_mapa"
+						element={<FairMap />}
+					/>
 					<Route exact path="/feiras_livres" element={<Feiras />} />
 					<Route
 						exact
@@ -632,16 +636,8 @@ const AppRoutes = () => {
 						path="/password-reset"
 						element={<PasswordReset />}
 					/>
-					<Route
-						exact
-						path="/noticias"
-						element={<Noticias />}
-					/>
-					<Route
-						exact
-						path="/sugestoes"
-						element={<Sugestoes />}
-					/>
+					<Route exact path="/noticias" element={<Noticias />} />
+					<Route exact path="/sugestoes" element={<Sugestoes />} />
 					<Route
 						exact
 						path="/consultar-propostas-de-leis"

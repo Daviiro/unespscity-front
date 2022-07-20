@@ -38,7 +38,7 @@ const TreesModal = (props) => {
 				lng: clickedCoordinates.lng,
 			},
 		});
-	}, [clickedCoordinates]);
+	});
 
 	return (
 		<Dialog open={open} onClose={handleClose}>
@@ -55,8 +55,8 @@ const TreesModal = (props) => {
 					id="outlined-basic"
 					label="Título"
 					variant="standard"
-					value={title}
 					onChange={handleTitleChange}
+					value={title}
 				/>
 				<TextField
 					fullWidth
@@ -65,19 +65,19 @@ const TreesModal = (props) => {
 					id="outlined-basic"
 					label="Espécie"
 					variant="standard"
-					value={specie}
 					onChange={handleSpecieChange}
+					value={specie}
 				/>
 				<TextField
 					fullWidth
 					autoFocus
-					type="number"
+					inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
 					margin="dense"
 					id="outlined-basic"
 					label="Idade"
 					variant="standard"
-					value={age}
 					onChange={handleAgeChange}
+					value={age}
 				/>
 			</DialogContent>
 			<DialogActions>

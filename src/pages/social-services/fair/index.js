@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
-import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -15,6 +13,8 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import { Typography } from "@mui/material";
+import FairsMap from "./map";
 
 const Feiras = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -94,39 +94,9 @@ const Feiras = () => {
 						sobrenome="Dia - Horario"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="Rua - Bairro"
-						sobrenome="Dia - Horario"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="Rua - Bairro"
-						sobrenome="Dia - Horario"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="Rua - Bairro"
-						sobrenome="Dia - Horario"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="Rua - Bairro"
-						sobrenome="Dia - Horario"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="Rua - Bairro"
-						sobrenome="Dia - Horario"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
 				</MidContentContainer>
+				<FairsMap />
 			</ContentContainer>
-
 			<Footer />
 		</ContainerBase>
 	);
