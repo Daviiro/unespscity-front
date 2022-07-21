@@ -122,12 +122,12 @@ const Dashboard = () => {
 							{
 								id: 1,
 								name: "Radar da Dengue",
-								link: "/admin/mapas/dengue",
+								link: "/radar_da_dengue/mapa",
 							},
 							{
 								id: 2,
 								name: "Regiões com Alta Poluição",
-								link: "/admin/mapas/poluicao",
+								link: "/monitoramento/mapa",
 							},
 						]}
 					/>

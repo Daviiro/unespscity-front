@@ -25,9 +25,6 @@ import AssistenciaSocialOpcoes from "./pages/administrator/requested-services/so
 import ServicosSociaisOpcoes from "./pages/administrator/requested-services/social-services";
 import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/urban-conservation";
 
-import DengueMap from "./pages/administrator/maps/dengue-radar";
-import PollutionMap from "./pages/administrator/maps/pollution";
-
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
@@ -76,6 +73,7 @@ import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/in
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
 import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
 import MonitoramentoTempo from "./pages/environment/climate-monitoring";
+import PollutionMap from "./pages/environment/climate-monitoring/map";
 import RefuseCollection from "./pages/environment/refuse-collection";
 
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence"; //Fauna e Flora//
@@ -142,6 +140,7 @@ import Escorpiao from "./pages/pest-control/scorpions-habitat";
 import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
+import DengueMap from "./pages/pest-control/dengue-radar/map";
 import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
 import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 
@@ -243,16 +242,6 @@ const AppRoutes = () => {
 						exact
 						path="/admin/conservacao_urbana"
 						element={<ConservacaoUrbanaOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/mapas/dengue"
-						element={<DengueMap />}
-					/>
-					<Route
-						exact
-						path="/admin/mapas/poluicao"
-						element={<PollutionMap />}
 					/>
 					<Route
 						exact
@@ -508,6 +497,11 @@ const AppRoutes = () => {
 					<Route exact path="/radar_da_dengue" element={<Dengue />} />
 					<Route
 						exact
+						path="/radar_da_dengue/mapa"
+						element={<DengueMap />}
+					/>
+					<Route
+						exact
 						path="/animais_mortos"
 						element={<AnimaisMortos />}
 					/>
@@ -570,6 +564,11 @@ const AppRoutes = () => {
 						exact
 						path="/monitoramento"
 						element={<MonitoramentoTempo />}
+					/>
+					<Route
+						exact
+						path="/monitoramento/mapa"
+						element={<PollutionMap />}
 					/>
 					<Route
 						exact
