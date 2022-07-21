@@ -5,8 +5,7 @@ import PagesPieChart from "../../../charts/types/donut";
 import {
 	Details,
 	InputLocalization,
-	InputAddressContainer,
-	ChartContainer,
+	InputAddressContainer
 } from "./styles";
 
 import Header from "../../../components/header";
@@ -16,6 +15,7 @@ import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";

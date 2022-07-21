@@ -8,7 +8,6 @@ import {
 	InputAddressContainer,
 	Square,
 	Details,
-	ChartContainer,
 } from "./styles";
 
 import Header from "../../../components/header";
@@ -20,6 +19,7 @@ import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";

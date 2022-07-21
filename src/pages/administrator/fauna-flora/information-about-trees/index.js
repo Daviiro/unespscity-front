@@ -9,7 +9,7 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import TreesModal from "../../../fauna-flora/information-about-trees/trees-modal";
+import TreesModal from "../../../fauna-flora/information-about-trees/modal";
 import AdminListCard from "../../../../components/card-list-admin";
 import TreesMap from "./trees-map";
 import Footer from "../../../../components/footer";
