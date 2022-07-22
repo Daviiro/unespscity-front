@@ -2,22 +2,14 @@ import React, { useState } from "react";
 
 import {
 	Details,
-	Form,
-	SubHeader,
-	ContainerColumn,
-	Square,
 	AddFair,
 } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import ServiceDescription from "../../../../components/service-description";
 import Footer from "../../../../components/footer";
-import InputPhotos from "../../../../components/images-input";
 import Input from "../../../../components/input";
-import DescriptionInput from "../../../../components/description-input";
 import AdminListCard from "../../../../components/card-list-admin";
-import AdminServiceDescription from "../../../../components/styled-components/admin-service-description";
 
 import Typography from "@mui/material/Typography";
 import {
@@ -27,7 +19,6 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";

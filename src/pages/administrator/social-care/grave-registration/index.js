@@ -35,6 +35,11 @@ const AdminTumulos = () => {
 								name: "Cadastro de Túmulos e Falecidos",
 								link: "/admin/tumulos",
 							},
+							{
+								id: 3,
+								name: "Programação Cultural",
+								link: "/admin/programacao_cultural",
+							},
 						]}
 					/>
 					<ContainerColumn>
