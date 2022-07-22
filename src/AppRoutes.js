@@ -143,7 +143,10 @@ import Pragas from "./pages/pest-control/insects-rodents-snails";
 import Leishmaniose from "./pages/pest-control/leishmaniose";
 import Dengue from "./pages/pest-control/dengue-radar";
 import DengueMap from "./pages/pest-control/dengue-radar/map";
+
 import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
+import GuardianMonitoring from "./pages/remote-sensing/guardian-monitoring"; 
+
 import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 
 const AppRoutes = () => {
@@ -708,6 +711,11 @@ const AppRoutes = () => {
 						exact
 						path="/monitoramento-pessoas-veiculos"
 						element={<Monitoring />}
+					/>
+					<Route
+						exact
+						path="/monitoramento-guardinha"
+						element={<GuardianMonitoring />}
 					/>
 					<Route
 						exact
