@@ -1,23 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
-
-import {
-	Details,
-	InputLocalization,
-	InputAddressContainer
-} from "./styles";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import InputPhotos from "../../../components/images-input";
-import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -29,6 +16,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const DescarteSolidario = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -107,58 +95,24 @@ const DescarteSolidario = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Details>
-						<Link
-							to="/localizacao"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<InputLocalization>
-								{" "}
-								Usar Localização Atual{" "}
-							</InputLocalization>
-						</Link>
-						<p style = {{ marginBottom: "-5.5vh" }}> OU </p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<div>
-							<input type="checkbox" id="Roupas/Calçados" />
-							<label for="Roupas/Calçados" style={{ fontSize: "14px" }}>
-								{" "}
-								Roupas/Calçados{" "}
-							</label>
-						</div>
-						<div>
-							<input type="checkbox" id="Eletrodomésticos" />
-							<label for="Eletrodomésticos" style={{ fontSize: "14px" }}>
-								{" "}
-								Eletrodomésticos{" "}
-							</label>
-						</div>
-						<div>
-							<input type="checkbox" id="Móveis" />
-							<label for="Móveis" style={{ fontSize: "14px" }}>
-								{" "}
-								Móveis{" "}
-							</label>
-						</div>
-                        <div>
-							<input type="checkbox" id="outros" />
-							<label for="outros" style={{ fontSize: "14px" }}>
-								{" "}
-								outros{" "}
-							</label>
-						</div>
-						<DescriptionInput placeholder="Por favor, informe-nos a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details>
+					<div style = {{ marginTop: "-4.5vh", marginBottom: "0.4vh" }}>
+						<input type="checkbox" id="Roupas/Calçados" />
+						<label for="Roupas/Calçados" style={{ fontSize: "15px", color: "gray" }}> {" "} Roupas/Calçados{" "} </label>
+					</div>
+					<div style = {{ marginBottom: "0.4vh" }}>
+						<input type="checkbox" id="Eletrodomésticos" />
+						<label for="Eletrodomésticos" style={{ fontSize: "15px", color: "gray" }}> {" "} Eletrodomésticos{" "} </label>
+					</div>
+					<div style = {{ marginBottom: "0.4vh" }}>
+						<input type="checkbox" id="Móveis" />
+						<label for="Móveis" style={{ fontSize: "15px", color: "gray" }}> {" "} Móveis{" "} </label>
+					</div>
+                    <div style = {{ marginBottom: "4vh" }}>
+						<input type="checkbox" id="outros" />
+						<label for="outros" style={{ fontSize: "15px", color: "gray" }}> {" "} outros{" "} </label>
+					</div>
+				    <ServiceOrderInformation descriptionHelperText = "Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
+				    {/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

@@ -11,6 +11,9 @@ const RemocaoDetritosOpcoes = () => {
                     <Link to = "/admin/animais_mortos">
                         <Button text = "Animais Mortos" />
                     </Link>
+                    <Link to = "/admin/residuos_solidos">
+                        <Button text = "Resíduos Sólidos" />
+                    </Link>
                 </ContainerColumn>
             </ContainerBase>
         </>

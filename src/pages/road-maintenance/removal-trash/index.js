@@ -44,18 +44,18 @@ const Lixos_Solidos = () => {
 							},
 							{
 								id: 2,
-								name: "Residuos Solidos",
+								name: "Resíduos Sólidos",
 								link: "/residuos_solidos",
 							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">Residuos Solidos</Typography>
+							<Typography variant="h4">Resíduos Sólidos</Typography>
 						</div>
 						<DescriptionText>
 							Utilize este serviço para solicitar a remoção de
-							residuos solidos, como galhos, sofás, etc.
+							resíduos sólidos, como galhos, sofás, etc.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
