@@ -30,7 +30,7 @@ const UsefulLocationsModal = (props) => {
 		setNewLocation({
 			id: locations[locations.length - 1].id + 1,
 			name: place,
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: phone,
 			opening_hours: opening_hours,
 			location: {

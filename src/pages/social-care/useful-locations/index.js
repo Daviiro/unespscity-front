@@ -27,7 +27,7 @@ const LocaisUteis = () => {
 		{
 			id: 1,
 			name: "Cidade da Criança",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3902-9233",
 			opening_hours: "Sexta à Domingo, das 10:00 às 16:00",
 			location: {
@@ -38,7 +38,7 @@ const LocaisUteis = () => {
 		{
 			id: 2,
 			name: "Parque do Povo",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3902-9340",
 			opening_hours: "Aberto 24 horas",
 			location: {
@@ -49,7 +49,7 @@ const LocaisUteis = () => {
 		{
 			id: 3,
 			name: "Centro Histórico Cultural Matarazzo",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3226-3399",
 			opening_hours: "Domingo das 10:00 às 22:00, segunda à sábado das 08:30 às 22:00",
 			location: {
@@ -60,7 +60,7 @@ const LocaisUteis = () => {
 		{
 			id: 4,
 			name: "Balneário da Amizade",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)99742-7655",
 			opening_hours: "Das 07:00 às 19:00 todos os dias",
 			location: {
@@ -71,7 +71,7 @@ const LocaisUteis = () => {
 		{
 			id: 5,
 			name: "Museu e Arquivo Histórico Municipal",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3223-9404",
 			opening_hours: "Terça à sexta, das 08:30 às 16:30",
 			location: {
@@ -82,7 +82,7 @@ const LocaisUteis = () => {
 		{
 			id: 6,
 			name: "Catedral de São Sebastião",
-			imgsrc: "/assets/img/home_assistencia_social.png",
+			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3223-2016",
 			opening_hours: "Todos os dias, das 07:00 às 10:00",
 			location: {
@@ -186,7 +186,7 @@ const LocaisUteis = () => {
 				<MidContentContainer>
 					<UsefulLocationsMap
 						locations={locations}
-						icon="/assets/img/home_assistencia_social.png"
+						icon="/assets/img/location-icon.png"
 						onMapClick={onMapClick}
 					/>
 					<UsefulLocationsModal
