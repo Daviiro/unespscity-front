@@ -49,13 +49,6 @@ const FairsMap = (props) => {
 			center={center}
 			radius={100}
 			zoom={13}
-			onClick={(coords) => {
-				//handleCoordChange(coords);
-				props.onMapClick({
-					lat: coords.latLng.lat(),
-					lng: coords.latLng.lng(),
-				});
-			}}
 		>
 			{props.locations.map((location) => (
 				<Marker

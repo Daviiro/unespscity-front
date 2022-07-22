@@ -15,7 +15,6 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import { Typography } from "@mui/material";
 import FairsMap from "./map";
-import Modal from "./modal";
 
 const Feiras = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -69,25 +68,7 @@ const Feiras = () => {
 			},
 		},
 	]);
-	const [open, setOpen] = useState(false);
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-	const handleClose = () => {
-		setOpen(false);
-	};
-	const handleAdd = (fair) => {
-		setLocations([...locations, fair]); //adiciono a nova feira no array
-		setOpen(false);
-	};
-	const [clickedCoordinates, setClickedCoordinates] = useState({
-		lat: 0,
-		lng: 0,
-	});
-	const onMapClick = (coords) => {
-		setClickedCoordinates(coords);
-		handleClickOpen();
-	};
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -157,14 +138,6 @@ const Feiras = () => {
 				<FairsMap
 					locations={locations}
 					icon="/assets/img/fair-icon.png"
-					onMapClick={onMapClick}
-				/>
-				<Modal
-					locations={locations}
-					open={open}
-					clickedCoordinates={clickedCoordinates}
-					handleClose={handleClose}
-					handleAdd={handleAdd}
 				/>
 			</ContentContainer>
 			<Footer />
