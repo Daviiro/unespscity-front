@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-import { ChartContainer } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";
 import {
@@ -108,7 +108,6 @@ const Instalacoes = () => {
 					{/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
-
 			<GrayLine />
 			<ChartContainer>
 				<h3> Fiscalizações solicitadas e processadas/resolvidas: </h3>

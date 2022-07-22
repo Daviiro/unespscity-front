@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
-import {
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "../../public-administration/know-city-managers/styles";
-import { ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
-import ServiceDescription from "../../../components/service-description";
 import ListCard from "./card-list";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";

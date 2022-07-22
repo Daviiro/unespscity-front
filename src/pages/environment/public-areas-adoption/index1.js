@@ -9,7 +9,6 @@ import {
 	Square,
 	Details,
 } from "../../public-administration/know-city-managers/styles";
-import { ChartContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -17,6 +16,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import GrayLine from "../../../components/styled-components/gray-line";
 import ServiceDescription from "../../../components/service-description";
 import ListCard from "../../domestic-animals/lost-animals/card-list";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 const AdocaoAreasDisponiveis = () => {

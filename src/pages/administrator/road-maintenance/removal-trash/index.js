@@ -32,18 +32,18 @@ const AdminAnimaisMortos = () => {
 							},
 							{
 								id: 2,
-								name: "Residuos Solidos",
+								name: "Resíduos Sólidos",
 								link: "/residuos_solidos",
 							},
 						]}
 					/>
 					<ContainerColumn>
-						<h1> Residuos Solidos </h1>
+						<h1> Resíduos Sólidos </h1>
 						<StyledHr />
 					</ContainerColumn>
 				</SubHeader>
 				<Square>
-					<ServiceDescription description="A lista de todos os pedidos para retirar os residuos solidos." />
+					<ServiceDescription description="A lista de todos os pedidos para retirar os resíduos sólidos." />
 					<Details>
 						<AdminListCard
 							source="/assets/img/home_assistencia_social.png"

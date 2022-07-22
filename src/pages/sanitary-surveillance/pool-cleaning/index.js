@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-
-import { Details, ChartContainer } from "./styles";
-
+import { Details } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Typography from "@mui/material/Typography";
+
 import {
 	ContainerBase,
 	ContentContainer,

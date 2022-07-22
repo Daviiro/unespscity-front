@@ -12,9 +12,9 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-import TreesMap from "./trees-map";
+import TreesMap from "./map";
 import Footer from "../../../components/footer";
-import TreesModal from "./trees-modal";
+import TreesModal from "./modal";
 
 const InformationAboutTrees = () => {
 	const [isFavorite, setIsFavorite] = useState(false);

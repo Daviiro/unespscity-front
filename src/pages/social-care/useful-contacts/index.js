@@ -32,18 +32,23 @@ const Telefones = () => {
 						linkItems={[
 							{
 								id: 1,
-								name: "Telefones Úteis",
-								link: "/telefones_uteis",
+								name: "Locais Úteis",
+								link: "/locais_uteis",
 							},
 							{
 								id: 2,
-								name: "Cadastro de Túmulos e Falecidos",
-								link: "/tumulos",
+								name: "Telefones Úteis",
+								link: "/telefones_uteis",
 							},
 							{
 								id: 3,
 								name: "Programação Cultural",
 								link: "/programacao_cultural",
+							},
+							{
+								id: 4,
+								name: "Cadastro de Túmulos e Falecidos",
+								link: "/tumulos",
 							},
 						]}
 					/>

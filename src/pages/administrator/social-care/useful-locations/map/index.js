@@ -1,20 +1,22 @@
 import * as React from "react";
-import { fetchLatLong } from "../../../../services/GoogleMaps";
-import { fetchCityForID } from "../../../../services/IBGE";
+import { fetchLatLong } from "../../../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
 	Marker,
 	InfoWindow,
 } from "@react-google-maps/api";
-import LocalContext from "../../../user-location/Context";
+import LocalContext from "../../../../user-location/Context";
 import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
+import Button from "@mui/material/Button";
 
-const TreesMap = (props) => {
+const UsefulLocationsMap = (props) => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = React.useState("");
 	const [formValues, setFormValues] = React.useContext(LocalContext);
+	const { handleDelete } = props;
 
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
@@ -86,7 +88,7 @@ const TreesMap = (props) => {
 				>
 					<InfoWindowContainer>
 						<Typography variant="subtitle2">
-							Titulo: {selected.name}
+							{selected.name}
 						</Typography>
 						<img
 							src={process.env.PUBLIC_URL + selected.imgsrc}
@@ -95,11 +97,17 @@ const TreesMap = (props) => {
 						/>
 
 						<Typography variant="body2">
-							Espécie: {selected.specie}
+							Telefone: {selected.phone}
 						</Typography>
 						<Typography variant="body2">
-							Idade: {selected.age} anos
+							Horário de funcionamento: {selected.opening_hours}
 						</Typography>
+						<Button
+							fulldwith
+							onClick={() => handleDelete(selected)}
+						>
+							Deletar
+						</Button>
 					</InfoWindowContainer>
 				</InfoWindow>
 			)}
@@ -109,4 +117,4 @@ const TreesMap = (props) => {
 	);
 };
 
-export default React.memo(TreesMap);
+export default React.memo(UsefulLocationsMap);

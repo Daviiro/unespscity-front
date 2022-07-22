@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-import { InputAddressContainer, Details, ChartContainer } from "./styles";
+import { InputAddressContainer, Details } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Input from "../../../components/input";
@@ -9,6 +9,7 @@ import DescriptionInput from "../../../components/description-input";
 import InputPhotos from "../../../components/images-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";

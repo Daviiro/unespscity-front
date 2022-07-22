@@ -1,26 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
-
-import {
-	SubHeader,
-	ContainerColumn,
-	FormContainer,
-	InputLocalization,
-	Square,
-	ChartContainer,
-} from "./styles";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ServiceDescription from "../../../components/service-description";
-import Input from "../../../components/input";
-import DescriptionInput from "../../../components/description-input";
-import InputPhotos from "../../../components/images-input";
-import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -32,6 +17,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "./ServiceOrderInformation";
 
 const AnimaisPerdidosNovo = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -128,33 +114,7 @@ const AnimaisPerdidosNovo = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<FormContainer>
-						<Input
-							title="Última vez que o seu animal foi visto:"
-							placeholder="data e hora, se possível lembrar."
-						/>
-						<Input
-							title="O último local em que seu animal foi visto:"
-							placeholder="pontos de referência, endereço, o que for possível..."
-						/>
-						<p> OU </p>
-						<Link
-							to="/localizacao"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<InputLocalization style={{ marginBottom: "4vh" }}>
-								{" "}
-								Usar Localização Atual{" "}
-							</InputLocalization>
-						</Link>
-						<DescriptionInput
-							title="Descrição do animal:"
-							placeholder="conte-nos em detalhes a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal."
-						/>
-						<InputPhotos />
-						<Button text="Enviar" />
-					</FormContainer>
+					<ServiceOrderInformation descriptionHelperText = "conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
