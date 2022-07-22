@@ -108,7 +108,6 @@ const Instalacoes = () => {
 					{/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
-
 			<GrayLine />
 			<ChartContainer>
 				<h3> Fiscalizações solicitadas e processadas/resolvidas: </h3>

@@ -44,9 +44,11 @@ import Noticias from "./pages/communication/news";
 import Sugestoes from "./pages/communication/suggestion-complaints";
 
 import AdminTelefones from "./pages/administrator/social-care/useful-contacts"; // Assistência Social //
+import AdminLocaisUteis from "./pages/administrator/social-care/useful-locations";
 import AdminTumulos from "./pages/administrator/social-care/grave-registration";
 import AdminProgramacaoCultural from "./pages/administrator/social-care/cultural-program";
 import Telefones from "./pages/social-care/useful-contacts";
+import LocaisUteis from "./pages/social-care/useful-locations";
 import Tumulos from "./pages/social-care/grave-registration";
 import ProgramacaoCultural from "./pages/social-care/cultural-program";
 
@@ -260,7 +262,7 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
-						path="/admin/lixos_solidos"
+						path="/admin/residuos_solidos"
 						element={<AdminResiduosSolidos />}
 					/>
 					<Route
@@ -302,6 +304,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/telefones_uteis"
 						element={<AdminTelefones />}
+					/>
+					<Route
+						exact
+						path="/admin/locais_uteis"
+						element={<AdminLocaisUteis />}
 					/>
 					<Route
 						exact
@@ -444,6 +451,11 @@ const AppRoutes = () => {
 						exact
 						path="/telefones_uteis"
 						element={<Telefones />}
+					/>
+					<Route
+						exact
+						path="/locais_uteis"
+						element={<LocaisUteis />}
 					/>
 					<Route exact path="/tumulos" element={<Tumulos />} />
 					<Route

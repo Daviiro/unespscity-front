@@ -44,7 +44,7 @@ const Animais_Mortos = () => {
 							},
 							{
 								id: 2,
-								name: "Residuos Solidos",
+								name: "Resíduos Sólidos",
 								link: "/residuos_solidos",
 							},
 						]}

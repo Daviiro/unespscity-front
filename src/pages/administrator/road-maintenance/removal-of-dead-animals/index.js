@@ -28,6 +28,11 @@ const AdminAnimaisMortos = () => {
 								name: "Animais Mortos",
 								link: "/admin/animais_mortos",
 							},
+							{
+								id: 2,
+								name: "Resíduos Sólidos",
+								link: "/admin/residuos_solidos",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>

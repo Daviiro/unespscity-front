@@ -57,12 +57,12 @@ const AdminNoticias = () => {
 							onChange={(e) => setCargo(e.target.value)}
 							title="Data:"
 						/>
-                        <div> <input type = "checkbox" id = "governo" name = "governo" /> <label for = "governo"> Governo </label> </div>
-                        <div> <input type = "checkbox" id = "entretenimento" name = "entretenimento" /> <label for = "entretenimento"> Entretenimento </label> </div>
-                        <div> <input type = "checkbox" id = "saude" name = "saude" /> <label for = "saude"> Saúde </label> </div>
-                        <div> <input type = "checkbox" id = "tecnologia" name = "tecnologia" /> <label for = "tecnologia"> Tecnologia </label> </div>
-                        <div> <input type = "checkbox" id = "pessoas" name = "pessoas" /> <label for = "pessoas"> Pessoas </label> </div>
-                        <div> <input type = "checkbox" id = "meio-ambiente" name = "meio-ambiente" /> <label for = "meio-ambiente"> Meio-Ambiente </label> </div>
+                        <div style={{ marginTop: "0.4vh" }}> <input type = "checkbox" id = "governo" name = "governo" /> <label for = "governo" style={{ fontSize: "15px" }}> Governo </label> </div>
+                        <div> <input type = "checkbox" id = "entretenimento" name = "entretenimento" /> <label for = "entretenimento" style={{ fontSize: "15px" }}> Entretenimento </label> </div>
+                        <div> <input type = "checkbox" id = "saude" name = "saude" /> <label for = "saude" style={{ fontSize: "15px" }}> Saúde </label> </div>
+                        <div> <input type = "checkbox" id = "tecnologia" name = "tecnologia" /> <label for = "tecnologia" style={{ fontSize: "15px" }}> Tecnologia </label> </div>
+                        <div> <input type = "checkbox" id = "pessoas" name = "pessoas" /> <label for = "pessoas" style={{ fontSize: "15px" }}> Pessoas </label> </div>
+                        <div style={{ marginBottom: "0.4vh" }}> <input type = "checkbox" id = "meio-ambiente" name = "meio-ambiente" /> <label for = "meio-ambiente" style={{ fontSize: "15px" }}> Meio-Ambiente </label> </div>
 						<DescriptionInput
 							placeholder="Descrição (em detalhes da notícia)."
 							onChange={(e) => setDescription(e.target.value)}

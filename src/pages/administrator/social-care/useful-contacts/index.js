@@ -34,11 +34,21 @@ const AdminTelefones = () => {
 						linkItems={[
 							{
 								id: 1,
+								name: "Locais Úteis",
+								link: "/admin/locais_uteis",
+							},
+							{
+								id: 2,
 								name: "Telefones Úteis",
 								link: "/admin/telefones_uteis",
 							},
 							{
-								id: 2,
+								id: 3,
+								name: "Programação Cultural",
+								link: "/admin/programacao_cultural",
+							},
+							{
+								id: 4,
 								name: "Cadastro de Túmulos e Falecidos",
 								link: "/admin/tumulos",
 							},

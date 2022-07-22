@@ -33,6 +33,21 @@ const Dengue = () => {
 		<ContainerBase>
 			<Header />
 			<ContentContainer>
+				<div style = {{
+					height: "15vh", 
+					width: "8vh", 
+					position: "fixed", 
+					top: "11vh", 
+					right: "12vh", 
+					zIndex: "1",
+				}}> 
+					<a href = "https://www.google.com.br/search?q=aedes+aegypti&hl=pt-BR&tbm=isch&source=hp&biw=1496&bih=723&ei=S7LaYqCJGIX51sQP8vySUA&iflsig=AJiK0e8AAAAAYtrAWyLEwFuLxa-ywYn8_F6v3YYf9McJ&oq=aedes+&gs_lcp=CgNpbWcQARgAMggIABCABBCxAzILCAAQgAQQsQMQgwEyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABFAAWIMtYJNjaABwAHgBgAGsE4gBwTySAQswLjEuMC4xLjktM5gBAKABAaoBC2d3cy13aXotaW1n&sclient=img">
+						<MiniCard
+							source="/assets/img/Radar_da_Dengue.png"
+							titulo="Aedes aegypti"
+						/>
+					</a>	
+				</div>
 				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_controle_pragas.png"
@@ -118,9 +133,3 @@ const Dengue = () => {
 	);
 };
 export default Dengue;
-
-/* 
-<MiniCard
-								source="/assets/img/Radar_da_Dengue.png"
-								titulo="Aedes aegypti"
-							/> */

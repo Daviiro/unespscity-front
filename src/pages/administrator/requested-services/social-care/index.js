@@ -8,6 +8,9 @@ const AssistenciaSocialOpcoes = () => {
         <>
             <ContainerBase>
                 <ContainerColumn>
+                    <Link to = "/admin/locais_uteis">
+                        <Button text = "Locais Úteis" />
+                    </Link>
                     <Link to = "/admin/telefones_uteis">
                         <Button text = "Telefones Úteis" />
                     </Link>
