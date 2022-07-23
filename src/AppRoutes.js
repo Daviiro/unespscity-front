@@ -63,6 +63,7 @@ import AnimaisPerdidosNovo from "./pages/domestic-animals/lost-animals/index1";
 import AnimaisPerdidosLista from "./pages/domestic-animals/lost-animals/index2";
 import AnimaisSinantropicos from "./pages/domestic-animals/synanthropic-animals";
 import AdocaoAnimais from "./pages/domestic-animals/adoption-animals";
+import AdocaoAnimaisOpcoes from "./pages/domestic-animals/adoption-animals/option";
 
 import AdminAnimaisMortos from "./pages/administrator/road-maintenance/removal-of-dead-animals"; // Remoção de Detritos //
 import AnimaisMortos from "./pages/road-maintenance/removal-of-dead-animals";
@@ -562,6 +563,11 @@ const AppRoutes = () => {
 					/>
 					<Route
 						exact
+						path="/adocao_animais_opcoes"
+						element={<AdocaoAnimaisOpcoes />}
+					/>
+					<Route
+						exact
 						path="/animais_perdidos_lista"
 						element={<AnimaisPerdidosLista />}
 					/>
@@ -580,6 +586,7 @@ const AppRoutes = () => {
 						path="/adocao_areas_opcoes"
 						element={<AdocaoAreasOpcoes />}
 					/>
+					
 					<Route
 						exact
 						path="/adocao_areas_disponiveis"
