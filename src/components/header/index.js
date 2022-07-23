@@ -15,6 +15,8 @@ import SlideDownMenu from "./slide-down-menu";
 import { FiSettings } from "react-icons/fi";
 import LocalContext from "../../pages/user-location/Context";
 import { fetchCityForID } from "../../services/IBGE";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import NotificationsSlideDown from "./notifications-slide-down";
 
 const Header = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -120,22 +122,14 @@ const Header = () => {
 				{windowDimenion.winWidth >= 958 ? (
 					<ContainerActions>
 						<div>
-							<Link
-								to="/login"
-								style={{ textDecoration: "none" }}
-							>
-								<BiUser
-									style={{ cursor: "pointer" }}
-									color={"white"}
-									size={30}
-									className="glow-effect"
-								/>
-							</Link>
+							<Notifications>
+								<NotificationsSlideDown />
+							</Notifications>
 						</div>
 						<div>
-							<Settings>
+							<UserClickHandle>
 								<SlideDownMenu />
-							</Settings>
+							</UserClickHandle>
 						</div>
 					</ContainerActions>
 				) : (
@@ -154,13 +148,32 @@ const Header = () => {
 	);
 };
 
-const Settings = (props) => {
+const UserClickHandle = (props) => {
 	const [open, setOpen] = useState(false);
 
 	return (
 		<>
 			<a href="#" onClick={() => setOpen(!open)}>
-				<FiSettings
+				<BiUser
+					style={{ cursor: "pointer" }}
+					color={"white"}
+					size={30}
+					className="glow-effect"
+				/>
+			</a>
+
+			{open && props.children}
+		</>
+	);
+};
+
+const Notifications = (props) => {
+	const [open, setOpen] = useState(false);
+
+	return (
+		<>
+			<a href="#" onClick={() => setOpen(!open)}>
+				<IoIosNotificationsOutline
 					style={{ cursor: "pointer" }}
 					color={"white"}
 					size={30}

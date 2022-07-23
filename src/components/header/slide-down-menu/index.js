@@ -8,18 +8,29 @@ const SlideDownMenu = () => {
 
 	const DropdownItem = (props) => {
 		return (
-			<Link to="/admin" style={{ textDecoration: "none" }}>
+			<>
 				<StyledDropdownItem>
 					<IconButton>{props.icon}</IconButton>
 					{props.children}
 				</StyledDropdownItem>
-			</Link>
+			</>
 		);
 	};
 	return (
 		<StyledDropdownMenu>
+			<Link to="/login" style={{ textDecoration: "none" }}>
+				<DropdownItem icon={<AiOutlineAreaChart />}>
+					Login/Sair
+				</DropdownItem>
+			</Link>
 			{admin && (
-				<DropdownItem icon={<AiOutlineAreaChart />}>Admin</DropdownItem>
+				<>
+					<Link to="/admin" style={{ textDecoration: "none" }}>
+						<DropdownItem icon={<AiOutlineAreaChart />}>
+							Admin
+						</DropdownItem>
+					</Link>
+				</>
 			)}
 		</StyledDropdownMenu>
 	);
