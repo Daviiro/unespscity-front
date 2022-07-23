@@ -347,8 +347,8 @@ const Home = () => {
 							linkItems={[
 								{
 									id: 1,
-									name: "Monitoramento do Tempo",
-									link: "/monitoramento",
+									name: "Monitoramento do Guardinha",
+									link: "/monitoramento-guardinha",
 								},
 								{
 									id: 2,

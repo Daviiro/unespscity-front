@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 
-const Monitoring = () => {
+const GuardianMonitoring = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
@@ -30,15 +30,15 @@ const Monitoring = () => {
 						titulo="Sensoriamento Móvel Participativo"
 						linkItems={[
 							{
-								id: 1,
-								name: "Monitoramento do Guardinha",
-								link: "/monitoramento-guardinha",
-							},
-							{
-								id: 2,
-								name: "Monitoramento de Pessoas ou veiculos",
-								link: "/monitoramento-pessoas-veiculos",
-							},
+                                id: 1,
+                                name: "Monitoramento do Guardinha",
+                                link: "/monitoramento-guardinha",
+                            },
+                            {
+                                id: 2,
+                                name: "Monitoramento de Pessoas ou veiculos",
+                                link: "/monitoramento-pessoas-veiculos",
+                            },
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
@@ -49,12 +49,8 @@ const Monitoring = () => {
 						</div>
 						<DescriptionText>
 							Neste serviço você terá informações sobre o
-							monitoramento da movimentação diária de pessoas em
-							todos os meios de transporte da cidade para fins de
-							pesquisa, análise e monitoramento da qualidade do
-							transporte, além de proporcionar informações sobre
-							trânsito e congestionamento, principalmente em
-							horários de pico
+							monitoramento da movimentação diária do guardinha que 
+                            protege e cuida da sua residencia. 
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -92,4 +88,4 @@ const Monitoring = () => {
 	);
 };
 
-export default Monitoring;
+export default GuardianMonitoring;
