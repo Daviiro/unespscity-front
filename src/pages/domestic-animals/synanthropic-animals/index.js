@@ -14,6 +14,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Form from "../../../components/forms";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const AnimaisSinantropicos = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -66,11 +67,13 @@ const AnimaisSinantropicos = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lorem Ipsum is simply dummy text of the printing and
-							typesetting industry. Lorem Ipsum has been the
-							industry's standard dummy text ever since the 1500s,
-							when an unknown printer took a galley of type and
-							scrambled it to make a type specimen book.
+							Aqui você poderá informar na aplicação a localização
+							(georreferenciamento) de encontro dos animais, a
+							data e hora do registro, podendo inserir uma
+							descrição da situação atual, e fotos dos animais
+							encontrados. Com esses dados será possível fazer uma
+							solicitação para os gestores tomarem as medidas
+							necessárias.
 						</DescriptionText>
 					</div>
 
@@ -103,7 +106,7 @@ const AnimaisSinantropicos = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Form />
+					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre os animais sinantrópicos e a situação em que os mesmos se encontram" />
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
