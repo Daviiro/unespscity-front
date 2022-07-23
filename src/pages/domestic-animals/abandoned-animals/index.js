@@ -62,7 +62,7 @@ const AnimaisAbandonados = () => {
 							{
 								id: 5,
 								name: "Adoção de Animais",
-								link: "/adocao_animais",
+								link: "/adocao_animais_opcoes",
 							},
 						]}
 					/>

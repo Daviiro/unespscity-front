@@ -17,9 +17,9 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceOrderInformation from "./ServiceOrderInformation";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
-const AnimaisPerdidosNovo = () => {
+const NovasDoacoesAnimais = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 84;
 	const totalResolvidos = 78;
@@ -68,15 +68,16 @@ const AnimaisPerdidosNovo = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Animais Perdidos
+								Doação de Animais
 							</Typography>
 						</div>
 						<DescriptionText>
 							Utilize este serviço para cadastrar um novo animal
-							perdido na lista. Para checar a lista completa,
+							que você queira doar. Para checar a lista completa de animais 
+							disponiveis na plataforma,
 							clique
 							<Link
-								to="/animais_perdidos_lista"
+								to="/adocao_animais_lista"
 								style={{ textDecoration: "none" }}
 							>
 								{" "}
@@ -114,7 +115,7 @@ const AnimaisPerdidosNovo = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText = "conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
+					<ServiceOrderInformation descriptionHelperText="conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
@@ -132,4 +133,4 @@ const AnimaisPerdidosNovo = () => {
 		</ContainerBase>
 	);
 };
-export default AnimaisPerdidosNovo;
+export default NovasDoacoesAnimais;
