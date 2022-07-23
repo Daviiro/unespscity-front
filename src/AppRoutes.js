@@ -148,9 +148,10 @@ import Dengue from "./pages/pest-control/dengue-radar";
 import DengueMap from "./pages/pest-control/dengue-radar/map";
 
 import Monitoring from "./pages/remote-sensing/monitoring"; //sensoriamento remoto participativo
-import GuardianMonitoring from "./pages/remote-sensing/guardian-monitoring"; 
+import GuardianMonitoring from "./pages/remote-sensing/guardian-monitoring";
 
 import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
+import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/synanthropic-animals";
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -460,6 +461,11 @@ const AppRoutes = () => {
 						exact
 						path="/admin/central-anticorrupcao"
 						element={<AdminAntiCorruptionCenter />}
+					/>
+					<Route
+						exact
+						path="/admin/animais-sinantropicos"
+						element={<AdminSynanthropicAnimals />}
 					/>
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}

@@ -4,25 +4,28 @@ import Button from "../../../../components/styled-components/form-button";
 import { ContainerBase, ContainerColumn } from "../components/styles";
 
 const AnimaisDomesticosOpcoes = () => {
-    return (
-        <>
-            <ContainerBase>
-                <ContainerColumn>
-                    <Link to = "/admin/animais_abandonados">
-                        <Button text = "Animais Abandonados" />
-                    </Link>
-                    <Link to = "/admin/animais_perdidos">
-                        <Button text = "Animais Perdidos" />
-                    </Link>
-                    <Link to = "/admin/maus_tratos">
-                        <Button text = "Maus tratos à Animais" />
-                    </Link>
-                    <Link to = "/admin/adocao_animais">
-                        <Button text = "Adoção de Animais" />
-                    </Link>
-                </ContainerColumn>
-            </ContainerBase>
-        </>
-    );
+	return (
+		<>
+			<ContainerBase>
+				<ContainerColumn>
+					<Link to="/admin/animais_abandonados">
+						<Button text="Animais Abandonados" />
+					</Link>
+					<Link to="/admin/animais_perdidos">
+						<Button text="Animais Perdidos" />
+					</Link>
+					<Link to="/admin/maus_tratos">
+						<Button text="Maus tratos à Animais" />
+					</Link>
+					<Link to="/admin/adocao_animais">
+						<Button text="Adoção de Animais" />
+					</Link>
+					<Link to="/admin/animais-sinantropicos">
+						<Button text="Animais Sinantrópicos" />
+					</Link>
+				</ContainerColumn>
+			</ContainerBase>
+		</>
+	);
 };
 export default AnimaisDomesticosOpcoes;
