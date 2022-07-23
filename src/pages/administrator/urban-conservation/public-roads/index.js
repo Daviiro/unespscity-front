@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "./styles";
+import { SubHeader, ContainerColumn, Square, Details } from "./styles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
@@ -15,12 +9,21 @@ import ServiceDescription from "../../../../components/service-description";
 import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
 
+import Typography from "@mui/material/Typography";
+import {
+	ContainerBase,
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../../components/styled-components/PageStyles";
+
 const AdminVias = () => {
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_conservacao_urbana.png"
 						titulo="Conservação Urbana"
@@ -52,44 +55,41 @@ const AdminVias = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Vias Públicas </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Lista com todas as vias publicas em situações ruins relatadas pelos usuarios." />
-					<Details>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							click="showDeleteConfirm"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-					</Details>
-				</Square>
-				<Footer />
-			</ContainerBase>
-		</>
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">Vias Públicas</Typography>
+						</div>
+						<DescriptionText>
+							Lista com todas as vias publicas em situações ruins
+							relatadas pelos usuarios.
+						</DescriptionText>
+					</div>
+					<div></div>
+				</TopContentContainer>
+				<MidContentContainer>
+					<AdminListCard
+						source="/assets/img/home_assistencia_social.png"
+						nome="Nome"
+						sobrenome="Telefone"
+						click="showDeleteConfirm"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+					<AdminListCard
+						source="/assets/img/home_assistencia_social.png"
+						nome="Nome"
+						sobrenome="Telefone"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+					<AdminListCard
+						source="/assets/img/home_assistencia_social.png"
+						nome="Nome"
+						sobrenome="Telefone"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+				</MidContentContainer>
+			</ContentContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 export default AdminVias;

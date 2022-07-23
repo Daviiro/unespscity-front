@@ -1,5 +1,4 @@
 import React from "react";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -11,10 +10,9 @@ import {
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
-import Footer from "../../../../components/footer";	
+import Footer from "../../../../components/footer";
 
 const AdminIluminacao = () => {
-	
 	return (
 		<ContainerBase>
 			<Header />
@@ -58,7 +56,8 @@ const AdminIluminacao = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as reclamações de lampadas de postes queimados.
+							Lista com todas as reclamações de lampadas de postes
+							queimados.
 						</DescriptionText>
 					</div>
 					<div></div>
@@ -101,7 +100,6 @@ const AdminIluminacao = () => {
 					/>
 				</MidContentContainer>
 			</ContentContainer>
-
 			<Footer />
 		</ContainerBase>
 	);

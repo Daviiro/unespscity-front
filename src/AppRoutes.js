@@ -36,7 +36,9 @@ import LocalContext from "./pages/user-location/Context";
 
 import AdminGestores from "./pages/administrator/public-administration/know-city-managers"; // Administração Pública //
 import Gestores from "./pages/public-administration/know-city-managers";
+import AdminProposedLegislation from "./pages/administrator/public-administration/proposed-legislation";
 import ProposedLegislation from "./pages/public-administration/proposed-legislation";
+import AdminAntiCorruptionCenter from "./pages/administrator/public-administration/anti-corruption-center";
 import AntiCorruptionCenter from "./pages/public-administration/anti-corruption-center";
 
 import AdminNoticias from "./pages/administrator/communication/news"; // Central de Notificação e Comunicação //
@@ -77,6 +79,7 @@ import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3"
 import MonitoramentoTempo from "./pages/environment/climate-monitoring";
 import PollutionMap from "./pages/environment/climate-monitoring/map";
 import RefuseCollection from "./pages/environment/refuse-collection";
+import AdminRefuseCollection from "./pages/administrator/environment/refuse-collection";
 
 import AdminMausTratosAnimais from "./pages/administrator/fauna-flora/animal-violence"; //Fauna e Flora//
 import AdminAnimaisSilvestres from "./pages/administrator/fauna-flora/wild-animals";
@@ -440,6 +443,23 @@ const AppRoutes = () => {
 						path="/admin/arvores"
 						element={<AdminInformationAboutTrees />}
 					/>
+					<Route
+						exact
+						path="/admin/coleta-de-lixo"
+						element={<AdminRefuseCollection />}
+					/>
+					<Route
+						exact
+						path="/admin/consultar-propostas-de-leis"
+						element={<AdminProposedLegislation />}
+					/>
+					<Route
+						exact
+						path="/admin/central-anticorrupcao"
+						element={<AdminAntiCorruptionCenter />}
+					/>
+
+					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 					<Route exact path="/login" element={<Login />} />
 					<Route exact path="/localizacao" element={<MapPage />} />
 					<Route
