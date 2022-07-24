@@ -44,11 +44,9 @@ const client = new ApolloClient({
 });
 
 root.render(
-	<StrictMode>
-		<AuthProvider>
-			<ApolloProvider client={client}>
-				<AppRoutes />
-			</ApolloProvider>
-		</AuthProvider>
-	</StrictMode>
+	<AuthProvider>
+		<ApolloProvider client={client}>
+			<AppRoutes />
+		</ApolloProvider>
+	</AuthProvider>
 );
