@@ -4,7 +4,7 @@ import { fetchCityForID } from "../../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	Marker,
+	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
 import LocalContext from "../../../../user-location/Context";
@@ -66,11 +66,11 @@ const UsefulLocationsMap = (props) => {
 					lat: coords.latLng.lat(),
 					lng: coords.latLng.lng(),
 				});
-				console.log("Coordenadas clickadas: " + coords.latLng);
+				console.log("Coordenadas clicadas: " + coords.latLng);
 			}}
 		>
 			{props.locations.map((location) => (
-				<Marker
+				<MarkerF
 					key={location.id}
 					position={location.location}
 					onClick={() => onSelect(location)}

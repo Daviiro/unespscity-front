@@ -7,7 +7,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 
-const UsefulLocationsModal = (props) => {
+const LeishmanioseModal = (props) => {
 	//modal para adicao de um novo local
 	const { open, locations, handleClose, handleAdd, clickedCoordinates } =
 		props;
@@ -29,8 +29,8 @@ const UsefulLocationsModal = (props) => {
 			<DialogTitle>Adicionar Novo Local:</DialogTitle>
 			<DialogContent>
 				<DialogContentText>
-					Para adicionar um novo local útil ao sistema, por favor, 
-					insira as informações requeridas abaixo.
+					Para adicionar um ponto de vacinação de cães, por 
+					favor, insira as informações requeridas abaixo.
 				</DialogContentText>
 				<TextField
 					fullWidth
@@ -70,7 +70,7 @@ const UsefulLocationsModal = (props) => {
 						handleAdd({
 							id: locations[locations.length - 1].id + 1,
 							name: place,
-							imgsrc: "/assets/img/default-location.png",
+							imgsrc: "/assets/img/leishmaniose-vaccination-icon.png",
 							phone: phone,
 							opening_hours: opening_hours,
 							location: {
@@ -87,4 +87,4 @@ const UsefulLocationsModal = (props) => {
 	);
 };
 
-export default UsefulLocationsModal;
+export default LeishmanioseModal;
