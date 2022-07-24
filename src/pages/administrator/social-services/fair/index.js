@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-	Details,
-	AddFair,
-} from "./styles";
+import { Details, AddFair } from "./styles";
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
@@ -63,14 +60,12 @@ const AdminFeiras = () => {
 				sex: false,
 				sab: true,
 			},
-			operating_time: {
-				open: 7,
-				close: 12,
-			},
 			location: {
 				lat: -22.131951,
 				lng: -51.40933,
 			},
+			openingHour: new Date(),
+			closingHour: new Date(),
 		},
 		{
 			id: 2,
@@ -85,14 +80,12 @@ const AdminFeiras = () => {
 				sex: false,
 				sab: true,
 			},
-			operating_time: {
-				open: 7,
-				close: 12,
-			},
 			location: {
 				lat: -22.131951,
 				lng: -51.40933,
 			},
+			openingHour: new Date(),
+			closingHour: new Date(),
 		},
 	]);
 	const [open, setOpen] = useState(false);
@@ -104,6 +97,7 @@ const AdminFeiras = () => {
 	};
 	const handleAdd = (fair) => {
 		setLocations([...locations, fair]); //adiciono a nova feira no array
+		console.log(fair.openingHour);
 		setOpen(false);
 	};
 	const [clickedCoordinates, setClickedCoordinates] = useState({

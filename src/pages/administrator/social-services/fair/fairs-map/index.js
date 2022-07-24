@@ -123,8 +123,10 @@ const FairsMap = (props) => {
 						</div>
 
 						<Typography variant="body2">
-							Horário: {selected.operating_time.open}h00 às{" "}
-							{selected.operating_time.close}h00
+							Horário: {selected.openingHour.getHours()}h
+							{selected.openingHour.getMinutes()} às{" "}
+							{selected.closingHour.getHours()}h
+							{selected.closingHour.getMinutes()}
 						</Typography>
 					</InfoWindowContainer>
 				</InfoWindow>

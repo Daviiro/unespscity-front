@@ -12,6 +12,7 @@ import Switch from "@mui/material/Switch";
 import TimePicker from "@material-ui/lab/TimePicker";
 import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
+import { Typography } from "@mui/material";
 
 const Modal = (props) => {
 	const [operating_days, setOperating_days] = useState({
@@ -27,10 +28,6 @@ const Modal = (props) => {
 	const { open, locations, handleClose, handleAdd, clickedCoordinates } =
 		props;
 	const [title, setTitle] = useState("");
-	const [operating_time, setOperating_time] = useState({
-		open: 0,
-		close: 0,
-	});
 	const handleTitleChange = (event) => {
 		setTitle(event.target.value);
 	};
@@ -49,10 +46,46 @@ const Modal = (props) => {
 		console.log("valor do dia Quinta: " + operating_days.qui);
 		console.log("valor do dia Sexta: " + operating_days.sex);
 		console.log("valor do dia Sábado: " + operating_days.sab);
+
+		console.log("Hora Inicio: ", openingHour);
+		console.log("Hora Fim: ", closingHour);
 	}, [operating_days]);
 
-	const [value, setValue] = React.useState(
-		new Date("2018-01-01T00:00:00.000Z")
+	const current = new Date();
+	const FormatMonth = () => {
+		if (current.getMonth() < 9) {
+			return "-0";
+		} else {
+			return "-";
+		}
+	};
+	const FormatDay = () => {
+		if (current.getDate() < 9) {
+			return "-0";
+		} else {
+			return "-";
+		}
+	};
+	const [value, setValue] = useState(
+		new Date(
+			`${current.getFullYear()}${FormatMonth()}${
+				current.getMonth() + 1
+			}${FormatDay()}${current.getDate()}T00:00:00.000Z`
+		)
+	);
+	const [openingHour, setOpeningHour] = useState(
+		new Date(
+			`${current.getFullYear()}${FormatMonth()}${
+				current.getMonth() + 1
+			}${FormatDay()}${current.getDate()}T00:00:00.000Z`
+		)
+	);
+	const [closingHour, setClosingHour] = useState(
+		new Date(
+			`${current.getFullYear()}${FormatMonth()}${
+				current.getMonth() + 1
+			}${FormatDay()}${current.getDate()}T00:00:00.000Z`
+		)
 	);
 
 	return (
@@ -161,13 +194,45 @@ const Modal = (props) => {
 						/>
 					</FormGroup>
 				</div>
-				<LocalizationProvider dateAdapter={AdapterDateFns}>
-					<TimePicker
-						value={value}
-						onChange={setValue}
-						renderInput={(params) => <TextField {...params} />}
-					/>
-				</LocalizationProvider>
+				<div
+					style={{
+						width: "100%",
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-between",
+					}}
+				>
+					<div>
+						<Typography variant="body2">
+							Horário de Início
+						</Typography>
+						<LocalizationProvider dateAdapter={AdapterDateFns}>
+							<TimePicker
+								ampm={false}
+								value={openingHour}
+								onChange={setOpeningHour}
+								renderInput={(params) => (
+									<TextField {...params} />
+								)}
+							/>
+						</LocalizationProvider>
+					</div>
+					<div>
+						<Typography variant="body2">
+							Horário de Término
+						</Typography>
+						<LocalizationProvider dateAdapter={AdapterDateFns}>
+							<TimePicker
+								ampm={false}
+								value={closingHour}
+								onChange={setClosingHour}
+								renderInput={(params) => (
+									<TextField {...params} />
+								)}
+							/>
+						</LocalizationProvider>
+					</div>
+				</div>
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
@@ -178,11 +243,12 @@ const Modal = (props) => {
 							name: title,
 							imgsrc: "/assets/img/fair-icon.png",
 							operating_days: operating_days,
-							operating_time: operating_time,
 							location: {
 								lat: clickedCoordinates.lat,
 								lng: clickedCoordinates.lng,
 							},
+							openingHour,
+							closingHour,
 						});
 					}}
 				>
