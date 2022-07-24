@@ -24,22 +24,6 @@ const TreesModal = (props) => {
 		setSpecie(event.target.value);
 	};
 
-	const [newTree, setNewTree] = useState({});
-
-	useEffect(() => {
-		setNewTree({
-			id: locations[locations.length - 1].id + 1,
-			name: title,
-			imgsrc: "/assets/img/default-tree.png",
-			specie: specie,
-			age: age,
-			location: {
-				lat: clickedCoordinates.lat,
-				lng: clickedCoordinates.lng,
-			},
-		});
-	});
-
 	return (
 		<Dialog open={open} onClose={handleClose}>
 			<DialogTitle>Adicionar Nova Árvore</DialogTitle>
@@ -82,7 +66,23 @@ const TreesModal = (props) => {
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
-				<Button onClick={() => handleAdd(newTree)}>Adicionar</Button>
+				<Button
+					onClick={() =>
+						handleAdd({
+							id: locations[locations.length - 1].id + 1,
+							name: title,
+							imgsrc: "/assets/img/default-tree.png",
+							specie: specie,
+							age: age,
+							location: {
+								lat: clickedCoordinates.lat,
+								lng: clickedCoordinates.lng,
+							},
+						})
+					}
+				>
+					Adicionar
+				</Button>
 			</DialogActions>
 		</Dialog>
 	);

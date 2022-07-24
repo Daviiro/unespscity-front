@@ -4,7 +4,7 @@ import { fetchCityForID } from "../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	Marker,
+	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
 import LocalContext from "../../../user-location/Context";
@@ -68,7 +68,7 @@ const TreesMap = (props) => {
 			}}
 		>
 			{props.locations.map((location) => (
-				<Marker
+				<MarkerF
 					key={location.id}
 					position={location.location}
 					onClick={() => onSelect(location)}

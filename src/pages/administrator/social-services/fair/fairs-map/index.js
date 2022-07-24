@@ -5,7 +5,7 @@ import { InfoWindowContainer } from "./styles";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	Marker,
+	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
 import Typography from "@mui/material/Typography";
@@ -58,7 +58,7 @@ const FairsMap = (props) => {
 			}}
 		>
 			{props.locations.map((location) => (
-				<Marker
+				<MarkerF
 					key={location.id}
 					position={location.location}
 					onClick={() => onSelect(location)}
