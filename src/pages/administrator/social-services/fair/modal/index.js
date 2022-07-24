@@ -9,6 +9,9 @@ import { TextField } from "@mui/material";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import TimePicker from "@material-ui/lab/TimePicker";
+import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
+import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
 
 const Modal = (props) => {
 	const [operating_days, setOperating_days] = useState({
@@ -48,7 +51,9 @@ const Modal = (props) => {
 		console.log("valor do dia Sábado: " + operating_days.sab);
 	}, [operating_days]);
 
-	const [value, setValue] = useState("2018-01-01T00:00:00.000Z");
+	const [value, setValue] = React.useState(
+		new Date("2018-01-01T00:00:00.000Z")
+	);
 
 	return (
 		<Dialog open={open} onClose={handleClose}>
@@ -156,6 +161,13 @@ const Modal = (props) => {
 						/>
 					</FormGroup>
 				</div>
+				<LocalizationProvider dateAdapter={AdapterDateFns}>
+					<TimePicker
+						value={value}
+						onChange={setValue}
+						renderInput={(params) => <TextField {...params} />}
+					/>
+				</LocalizationProvider>
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
