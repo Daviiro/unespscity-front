@@ -6,6 +6,7 @@ import MiniCard from "../../../components/mini-card";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
+import LeishmanioseMap from "./map";
 import Footer from "../../../components/footer";
 
 import Typography from "@mui/material/Typography";
@@ -29,6 +30,65 @@ const Leishmaniose = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
 	};
+
+	const [locations, setLocations] = useState([
+		{
+			id: 1,
+			name: "Clínica Veterinária São Francisco",
+			imgsrc: "/assets/img/default-leishmaniose-vaccination.png",
+			phone: "(18)3221-2021",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1208387,
+				lng: -51.3985141,
+			},
+		},
+		{
+			id: 2,
+			name: "Hospital Veterinário São Manoel",
+			imgsrc: "/assets/img/default-leishmaniose-vaccination.png",
+			phone: "(18)3221-1096",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1263661,
+				lng: -51.3856148,
+			},
+		},
+		{
+			id: 3,
+			name: "Terra Animal",
+			imgsrc: "/assets/img/default-leishmaniose-vaccination.png",
+			phone: "(18)3907-7697",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1105905,
+				lng: -51.4277387,
+			},
+		},
+		{
+			id: 4,
+			name: "Garrido Clínica Veterinária",
+			imgsrc: "/assets/img/default-leishmaniose-vaccination.png",
+			phone: "(18)3928-4248",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1416912,
+				lng: -51.3931819,
+			},
+		},
+		{
+			id: 5,
+			name: "Clinvet - Clínica Veterinária e Pet Shop",
+			imgsrc: "/assets/img/default-leishmaniose-vaccination.png",
+			phone: "(18)98119-5129",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1033932,
+				lng: -51.4333575,
+			},
+		},
+	]);
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -116,6 +176,13 @@ const Leishmaniose = () => {
 				<MidContentContainer>
 					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Leishmaniose." />
 				</MidContentContainer>
+				<div style={{ textAlign: "center", marginTop: "11vh", marginBottom: "12vh" }}>
+					<Typography variant = "h6"> Abaixo, você também pode conferir onde vacinar o seu animal na cidade: </Typography>
+				</div>
+				<LeishmanioseMap
+					locations = {locations}
+					icon = "/assets/img/leishmaniose-vaccination-icon.png"
+				/>
 			</ContentContainer>
 			<GrayLine />
 			<ChartContainer>

@@ -4,7 +4,7 @@ import { fetchCityForID } from "../../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	Marker,
+	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
 import LocalContext from "../../../../user-location/Context";
@@ -12,7 +12,7 @@ import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 
-const TreesMap = (props) => {
+const LeishmanioseMap = (props) => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = React.useState("");
 	const [formValues, setFormValues] = React.useContext(LocalContext);
@@ -66,11 +66,11 @@ const TreesMap = (props) => {
 					lat: coords.latLng.lat(),
 					lng: coords.latLng.lng(),
 				});
-				console.log("Coordenadas clickadas: " + coords.latLng);
+				console.log("Coordenadas clicadas: " + coords.latLng);
 			}}
 		>
 			{props.locations.map((location) => (
-				<Marker
+				<MarkerF
 					key={location.id}
 					position={location.location}
 					onClick={() => onSelect(location)}
@@ -88,7 +88,7 @@ const TreesMap = (props) => {
 				>
 					<InfoWindowContainer>
 						<Typography variant="subtitle2">
-							Titulo: {selected.name}
+							{selected.name}
 						</Typography>
 						<img
 							src={process.env.PUBLIC_URL + selected.imgsrc}
@@ -97,10 +97,10 @@ const TreesMap = (props) => {
 						/>
 
 						<Typography variant="body2">
-							Espécie: {selected.specie}
+							Telefone: {selected.phone}
 						</Typography>
 						<Typography variant="body2">
-							Idade: {selected.age} anos
+							Horário de funcionamento: {selected.opening_hours}
 						</Typography>
 						<Button
 							fulldwith
@@ -117,4 +117,4 @@ const TreesMap = (props) => {
 	);
 };
 
-export default React.memo(TreesMap);
+export default React.memo(LeishmanioseMap);

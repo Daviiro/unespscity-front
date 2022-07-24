@@ -1,20 +1,22 @@
 import * as React from "react";
-import { fetchLatLong } from "../../../../services/GoogleMaps";
-import { fetchCityForID } from "../../../../services/IBGE";
+import { fetchLatLong } from "../../../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
 	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
-import LocalContext from "../../../user-location/Context";
+import LocalContext from "../../../../user-location/Context";
 import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
+import Button from "@mui/material/Button";
 
-const UsefulLocationsMap = (props) => {
+const TreesMap = (props) => {
 	const [center, setCenter] = React.useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = React.useState("");
 	const [formValues, setFormValues] = React.useContext(LocalContext);
+	const { handleDelete } = props;
 
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
@@ -41,10 +43,10 @@ const UsefulLocationsMap = (props) => {
 		id: "google-map-script",
 		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
 	});
-	/*const [map, setMap] = React.useState(null);
+	const [map, setMap] = React.useState(null);
 	const options = {
 		imagePath: "https://i.stack.imgur.com/ILTQq.png",
-	};*/
+	};
 
 	const [selected, setSelected] = React.useState({});
 
@@ -64,7 +66,7 @@ const UsefulLocationsMap = (props) => {
 					lat: coords.latLng.lat(),
 					lng: coords.latLng.lng(),
 				});
-				console.log("Coordenadas clicadas: " + coords.latLng);
+				console.log("Coordenadas clickadas: " + coords.latLng);
 			}}
 		>
 			{props.locations.map((location) => (
@@ -86,7 +88,7 @@ const UsefulLocationsMap = (props) => {
 				>
 					<InfoWindowContainer>
 						<Typography variant="subtitle2">
-							{selected.name}
+							Titulo: {selected.name}
 						</Typography>
 						<img
 							src={process.env.PUBLIC_URL + selected.imgsrc}
@@ -95,11 +97,17 @@ const UsefulLocationsMap = (props) => {
 						/>
 
 						<Typography variant="body2">
-							Telefone: {selected.phone}
+							Espécie: {selected.specie}
 						</Typography>
 						<Typography variant="body2">
-							Hotário de funcionamento: {selected.opening_hours}
+							Idade: {selected.age} anos
 						</Typography>
+						<Button
+							fulldwith
+							onClick={() => handleDelete(selected)}
+						>
+							Deletar
+						</Button>
 					</InfoWindowContainer>
 				</InfoWindow>
 			)}
@@ -109,4 +117,4 @@ const UsefulLocationsMap = (props) => {
 	);
 };
 
-export default React.memo(UsefulLocationsMap);
+export default React.memo(TreesMap);

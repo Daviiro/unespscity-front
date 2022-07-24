@@ -64,7 +64,7 @@ const TreesMap = (props) => {
 					lat: coords.latLng.lat(),
 					lng: coords.latLng.lng(),
 				});
-				console.log("Coordenadas clickadas: " + coords.latLng);
+				console.log("Coordenadas clicadas: " + coords.latLng);
 			}}
 		>
 			{props.locations.map((location) => (
