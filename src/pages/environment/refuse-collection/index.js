@@ -13,6 +13,7 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import Map from "./map";
 
 const RefuseCollection = () => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -20,6 +21,42 @@ const RefuseCollection = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
 	};
+
+	const routes = [
+		{
+			id: 1,
+			points: [
+				{
+					lat: -22.131951,
+					lng: -51.40933,
+				},
+				{
+					lat: -22.09763957730908,
+					lng: -51.41680879940989,
+				},
+				{
+					lat: -22.092304090035935,
+					lng: -51.40159869150531,
+				},
+			],
+			id: 2,
+			points: [
+				{
+					lat: -22.131951,
+					lng: -51.40933,
+				},
+				{
+					lat: -22.09764,
+					lng: -51.416807,
+				},
+				{
+					lat: -22.0923,
+					lng: -51.401594,
+				},
+			],
+		},
+	];
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -90,7 +127,9 @@ const RefuseCollection = () => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<Map routes={routes} />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
