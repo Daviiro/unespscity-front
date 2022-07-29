@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
 	width: 100%;
 	background-image: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 	margin: 0;
-	margin-bottom: 15vh; /*15vh antes, 20px ficaria melhor mas buga tudo as pagina do admin que ja sao bugadas*/
+	margin-bottom: 35px; /*15vh antes, 20px ficaria melhor mas buga tudo as pagina do admin que ja sao bugadas*/
 	border-top: 1vh solid #133d59;
 	border-bottom: 1vh solid #133d59;
 	display: flex;

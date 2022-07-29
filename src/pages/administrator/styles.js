@@ -10,7 +10,7 @@ export const ContainerBase = styled.div`
 export const Content = styled.div`
 	display: flex;
 	width: 92.5%;
-	margin-top: -6.5vh;
+
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
@@ -41,10 +41,10 @@ export const ContainerColumn = styled.div`
 	width: 70vw;
 	display: flex;
 	flex-direction: column;
-	
+
 	h1 {
-		margin-top: 0vh; 
-		margin-left: 2.5vw; 
+		margin-top: 0vh;
+		margin-left: 2.5vw;
 	}
 `;
 
@@ -55,9 +55,9 @@ export const ContainerRow = styled.div`
 	flex-direction: row;
 	justify-content: center;
 	align-content: center;
-	
+
 	h1 {
-		margin-top: 0vh; 
-		margin-left: 2.5vw; 
+		margin-top: 0vh;
+		margin-left: 2.5vw;
 	}
 `;
