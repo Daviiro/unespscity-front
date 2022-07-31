@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -17,19 +17,40 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+import Favorites from "../../../components/favorites";
 
-const Instalacoes = () => {
+const Instalacoes = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 48;
 	const totalResolvidos = 47;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 49 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 1,
+				name: "Fiscalização de Instalações",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/fiscalizacao_de_instalacoes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 1,
+				name: "Fiscalização de Instalações",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/fiscalizacao_de_instalacoes",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

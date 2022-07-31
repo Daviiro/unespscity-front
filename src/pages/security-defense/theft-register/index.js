@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Footer from "../../../components/footer";
@@ -16,15 +16,36 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const TheftRegister = () => {
+const TheftRegister = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 43 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 43,
+				name: "Registro de Roubos e Furtos",
+				img: "/assets/img/home_seguranca_defesa_civil.png",
+				link: "/registro_roubos",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 43,
+				name: "Registro de Roubos e Furtos",
+				img: "/assets/img/home_seguranca_defesa_civil.png",
+				link: "/registro_roubos",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

@@ -1,14 +1,6 @@
-import React, { useState } from "react";
-
-import {
-	SubHeader,
-	ContainerColumn,
-	Square,
-	FormContainer,
-	InputAddressContainer,
-	GrayLine2,
-} from "./styles";
-
+import React, { useState, useEffect } from "react";
+import { FormContainer, InputAddressContainer, GrayLine2 } from "./styles";
+import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Button from "../../../components/styled-components/form-button";
@@ -28,17 +20,38 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Tumulos = () => {
+const Tumulos = (props) => {
 	// posteriormente passar o número de túmulos registrados por parâmetro //
 	const total = 36;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 31 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 31,
+				name: "Cadastro de Túmulos e Falecidos",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/tumulos",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 31,
+				name: "Cadastro de Túmulos e Falecidos",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/tumulos",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

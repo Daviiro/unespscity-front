@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
@@ -14,15 +14,38 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-const CulturalProgram = () => {
+import Favorites from "../../../components/favorites";
+
+const CulturalProgram = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 33 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 33,
+				name: "Programação Cultural",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/programacao_cultural",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 33,
+				name: "Programação Cultural",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/programacao_cultural",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

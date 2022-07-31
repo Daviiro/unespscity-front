@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -16,16 +16,36 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Gestores = () => {
+const Gestores = (props) => {
 	const [gestores, setGestores] = useState([]);
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 46 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 46,
+				name: "Conheça os Gestores",
+				img: "/assets/img/home_administracao_publica.png",
+				link: "/conheca_os_gestores",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 46,
+				name: "Conheça os Gestores",
+				img: "/assets/img/home_administracao_publica.png",
+				link: "/conheca_os_gestores",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -12,23 +11,43 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../components/styled-components/PageStyles";
-import Form from "../../../components/forms";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
-const NeedyFamiliesRegister = () => {
+const NeedyFamiliesRegister = (props) => {
 	const totalSolicitados = 81;
 	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 37 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 37,
+				name: "Registro de Familias Carentes",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/familias_carentes_registro",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 37,
+				name: "Registro de Familias Carentes",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/familias_carentes_registro",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

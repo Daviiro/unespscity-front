@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import ListCard from "../../domestic-animals/lost-animals/card-list";
 import Footer from "../../../components/footer";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -20,20 +19,40 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const DiaristasLista = () => {
+const DiaristasLista = (props) => {
 	const [gestores, setGestores] = useState([]);
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 84;
 	const totalResolvidos = 78;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 40 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 40,
+				name: "Cadastro de Diaristas",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/diaristas_lista",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 40,
+				name: "Cadastro de Diaristas",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/diaristas_lista",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -55,13 +74,13 @@ const DiaristasLista = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-                                Cadastro de Diaristas
+								Cadastro de Diaristas
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você pode checar a lista de diaristas, faxineiros(as)
-							e zeladores(as) em seu município. Para cadastrar um(a) novo(a),
-							clique{" "}
+							Aqui você pode checar a lista de diaristas,
+							faxineiros(as) e zeladores(as) em seu município.
+							Para cadastrar um(a) novo(a), clique{" "}
 							<Link
 								to="/diaristas_novo"
 								style={{ textDecoration: "none" }}
@@ -100,9 +119,13 @@ const DiaristasLista = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-                    <Link to = "/localizacao"  target="_blank" rel="noopener noreferrer">
-                        <Button text = "Ver localizações no mapa" />
-                    </Link>
+					<Link
+						to="/localizacao"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Button text="Ver localizações no mapa" />
+					</Link>
 					<ListCard
 						source="/assets/img/home_servicos_sociais.png"
 						nome="[Nome e número]"

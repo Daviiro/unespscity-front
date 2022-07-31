@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -13,16 +13,38 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const GuardianMonitoring = () => {
+const GuardianMonitoring = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 51 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 51,
+				name: "Monitoramento do Guardinha",
+				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				link: "/monitoramento-guardinha",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 51,
+				name: "Monitoramento do Guardinha",
+				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				link: "/monitoramento-guardinha",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -30,27 +52,27 @@ const GuardianMonitoring = () => {
 						titulo="Sensoriamento Móvel Participativo"
 						linkItems={[
 							{
-                                id: 1,
-                                name: "Monitoramento do Guardinha",
-                                link: "/monitoramento-guardinha",
-                            },
-                            {
-                                id: 2,
-                                name: "Monitoramento de Pessoas ou veiculos",
-                                link: "/monitoramento-pessoas-veiculos",
-                            },
+								id: 1,
+								name: "Monitoramento do Guardinha",
+								link: "/monitoramento-guardinha",
+							},
+							{
+								id: 2,
+								name: "Monitoramento de Pessoas ou veiculos",
+								link: "/monitoramento-pessoas-veiculos",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Monitoramento Remoto
+								Monitoramento do Guardinha
 							</Typography>
 						</div>
 						<DescriptionText>
 							Neste serviço você terá informações sobre o
-							monitoramento da movimentação diária do guardinha que 
-                            protege e cuida da sua residencia. 
+							monitoramento da movimentação diária do guardinha
+							que protege e cuida da sua residencia.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

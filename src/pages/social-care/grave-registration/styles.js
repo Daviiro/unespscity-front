@@ -18,11 +18,13 @@ export const SubHeader = styled.div`
 	text-align: left;
 
 	h1 {
-		margin-top: 4vh; 
-		margin-left: 2.5vw; 
+		margin-top: 4vh;
+		margin-left: 2.5vw;
 	}
 
-	h4 { margin-top: 0vh; }
+	h4 {
+		margin-top: 0vh;
+	}
 `;
 
 export const ContainerColumn = styled.div`
@@ -45,18 +47,17 @@ export const Square = styled.div`
 	height: 100%;
 	width: auto;
 	margin-bottom: 10vh;
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-	justify-content: center; 
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 export const FormContainer = styled.div`
-    height: 90%;
-	width: 47.5vw;
-	border: 0.25vh solid lightgray;
+	height: 90%;
+	width: 100%;
+
 	border-radius: 10px;
-	box-shadow: 5px 5px 10px gray;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -81,12 +82,14 @@ export const FormContainer = styled.div`
 		color: #3282b8;
 	}
 
-	h4 { 
+	h4 {
 		font-weight: normal;
-		margin-bottom: 0.25vh; 
+		margin-bottom: 0.25vh;
 	}
 
-	p { margin-top: 0.75vh; }
+	p {
+		margin-top: 0.75vh;
+	}
 `;
 
 export const InputAddressContainer = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
@@ -16,38 +16,60 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import Favorites from "../../../components/favorites";
 
-const Noticias = () => {
+const Noticias = (props) => {
 	const [noticias, setNoticias] = useState([]);
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 48 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 48,
+				name: "Notícias da Cidade",
+				img: "/assets/img/home_notificacao_comunicacao.png",
+				link: "/noticias",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 48,
+				name: "Notícias da Cidade",
+				img: "/assets/img/home_notificacao_comunicacao.png",
+				link: "/noticias",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
-			<ContentContainer style = {{height: "750vh"}}>
+			<Favorites data={props.data} />
+			<ContentContainer style={{ height: "750vh" }}>
 				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						titulo="Notificação e Comunicação"
 						linkItems={[
 							{
-                                id: 1,
-                                name: "Notícias da Cidade",
-                                link: "/noticias",
-                            },
-                            {
-                                id: 2,
-                                name: "Sugestões e/ou Reclamações",
-                                link: "/sugestoes",
-                            },
+								id: 1,
+								name: "Notícias da Cidade",
+								link: "/noticias",
+							},
+							{
+								id: 2,
+								name: "Sugestões e/ou Reclamações",
+								link: "/sugestoes",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4" id = "inicio">
+							<Typography variant="h4" id="inicio">
 								Notícias da Cidade
 							</Typography>
 						</div>
@@ -82,51 +104,41 @@ const Noticias = () => {
 						/>
 					)}
 					<StyledHr />
-                    <ContainerRow>
-                        <a href = "#governo"> Governo </a>
-                        <span> • </span>
-                        <a href = "#entretenimento"> Entretenimento </a>
-                        <span> • </span>
-                        <a href = "#saude"> Saúde </a>
-                        <span> • </span>
-                        <a href = "#tecnologia"> Tecnologia </a>
-                        <span> • </span>
-                        <a href = "#pessoas"> Pessoas </a>
-                        <span> • </span>
-                        <a href = "#meio-ambiente"> Meio-Ambiente </a>
-                    </ContainerRow>
-                    <TopButton> <a href = "#inicio"> voltar ao topo </a> </TopButton>
+					<ContainerRow>
+						<a href="#governo"> Governo </a>
+						<span> • </span>
+						<a href="#entretenimento"> Entretenimento </a>
+						<span> • </span>
+						<a href="#saude"> Saúde </a>
+						<span> • </span>
+						<a href="#tecnologia"> Tecnologia </a>
+						<span> • </span>
+						<a href="#pessoas"> Pessoas </a>
+						<span> • </span>
+						<a href="#meio-ambiente"> Meio-Ambiente </a>
+					</ContainerRow>
+					<TopButton>
+						{" "}
+						<a href="#inicio"> voltar ao topo </a>{" "}
+					</TopButton>
 				</TopContentContainer>
-				<MidContentContainer id = "governo" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-					<Typography variant = "h4"> Governo </Typography>
-                    <ListCard
-						source="/assets/img/home_notificacao_comunicacao.png"
-						nome="[Título da Notícia]"
-						sobrenome="[data de publicação]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
+				<MidContentContainer
+					id="governo"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Governo </Typography>
 					<ListCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						nome="[Título da Notícia]"
 						sobrenome="[data de publicação]"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 					/>
-					<ListCard
-						source="/assets/img/home_notificacao_comunicacao.png"
-						nome="[Título da Notícia]"
-						sobrenome="[data de publicação]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_notificacao_comunicacao.png"
-						nome="[Título da Notícia]"
-						sobrenome="[data de publicação]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-				</MidContentContainer>
-                <Line />
-                <MidContentContainer id = "entretenimento" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-                    <Typography variant = "h4"> Entretenimento </Typography>
 					<ListCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						nome="[Título da Notícia]"
@@ -146,9 +158,18 @@ const Noticias = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 					/>
 				</MidContentContainer>
-                <Line />
-                <MidContentContainer id = "saude" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-                    <Typography variant = "h4"> Saúde </Typography>
+				<Line />
+				<MidContentContainer
+					id="entretenimento"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Entretenimento </Typography>
 					<ListCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						nome="[Título da Notícia]"
@@ -168,25 +189,18 @@ const Noticias = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 					/>
 				</MidContentContainer>
-                <Line />
-                <MidContentContainer id = "tecnologia" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-                    <Typography variant = "h4"> Tecnologia </Typography>
-					<ListCard
-						source="/assets/img/home_notificacao_comunicacao.png"
-						nome="[Título da Notícia]"
-						sobrenome="[data de publicação]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_notificacao_comunicacao.png"
-						nome="[Título da Notícia]"
-						sobrenome="[data de publicação]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-				</MidContentContainer>
-                <Line />
-                <MidContentContainer id = "pessoas" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-                    <Typography variant = "h4"> Pessoas </Typography>
+				<Line />
+				<MidContentContainer
+					id="saude"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Saúde </Typography>
 					<ListCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						nome="[Título da Notícia]"
@@ -206,9 +220,74 @@ const Noticias = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 					/>
 				</MidContentContainer>
-                <Line />
-                <MidContentContainer id = "meio-ambiente" style = {{height: "100vh", marginBottom: "17.5vh", overflowY: "auto", justifyContent: "flex-start", flexWrap: "nowrap"}}>
-                    <Typography variant = "h4"> Meio-Ambiente </Typography>
+				<Line />
+				<MidContentContainer
+					id="tecnologia"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Tecnologia </Typography>
+					<ListCard
+						source="/assets/img/home_notificacao_comunicacao.png"
+						nome="[Título da Notícia]"
+						sobrenome="[data de publicação]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+					<ListCard
+						source="/assets/img/home_notificacao_comunicacao.png"
+						nome="[Título da Notícia]"
+						sobrenome="[data de publicação]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+				</MidContentContainer>
+				<Line />
+				<MidContentContainer
+					id="pessoas"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Pessoas </Typography>
+					<ListCard
+						source="/assets/img/home_notificacao_comunicacao.png"
+						nome="[Título da Notícia]"
+						sobrenome="[data de publicação]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+					<ListCard
+						source="/assets/img/home_notificacao_comunicacao.png"
+						nome="[Título da Notícia]"
+						sobrenome="[data de publicação]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+					<ListCard
+						source="/assets/img/home_notificacao_comunicacao.png"
+						nome="[Título da Notícia]"
+						sobrenome="[data de publicação]"
+						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+					/>
+				</MidContentContainer>
+				<Line />
+				<MidContentContainer
+					id="meio-ambiente"
+					style={{
+						height: "100vh",
+						marginBottom: "17.5vh",
+						overflowY: "auto",
+						justifyContent: "flex-start",
+						flexWrap: "nowrap",
+					}}
+				>
+					<Typography variant="h4"> Meio-Ambiente </Typography>
 					<ListCard
 						source="/assets/img/home_notificacao_comunicacao.png"
 						nome="[Título da Notícia]"
@@ -229,7 +308,7 @@ const Noticias = () => {
 					/>
 				</MidContentContainer>
 			</ContentContainer>
-            <GrayLine />
+			<GrayLine />
 			<Footer />
 		</ContainerBase>
 	);

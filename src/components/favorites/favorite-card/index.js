@@ -5,9 +5,10 @@ const FavoriteCard = (props) => {
 	const navigate = useNavigate();
 	return (
 		<>
-			{props.data.length ? (
+			{props.data.length !== 0 ? (
 				props.data.map((fav) => (
 					<FavCardContainer
+						key={fav.id}
 						onClick={() => navigate(`../${fav.link}`)}
 					>
 						<ImgFavoriteLogo

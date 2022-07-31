@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -13,16 +13,38 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const LocalTradeOffers = () => {
+//id deste servico vai ser 49
+const LocalTradeOffers = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 52 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 52,
+				name: "Comércio Local",
+				img: "/assets/img/home_assossiacao_comercial.png",
+				link: "/comercio-local",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 52,
+				name: "Comércio Local",
+				img: "/assets/img/home_assossiacao_comercial.png",
+				link: "/comercio-local",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

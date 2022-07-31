@@ -49,8 +49,6 @@ const DengueMap = (props) => {
 			center={center}
 			radius={100}
 			zoom={14}
-			zoomControl={false}
-			scrollwheel={false}
 		>
 			{props.locations.map((location) => (
 				<MarkerF

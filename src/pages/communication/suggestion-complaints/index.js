@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -13,16 +13,38 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const Sugestoes = () => {
+const Sugestoes = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 49 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 49,
+				name: "Sugestões e/ou Reclamações",
+				img: "/assets/img/home_notificacao_comunicacao.png",
+				link: "/sugestoes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 49,
+				name: "Sugestões e/ou Reclamações",
+				img: "/assets/img/home_notificacao_comunicacao.png",
+				link: "/sugestoes",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -30,21 +52,21 @@ const Sugestoes = () => {
 						titulo="Notificação e Comunicação"
 						linkItems={[
 							{
-                                id: 1,
-                                name: "Notícias da Cidade",
-                                link: "/noticias",
-                            },
-                            {
-                                id: 2,
-                                name: "Sugestões e/ou Reclamações",
-                                link: "/sugestoes",
-                            },
+								id: 1,
+								name: "Notícias da Cidade",
+								link: "/noticias",
+							},
+							{
+								id: 2,
+								name: "Sugestões e/ou Reclamações",
+								link: "/sugestoes",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Fiscalização de Instalações
+								Sugestões e/ou Reclamações
 							</Typography>
 						</div>
 						<DescriptionText>

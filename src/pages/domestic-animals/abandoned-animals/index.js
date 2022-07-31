@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import { ChartContainer } from "./styles";
 import Header from "../../../components/header";
@@ -6,7 +6,7 @@ import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -19,20 +19,40 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const AnimaisAbandonados = () => {
+const AnimaisAbandonados = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 79;
 	const totalResolvidos = 12;
 
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 20 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 20,
+				name: "Animais Abandonados",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais_abandonados",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 20,
+				name: "Animais Abandonados",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais_abandonados",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

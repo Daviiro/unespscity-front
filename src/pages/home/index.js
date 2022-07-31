@@ -7,15 +7,13 @@ import Footer from "../../components/footer";
 import LocalContext from "../user-location/Context";
 import Favorites from "../../components/favorites";
 
-const Home = () => {
+const Home = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
-	//console.log("teste " + formValues.state);
-	//console.log("teste " + formValues.city);
 	return (
 		<>
 			<ContainerBase>
 				<Header />
-				<Favorites />
+				<Favorites data={props.data} />
 				<Content>
 					<WrapContainer>
 						<Card

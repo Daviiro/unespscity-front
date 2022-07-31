@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -7,7 +7,7 @@ import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Typography from "@mui/material/Typography";
-
+import Favorites from "../../../components/favorites";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -19,18 +19,38 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Restaurante = () => {
+const Restaurante = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 25;
 	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 13 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 13,
+				name: "Restaurantes / Ambientes Irregulares",
+				img: "/assets/img/home_vigilancia_sanitaria.png",
+				link: "/restaurantes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 13,
+				name: "Restaurantes / Ambientes Irregulares",
+				img: "/assets/img/home_vigilancia_sanitaria.png",
+				link: "/restaurantes",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

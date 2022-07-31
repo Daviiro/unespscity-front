@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -15,12 +15,32 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import UsefulLocationsMap from "./map";
 import Footer from "../../../components/footer";
 import UsefulLocationsModal from "./modal";
+import Favorites from "../../../components/favorites";
 
-const LocaisUteis = () => {
+const LocaisUteis = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 32 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 32,
+				name: "Locais Úteis",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/locais_uteis",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 32,
+				name: "Locais Úteis",
+				img: "/assets/img/home_assistencia_social.png",
+				link: "/locais_uteis",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	const [locations, setLocations] = useState([
@@ -51,7 +71,8 @@ const LocaisUteis = () => {
 			name: "Centro Histórico Cultural Matarazzo",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3226-3399",
-			opening_hours: "Domingo das 10:00 às 22:00, segunda à sábado das 08:30 às 22:00",
+			opening_hours:
+				"Domingo das 10:00 às 22:00, segunda à sábado das 08:30 às 22:00",
 			location: {
 				lat: -22.1206503,
 				lng: -51.3793409,
@@ -65,7 +86,7 @@ const LocaisUteis = () => {
 			opening_hours: "Das 07:00 às 19:00 todos os dias",
 			location: {
 				lat: -22.1057482,
-				lng: -51.4432070,
+				lng: -51.443207,
 			},
 		},
 		{
@@ -116,6 +137,7 @@ const LocaisUteis = () => {
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -149,10 +171,10 @@ const LocaisUteis = () => {
 							<Typography variant="h4">Locais Úteis</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para cadastrar locais úteis para os
-							habitantes e visitantes do seu município, como escolas,
-							farmácias, restaurantes, centros de lazer, quadras,
-							prestação de serviços e muito mais.
+							Utilize este serviço para cadastrar locais úteis
+							para os habitantes e visitantes do seu município,
+							como escolas, farmácias, restaurantes, centros de
+							lazer, quadras, prestação de serviços e muito mais.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

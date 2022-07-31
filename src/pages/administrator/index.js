@@ -117,17 +117,27 @@ const Dashboard = () => {
 						]}
 					/>
 					<DashboardButton
-						description = "Mapas de Calor"
+						description = "Mapas"
 						linkItems={[
 							{
 								id: 1,
 								name: "Radar da Dengue",
-								link: "/radar_da_dengue/mapa",
+								link: "/dengue_mapa",
 							},
 							{
 								id: 2,
 								name: "Regiões com Alta Poluição",
-								link: "/monitoramento/mapa",
+								link: "/monitoramento_mapa",
+							},
+							{
+								id: 3,
+								name: "Árvores",
+								link: "/arvores_mapa",
+							},
+							{
+								id: 4,
+								name: "Vacinação contra Leishmaniose",
+								link: "/leishmaniose_mapa",
 							},
 						]}
 					/>

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -20,18 +19,38 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Pragas = () => {
+const Pragas = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 14;
 	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 15 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 15,
+				name: "Insetos, Roedores e Caramujos",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/insetos_roedores_caramujos",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 15,
+				name: "Insetos, Roedores e Caramujos",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/insetos_roedores_caramujos",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

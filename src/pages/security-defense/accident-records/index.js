@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -14,16 +14,38 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const AccidentRecords = () => {
+const AccidentRecords = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 42 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 42,
+				name: "Registro de Acidentes",
+				img: "/assets/img/home_seguranca_defesa_civil.png",
+				link: "/registro-acidentes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 42,
+				name: "Registro de Acidentes",
+				img: "/assets/img/home_seguranca_defesa_civil.png",
+				link: "/registro-acidentes",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
