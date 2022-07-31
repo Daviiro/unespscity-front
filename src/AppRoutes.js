@@ -28,7 +28,9 @@ import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/ur
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import MapPage from "./services/map-page";
+import MapPageArvores from "./services/map-pages/arvores";
+import MapPageDengue from "./services/map-pages/dengue";
+import MapPageLeishmaniose from "./services/map-pages/leishmaniose";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -73,13 +75,13 @@ import ResiduosSolidos from "./pages/road-maintenance/removal-trash";
 
 import AdminAdocaoAreas from "./pages/administrator/environment/public-areas-adoption"; // Meio Ambiente //
 import AdminMonitoramentoTempo from "./pages/administrator/environment/monitoring";
-import PublicAreasMap from "./pages/environment/public-areas-adoption/map/index";
+//import PublicAreasMap from "./pages/environment/public-areas-adoption/map/index";
 import AdocaoAreasOpcoes from "./pages/environment/public-areas-adoption/option";
 import AdocaoAreasDisponiveis from "./pages/environment/public-areas-adoption/index1";
 import AdocaoAreasAdotadas from "./pages/environment/public-areas-adoption/index2";
 import AdocaoAreasRegras from "./pages/environment/public-areas-adoption/index3";
 import MonitoramentoTempo from "./pages/environment/climate-monitoring";
-import PollutionMap from "./pages/environment/climate-monitoring/map";
+//import PollutionMap from "./pages/environment/climate-monitoring/map";
 import RefuseCollection from "./pages/environment/refuse-collection";
 import AdminRefuseCollection from "./pages/administrator/environment/refuse-collection";
 
@@ -486,9 +488,31 @@ const AppRoutes = () => {
 					<Route exact path="/login" element={<Login />} />
 					<Route
 						exact
-						path="/localizacao"
+						path="/arvores_mapa"
 						element={
-							<MapPage
+							<MapPageArvores
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/dengue_mapa"
+						element={
+							<MapPageDengue
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/leishmaniose_mapa"
+						element={
+							<MapPageLeishmaniose
 								data={favoritesData}
 								handleAddFavorite={handleAddFavorite}
 								handleSubFavorite={handleSubFavorite}
@@ -793,7 +817,7 @@ const AppRoutes = () => {
 							/>
 						}
 					/>
-					<Route
+				{/**<Route
 						exact
 						path="/adocao_areas_mapa"
 						element={
@@ -803,7 +827,7 @@ const AppRoutes = () => {
 								handleSubFavorite={handleSubFavorite}
 							/>
 						}
-					/>
+					/> */}
 					<Route
 						exact
 						path="/adocao_areas_opcoes"
@@ -860,7 +884,7 @@ const AppRoutes = () => {
 							/>
 						}
 					/>
-					<Route
+				{/**<Route
 						exact
 						path="/monitoramento/mapa"
 						element={
@@ -870,7 +894,7 @@ const AppRoutes = () => {
 								handleSubFavorite={handleSubFavorite}
 							/>
 						}
-					/>
+					/>*/}
 					<Route
 						exact
 						path="/feiras_livres_mapa"

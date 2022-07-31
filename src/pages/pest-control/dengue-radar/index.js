@@ -5,6 +5,7 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
+import DengueMap from "./map";
 import Footer from "../../../components/footer";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Typography from "@mui/material/Typography";
@@ -48,6 +49,80 @@ const Dengue = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
+	const [locations, setLocations] = useState([
+		{
+			id: 1,
+			location: {
+				lat: -22.1159641,
+				lng: -51.4070265,
+			},
+		},
+		{
+			id: 2,
+			location: {
+				lat: -22.1214422,
+				lng: -51.4075171,
+			},
+		},
+		{
+			id: 3,
+			location: {
+				lat: -22.1131517,
+				lng: -51.4119613,
+			},
+		},
+		{
+			id: 4,
+			location: {
+				lat: -22.1052299,
+				lng: -51.3998977,
+			},
+		},
+		{
+			id: 5,
+			location: {
+				lat: -22.0961994,
+				lng: -51.4154257,
+			},
+		},
+		{
+			id: 6,
+			location: {
+				lat: -22.1234142,
+				lng: -51.4268159,
+			},
+		},
+		{
+			id: 7,
+			location: {
+				lat: -22.1170895,
+				lng: -51.4030536,
+			},
+		},
+		{
+			id: 8,
+			location: {
+				lat: -22.0978330,
+				lng: -51.4065919,
+			},
+		},
+		{
+			id: 9,
+			location: {
+				lat: -22.1187192,
+				lng: -51.4138216,
+			},
+		},
+		{
+			id: 10,
+			location: {
+				lat: -22.1234442,
+				lng: -51.4036667,
+			},
+		},
+	]);
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -140,8 +215,14 @@ const Dengue = (props) => {
 				<MidContentContainer>
 					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Dengue." />
 				</MidContentContainer>
+				<div style={{ textAlign: "center", marginTop: "11vh", marginBottom: "12vh" }}>
+					<Typography variant = "h6"> Abaixo, você também pode conferir os focos de dengue já registrados na sua cidade: </Typography>
+				</div>
+				<DengueMap
+					locations = {locations}
+					icon = "/assets/img/dengue-icon.png"
+				/>
 			</ContentContainer>
-
 			<GrayLine />
 			<ChartContainer>
 				<h3> Eliminações solicitadas e efetuadas: </h3>
