@@ -22,7 +22,7 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 //id deste servico eh 17
-const Dengue = () => {
+const Dengue = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 93;
 	const totalResolvidos = 22;
