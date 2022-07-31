@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-
+import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
@@ -21,14 +21,34 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
+//id deste servico eh 17
 const Dengue = () => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 93;
 	const totalResolvidos = 22;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 17 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 17,
+				name: "Radar da Dengue",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/radar_da_dengue",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 17,
+				name: "Radar da Dengue",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/radar_da_dengue",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	const [locations, setLocations] = useState([
