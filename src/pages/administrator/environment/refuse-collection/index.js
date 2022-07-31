@@ -9,6 +9,7 @@ import {
 import MiniCard from "../../../../components/mini-card";
 import Header from "../../../../components/header";
 import Footer from "../../../../components/footer";
+import Map from "./map";
 
 const AdminRefuseCollection = () => {
 	return (
@@ -48,7 +49,9 @@ const AdminRefuseCollection = () => {
 					</div>
 					<div></div>
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<Map />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

@@ -6,9 +6,9 @@ import {
 	Marker,
 	Autocomplete,
 } from "@react-google-maps/api";
-import LocalContext from "../../../user-location/Context";
-import { fetchLatLong } from "../../../../services/GoogleMaps";
-import { fetchCityForID } from "../../../../services/IBGE";
+import LocalContext from "../../../../user-location/Context";
+import { fetchLatLong } from "../../../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../../../services/IBGE";
 import { Container, DirectionsContainer } from "./styles";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import { MdClear } from "react-icons/md";
