@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -17,19 +17,40 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import Favorites from "../../../components/favorites";
 
-const Vias = () => {
+const Vias = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 78;
 	const totalResolvidos = 58;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 5 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 5,
+				name: "Vias Públicas",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/vias_publicas/vias_publicas",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 5,
+				name: "Vias Públicas",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/vias_publicas/vias_publicas",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

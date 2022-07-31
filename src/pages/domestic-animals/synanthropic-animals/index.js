@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import Footer from "../../../components/footer";
 import {
@@ -15,18 +15,38 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Form from "../../../components/forms";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+import Favorites from "../../../components/favorites";
 
-const AnimaisSinantropicos = () => {
+const AnimaisSinantropicos = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
-
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 23 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 23,
+				name: "Animais Sinantrópicos",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais-sinantropicos",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 23,
+				name: "Animais Sinantrópicos",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais-sinantropicos",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

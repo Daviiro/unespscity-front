@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import {
 	SubHeader,
@@ -12,11 +12,7 @@ import {
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import Input from "../../../components/input";
-import InputLocalization from "../../../components/input-localization-button";
-import DescriptionInput from "../../../components/description-input";
-import InputPhotos from "../../../components/images-input";
-import Button from "../../../components/styled-components/form-button";
+import Favorites from "../../../components/favorites";
 import GrayLine from "../../../components/styled-components/gray-line";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import { ChartContainer } from "../../../charts/types/donut/chart";
@@ -34,18 +30,39 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const AnimaisSilvestres = () => {
+const AnimaisSilvestres = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 23;
 	const totalResolvidos = 14;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 30 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 30,
+				name: "Fiscalização de Animais Silvestres",
+				img: "/assets/img/home_fauna_flora.png",
+				link: "/animais_silvestres",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 30,
+				name: "Fiscalização de Animais Silvestres",
+				img: "/assets/img/home_fauna_flora.png",
+				link: "/animais_silvestres",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import {
-	FormContainer,
-    InputAddressContainer,
-} from "./styles";
-
+import { FormContainer, InputAddressContainer } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Input from "../../../components/input";
@@ -14,7 +9,7 @@ import DescriptionInput from "../../../components/description-input";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -27,16 +22,36 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const DiaristasNovo = () => {
+const DiaristasNovo = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 39 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 39,
+				name: "Registro de Familias Carentes",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/diaristas_novo",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 39,
+				name: "Registro de Familias Carentes",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/diaristas_novo",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -105,25 +120,25 @@ const DiaristasNovo = () => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<FormContainer>
-                        <InputAddressContainer>
-				            <Input title = "Nome:" width = "30vw" />
-				            <Input title = "Telefone:" width = "13vw" />
-			            </InputAddressContainer>
-						<InputLocalization />
-						<p style = {{ marginTop: "2.5vh" }}> OU </p>
 						<InputAddressContainer>
-				            <Input title = "Endereço:" width = "36vw" />
-				            <Input title = "Nº" width = "7vw" />
-			            </InputAddressContainer>
+							<Input title="Nome:" width="30vw" />
+							<Input title="Telefone:" width="13vw" />
+						</InputAddressContainer>
+						<InputLocalization />
+						<p style={{ marginTop: "2.5vh" }}> OU </p>
+						<InputAddressContainer>
+							<Input title="Endereço:" width="36vw" />
+							<Input title="Nº" width="7vw" />
+						</InputAddressContainer>
 						<Input
-				            title = "Ponto de Referência:"
-				            placeholder = "Um local de referência proximo (Opcional)"
-			            />
-						<DescriptionInput
-							title = "Descrição do serviço:"
-							placeholder = "conte-nos em detalhes o seu serviço prestado, horários disponíveis, cálculo de pagamento e o que mais julgar importante."
+							title="Ponto de Referência:"
+							placeholder="Um local de referência proximo (Opcional)"
 						/>
-						<Button text = "Enviar" />
+						<DescriptionInput
+							title="Descrição do serviço:"
+							placeholder="conte-nos em detalhes o seu serviço prestado, horários disponíveis, cálculo de pagamento e o que mais julgar importante."
+						/>
+						<Button text="Enviar" />
 					</FormContainer>
 				</MidContentContainer>
 			</ContentContainer>

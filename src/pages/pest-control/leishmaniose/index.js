@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 
 import Header from "../../../components/header";
@@ -8,7 +8,7 @@ import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import LeishmanioseMap from "./map";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -21,14 +21,33 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const Leishmaniose = () => {
+const Leishmaniose = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 92;
 	const totalResolvidos = 14;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 16 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 16,
+				name: "Leishmaniose",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/leishmaniose",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 16,
+				name: "Leishmaniose",
+				img: "/assets/img/home_controle_pragas.png",
+				link: "/leishmaniose",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	const [locations, setLocations] = useState([
@@ -92,21 +111,24 @@ const Leishmaniose = () => {
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
-				<div style = {{
-					height: "15vh", 
-					width: "8vh", 
-					position: "fixed", 
-					top: "11vh", 
-					right: "12vh", 
-					zIndex: "1",
-				}}> 
-					<a href = "https://www.google.com.br/search?q=phlebotomus+papatasi&tbm=isch&ved=2ahUKEwi9jobj2Iz5AhVVBbkGHUJkBEoQ2-cCegQIABAA&oq=Phlebotomus+pappatasi&gs_lcp=CgNpbWcQARgAMgQIABAeMgYIABAKEBg6BwgAELEDEEM6BQgAEIAEULIvWLIvYLpCaABwAHgAgAH_AogB7wOSAQcwLjEuMC4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=YbLaYv3ZI9WK5OUPwsiR0AQ&bih=723&biw=1496&hl=pt-BR">
+				<div
+					style={{
+						height: "15vh",
+						width: "8vh",
+						position: "fixed",
+						top: "11vh",
+						right: "12vh",
+						zIndex: "1",
+					}}
+				>
+					<a href="https://www.google.com.br/search?q=phlebotomus+papatasi&tbm=isch&ved=2ahUKEwi9jobj2Iz5AhVVBbkGHUJkBEoQ2-cCegQIABAA&oq=Phlebotomus+pappatasi&gs_lcp=CgNpbWcQARgAMgQIABAeMgYIABAKEBg6BwgAELEDEEM6BQgAEIAEULIvWLIvYLpCaABwAHgAgAH_AogB7wOSAQcwLjEuMC4xmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=YbLaYv3ZI9WK5OUPwsiR0AQ&bih=723&biw=1496&hl=pt-BR">
 						<MiniCard
 							source="/assets/img/Leishmaniose.png"
 							titulo="Mosquito Palha"
 						/>
-					</a>	
+					</a>
 				</div>
 				<TopContentContainer>
 					<MiniCard
@@ -176,12 +198,22 @@ const Leishmaniose = () => {
 				<MidContentContainer>
 					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Leishmaniose." />
 				</MidContentContainer>
-				<div style={{ textAlign: "center", marginTop: "11vh", marginBottom: "12vh" }}>
-					<Typography variant = "h6"> Abaixo, você também pode conferir onde vacinar o seu animal na cidade: </Typography>
+				<div
+					style={{
+						textAlign: "center",
+						marginTop: "11vh",
+						marginBottom: "12vh",
+					}}
+				>
+					<Typography variant="h6">
+						{" "}
+						Abaixo, você também pode conferir onde vacinar o seu
+						animal na cidade:{" "}
+					</Typography>
 				</div>
 				<LeishmanioseMap
-					locations = {locations}
-					icon = "/assets/img/leishmaniose-vaccination-icon.png"
+					locations={locations}
+					icon="/assets/img/leishmaniose-vaccination-icon.png"
 				/>
 			</ContentContainer>
 			<GrayLine />

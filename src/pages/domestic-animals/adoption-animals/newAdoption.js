@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
@@ -18,20 +18,41 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+import Favorites from "../../../components/favorites";
 
-const NovasDoacoesAnimais = () => {
+const NovasDoacoesAnimais = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 84;
 	const totalResolvidos = 78;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 19 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 19,
+				name: "Doação de Animais",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/adocao_animais_lista",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 19,
+				name: "Doação de Animais",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/adocao_animais_lista",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -73,9 +94,8 @@ const NovasDoacoesAnimais = () => {
 						</div>
 						<DescriptionText>
 							Utilize este serviço para cadastrar um novo animal
-							que você queira doar. Para checar a lista completa de animais 
-							disponiveis na plataforma,
-							clique
+							que você queira doar. Para checar a lista completa
+							de animais disponiveis na plataforma, clique
 							<Link
 								to="/adocao_animais_lista"
 								style={{ textDecoration: "none" }}

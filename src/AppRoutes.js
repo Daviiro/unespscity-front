@@ -157,6 +157,18 @@ import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/syn
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
+
+	const [favoritesData, setFavoritesData] = useState([]);
+
+	const handleAddFavorite = (favorite) => {
+		setFavoritesData([...favoritesData, favorite]);
+	};
+	const handleSubFavorite = (Delfavorite) => {
+		setFavoritesData(
+			favoritesData.filter((favorite) => favorite.id !== Delfavorite.id)
+		);
+	};
+
 	return (
 		<Router>
 			<LocalContext.Provider value={[formValues, setFormValues]}>
@@ -169,7 +181,7 @@ const AppRoutes = () => {
 							formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
-								<Home />
+								<Home data={favoritesData} />
 							)
 						}
 					/>
@@ -472,240 +484,580 @@ const AppRoutes = () => {
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 					<Route exact path="/login" element={<Login />} />
-					<Route exact path="/localizacao" element={<MapPage />} />
+					<Route
+						exact
+						path="/localizacao"
+						element={
+							<MapPage
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/conheca_os_gestores"
-						element={<Gestores />}
+						element={
+							<Gestores
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/telefones_uteis"
-						element={<Telefones />}
+						element={
+							<Telefones
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/locais_uteis"
-						element={<LocaisUteis />}
+						element={
+							<LocaisUteis
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/tumulos" element={<Tumulos />} />
+					<Route
+						exact
+						path="/tumulos"
+						element={
+							<Tumulos
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/programacao_cultural"
-						element={<ProgramacaoCultural />}
+						element={
+							<ProgramacaoCultural
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/parques" element={<Parques />} />
+					<Route
+						exact
+						path="/parques"
+						element={
+							<Parques
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/pontes_em_estradas_rurais"
-						element={<Pontes />}
+						element={
+							<Pontes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/pracas" element={<Pracas />} />
+					<Route
+						exact
+						path="/pracas"
+						element={
+							<Pracas
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/fiscalizacao_de_instalacoes"
-						element={<Instalacoes />}
+						element={
+							<Instalacoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/iluminacao_publica"
-						element={<Iluminacao />}
+						element={
+							<Iluminacao
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/monumentos_e_chafarizes"
-						element={<Monumentos />}
+						element={
+							<Monumentos
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/pavimentacao"
-						element={<Pavimentacao />}
+						element={
+							<Pavimentacao
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/vias_publicas" element={<Vias />} />
+					<Route
+						exact
+						path="/vias_publicas"
+						element={
+							<Vias
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/foco_de_escorpiao"
-						element={<Escorpiao />}
+						element={
+							<Escorpiao
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/insetos_roedores_caramujos"
-						element={<Pragas />}
+						element={
+							<Pragas
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/leishmaniose"
-						element={<Leishmaniose />}
+						element={
+							<Leishmaniose
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/radar_da_dengue" element={<Dengue />} />
+					<Route
+						exact
+						path="/radar_da_dengue"
+						element={
+							<Dengue
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/radar_da_dengue/mapa"
-						element={<DengueMap />}
+						element={
+							<DengueMap
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais_mortos"
-						element={<AnimaisMortos />}
+						element={
+							<AnimaisMortos
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/residuos_solidos"
-						element={<ResiduosSolidos />}
+						element={
+							<ResiduosSolidos
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais_perdidos_opcoes"
-						element={<AnimaisPerdidosOpcoes />}
+						element={
+							<AnimaisPerdidosOpcoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais_perdidos_novo"
-						element={<AnimaisPerdidosNovo />}
+						element={
+							<AnimaisPerdidosNovo
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_animais_lista"
-						element={<AdocaoAnimais />}
+						element={
+							<AdocaoAnimais
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_animais_doacao"
-						element={<NovasDoacoesAnimais />}
+						element={
+							<NovasDoacoesAnimais
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					
+
 					<Route
 						exact
 						path="/adocao_animais_opcoes"
-						element={<AdocaoAnimaisOpcoes />}
+						element={
+							<AdocaoAnimaisOpcoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais_perdidos_lista"
-						element={<AnimaisPerdidosLista />}
+						element={
+							<AnimaisPerdidosLista
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais_abandonados"
-						element={<AnimaisAbandonados />}
+						element={
+							<AnimaisAbandonados
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_areas_mapa"
-						element={<PublicAreasMap />}
+						element={
+							<PublicAreasMap
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_areas_opcoes"
-						element={<AdocaoAreasOpcoes />}
+						element={
+							<AdocaoAreasOpcoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					
+
 					<Route
 						exact
 						path="/adocao_areas_disponiveis"
-						element={<AdocaoAreasDisponiveis />}
+						element={
+							<AdocaoAreasDisponiveis
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_areas_adotadas"
-						element={<AdocaoAreasAdotadas />}
+						element={
+							<AdocaoAreasAdotadas
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/adocao_areas_regras"
-						element={<AdocaoAreasRegras />}
+						element={
+							<AdocaoAreasRegras
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/monitoramento"
-						element={<MonitoramentoTempo />}
+						element={
+							<MonitoramentoTempo
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/monitoramento/mapa"
-						element={<PollutionMap />}
+						element={
+							<PollutionMap
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/feiras_livres_mapa"
-						element={<FairMap />}
+						element={
+							<FairMap
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
-					<Route exact path="/feiras_livres" element={<Feiras />} />
+					<Route
+						exact
+						path="/feiras_livres"
+						element={
+							<Feiras
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/diaristas_opcoes"
-						element={<DiaristasOpcoes />}
+						element={
+							<DiaristasOpcoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/diaristas_novo"
-						element={<DiaristasNovo />}
+						element={
+							<DiaristasNovo
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/diaristas_lista"
-						element={<DiaristasLista />}
+						element={
+							<DiaristasLista
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/limpeza_de_piscinas"
-						element={<Piscinas />}
+						element={
+							<Piscinas
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/limpeza_de_terreno"
-						element={<Terreno />}
+						element={
+							<Terreno
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/restaurantes"
-						element={<Restaurante />}
+						element={
+							<Restaurante
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/animais-sinantropicos"
-						element={<AnimaisSinantropicos />}
+						element={
+							<AnimaisSinantropicos
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 
 					<Route
 						exact
 						path="/animais_silvestres"
-						element={<AnimaisSilvestres />}
+						element={
+							<AnimaisSilvestres
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/maus_tratos"
-						element={<MausTratosAnimais />}
+						element={
+							<MausTratosAnimais
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/registro_roubos"
-						element={<TheftRegister />}
+						element={
+							<TheftRegister
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/moradores_rua"
-						element={<HomelessPeople />}
+						element={
+							<HomelessPeople
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/familia_carente_opcoes"
-						element={<NeedyFamiliesOption />}
+						element={
+							<NeedyFamiliesOption
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/familias_carentes_registro"
-						element={<NeedyFamiliesRegister />}
+						element={
+							<NeedyFamiliesRegister
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/familias_carentes_lista"
-						element={<NeedyFamiliesList />}
+						element={
+							<NeedyFamiliesList
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/descarte_solidario"
-						element={<DescarteSolidario />}
+						element={
+							<DescarteSolidario
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route exact path="/location" element={<UserLocation />} />
 					<Route exact path="/sistema" element={<Sistema />} />
@@ -714,53 +1066,127 @@ const AppRoutes = () => {
 						path="/password-reset"
 						element={<PasswordReset />}
 					/>
-					<Route exact path="/noticias" element={<Noticias />} />
-					<Route exact path="/sugestoes" element={<Sugestoes />} />
+					<Route
+						exact
+						path="/noticias"
+						element={
+							<Noticias
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/sugestoes"
+						element={
+							<Sugestoes
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
 					<Route
 						exact
 						path="/consultar-propostas-de-leis"
-						element={<ProposedLegislation />}
+						element={
+							<ProposedLegislation
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/central-anticorrupcao"
-						element={<AntiCorruptionCenter />}
+						element={
+							<AntiCorruptionCenter
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/coleta-de-lixo"
-						element={<RefuseCollection />}
+						element={
+							<RefuseCollection
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/arvores"
-						element={<InformationAboutTrees />}
+						element={
+							<InformationAboutTrees
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 
 					<Route
 						exact
 						path="/violencia-domestica"
-						element={<VictimsOfDomesticViolence />}
+						element={
+							<VictimsOfDomesticViolence
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/registro-acidentes"
-						element={<AccidentRecords />}
+						element={
+							<AccidentRecords
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/monitoramento-pessoas-veiculos"
-						element={<Monitoring />}
+						element={
+							<Monitoring
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/monitoramento-guardinha"
-						element={<GuardianMonitoring />}
+						element={
+							<GuardianMonitoring
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 					<Route
 						exact
 						path="/comercio-local"
-						element={<LocalTradeOffers />}
+						element={
+							<LocalTradeOffers
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
 					/>
 				</Routes>
 			</LocalContext.Provider>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -17,19 +17,41 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
+import Favorites from "../../../components/favorites";
 
-const DescarteSolidario = () => {
+const DescarteSolidario = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 19;
 	const totalResolvidos = 13;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 35 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 35,
+				name: "Descarte Solidário",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/descarte_solidario",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 35,
+				name: "Descarte Solidário",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/descarte_solidario",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
+
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -60,10 +82,11 @@ const DescarteSolidario = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Utilize este serviço para realizar o descarte solidário
-                            de roupas/calçados, eletrodométicos, móveis ou similares.
-                            O órgão adequado será informado automaticamente para 
-                            fazer o recolhimento no tempo hábil mais rápido possível.
+							Utilize este serviço para realizar o descarte
+							solidário de roupas/calçados, eletrodométicos,
+							móveis ou similares. O órgão adequado será informado
+							automaticamente para fazer o recolhimento no tempo
+							hábil mais rápido possível.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -95,24 +118,48 @@ const DescarteSolidario = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<div style = {{ marginTop: "-4.5vh", marginBottom: "0.4vh" }}>
+					<div style={{ marginTop: "-4.5vh", marginBottom: "0.4vh" }}>
 						<input type="checkbox" id="Roupas/Calçados" />
-						<label for="Roupas/Calçados" style={{ fontSize: "15px", color: "gray" }}> {" "} Roupas/Calçados{" "} </label>
+						<label
+							for="Roupas/Calçados"
+							style={{ fontSize: "15px", color: "gray" }}
+						>
+							{" "}
+							Roupas/Calçados{" "}
+						</label>
 					</div>
-					<div style = {{ marginBottom: "0.4vh" }}>
+					<div style={{ marginBottom: "0.4vh" }}>
 						<input type="checkbox" id="Eletrodomésticos" />
-						<label for="Eletrodomésticos" style={{ fontSize: "15px", color: "gray" }}> {" "} Eletrodomésticos{" "} </label>
+						<label
+							for="Eletrodomésticos"
+							style={{ fontSize: "15px", color: "gray" }}
+						>
+							{" "}
+							Eletrodomésticos{" "}
+						</label>
 					</div>
-					<div style = {{ marginBottom: "0.4vh" }}>
+					<div style={{ marginBottom: "0.4vh" }}>
 						<input type="checkbox" id="Móveis" />
-						<label for="Móveis" style={{ fontSize: "15px", color: "gray" }}> {" "} Móveis{" "} </label>
+						<label
+							for="Móveis"
+							style={{ fontSize: "15px", color: "gray" }}
+						>
+							{" "}
+							Móveis{" "}
+						</label>
 					</div>
-                    <div style = {{ marginBottom: "4vh" }}>
+					<div style={{ marginBottom: "4vh" }}>
 						<input type="checkbox" id="outros" />
-						<label for="outros" style={{ fontSize: "15px", color: "gray" }}> {" "} outros{" "} </label>
+						<label
+							for="outros"
+							style={{ fontSize: "15px", color: "gray" }}
+						>
+							{" "}
+							outros{" "}
+						</label>
 					</div>
-				    <ServiceOrderInformation descriptionHelperText = "Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
-				    {/*<Form />*/}
+					<ServiceOrderInformation descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
+					{/*<Form />*/}
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

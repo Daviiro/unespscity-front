@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
@@ -15,12 +15,32 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import { Typography } from "@mui/material";
 import FairsMap from "./map";
+import Favorites from "../../../components/favorites";
 
-const Feiras = () => {
+const Feiras = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 41 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 41,
+				name: "Feiras Livres",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/feiras_livres",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 41,
+				name: "Feiras Livres",
+				img: "/assets/img/home_servicos_sociais.png",
+				link: "/feiras_livres",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	const [locations, setLocations] = useState([
 		{
@@ -72,6 +92,7 @@ const Feiras = () => {
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

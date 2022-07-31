@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
 import Footer from "../../../components/footer";
-
+import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -16,16 +16,36 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
-const HomelessPeople = () => {
-    const [isFavorite, setIsFavorite] = useState(false);
+const HomelessPeople = (props) => {
+	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 36 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 36,
+				name: "Moradores de Rua",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/moradores_rua",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 36,
+				name: "Moradores de Rua",
+				img: "/assets/img/home_familias_carentes.png",
+				link: "/moradores_rua",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -56,7 +76,9 @@ const HomelessPeople = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você ver pessoas em situação de rua e caso tenha condições, ajuda las doando alimentos, roupas, cobertores, etc. 
+							Aqui você ver pessoas em situação de rua e caso
+							tenha condições, ajuda las doando alimentos, roupas,
+							cobertores, etc.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -116,12 +138,11 @@ const HomelessPeople = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						button="Falar com o dono"
 					/>
-					
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
 	);
-}
+};
 
 export default HomelessPeople;

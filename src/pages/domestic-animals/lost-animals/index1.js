@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
@@ -18,20 +18,41 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "./ServiceOrderInformation";
+import Favorites from "../../../components/favorites";
 
-const AnimaisPerdidosNovo = () => {
+const AnimaisPerdidosNovo = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 84;
 	const totalResolvidos = 78;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 21 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 21,
+				name: "Animais Perdidos",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais_perdidos_novo",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 21,
+				name: "Animais Perdidos",
+				img: "assets/img/home_animais_domesticos.png",
+				link: "/animais_perdidos_novo",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
@@ -114,7 +135,7 @@ const AnimaisPerdidosNovo = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText = "conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
+					<ServiceOrderInformation descriptionHelperText="conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -13,16 +13,37 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const AntiCorruptionCenter = () => {
+const AntiCorruptionCenter = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 45 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 45,
+				name: "Central Anticorrupção",
+				img: "/assets/img/home_administracao_publica.png",
+				link: "/central-anticorrupcao",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 45,
+				name: "Central Anticorrupção",
+				img: "/assets/img/home_administracao_publica.png",
+				link: "/central-anticorrupcao",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

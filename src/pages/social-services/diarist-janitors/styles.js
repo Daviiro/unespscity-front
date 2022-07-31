@@ -16,18 +16,17 @@ export const ContainerColumn = styled.div`
 `;
 
 export const FormContainer = styled.div`
-    height: 90%;
-	width: 47.5vw;
-	border: 0.25vh solid lightgray;
-	border-radius: 10px;
-	box-shadow: 5px 5px 10px gray;
+	height: 90%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	padding-bottom: 4vh;
 
-    p { margin: 0vh; }
+	p {
+		margin: 0vh;
+	}
 `;
 
 export const InputAddressContainer = styled.div`
@@ -38,5 +37,5 @@ export const InputAddressContainer = styled.div`
 `;
 
 export const InputLocalization = styled.button`
-    margin-top: 10px;
+	margin-top: 10px;
 `;

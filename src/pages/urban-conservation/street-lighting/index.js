@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -17,19 +17,40 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import Favorites from "../../../components/favorites";
 
-const Iluminacao = () => {
+const Iluminacao = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
 	const totalSolicitados = 81;
 	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 2 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 2,
+				name: "Iluminação Pública",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/iluminacao_publica",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 2,
+				name: "Iluminação Pública",
+				img: "/assets/img/home_conservacao_urbana.png",
+				link: "/iluminacao_publica",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

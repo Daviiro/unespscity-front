@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -15,12 +15,32 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import TreesMap from "./map";
 import Footer from "../../../components/footer";
 import TreesModal from "./modal";
+import Favorites from "../../../components/favorites";
 
-const InformationAboutTrees = () => {
+const InformationAboutTrees = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 29 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 29,
+				name: "Árvores",
+				img: "/assets/img/home_fauna_flora.png",
+				link: "/arvores",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 29,
+				name: "Árvores",
+				img: "/assets/img/home_fauna_flora.png",
+				link: "/arvores",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	const [locations, setLocations] = useState([
@@ -113,6 +133,7 @@ const InformationAboutTrees = () => {
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

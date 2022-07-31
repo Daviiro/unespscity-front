@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -14,12 +14,32 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Map from "./map";
+import Favorites from "../../../components/favorites";
 
-const RefuseCollection = () => {
+const RefuseCollection = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
+		);
+	}, []);
 	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 27,
+				name: "Coleta de Lixo",
+				img: "/assets/img/home_meio_ambiente.png",
+				link: "/coleta-de-lixo",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 27,
+				name: "Coleta de Lixo",
+				img: "/assets/img/home_meio_ambiente.png",
+				link: "/coleta-de-lixo",
+			}); //se desfavoritou o servico
+		}
 		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
 	};
 
 	const routes = [
@@ -60,6 +80,7 @@ const RefuseCollection = () => {
 	return (
 		<ContainerBase>
 			<Header />
+			<Favorites data={props.data} />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
