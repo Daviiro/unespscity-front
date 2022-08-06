@@ -1,55 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
 	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "./styles";
+	ContentContainer,
+	TopContentContainer,
+	MidContentContainer,
+	DescriptionText,
+} from "../../../../components/styled-components/PageStyles";
 
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../../components/service-description";
+import Typography from "@mui/material/Typography";
 import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
 
 const AdminAdocaoAreas = () => {
+	const [nome, setName] = useState([]);
+	const [sobrenome, setSurname] = useState([]);
+	const [descricao, setDescription] = useState([]);
+
 	return (
 		<>
 			<ContainerBase>
 				<Header />
-				<SubHeader>
-					<MiniCard
-						source="/assets/img/home_meio_ambiente.png"
-						titulo="Meio Ambiente"
-						linkItems={[
-							{
-								id: 1,
-								name: "Adoção de Áreas Públicas",
-								link: "/admin/adocao_areas_publicas",
-							},
-							{
-								id: 2,
-								name: "Monitoramento",
-								link: "/admin/monitoramento",
-							},
-							{
-								id: 3,
-								name: "Coleta de Lixo",
-								link: "/admin/coleta-de-lixo",
-							},
-						]}
-					/>
-					<ContainerColumn>
-						<h1> Adoção de Áreas Públicas </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Lista com todas as Áreas Públicas passíveis de adoção do município." />
-					<Details>
+				<ContentContainer>
+					<TopContentContainer>
+						<MiniCard
+							source="/assets/img/home_meio_ambiente.png"
+							titulo="Meio Ambiente"
+							linkItems={[
+								{
+									id: 1,
+									name: "Adoção de Áreas Públicas",
+									link: "/admin/adocao_areas_publicas",
+								},
+								{
+									id: 2,
+									name: "Monitoramento",
+									link: "/admin/monitoramento",
+								},
+								{
+									id: 3,
+									name: "Coleta de Lixo",
+									link: "/admin/coleta-de-lixo",
+								},
+							]}
+						/>
+						<div style={{ marginTop: "14px" }}>
+							<div style={{ textAlign: "center" }}>
+								<Typography variant="h4">
+									Adoção de Áreas Públicas
+								</Typography>
+							</div>
+							<DescriptionText>
+								Lista com todas as Áreas Públicas passíveis de adoção do município.
+							</DescriptionText>
+						</div>
+						<div></div>
+					</TopContentContainer>
+					<MidContentContainer>
 						<AdminListCard
 							source="/assets/img/meio_ambiente.png"
 							nome="[Nome]"
@@ -86,8 +95,8 @@ const AdminAdocaoAreas = () => {
 							sobrenome="[localização]"
 							descricao="status: Adotado"
 						/>
-					</Details>
-				</Square>
+					</MidContentContainer>
+				</ContentContainer>
 				<Footer />
 			</ContainerBase>
 		</>

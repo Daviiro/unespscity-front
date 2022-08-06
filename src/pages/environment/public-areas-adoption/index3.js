@@ -2,16 +2,16 @@ import React from "react";
 
 import {
 	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-} from "../../public-administration/know-city-managers/styles";
+	ContentContainer,
+	TopContentContainer,
+	MidContentContainer,
+	DescriptionText,
+} from "../../../components/styled-components/PageStyles";
 import { FormContainer } from "./styles";
 
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
-import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../components/service-description";
+import Typography from "@mui/material/Typography";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
 
@@ -21,41 +21,49 @@ const AdocaoAreasRegras = () => {
 		<>
 			<ContainerBase>
 				<Header />
-				<SubHeader>
-					<MiniCard
-						source="/assets/img/home_meio_ambiente.png"
-						titulo="Meio Ambiente"
-						linkItems={[
-							{
-								id: 1,
-								name: "Adoção de Áreas Públicas",
-								link: "/adocao_areas_opcoes",
-							},
-							{
-								id: 2,
-								name: "Monitoramento do Tempo",
-								link: "/monitoramento",
-							},
-							{
-								id: 3,
-								name: "Coleta de Lixo",
-								link: "/coleta-de-lixo",
-							},
-						]}
-					/>
-					<ContainerColumn>
-						<h1> Adoção de Áreas Públicas </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<a
-						style={{ textDecoration: "none" }}
-						target="_blank"
-						href="https://www.prefeitura.sp.gov.br/cidade/secretarias/subprefeituras/upload/ipiranga/arquivos/Termo.pdf"
-					>
-						<ServiceDescription description="Nesta página, você pode conhecer as regras de adoção de Áreas Públicas, adaptadas do decreto de São Paulo Nº 57.583 (23/01/2017). Clique AQUI para acessar o documento original." />
-					</a>
+				<ContentContainer>
+					<TopContentContainer>
+						<MiniCard
+							source="/assets/img/home_meio_ambiente.png"
+							titulo="Meio Ambiente"
+							linkItems={[
+								{
+									id: 1,
+									name: "Adoção de Áreas Públicas",
+									link: "/adocao_areas_opcoes",
+								},
+								{
+									id: 2,
+									name: "Monitoramento do Tempo",
+									link: "/monitoramento",
+								},
+								{
+									id: 3,
+									name: "Coleta de Lixo",
+									link: "/coleta-de-lixo",
+								},
+							]}
+						/>
+						<div style={{ marginTop: "14px" }}>
+							<div style={{ textAlign: "center" }}>
+								<Typography variant="h4">
+									Adoção de Áreas Públicas
+								</Typography>
+							</div>
+							<a
+								style={{ textDecoration: "none" }}
+								target="_blank"
+								href="https://www.prefeitura.sp.gov.br/cidade/secretarias/subprefeituras/upload/ipiranga/arquivos/Termo.pdf"
+							>
+								<DescriptionText>
+									Nesta página, você pode conhecer as regras de adoção de Áreas Públicas, adaptadas do 
+									decreto de São Paulo Nº 57.583 (23/01/2017). Clique AQUI para acessar o documento original.
+								</DescriptionText>
+							</a>
+						</div>
+						<div></div>
+					</TopContentContainer>
+					<MidContentContainer>
 					<FormContainer>
 						<h3> DECRETO: </h3>
 						<h4>
@@ -607,7 +615,8 @@ const AdocaoAreasRegras = () => {
 							--------------------------------------------------------------------------------------------------------------------------------------------------------------------------{" "}
 						</h6>
 					</FormContainer>
-				</Square>
+				    </MidContentContainer>
+				</ContentContainer>
 				<GrayLine />
 				<Footer />
 			</ContainerBase>

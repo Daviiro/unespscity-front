@@ -10,7 +10,7 @@ export const ContainerBase = styled.div`
 export const Content = styled.div`
 	display: flex;
 	width: 92.5%;
-
+	margin-bottom: -45vh;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
@@ -59,5 +59,15 @@ export const ContainerRow = styled.div`
 	h1 {
 		margin-top: 0vh;
 		margin-left: 2.5vw;
+	}
+`;
+
+export const MapContainer = styled.div`
+	width: 100%;
+	margin-top: 15vh;
+	.centered-content {
+		padding: 0.5rem;
+		display: flex;
+		justify-content: center;
 	}
 `;
