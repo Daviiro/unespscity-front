@@ -28,9 +28,7 @@ import ConservacaoUrbanaOpcoes from "./pages/administrator/requested-services/ur
 import Home from "./pages/home"; // Home e Login //
 import Login from "./pages/login";
 import PasswordReset from "./pages/password-reset";
-import MapPageArvores from "./services/map-pages/arvores";
-import MapPageDengue from "./services/map-pages/dengue";
-import MapPageLeishmaniose from "./services/map-pages/leishmaniose";
+import BaseMap from "./services/map-pages/baseMap";
 
 import UserLocation from "./pages/user-location";
 import Sistema from "./pages/system";
@@ -490,36 +488,8 @@ const AppRoutes = () => {
 					<Route exact path="/login" element={<Login />} />
 					<Route
 						exact
-						path="/arvores_mapa"
-						element={
-							<MapPageArvores
-								data={favoritesData}
-								handleAddFavorite={handleAddFavorite}
-								handleSubFavorite={handleSubFavorite}
-							/>
-						}
-					/>
-					<Route
-						exact
-						path="/dengue_mapa"
-						element={
-							<MapPageDengue
-								data={favoritesData}
-								handleAddFavorite={handleAddFavorite}
-								handleSubFavorite={handleSubFavorite}
-							/>
-						}
-					/>
-					<Route
-						exact
-						path="/leishmaniose_mapa"
-						element={
-							<MapPageLeishmaniose
-								data={favoritesData}
-								handleAddFavorite={handleAddFavorite}
-								handleSubFavorite={handleSubFavorite}
-							/>
-						}
+						path="/localizacao"
+						element={<BaseMap />}
 					/>
 					<Route
 						exact

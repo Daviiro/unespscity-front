@@ -107,7 +107,6 @@ const AdminGestores = () => {
 					/>
 				</MidContentContainer>
 			</ContentContainer>
-
 			<Footer />
 		</ContainerBase>
 	);
