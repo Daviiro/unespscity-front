@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -10,19 +10,21 @@ import {
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
 import TreesModal from "../../../fauna-flora/information-about-trees/modal";
-import AdminListCard from "../../../../components/card-list-admin";
 import TreesMap from "./map";
 import Footer from "../../../../components/footer";
+import LocalContext from "../../../user-location/Context";
 
 const AdminInformationAboutTrees = () => {
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
 		lng: 0,
 	});
+	const [formValues, setFormValues] = useContext(LocalContext);
 
 	const [locations, setLocations] = useState([
 		{
 			id: 1,
+			cityid: formValues.city,
 			name: "Location 1",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Pata de Vaca",
@@ -34,6 +36,7 @@ const AdminInformationAboutTrees = () => {
 		},
 		{
 			id: 2,
+			cityid: formValues.city,
 			name: "Location 2",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna",
@@ -45,6 +48,7 @@ const AdminInformationAboutTrees = () => {
 		},
 		{
 			id: 3,
+			cityid: formValues.city,
 			name: "Location 3",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Manacá da Serra",
@@ -56,6 +60,7 @@ const AdminInformationAboutTrees = () => {
 		},
 		{
 			id: 4,
+			cityid: formValues.city,
 			name: "Location 4",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Quaresmeira ",
@@ -67,6 +72,7 @@ const AdminInformationAboutTrees = () => {
 		},
 		{
 			id: 5,
+			cityid: formValues.city,
 			name: "Location 5",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna ",

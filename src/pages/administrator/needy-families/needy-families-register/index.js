@@ -35,7 +35,7 @@ const AdminNeedyFamiliesRegister = () => {
 							},
 							{
 								id: 3,
-								name: "Moradores de Rua",
+								name: "Descarte Solidário",
 								link: "/admin/descarte_solidario",
 							},
 						]}

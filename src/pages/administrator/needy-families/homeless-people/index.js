@@ -17,7 +17,7 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 
 const AdminHomelessPeople = () => {
-    const [isFavorite, setIsFavorite] = useState(false);
+	const [isFavorite, setIsFavorite] = useState(false);
 	const handleFavorite = () => {
 		setIsFavorite(!isFavorite);
 		console.log("você favoritou este serviço");
@@ -44,7 +44,7 @@ const AdminHomelessPeople = () => {
 							},
 							{
 								id: 3,
-								name: "Moradores de Rua",
+								name: "Descarte Solidário",
 								link: "/admin/descarte_solidario",
 							},
 						]}
@@ -116,12 +116,11 @@ const AdminHomelessPeople = () => {
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						button="Falar com o dono"
 					/>
-					
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
-    )
-}
+	);
+};
 
 export default AdminHomelessPeople;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -16,6 +16,7 @@ import TreesMap from "./map";
 import Footer from "../../../components/footer";
 import TreesModal from "./modal";
 import Favorites from "../../../components/favorites";
+import LocalContext from "../../user-location/Context";
 
 const InformationAboutTrees = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -24,6 +25,7 @@ const InformationAboutTrees = (props) => {
 			(favoriteX) => favoriteX.id === 29 && setIsFavorite(true)
 		);
 	}, []);
+	const [formValues, setFormValues] = useContext(LocalContext);
 	const handleFavorite = () => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
@@ -46,6 +48,7 @@ const InformationAboutTrees = (props) => {
 	const [locations, setLocations] = useState([
 		{
 			id: 1,
+			cityid: formValues.city,
 			name: "Location 1",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Pata de Vaca",
@@ -57,6 +60,7 @@ const InformationAboutTrees = (props) => {
 		},
 		{
 			id: 2,
+			cityid: formValues.city,
 			name: "Location 2",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna",
@@ -68,6 +72,7 @@ const InformationAboutTrees = (props) => {
 		},
 		{
 			id: 3,
+			cityid: formValues.city,
 			name: "Location 3",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Manacá da Serra",
@@ -79,6 +84,7 @@ const InformationAboutTrees = (props) => {
 		},
 		{
 			id: 4,
+			cityid: formValues.city,
 			name: "Location 4",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Quaresmeira ",
@@ -90,6 +96,7 @@ const InformationAboutTrees = (props) => {
 		},
 		{
 			id: 5,
+			cityid: formValues.city,
 			name: "Location 5",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna ",

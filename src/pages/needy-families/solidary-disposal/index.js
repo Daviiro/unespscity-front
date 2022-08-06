@@ -18,6 +18,9 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Favorites from "../../../components/favorites";
+import { FormGroup } from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 const DescarteSolidario = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -46,6 +49,21 @@ const DescarteSolidario = (props) => {
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);
+	};
+
+	const [donationType, setDonationType] = useState({
+		roupas: false,
+		eletro: false,
+		moveis: false,
+		outros: false,
+	});
+
+	const handleDonationTypeChange = (event) => {
+		const { name, checked } = event.target;
+		setDonationType({
+			...donationType,
+			[name]: checked,
+		});
 	};
 
 	return (
@@ -118,46 +136,53 @@ const DescarteSolidario = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<div style={{ marginTop: "-4.5vh", marginBottom: "0.4vh" }}>
-						<input type="checkbox" id="Roupas/Calçados" />
-						<label
-							for="Roupas/Calçados"
-							style={{ fontSize: "15px", color: "gray" }}
-						>
-							{" "}
-							Roupas/Calçados{" "}
-						</label>
-					</div>
-					<div style={{ marginBottom: "0.4vh" }}>
-						<input type="checkbox" id="Eletrodomésticos" />
-						<label
-							for="Eletrodomésticos"
-							style={{ fontSize: "15px", color: "gray" }}
-						>
-							{" "}
-							Eletrodomésticos{" "}
-						</label>
-					</div>
-					<div style={{ marginBottom: "0.4vh" }}>
-						<input type="checkbox" id="Móveis" />
-						<label
-							for="Móveis"
-							style={{ fontSize: "15px", color: "gray" }}
-						>
-							{" "}
-							Móveis{" "}
-						</label>
-					</div>
-					<div style={{ marginBottom: "4vh" }}>
-						<input type="checkbox" id="outros" />
-						<label
-							for="outros"
-							style={{ fontSize: "15px", color: "gray" }}
-						>
-							{" "}
-							outros{" "}
-						</label>
-					</div>
+					<FormGroup>
+						<FormControlLabel
+							label="Roupas/Calçados"
+							control={
+								<Checkbox
+									name="roupas"
+									checked={donationType.roupas}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+
+						<FormControlLabel
+							label="Eletrodomésticos"
+							control={
+								<Checkbox
+									name="eletro"
+									checked={donationType.eletro}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+						<FormControlLabel
+							label="Móveis"
+							control={
+								<Checkbox
+									name="moveis"
+									checked={donationType.moveis}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+						<FormControlLabel
+							label="Outros"
+							control={
+								<Checkbox
+									name="outros"
+									checked={donationType.outros}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+					</FormGroup>
 					<ServiceOrderInformation descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
 					{/*<Form />*/}
 				</MidContentContainer>

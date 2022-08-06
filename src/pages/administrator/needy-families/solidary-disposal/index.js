@@ -9,7 +9,6 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import Header from "../../../../components/header";
 import MiniCard from "../../../../components/mini-card";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 
@@ -35,7 +34,7 @@ const AdminDescarteSolidario = () => {
 							},
 							{
 								id: 3,
-								name: "Moradores de Rua",
+								name: "Descarte Solidário",
 								link: "/admin/descarte_solidario",
 							},
 						]}

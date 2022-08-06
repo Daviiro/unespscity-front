@@ -27,7 +27,7 @@ const Dashboard = () => {
 					<StyledHr style={{ width: "95%", marginLeft: "-2vw" }} />
 					<DashboardChart1 />
 					<DashboardButton
-						description = "Visualizar novos problemas"
+						description="Microsserviços"
 						linkItems={[
 							{
 								id: 1,
@@ -117,7 +117,7 @@ const Dashboard = () => {
 						]}
 					/>
 					<DashboardButton
-						description = "Mapas"
+						description="Mapas"
 						linkItems={[
 							{
 								id: 1,
@@ -142,13 +142,13 @@ const Dashboard = () => {
 						]}
 					/>
 					<GrayLine />
-					<ChartContainer> 
+					<ChartContainer>
 						<ContainerRow>
 							<DashboardChart2 />
 							<DashboardChart3 />
 						</ContainerRow>
 					</ChartContainer>
-					<ChartContainer style = {{ paddingTop: "2vh" }}> 
+					<ChartContainer style={{ paddingTop: "2vh" }}>
 						<DashboardChart4 />
 					</ChartContainer>
 				</ContainerColumn>
