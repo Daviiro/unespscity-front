@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { gql, useSubscription } from '@apollo/client';
-
+import Header from "../../../components/header";
 import {
 	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "../../public-administration/know-city-managers/styles";
-
-import Header from "../../../components/header";
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../components/styled-components/PageStyles";
 import MiniCard from "../../../components/mini-card";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../components/service-description";
 import Footer from "../../../components/footer";
+import Map from "./map";
+import Favorites from "../../../components/favorites";
 
-const Monitoring = () => {
+const Monitoring = (props) => {
 	const TEMPERATURE_SUBSCRIPTION = gql`
     subscription temperatureValues($title: String!) {
 			temperatureValues(data: $title) {
@@ -34,11 +36,72 @@ const Monitoring = () => {
 	console.log(data);
 	console.log(loading);
 
+	const [isFavorite, setIsFavorite] = useState(false);
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
+		);
+	}, []);
+	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 27,
+				name: "Coleta de Lixo",
+				img: "/assets/img/home_meio_ambiente.png",
+				link: "/coleta-de-lixo",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 27,
+				name: "Coleta de Lixo",
+				img: "/assets/img/home_meio_ambiente.png",
+				link: "/coleta-de-lixo",
+			}); //se desfavoritou o servico
+		}
+		setIsFavorite(!isFavorite);
+	};
+
+	const routes = [
+		{
+			id: 1,
+			points: [
+				{
+					lat: -22.131951,
+					lng: -51.40933,
+				},
+				{
+					lat: -22.09763957730908,
+					lng: -51.41680879940989,
+				},
+				{
+					lat: -22.092304090035935,
+					lng: -51.40159869150531,
+				},
+			],
+			id: 2,
+			points: [
+				{
+					lat: -22.131951,
+					lng: -51.40933,
+				},
+				{
+					lat: -22.09764,
+					lng: -51.416807,
+				},
+				{
+					lat: -22.0923,
+					lng: -51.401594,
+				},
+			],
+		},
+	];
+
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<Favorites data={props.data} />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_meio_ambiente.png"
 						titulo="Meio Ambiente"
@@ -60,18 +123,56 @@ const Monitoring = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Monitoramento do Tempo </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Aqui você pode checar o monitoramento do tempo em tempo real. " />
-					<Details></Details>
-				</Square>
-				<Footer />
-			</ContainerBase>
-		</>
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">Coleta de Lixo</Typography>
+						</div>
+						<DescriptionText>
+							Neste serviço você terá informações sobre as rotas e
+							horários de circulação de cada um dos caminhões de
+							lixo. Assim, os usuários poderão inserir a
+							localização de sua estadia (CEP ou
+							georreferenciamento) e a plataforma calculará e
+							retornará os dias e horários aproximados em que um
+							caminhão passará para fazer coleta no local,
+							informando também se o mesmo é de lixo orgânico,
+							reciclável ou ambos.
+						</DescriptionText>
+					</div>
+					{isFavorite ? (
+						<span>
+							<AiFillStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								color={"yellow"}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						</span>
+					) : (
+						<AiOutlineStar
+							style={{
+								cursor: "pointer",
+								margin: ".8rem",
+								stroke: "black",
+								strokeWidth: "5",
+							}}
+							size={25}
+							onClick={() => handleFavorite()}
+						/>
+					)}
+					<StyledHr />
+				</TopContentContainer>
+				<MidContentContainer>
+					<Map routes={routes} />
+				</MidContentContainer>
+			</ContentContainer>
+			<Footer />
+		</ContainerBase>
 	);
 };
 

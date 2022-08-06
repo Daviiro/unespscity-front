@@ -157,6 +157,8 @@ import GuardianMonitoring from "./pages/remote-sensing/guardian-monitoring";
 import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"; //associacao comercial
 import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/synanthropic-animals";
 
+import PanicButton from "./pages/panic-button";
+
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
 
@@ -180,7 +182,7 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-							formValues.city === undefined ? (
+								formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
 								<Home data={favoritesData} />
@@ -817,7 +819,7 @@ const AppRoutes = () => {
 							/>
 						}
 					/>
-				{/**<Route
+					{/**<Route
 						exact
 						path="/adocao_areas_mapa"
 						element={
@@ -884,7 +886,7 @@ const AppRoutes = () => {
 							/>
 						}
 					/>
-				{/**<Route
+					{/**<Route
 						exact
 						path="/monitoramento/mapa"
 						element={
@@ -1206,6 +1208,17 @@ const AppRoutes = () => {
 						path="/comercio-local"
 						element={
 							<LocalTradeOffers
+								data={favoritesData}
+								handleAddFavorite={handleAddFavorite}
+								handleSubFavorite={handleSubFavorite}
+							/>
+						}
+					/>
+					<Route
+						exact
+						path="/botao_panico"
+						element={
+							<PanicButton
 								data={favoritesData}
 								handleAddFavorite={handleAddFavorite}
 								handleSubFavorite={handleSubFavorite}

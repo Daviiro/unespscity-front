@@ -14,26 +14,10 @@ const ServiceOrderInformation = (props) => {
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
 	const [houseNumber, setHouseNumber] = useState();
-	const [street, setStreet] = useState();
-	const [referencePoint, setReferencePoint] = useState();
-	const [description, setDescription] = useState();
-	const [district, setDistrict] = useState();
-
-	const handleHouseNumberChange = (event) => {
-		setHouseNumber(event.target.value);
-	};
-	const handleReferencePointChange = (event) => {
-		setReferencePoint(event.target.value);
-	};
-	const handleStreetChange = (event) => {
-		setStreet(event.target.value);
-	};
-	const handleDescriptionChange = (event) => {
-		setDescription(event.target.value);
-	};
-	const handleDistrictChange = (event) => {
-		setDistrict(event.target.value);
-	};
+	const [street, setStreet] = useState('');
+	const [referencePoint, setReferencePoint] = useState('');
+	const [description, setDescription] = useState('');
+	const [district, setDistrict] = useState('');
 
 	return (
 		<Container>
@@ -64,7 +48,7 @@ const ServiceOrderInformation = (props) => {
 								type="number"
 								variant="outlined"
 								value={houseNumber}
-								onChange={handleHouseNumberChange}
+								onChange={(e) => setHouseNumber(e.target.value)}
 							/>
 							<TextField
 								fullWidth
@@ -72,7 +56,7 @@ const ServiceOrderInformation = (props) => {
 								label="Ponto de Referência (opcional)"
 								variant="outlined"
 								value={referencePoint}
-								onChange={handleReferencePointChange}
+								onChange={(e) => setReferencePoint(e.target.value)}
 							/>
 						</Stack>
 						<br />
@@ -112,7 +96,7 @@ const ServiceOrderInformation = (props) => {
 							label="Rua"
 							variant="outlined"
 							value={street}
-							onChange={handleStreetChange}
+							onChange={(e) => setStreet(e.target.value)}
 						/>
 					</Stack>
 					<br />
@@ -123,7 +107,7 @@ const ServiceOrderInformation = (props) => {
 							label="Bairro"
 							variant="outlined"
 							value={district}
-							onChange={handleDistrictChange}
+							onChange={(e) => setDistrict(e.target.value)}
 						/>
 						<TextField
 							fullWidth
@@ -132,7 +116,7 @@ const ServiceOrderInformation = (props) => {
 							type="number"
 							variant="outlined"
 							value={houseNumber}
-							onChange={handleHouseNumberChange}
+							onChange={(e) => setHouseNumber(e.target.value)}
 						/>
 					</Stack>
 					<br />
@@ -143,7 +127,7 @@ const ServiceOrderInformation = (props) => {
 							label="Ponto de Referência (opcional)"
 							variant="outlined"
 							value={referencePoint}
-							onChange={handleReferencePointChange}
+							onChange={(e) => setReferencePoint(e.target.value)}
 						/>
 					</Stack>
 				</div>
@@ -160,7 +144,7 @@ const ServiceOrderInformation = (props) => {
 						rows={5}
 						value={description}
 						helperText={props.descriptionHelperText}
-						onChange={handleDescriptionChange}
+						onChange={(e) => setDescription(e.target.value)}
 					/>
 				</Stack>
 			</div>
@@ -168,7 +152,9 @@ const ServiceOrderInformation = (props) => {
 			<InputPhotos />
 			<br />
 			<div className="inputs">
-				<Button fullWidth variant="contained">
+				<Button 
+					fullWidth variant="contained"
+				>
 					Enviar
 				</Button>
 			</div>

@@ -49,7 +49,7 @@ const GuardianMonitoring = (props) => {
 				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_sensoriamento_movel_participativo.png"
-						titulo="Sensoriamento Móvel Participativo"
+						titulo="Sensoriamento Móvel"
 						linkItems={[
 							{
 								id: 1,

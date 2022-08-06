@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ContainerBase, Content, WrapContainer, GrayLine } from "./styles";
 import Header from "../../components/header";
 import Card from "./service-card";
@@ -9,6 +9,8 @@ import Favorites from "../../components/favorites";
 
 const Home = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
+	const [panicButtonIsActive, setPanicButtonIsActive] = useState(false);
+
 	return (
 		<>
 			<ContainerBase>
@@ -293,11 +295,12 @@ const Home = (props) => {
 						<Card
 							source="/assets/img/home_botao_panico.png"
 							titulo="Botão do Pânico"
+							isActive = {panicButtonIsActive}
 							linkItems={[
 								{
 									id: 1,
-									name: "",
-									link: "/",
+									name: "Cadastrar se no Botão do Panico",
+									link: "/botao_panico",
 								},
 							]}
 						/>
