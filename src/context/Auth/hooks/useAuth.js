@@ -7,29 +7,29 @@ export default function useAuth() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState({});
 
-   useEffect(() => {
+  useEffect(() => {
     async function firstLoading() {
       try {
-        const token = localStorage.getItem('@mb/token');
+        const token = localStorage.getItem('@unespscity/token');
 
         if (token) {
           api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
           await api.get('/user')
-            .then( response => {
+            .then(response => {
               const { name, email, roles, photo, events } = response.data;
-    
+
               setUser({
                 name,
                 email,
-                roles, 
-                photo, 
+                roles,
+                photo,
                 events
               })
             });
           setIsAuthenticated(true);
         }
       }
-      catch(error) {
+      catch (error) {
         console.log(error);
       }
     }
@@ -37,74 +37,77 @@ export default function useAuth() {
     firstLoading();
     setLoading(false);
   }, []);
-  
-  async function handleLogin({email, password}) {
+
+  async function handleLogin({ email, password }) {
     try {
-      const response = await api.post('/authenticate', {
-        email, 
+      const response = await api.post('/cidadao/login', {
+        email,
         password
       });
-      const { token, name, roles, photo, events } = response.data;
+      const { data } = response.data;
 
-      setUser({
+      console.log(data)
+      /* setUser({
         name,
         email,
         roles, 
         photo, 
         events
-      })
+      }) */
 
-      localStorage.setItem('@mb/token', token);
+      setUser(data);
+
+      /* localStorage.setItem('@unespscity/token', token);
       api.defaults.headers.Authorization = `Bearer ${token}`;
-      setIsAuthenticated(true);
+      setIsAuthenticated(true); */
     }
-    catch(error) {
+    catch (error) {
       console.log(error.response);
     }
   }
 
   function handleLogout() {
     setIsAuthenticated(false);
-    localStorage.removeItem('@mb/token');
+    localStorage.removeItem('@unespscity/token');
     setUser({});
     api.defaults.headers.Authorization = undefined;
   }
-  
-  async function handleUpdate({name, email, photo, password, newPassword}) {
-    const token = localStorage.getItem('@mb/token');
+
+  async function handleUpdate({ name, email, photo, password, newPassword }) {
+    const token = localStorage.getItem('@unespscity/token');
 
     try {
       const { roles, events } = api.put(`/user/update/${token}`, {
-        name, 
-        email, 
-        photo, 
-        password, 
+        name,
+        email,
+        photo,
+        password,
         newPassword
       })
 
       setUser({
         name,
         email,
-        roles, 
-        photo, 
+        roles,
+        photo,
         events
       })
     }
-    catch(error) {
+    catch (error) {
       console.log(error.response)
     }
   }
 
   async function handleDelete() {
-    const token = localStorage.getItem('@mb/token');
+    const token = localStorage.getItem('@unespscity/token');
 
     const response = await api.delete(`/user/delete/${token}`);
     setIsAuthenticated(false);
-    localStorage.removeItem('@mb/token');
+    localStorage.removeItem('@unespscity/token');
     setUser({});
     api.defaults.headers.Authorization = undefined;
     console.log(response);
   }
-  
+
   return { isAuthenticated, loading, handleLogin, handleLogout, handleUpdate, handleDelete, user };
 }

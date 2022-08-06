@@ -5,6 +5,7 @@ import { AiOutlineAreaChart } from "react-icons/ai";
 
 const SlideDownMenu = () => {
 	const [admin, setAdmin] = useState(true); //medida provisória para saber que quem está logado é ou não um admin, em caso de true é um admin
+	const token = true;
 
 	const DropdownItem = (props) => {
 		return (
@@ -18,11 +19,19 @@ const SlideDownMenu = () => {
 	};
 	return (
 		<StyledDropdownMenu>
-			<Link to="/login" style={{ textDecoration: "none" }}>
-				<DropdownItem icon={<AiOutlineAreaChart />}>
-					Login/Sair
-				</DropdownItem>
-			</Link>
+			{ token ? (
+				<Link exact to="/" style={{ textDecoration: "none" }}>
+					<DropdownItem icon={<AiOutlineAreaChart />}>
+						Sair
+					</DropdownItem>
+				</Link>
+			) : (
+				<Link to="/login" style={{ textDecoration: "none" }}>
+					<DropdownItem icon={<AiOutlineAreaChart />}>
+						Login
+					</DropdownItem>
+				</Link>
+			)}
 			{admin && (
 				<>
 					<Link to="/admin" style={{ textDecoration: "none" }}>
