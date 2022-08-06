@@ -15,6 +15,10 @@ import DashboardChart1 from "../../charts/chart1";
 import DashboardChart2 from "../../charts/chart2";
 import DashboardChart3 from "../../charts/chart3";
 import DashboardChart4 from "../../charts/chart4";
+import { MidContentContainer } from "../../components/styled-components/PageStyles";
+import DengueDashboard from "./heat-maps/dengue";
+import TreesDashboard from "./heat-maps/trees";
+import LeishmanioseDashboard from "./heat-maps/leishmaniose";
 import Footer from "../../components/footer";
 
 const Dashboard = () => {
@@ -116,31 +120,7 @@ const Dashboard = () => {
 							},
 						]}
 					/>
-					<DashboardButton
-						description="Mapas"
-						linkItems={[
-							{
-								id: 1,
-								name: "Radar da Dengue",
-								link: "/dengue_mapa",
-							},
-							{
-								id: 2,
-								name: "Regiões com Alta Poluição",
-								link: "/monitoramento_mapa",
-							},
-							{
-								id: 3,
-								name: "Árvores",
-								link: "/arvores_mapa",
-							},
-							{
-								id: 4,
-								name: "Vacinação contra Leishmaniose",
-								link: "/leishmaniose_mapa",
-							},
-						]}
-					/>
+
 					<GrayLine />
 					<ChartContainer>
 						<ContainerRow>
@@ -153,6 +133,15 @@ const Dashboard = () => {
 					</ChartContainer>
 				</ContainerColumn>
 			</Content>
+			<MidContentContainer>
+				<GrayLine style={{ marginBottom: "-8.5vh" }} />
+				<DengueDashboard />
+				<GrayLine style={{ marginBottom: "-8.5vh" }} />
+				<TreesDashboard />
+				<GrayLine style={{ marginBottom: "-8.5vh" }} />
+				<LeishmanioseDashboard />
+			</MidContentContainer>
+			<GrayLine style={{ width: "100%" }} />
 			<Footer />
 		</ContainerBase>
 	);
