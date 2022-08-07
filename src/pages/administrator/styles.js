@@ -28,6 +28,7 @@ export const ChartContainer = styled.div`
 	display: flex;
 	height: 60vh;
 	width: 93%;
+	min-width: 960px;
 	margin-top: 10vh;
 	flex-direction: row;
 	border: 0.35vh solid lightgray;
