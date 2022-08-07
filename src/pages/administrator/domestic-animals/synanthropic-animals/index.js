@@ -8,9 +8,39 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import Header from "../../../../components/header";
 import Footer from "../../../../components/footer";
+import AdminListCard from "../../../../components/card-list-admin";
 import Typography from "@mui/material/Typography";
 
 const AdminSynanthropicAnimals = () => {
+	const mockupData = [
+		{
+			id: 1,
+			street: "Rua São Joaquim",
+			streetNumber: 189,
+			referencePoint: "Veterinario Barbosa",
+			latitude: 121223,
+			longitude: 123213,
+			description:
+				"animal da raca tal cor tal foi visto sendo mal tratado por tal",
+			images: "",
+			isResolved: false,
+			date: Date,
+		},
+		{
+			id: 2,
+			street: "Rua Maracanã",
+			streetNumber: 981,
+			referencePoint: "Veterinario Franciso",
+			latitude: 121223,
+			longitude: 123213,
+			description:
+				"animal da raca tal cor tal foi visto sendo mal tratado por tal",
+			images: "",
+			isResolved: true,
+			date: Date,
+		},
+	];
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -55,7 +85,16 @@ const AdminSynanthropicAnimals = () => {
 					</div>
 					<div></div>
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					{mockupData.map((data) => (
+						<AdminListCard
+							source="/assets/img/home_animais_domesticos.png"
+							nome={data.street + ", " + data.streetNumber}
+							sobrenome={data.referencePoint}
+							descricao={data.description}
+						/>
+					))}
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
