@@ -156,6 +156,7 @@ import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"
 import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/synanthropic-animals";
 
 import PanicButton from "./pages/panic-button";
+import Notifications from "./pages/notifications";
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -180,7 +181,7 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-								formValues.city === undefined ? (
+							formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
 								<Home data={favoritesData} />
@@ -486,10 +487,11 @@ const AppRoutes = () => {
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 					<Route exact path="/login" element={<Login />} />
+					<Route exact path="/localizacao" element={<BaseMap />} />
 					<Route
 						exact
-						path="/localizacao"
-						element={<BaseMap />}
+						path="/notifications"
+						element={<Notifications />}
 					/>
 					<Route
 						exact

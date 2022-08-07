@@ -16,11 +16,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Favorites from "../../../components/favorites";
-import { FormGroup } from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import SolidaryDisposal from "../../../components/forms/ServiceOrderInformation/solidaryDisposal";
 
 const DescarteSolidario = (props) => {
