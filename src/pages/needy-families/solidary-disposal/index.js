@@ -21,6 +21,7 @@ import Favorites from "../../../components/favorites";
 import { FormGroup } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import SolidaryDisposal from "../../../components/forms/ServiceOrderInformation/solidaryDisposal";
 
 const DescarteSolidario = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
@@ -49,21 +50,6 @@ const DescarteSolidario = (props) => {
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);
-	};
-
-	const [donationType, setDonationType] = useState({
-		roupas: false,
-		eletro: false,
-		moveis: false,
-		outros: false,
-	});
-
-	const handleDonationTypeChange = (event) => {
-		const { name, checked } = event.target;
-		setDonationType({
-			...donationType,
-			[name]: checked,
-		});
 	};
 
 	return (
@@ -136,55 +122,7 @@ const DescarteSolidario = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<FormGroup>
-						<FormControlLabel
-							label="Roupas/Calçados"
-							control={
-								<Checkbox
-									name="roupas"
-									checked={donationType.roupas}
-									onChange={handleDonationTypeChange}
-									inputProps={{ "aria-label": "controlled" }}
-								/>
-							}
-						/>
-
-						<FormControlLabel
-							label="Eletrodomésticos"
-							control={
-								<Checkbox
-									name="eletro"
-									checked={donationType.eletro}
-									onChange={handleDonationTypeChange}
-									inputProps={{ "aria-label": "controlled" }}
-								/>
-							}
-						/>
-						<FormControlLabel
-							label="Móveis"
-							control={
-								<Checkbox
-									name="moveis"
-									checked={donationType.moveis}
-									onChange={handleDonationTypeChange}
-									inputProps={{ "aria-label": "controlled" }}
-								/>
-							}
-						/>
-						<FormControlLabel
-							label="Outros"
-							control={
-								<Checkbox
-									name="outros"
-									checked={donationType.outros}
-									onChange={handleDonationTypeChange}
-									inputProps={{ "aria-label": "controlled" }}
-								/>
-							}
-						/>
-					</FormGroup>
-					<ServiceOrderInformation descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
-					{/*<Form />*/}
+					<SolidaryDisposal descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
