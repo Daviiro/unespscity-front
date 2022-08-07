@@ -14,8 +14,10 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Favorites from "../../../components/favorites";
+import CardOffer from "../../../components/card-offer";
+import OfferModal from "./modal";
 
-//id deste servico vai ser 49
+//id deste servico vai ser 52
 const LocalTradeOffers = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -41,6 +43,51 @@ const LocalTradeOffers = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
+	const mockupData = [
+		{
+			id: 1,
+			cityID: 999,
+			img: "",
+			title: "Smart TV LG 50 pol 4K",
+			price: 2186,
+			store: "Loja do Sao Joaquim",
+			street: "Rua Caramelo",
+			streetNumber: 43224,
+			description: "Eh uma Tv grande e bonita",
+			latitude: 2423,
+			longitude: 9229,
+			date: Date,
+		},
+		{
+			id: 2,
+			cityID: 999,
+			img: "",
+			title: "Ar condicionado Philco",
+			price: 1599,
+			store: "Loja do Sao Joaquim",
+			street: "Rua Caramelo",
+			streetNumber: 43224,
+			description: "Eh puta ar",
+			latitude: 2423,
+			longitude: 9229,
+			date: Date,
+		},
+	];
+
+	const [open, setOpen] = useState(false);
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
+
+	const HandleAddOffer = (offer) => {
+		//addiciono no back a oferta e fecho
+		setOpen(false);
+	};
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -95,7 +142,30 @@ const LocalTradeOffers = (props) => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<div onClick={handleClickOpen}>
+						<button>Adicionar Oferta</button>
+					</div>
+					<br />
+					{mockupData.map((offer) => (
+						<CardOffer
+							img={offer.img}
+							title={offer.title}
+							price={offer.price}
+							store={offer.store}
+							street={offer.street}
+							streetNumber={offer.streetNumber}
+							description={offer.description}
+							admin={false}
+						/>
+					))}
+
+					<OfferModal
+						open={open}
+						handleClose={handleClose}
+						handleAdd={HandleAddOffer}
+					/>
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

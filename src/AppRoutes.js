@@ -157,6 +157,7 @@ import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/syn
 
 import PanicButton from "./pages/panic-button";
 import Notifications from "./pages/notifications";
+import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -484,7 +485,11 @@ const AppRoutes = () => {
 						path="/admin/animais-sinantropicos"
 						element={<AdminSynanthropicAnimals />}
 					/>
-
+					<Route
+						exact
+						path="/admin/comercio-local"
+						element={<AdminLocalTradeOffers />}
+					/>
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 					<Route exact path="/login" element={<Login />} />
 					<Route exact path="/localizacao" element={<BaseMap />} />
