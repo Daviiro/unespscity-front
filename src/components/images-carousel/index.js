@@ -36,14 +36,21 @@ const ImageCarousel = ({images}) => {
                 }}
             >
                 {
-                    images.map( (image) => 
+                    images.length > 0 ? 
+                        images.map( (image) => 
                         <Image 
                             key={image} 
                             src={image} 
                             alt="Imagens do Carroussel"
                             className="images"
                         /> 
-                    )
+                    ) : (
+                        <Image 
+                            src="https://www.inovegas.com.br/site/wp-content/uploads/2017/08/sem-foto.jpg"
+                            alt="Imagens do Carroussel"
+                            className="images"
+                        /> 
+                    )        
                 }
             </Carousel>
         </Container>

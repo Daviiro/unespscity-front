@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { gql, useSubscription } from '@apollo/client';
+import React, { useState, useEffect, useCallback } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -16,32 +15,37 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Map from "./map";
 import Favorites from "../../../components/favorites";
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 const Monitoring = (props) => {
-	const TEMPERATURE_SUBSCRIPTION = gql`
-    subscription temperatureValues($title: String!) {
-			temperatureValues(data: $title) {
-			title
-			longitude
-			latitude
-			temperature
-			humidity
-		}	
-	}`;
+	const [socketUrl, setSocketUrl] = useState('ws://localhost:3334');
+	const [messageHistory, setMessageHistory] = useState([]);
+	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
-	const { data, loading } = useSubscription(
-		TEMPERATURE_SUBSCRIPTION, 
-		{ variables: { title: "Temperatura em X Lugar" } }
-	);
-	console.log(data);
-	console.log(loading);
-
+	useEffect(() => {
+		if (lastMessage !== null) {
+		setMessageHistory((prev) => prev.concat(lastMessage));
+		}
+	}, [lastMessage, setMessageHistory]);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
 			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
 		);
 	}, []);
+
+	useCallback(() => sendMessage('Hello'), []);
+
+	const handleClickSendMessage = useCallback(() => sendMessage('Hello'), []);
+
+	const connectionStatus = {
+		[ReadyState.CONNECTING]: 'Connecting',
+		[ReadyState.OPEN]: 'Open',
+		[ReadyState.CLOSING]: 'Closing',
+		[ReadyState.CLOSED]: 'Closed',
+		[ReadyState.UNINSTANTIATED]: 'Uninstantiated',
+	}[readyState];
+
 	const handleFavorite = () => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
@@ -125,18 +129,10 @@ const Monitoring = (props) => {
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">Coleta de Lixo</Typography>
+							<Typography variant="h4">Monitoramento do Tempo</Typography>
 						</div>
 						<DescriptionText>
-							Neste serviço você terá informações sobre as rotas e
-							horários de circulação de cada um dos caminhões de
-							lixo. Assim, os usuários poderão inserir a
-							localização de sua estadia (CEP ou
-							georreferenciamento) e a plataforma calculará e
-							retornará os dias e horários aproximados em que um
-							caminhão passará para fazer coleta no local,
-							informando também se o mesmo é de lixo orgânico,
-							reciclável ou ambos.
+							Neste serviço você terá informações sobre o tempo, como por exemplo, a temperatura, vento, umidade, entre outras informações.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -169,6 +165,21 @@ const Monitoring = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<Map routes={routes} />
+					<div>
+						<button
+							onClick={handleClickSendMessage}
+							disabled={readyState !== ReadyState.OPEN}
+						>
+							Click Me to send 'Hello'
+						</button>
+						<span>The WebSocket is currently {connectionStatus}</span>
+						{lastMessage ? <span>Last message: {lastMessage.data}</span> : null}
+						<ul>
+							{messageHistory.map((message, idx) => (
+							<span key={idx}>{message ? message.data : null}</span>
+							))}
+						</ul>
+					</div>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

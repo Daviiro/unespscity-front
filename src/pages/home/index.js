@@ -176,7 +176,7 @@ const Home = (props) => {
 								},
 								{
 									id: 2,
-									name: "Monitoramento",
+									name: "Monitoramento do Tempo",
 									link: "/monitoramento",
 								},
 								{
