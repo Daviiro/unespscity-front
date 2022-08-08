@@ -1,43 +1,21 @@
-import React from "react";
-import { gql, useSubscription } from '@apollo/client';
-
+import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
-	SubHeader,
-	ContainerColumn,
-	Square,
-	Details,
-} from "../../public-administration/know-city-managers/styles";
-
-import Header from "../../../../components/header";
+	ContentContainer,
+	TopContentContainer,
+	DescriptionText,
+	MidContentContainer,
+} from "../../../../components/styled-components/PageStyles";
 import MiniCard from "../../../../components/mini-card";
-import { StyledHr } from "../../../../components/styled-components/StyledHr";
-import ServiceDescription from "../../../../components/service-description";
+import Header from "../../../../components/header";
 import Footer from "../../../../components/footer";
+
 const AdminMonitoring = () => {
-    const TEMPERATURE_SUBSCRIPTION = gql`
-    subscription temperatureValues($title: String!) {
-			temperatureValues(data: $title) {
-			title
-			longitude
-			latitude
-			temperature
-			humidity
-		}	
-	}`;
-
-	const { data, loading } = useSubscription(
-		TEMPERATURE_SUBSCRIPTION, 
-		{ variables: { title: "Temperatura em X Lugar" } }
-	);
-	console.log(data);
-	console.log(loading);
-
 	return (
-		<>
-			<ContainerBase>
-				<Header />
-				<SubHeader>
+		<ContainerBase>
+			<Header />
+			<ContentContainer>
+				<TopContentContainer>
 					<MiniCard
 						source="/assets/img/home_meio_ambiente.png"
 						titulo="Meio Ambiente"
@@ -59,18 +37,21 @@ const AdminMonitoring = () => {
 							},
 						]}
 					/>
-					<ContainerColumn>
-						<h1> Monitoramento do Tempo </h1>
-						<StyledHr />
-					</ContainerColumn>
-				</SubHeader>
-				<Square>
-					<ServiceDescription description="Aqui você pode checar o monitoramento do tempo em tempo real. " />
-					<Details></Details>
-				</Square>
-				<Footer />
-			</ContainerBase>
-		</>
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">Monitoramento do Tempo</Typography>
+						</div>
+						<DescriptionText>
+							Aqui você pode checar o monitoramento do tempo em tempo real.
+						</DescriptionText>
+					</div>
+					<div></div>
+				</TopContentContainer>
+				<MidContentContainer>
+				</MidContentContainer>
+			</ContentContainer>
+			<Footer />
+		</ContainerBase>
 	);
 }
 

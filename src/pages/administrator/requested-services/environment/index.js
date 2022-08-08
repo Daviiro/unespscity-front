@@ -12,7 +12,7 @@ const MeioAmbienteOpcoes = () => {
 						<Button text="Adoção de Áreas Públicas" />
 					</Link>
 					<Link to="/admin/monitoramento">
-						<Button text="Monitoramento" />
+						<Button text="Monitoramento do Tempo" />
 					</Link>
 					<Link to="/admin/coleta-de-lixo">
 						<Button text="Coleta de Lixo" />

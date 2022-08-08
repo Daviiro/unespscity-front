@@ -36,7 +36,7 @@ const AdminAdocaoAreas = () => {
 								},
 								{
 									id: 2,
-									name: "Monitoramento",
+									name: "Monitoramento do Tempo",
 									link: "/admin/monitoramento",
 								},
 								{
