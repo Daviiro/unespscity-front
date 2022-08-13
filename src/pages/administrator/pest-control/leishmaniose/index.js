@@ -7,7 +7,7 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
 import LeishmanioseMap from "./map";
@@ -104,7 +104,7 @@ const AdminLeishmaniose = () => {
 
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

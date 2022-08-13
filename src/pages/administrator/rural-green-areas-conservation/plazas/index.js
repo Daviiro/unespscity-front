@@ -1,5 +1,4 @@
 import React from "react";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -8,7 +7,7 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
@@ -16,7 +15,7 @@ import Footer from "../../../../components/footer";
 const AdminPracas = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard
