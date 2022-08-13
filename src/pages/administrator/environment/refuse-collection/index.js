@@ -7,14 +7,14 @@ import {
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
 import MiniCard from "../../../../components/mini-card";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import Footer from "../../../../components/footer";
 import Map from "./map";
 
 const AdminRefuseCollection = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

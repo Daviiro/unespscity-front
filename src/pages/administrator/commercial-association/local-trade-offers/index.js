@@ -1,4 +1,4 @@
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -46,7 +46,7 @@ const AdminLocalTradeOffers = () => {
 
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

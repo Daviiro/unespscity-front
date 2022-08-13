@@ -8,7 +8,7 @@ import {
 	ContainerRow,
 } from "./styles";
 
-import Header from "../../components/header";
+import AdminHeader from "../../components/header/admin";
 import { StyledHr } from "../../components/styled-components/StyledHr";
 import DashboardButton from "./index-button";
 import DashboardChart1 from "../../charts/chart1";
@@ -24,7 +24,7 @@ import Footer from "../../components/footer";
 const Dashboard = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<Content>
 				<ContainerColumn>
 					<h1> Dashboard </h1>

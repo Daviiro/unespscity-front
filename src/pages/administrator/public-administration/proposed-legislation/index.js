@@ -6,14 +6,14 @@ import {
 	MidContentContainer,
 	DescriptionText,
 } from "../../../../components/styled-components/PageStyles";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import Footer from "../../../../components/footer";
 import Typography from "@mui/material/Typography";
 
 const AdminProposedLegislation = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

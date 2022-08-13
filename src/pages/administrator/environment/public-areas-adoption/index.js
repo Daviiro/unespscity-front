@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
 	ContainerBase,
 	ContentContainer,
@@ -7,8 +6,7 @@ import {
 	MidContentContainer,
 	DescriptionText,
 } from "../../../../components/styled-components/PageStyles";
-
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Typography from "@mui/material/Typography";
 import Footer from "../../../../components/footer";
@@ -22,7 +20,7 @@ const AdminAdocaoAreas = () => {
 	return (
 		<>
 			<ContainerBase>
-				<Header />
+				<AdminHeader />
 				<ContentContainer>
 					<TopContentContainer>
 						<MiniCard

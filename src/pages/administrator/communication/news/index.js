@@ -8,7 +8,7 @@ import {
 	Form,
 } from "./styles";
 
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import ServiceDescription from "../../../../components/service-description";
@@ -28,7 +28,7 @@ const AdminNoticias = () => {
 	return (
 		<>
 			<ContainerBase>
-				<Header />
+				<AdminHeader />
 				<SubHeader>
 					<MiniCard
 						source="/assets/img/home_notificacao_comunicacao.png"
