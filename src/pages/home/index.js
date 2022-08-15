@@ -9,7 +9,7 @@ import Favorites from "../../components/favorites";
 
 const Home = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
-	const [panicButtonIsActive, setPanicButtonIsActive] = useState(false);
+	const [panicButtonIsActive, setPanicButtonIsActive] = useState(true);
 
 	return (
 		<>

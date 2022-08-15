@@ -158,6 +158,7 @@ import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"
 import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/synanthropic-animals";
 
 import PanicButton from "./pages/panic-button";
+import AdminPanicButton from "./pages/administrator/panic-button";
 import Notifications from "./pages/notifications";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 
@@ -184,14 +185,14 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-							formValues.city === undefined ? (
+								formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
 								<Home data={favoritesData} />
 							)
 						}
 					/>
-					<Route element = { <AdminRoutes/> }>
+					<Route element={<AdminRoutes />}>
 						<Route exact path="/admin" element={<Dashboard />} />
 						<Route
 							exact
@@ -497,6 +498,11 @@ const AppRoutes = () => {
 							exact
 							path="/admin/comercio-local"
 							element={<AdminLocalTradeOffers />}
+						/>
+						<Route
+							exact
+							path="/admin/botao_panico"
+							element={<AdminPanicButton />}
 						/>
 					</Route>
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}

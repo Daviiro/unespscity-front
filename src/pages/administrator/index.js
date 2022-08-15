@@ -101,7 +101,7 @@ const Dashboard = () => {
 							{
 								id: 14,
 								name: "Botão do Pânico",
-								link: "/vias_publicas",
+								link: "/admin/botao_panico",
 							},
 							{
 								id: 15,
