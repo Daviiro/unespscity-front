@@ -92,7 +92,7 @@ const Header = () => {
 						<img
 							src={
 								process.env.PUBLIC_URL +
-								"/assets/img/home_logo_temporario.png"
+								"/assets/img/home_logo_branco.png"
 							}
 							alt="Logo"
 						/>

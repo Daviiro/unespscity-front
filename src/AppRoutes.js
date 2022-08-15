@@ -9,6 +9,7 @@ import {
 import AdminRoutes from "./AdminRoutes";
 
 import Dashboard from "./pages/administrator"; // DASHBOARD PARA O ADMIN
+import AllRequests from "./pages/administrator/requested-services/all-requests";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
 import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
 import AnimaisDomesticosOpcoes from "./pages/administrator/requested-services/domestic-animals";
@@ -192,6 +193,11 @@ const AppRoutes = () => {
 					/>
 					<Route element = { <AdminRoutes/> }>
 						<Route exact path="/admin" element={<Dashboard />} />
+						<Route
+							exact
+							path="/todas_solicitacoes"
+							element={<AllRequests />}
+						/>
 						<Route
 							exact
 							path="/admin/associacao_comercial"
