@@ -67,11 +67,6 @@ const DashboardChart1 = () => {
 					<h5> 39 </h5>
 				</Card>
 				<Card>
-					<img src="/assets/img/home_botao_panico.png" alt="Botão do Pânico" />
-					<GrayLine />
-					<h5> 46 </h5>
-				</Card>
-				<Card>
 					<img src="/assets/img/home_administracao_publica.png" alt="Administração Pública" />
 					<GrayLine />
 					<h5> 47 </h5>
