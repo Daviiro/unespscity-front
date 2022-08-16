@@ -68,16 +68,18 @@ const FairsMap = (props) => {
 				});
 			}}
 		>
-			{props.locations.map((location) => (
-				<MarkerF
-					key={location.id}
-					position={location.location}
-					onClick={() => onSelect(location)}
-					icon={{
-						url: process.env.PUBLIC_URL + props.icon,
-					}}
-				/>
-			))}
+			{props.locations &&
+				props.locations.map((location) => (
+					<MarkerF
+						key={location.id}
+						position={location.location}
+						onClick={() => onSelect(location)}
+						icon={{
+							url: process.env.PUBLIC_URL + props.icon,
+						}}
+					/>
+				))}
+
 			{selected.location && !delFlag && (
 				<InfoWindow
 					position={selected.location}
