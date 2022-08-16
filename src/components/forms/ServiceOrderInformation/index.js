@@ -21,10 +21,6 @@ const ServiceOrderInformation = (props) => {
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
 
-	const formData = new FormData();
-	const [file, setFile] = useState();
-	const [fileName, setFileName] = useState("");
-
 	const handleSubmit = (event) => {
 		//alert("Um nome foi enviado: " + this.state.value);
 		//console.log("foi enviado para:");
@@ -34,42 +30,6 @@ const ServiceOrderInformation = (props) => {
 		//console.log("streetNumber " + houseNumber);
 		//console.log("referencePoint " + referencePoint);
 		//console.log("description " + description);
-
-		formData.append("cityid", formValues.city);
-		formData.append("street", street);
-		formData.append("streetNumber", houseNumber);
-		formData.append("referencePoint", referencePoint);
-		formData.append("latitude", 9999);
-		formData.append("longitude", 7777);
-		formData.append("description", description);
-
-		if (file == null) {
-			console.log("fui acionado");
-			const AuxImg = {
-				name: "no data",
-				desc: "no data",
-				img: {
-					data: "no data",
-					contentType: "no data",
-				},
-			};
-			const emptyFileData = JSON.stringify(AuxImg);
-
-			const blob = new Blob([emptyFileData], { type: "text/plain" });
-
-			setFile(blob);
-		}
-		formData.append("file", file);
-		if (fileName == "") {
-			console.log("eu tambem fui acionado");
-			setFileName("no data");
-		}
-		formData.append("fileName", fileName);
-
-		console.log("##################################");
-		for (const value of formData.values()) {
-			console.log(value);
-		}
 
 		/*
 		axios
@@ -94,11 +54,14 @@ const ServiceOrderInformation = (props) => {
 			.catch((errors) => console.log(errors));*/
 
 		const res = axios
-			.post(`http://localhost:4000/api/upload/${srcaddress}`, formData, {
+			.post(`http://localhost:4000/api/upload/${srcaddress}`, {
 				headers: {
-					"Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+					"Content-Type": "application/json; charset=UTF-8",
 					Accept: "Token",
 					"Access-Control-Allow-Origin": "*",
+				},
+				data: {
+					/*coloque aqui os dados que quer mandar na requisicao */
 				},
 			})
 			.then((response) => console.log(response))
@@ -107,13 +70,8 @@ const ServiceOrderInformation = (props) => {
 			});
 		console.log(res);
 
-		alert(`Forms foi enviado: ${street}`);
+		alert(`Forms foi enviado`);
 		event.preventDefault();
-	};
-
-	const saveFile = (e) => {
-		setFile(e.target.files[0]);
-		setFileName(e.target.files[0].name);
 	};
 
 	return (
@@ -261,13 +219,8 @@ const ServiceOrderInformation = (props) => {
 					</Stack>
 				</div>
 				<br />
-				{srcaddress ? (
-					<>
-						<input type="file" onChange={saveFile} />
-					</>
-				) : (
-					<InputPhotos />
-				)}
+
+				<InputPhotos />
 
 				<br />
 				<div className="inputs">

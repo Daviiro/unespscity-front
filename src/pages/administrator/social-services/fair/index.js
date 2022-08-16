@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Details, AddFair } from "./styles";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
@@ -19,8 +19,11 @@ import Button from "@mui/material/Button";
 import FairsMap from "./fairs-map";
 import Modal from "./modal";
 import axios from "axios";
+import LocalContext from "../../../user-location/Context";
 
 const AdminFeiras = () => {
+	const [isLoading, setLoading] = useState(true);
+	const [formValues, setFormValues] = useContext(LocalContext);
 	const [street, setStreet] = useState();
 	const [district, setDistrict] = useState();
 	const [description, setDescription] = useState();
@@ -34,6 +37,7 @@ const AdminFeiras = () => {
 		setDescription(event.target.value);
 	};
 
+	/*
 	const feirasDadoMockup = [
 		{
 			street: "esplanada",
@@ -44,11 +48,11 @@ const AdminFeiras = () => {
 			],
 			description: "EH uma feira com pastel muito gostoso",
 		},
-	];
+	];*/
 
 	const [locations, setLocations] = useState([
 		{
-			id: 1,
+			_id: "1",
 			name: "Feira 1",
 			imgsrc: "/assets/img/fair-icon.png",
 			operatingDays: {
@@ -68,7 +72,7 @@ const AdminFeiras = () => {
 			closingHour: new Date(),
 		},
 		{
-			id: 2,
+			_id: "2",
 			name: "Feira 2",
 			imgsrc: "/assets/img/fair-icon.png",
 			operatingDays: {
@@ -95,11 +99,37 @@ const AdminFeiras = () => {
 	const handleClose = () => {
 		setOpen(false);
 	};
+
+	const handleGet = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		console.log(formValues.city);
+		let fairdata;
+		try {
+			await axios
+				.get("http://localhost:4000/api/fair/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
+				.then((res) => {
+					setLocations(res.data);
+					console.log("fdkhfalkha");
+					console.log(res.data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	useEffect(() => {
+		handleGet();
+	}, []);
+
 	const handleAdd = (fair) => {
 		setLocations([...locations, fair]); //adiciono a nova feira no array
-		console.log(fair.openingHour);
+		//console.log(fair.openingHour);
 		setOpen(false);
-		console.log("antes de mandar: " + fair.cityid);
+		//console.log("antes de mandar: " + fair.cityid);
 
 		//testando a conexao com o backend
 		axios
@@ -123,6 +153,24 @@ const AdminFeiras = () => {
 				console.log("feira adicionada: " + res.data.name);
 			});
 	};
+
+	const handleDel = (id) => {
+		axios
+			.delete("http://localhost:4000/api/fair", {
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8",
+					Accept: "Token",
+					"Access-Control-Allow-Origin": "*",
+				},
+				params: {
+					id: id,
+				},
+			})
+			.then((res) => {
+				console.log("feira excluida com sucesso");
+			});
+	};
+
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
 		lng: 0,
@@ -131,6 +179,10 @@ const AdminFeiras = () => {
 		setClickedCoordinates(coords);
 		handleClickOpen();
 	};
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<ContainerBase>
@@ -171,7 +223,9 @@ const AdminFeiras = () => {
 						locations={locations}
 						icon="/assets/img/fair-icon.png"
 						onMapClick={onMapClick}
+						handleDel={handleDel}
 					/>
+
 					<Modal
 						locations={locations}
 						open={open}

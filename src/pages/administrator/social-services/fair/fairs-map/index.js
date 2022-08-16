@@ -17,7 +17,7 @@ const FairsMap = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
-	});
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
 	useEffect(() => {
 		if (formValues.city !== undefined) {
 			fetchCityForID(formValues.city).then((city) => {
@@ -32,7 +32,7 @@ const FairsMap = (props) => {
 				});
 			}
 		}
-	}, [cityName]);
+	}, [cityName]); //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 	const containerStyle = {
 		width: "100%",
 		height: "500px",
@@ -88,37 +88,37 @@ const FairsMap = (props) => {
 							/>
 
 							<Typography variant="body2">Dias:</Typography>
-							{selected.operating_days.dom ? (
+							{selected.operatingDays.dom ? (
 								<Typography variant="body2">Domingo</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.seg ? (
+							{selected.operatingDays.seg ? (
 								<Typography variant="body2">Segunda</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.ter ? (
+							{selected.operatingDays.ter ? (
 								<Typography variant="body2">Terça</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.qua ? (
+							{selected.operatingDays.qua ? (
 								<Typography variant="body2">Quarta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.qui ? (
+							{selected.operatingDays.qui ? (
 								<Typography variant="body2">Quinta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.sex ? (
+							{selected.operatingDays.sex ? (
 								<Typography variant="body2">Sexta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.sab ? (
+							{selected.operatingDays.sab ? (
 								<Typography variant="body2">Sabádo</Typography>
 							) : (
 								<></>
@@ -126,10 +126,12 @@ const FairsMap = (props) => {
 						</div>
 
 						<Typography variant="body2">
-							Horário: {selected.openingHour.getHours()}h
+							{/*Horário: {selected.openingHour.getHours()}h
 							{selected.openingHour.getMinutes()} às{" "}
 							{selected.closingHour.getHours()}h
-							{selected.closingHour.getMinutes()}
+							{selected.closingHour.getMinutes()}*/}
+							Horário: {selected.openingHour}h às{" "}
+							{selected.closingHour}h
 						</Typography>
 					</InfoWindowContainer>
 				</InfoWindow>

@@ -20,20 +20,23 @@ const TreesMap = (props) => {
 
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
-	});
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
 
 	React.useEffect(() => {
-		fetchCityForID(formValues.city).then((city) => {
-			setCityName(city);
-		});
-		console.log(cityName);
-		fetchLatLong(cityName).then((data) => {
-			setCenter({
-				lat: data.results[0].geometry.location.lat,
-				lng: data.results[0].geometry.location.lng,
+		if (formValues.city !== undefined) {
+			fetchCityForID(formValues.city).then((city) => {
+				setCityName(city);
 			});
-		});
-	}, [cityName]);
+			if (cityName != "") {
+				fetchLatLong(cityName).then((data) => {
+					setCenter({
+						lat: data.results[0].geometry.location.lat,
+						lng: data.results[0].geometry.location.lng,
+					});
+				});
+			}
+		}
+	}, [cityName]); //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 
 	const containerStyle = {
 		width: "100%",
@@ -41,7 +44,7 @@ const TreesMap = (props) => {
 	};
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
 	});
 	const [map, setMap] = React.useState(null);
 	const options = {
