@@ -69,7 +69,7 @@ const AdminBotaoPanico = () => {
 					<div
 						style={{
 							width: "60%",
-							marginTop: "2Vh",	
+							marginTop: "-14Vh",	
 							display: "flex",
 							alignItems: "center",
 							justifyContent: "center",

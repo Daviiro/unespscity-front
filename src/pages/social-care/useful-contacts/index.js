@@ -15,14 +15,33 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Favorites from "../../../components/favorites";
+import { api } from "../../../services/api";
 
 const Telefones = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	const [contacts, setContacts] = useState([]);
+
+	useEffect(() => {
+		async function getContacts() {
+			try {
+				const { data } = await api.get('/useful_contacts', {
+					idCity: 1
+				});
+				setContacts(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getContacts();
+	}, []);
+
 	useEffect(() => {
 		props.data.find(
 			(favoriteX) => favoriteX.id === 34 && setIsFavorite(true)
 		);
 	}, []);
+
 	const handleFavorite = () => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
@@ -41,7 +60,7 @@ const Telefones = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
-
+	console.log(contacts)
 	return (
 		<ContainerBase>
 			<Header />
@@ -116,54 +135,16 @@ const Telefones = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
-					<ListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome"
-						sobrenome="[número]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-					/>
+					{
+						contacts.map((contact) =>
+							<ListCard
+								source={contact.images}
+								nome={contact.name}
+								sobrenome={contact.phoneNumber}
+								descricao={contact.description}
+							/>
+						)
+					}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
