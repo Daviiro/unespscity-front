@@ -10,6 +10,7 @@ import {
 } from "@react-google-maps/api";
 import Typography from "@mui/material/Typography";
 import LocalContext from "../../../../user-location/Context";
+import Button from "@mui/material/Button";
 
 const FairsMap = (props) => {
 	const [center, setCenter] = useState({ lat: 0, lng: 0 });
@@ -46,6 +47,13 @@ const FairsMap = (props) => {
 		setSelected(item);
 	};
 
+	const [delFlag, setDelFlag] = useState(false);
+
+	const dateFormater = (oldDate) => {
+		const newDate = new Date(oldDate);
+		return newDate.getHours();
+	};
+
 	return isLoaded ? (
 		<GoogleMap
 			mapContainerStyle={containerStyle}
@@ -70,7 +78,7 @@ const FairsMap = (props) => {
 					}}
 				/>
 			))}
-			{selected.location && (
+			{selected.location && !delFlag && (
 				<InfoWindow
 					position={selected.location}
 					clickable={true}
@@ -130,9 +138,18 @@ const FairsMap = (props) => {
 							{selected.openingHour.getMinutes()} às{" "}
 							{selected.closingHour.getHours()}h
 							{selected.closingHour.getMinutes()}*/}
-							Horário: {selected.openingHour}h às{" "}
-							{selected.closingHour}h
+							Horário: {dateFormater(selected.openingHour)}h às
+							{dateFormater(selected.closingHour)}h
 						</Typography>
+						<Button
+							fulldwith
+							onClick={() => {
+								props.handleDel(selected._id);
+								setDelFlag(true);
+							}}
+						>
+							Deletar
+						</Button>
 					</InfoWindowContainer>
 				</InfoWindow>
 			)}
