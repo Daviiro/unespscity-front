@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import ListCard from "../../../../components/card-list";
 import Footer from "../../../../components/footer";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -19,7 +18,7 @@ import { StyledHr } from "../../../../components/styled-components/StyledHr";
 const AdminTheftRegister = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

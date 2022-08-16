@@ -4,19 +4,19 @@ import {
 	ContainerActions,
 	ContainerLogo,
 	ContainerCenter,
-} from "./styles";
+} from "../styles";
 
 import { Link, useNavigate } from "react-router-dom";
-import Sidebar from "./sidebar";
+import Sidebar from "../sidebar";
 import * as FaIcons from "react-icons/fa";
 
 import { BiUser } from "react-icons/bi";
-import SlideDownMenu from "./slide-down-menu";
-import LocalContext from "../../pages/user-location/Context";
-import { fetchCityForID } from "../../services/IBGE";
+import SlideDownMenu from "../slide-down-menu";
+import LocalContext from "../../../pages/user-location/Context";
+import { fetchCityForID } from "../../../services/IBGE";
 import { IoIosNotificationsOutline } from "react-icons/io";
 
-const Header = () => {
+const AdminHeader = () => {
 	const [windowDimenion, detectHW] = useState({
 		winWidth: window.innerWidth,
 		winHeight: window.innerHeight,
@@ -87,7 +87,7 @@ const Header = () => {
 			<Sidebar sidebar={sidebar} showSidebar={showSidebar} />
 			<HeaderContainer>
 				<ContainerLogo>
-					<Link to="/" className="logo">
+					<Link to="/admin" className="logo">
 						{" "}
 						<img
 							src={
@@ -177,4 +177,4 @@ const Notifications = () => {
 	);
 };
 
-export default Header;
+export default AdminHeader;

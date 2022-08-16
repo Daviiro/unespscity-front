@@ -1,9 +1,8 @@
 import React from "react";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -16,7 +15,7 @@ import {
 const AdminPontes = () => {
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

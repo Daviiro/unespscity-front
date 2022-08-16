@@ -1,16 +1,13 @@
 import React from "react";
-
 import {
 	Details,
 	AddFair,
 } from "./styles";
-
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
 import Input from "../../../../components/input";
 import AdminListCard from "../../../../components/card-list-admin";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -27,7 +24,7 @@ const AdminTelefones = () => {
 		
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

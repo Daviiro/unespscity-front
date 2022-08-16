@@ -6,7 +6,7 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Typography from "@mui/material/Typography";
 import Footer from "../../../../components/footer";
@@ -19,7 +19,7 @@ const AdminDiaristas = () => {
 
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 				<ContentContainer>
 					<TopContentContainer>
 						<MiniCard

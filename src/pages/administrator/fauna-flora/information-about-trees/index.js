@@ -7,7 +7,7 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import Header from "../../../../components/header";
+import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import TreesModal from "../../../fauna-flora/information-about-trees/modal";
 import TreesMap from "./map";
@@ -112,7 +112,7 @@ const AdminInformationAboutTrees = () => {
 
 	return (
 		<ContainerBase>
-			<Header />
+			<AdminHeader />
 			<ContentContainer>
 				<TopContentContainer>
 					<MiniCard

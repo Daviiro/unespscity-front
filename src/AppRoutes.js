@@ -6,8 +6,10 @@ import {
 	Route,
 	Navigate,
 } from "react-router-dom";
+import AdminRoutes from "./AdminRoutes";
 
 import Dashboard from "./pages/administrator"; // DASHBOARD PARA O ADMIN
+import AllRequests from "./pages/administrator/requested-services/all-requests";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
 import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
 import AnimaisDomesticosOpcoes from "./pages/administrator/requested-services/domestic-animals";
@@ -156,6 +158,7 @@ import LocalTradeOffers from "./pages/commercial-association/local-trade-offers"
 import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/synanthropic-animals";
 
 import PanicButton from "./pages/panic-button";
+import AdminPanicButton from "./pages/administrator/panic-button";
 import Notifications from "./pages/notifications";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 
@@ -182,314 +185,326 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-							formValues.city === undefined ? (
+								formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
 								<Home data={favoritesData} />
 							)
 						}
 					/>
-					<Route exact path="/admin" element={<Dashboard />} />
-					<Route
-						exact
-						path="/admin/associacao_comercial"
-						element={<AssociacaoComercialOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/comunicacao"
-						element={<ComunicacaoOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/animais_domesticos"
-						element={<AnimaisDomesticosOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/meio_ambiente"
-						element={<MeioAmbienteOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/fauna_flora"
-						element={<FaunaFloraOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/familias_carentes"
-						element={<FamiliasCarentesOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/controle_pragas"
-						element={<ControlePragasOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/administracao_publica"
-						element={<AdministracaoPublicaOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/sensoriamento_remoto"
-						element={<SensoriamentoRemotoOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/remocao_detritos"
-						element={<RemocaoDetritosOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/conservacao_rural"
-						element={<ConservacaoRuralOpcoesOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/vigilancia_sanitaria"
-						element={<VigilanciaSanitariaOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/seguranca_defesa_civil"
-						element={<SegurancaDefesaCivilOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/assistencia_social"
-						element={<AssistenciaSocialOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/servicos_sociais"
-						element={<ServicosSociaisOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/conservacao_urbana"
-						element={<ConservacaoUrbanaOpcoes />}
-					/>
-					<Route
-						exact
-						path="/admin/animais_abandonados"
-						element={<AdminAnimaisAbandonados />}
-					/>
-					<Route
-						exact
-						path="/admin/animais_perdidos"
-						element={<AdminAnimaisPerdidos />}
-					/>
-					<Route
-						exact
-						path="/admin/animais_mortos"
-						element={<AdminAnimaisMortos />}
-					/>
-					<Route
-						exact
-						path="/admin/residuos_solidos"
-						element={<AdminResiduosSolidos />}
-					/>
-					<Route
-						exact
-						path="/admin/adocao_animais"
-						element={<AdminAdocaoAnimais />}
-					/>
-					<Route
-						exact
-						path="/admin/adocao_areas_publicas"
-						element={<AdminAdocaoAreas />}
-					/>
-					<Route
-						exact
-						path="/admin/monitoramento"
-						element={<AdminMonitoramentoTempo />}
-					/>
-					<Route
-						exact
-						path="/admin/animais_silvestres"
-						element={<AdminAnimaisSilvestres />}
-					/>
-					<Route
-						exact
-						path="/admin/maus_tratos"
-						element={<AdminMausTratosAnimais />}
-					/>
-					<Route
-						exact
-						path="/admin/conheca_os_gestores"
-						element={<AdminGestores />}
-					/>
-					<Route
-						exact
-						path="/admin/noticias"
-						element={<AdminNoticias />}
-					/>
-					<Route
-						exact
-						path="/admin/telefones_uteis"
-						element={<AdminTelefones />}
-					/>
-					<Route
-						exact
-						path="/admin/locais_uteis"
-						element={<AdminLocaisUteis />}
-					/>
-					<Route
-						exact
-						path="/admin/tumulos"
-						element={<AdminTumulos />}
-					/>
-					<Route
-						exact
-						path="/admin/programacao_cultural"
-						element={<AdminProgramacaoCultural />}
-					/>
-					<Route
-						exact
-						path="/admin/parques"
-						element={<AdminParques />}
-					/>
-					<Route
-						exact
-						path="/admin/pontes_em_estradas_rurais"
-						element={<AdminPontes />}
-					/>
-					<Route
-						exact
-						path="/admin/pracas"
-						element={<AdminPracas />}
-					/>
-					<Route
-						exact
-						path="/admin/iluminacao_publica"
-						element={<AdminIluminacao />}
-					/>
-					<Route
-						exact
-						path="/admin/fiscalizacao_de_instalacoes"
-						element={<AdminInstalacoes />}
-					/>
-					<Route
-						exact
-						path="/admin/monumentos_e_chafarizes"
-						element={<AdminMonumentos />}
-					/>
-					<Route
-						exact
-						path="/admin/pavimentacao"
-						element={<AdminPavimentacao />}
-					/>
-					<Route
-						exact
-						path="/admin/vias_publicas"
-						element={<AdminVias />}
-					/>
-					<Route
-						exact
-						path="/admin/diaristas"
-						element={<AdminDiaristas />}
-					/>
-					<Route
-						exact
-						path="/admin/feiras_livres"
-						element={<AdminFeiras />}
-					/>
-					<Route
-						exact
-						path="/admin/limpeza_de_piscinas"
-						element={<AdminPiscinas />}
-					/>
-					<Route
-						exact
-						path="/admin/limpeza_de_terreno"
-						element={<AdminTerreno />}
-					/>
-					<Route
-						exact
-						path="/admin/restaurantes"
-						element={<AdminAmbienteIrregular />}
-					/>
-					<Route
-						exact
-						path="/admin/foco_de_escorpiao"
-						element={<AdminEscorpiao />}
-					/>
-					<Route
-						exact
-						path="/admin/insetos_roedores_caramujos"
-						element={<AdminPragas />}
-					/>
-					<Route
-						exact
-						path="/admin/leishmaniose"
-						element={<AdminLeishmaniose />}
-					/>
-					<Route
-						exact
-						path="/admin/radar_da_dengue"
-						element={<AdminDengue />}
-					/>
-					<Route
-						exact
-						path="/admin/registro_roubos"
-						element={<AdminTheftRegister />}
-					/>
-					<Route
-						exact
-						path="/admin/registro-acidentes"
-						element={<AdminAccidentRecords />}
-					/>
-					<Route
-						exact
-						path="/admin/violencia-domestica"
-						element={<AdminVictimsOfDomesticViolence />}
-					/>
-					<Route
-						exact
-						path="/admin/moradores_rua"
-						element={<AdminHomelessPeople />}
-					/>
-					<Route
-						exact
-						path="/admin/familias-carentes-list"
-						element={<AdminNeedyFamilies />}
-					/>
-					<Route
-						exact
-						path="/admin/descarte_solidario"
-						element={<AdminDescarteSolidario />}
-					/>
-					<Route
-						exact
-						path="/admin/arvores"
-						element={<AdminInformationAboutTrees />}
-					/>
-					<Route
-						exact
-						path="/admin/coleta-de-lixo"
-						element={<AdminRefuseCollection />}
-					/>
-					<Route
-						exact
-						path="/admin/consultar-propostas-de-leis"
-						element={<AdminProposedLegislation />}
-					/>
-					<Route
-						exact
-						path="/admin/central-anticorrupcao"
-						element={<AdminAntiCorruptionCenter />}
-					/>
-					<Route
-						exact
-						path="/admin/animais-sinantropicos"
-						element={<AdminSynanthropicAnimals />}
-					/>
-					<Route
-						exact
-						path="/admin/comercio-local"
-						element={<AdminLocalTradeOffers />}
-					/>
+					<Route element={<AdminRoutes />}>
+						<Route exact path="/admin" element={<Dashboard />} />
+						<Route
+							exact
+							path="/todas_solicitacoes"
+							element={<AllRequests />}
+						/>
+						<Route
+							exact
+							path="/admin/associacao_comercial"
+							element={<AssociacaoComercialOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/comunicacao"
+							element={<ComunicacaoOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/animais_domesticos"
+							element={<AnimaisDomesticosOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/meio_ambiente"
+							element={<MeioAmbienteOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/fauna_flora"
+							element={<FaunaFloraOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/familias_carentes"
+							element={<FamiliasCarentesOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/controle_pragas"
+							element={<ControlePragasOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/administracao_publica"
+							element={<AdministracaoPublicaOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/sensoriamento_remoto"
+							element={<SensoriamentoRemotoOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/remocao_detritos"
+							element={<RemocaoDetritosOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/conservacao_rural"
+							element={<ConservacaoRuralOpcoesOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/vigilancia_sanitaria"
+							element={<VigilanciaSanitariaOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/seguranca_defesa_civil"
+							element={<SegurancaDefesaCivilOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/assistencia_social"
+							element={<AssistenciaSocialOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/servicos_sociais"
+							element={<ServicosSociaisOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/conservacao_urbana"
+							element={<ConservacaoUrbanaOpcoes />}
+						/>
+						<Route
+							exact
+							path="/admin/animais_abandonados"
+							element={<AdminAnimaisAbandonados />}
+						/>
+						<Route
+							exact
+							path="/admin/animais_perdidos"
+							element={<AdminAnimaisPerdidos />}
+						/>
+						<Route
+							exact
+							path="/admin/animais_mortos"
+							element={<AdminAnimaisMortos />}
+						/>
+						<Route
+							exact
+							path="/admin/residuos_solidos"
+							element={<AdminResiduosSolidos />}
+						/>
+						<Route
+							exact
+							path="/admin/adocao_animais"
+							element={<AdminAdocaoAnimais />}
+						/>
+						<Route
+							exact
+							path="/admin/adocao_areas_publicas"
+							element={<AdminAdocaoAreas />}
+						/>
+						<Route
+							exact
+							path="/admin/monitoramento"
+							element={<AdminMonitoramentoTempo />}
+						/>
+						<Route
+							exact
+							path="/admin/animais_silvestres"
+							element={<AdminAnimaisSilvestres />}
+						/>
+						<Route
+							exact
+							path="/admin/maus_tratos"
+							element={<AdminMausTratosAnimais />}
+						/>
+						<Route
+							exact
+							path="/admin/conheca_os_gestores"
+							element={<AdminGestores />}
+						/>
+						<Route
+							exact
+							path="/admin/noticias"
+							element={<AdminNoticias />}
+						/>
+						<Route
+							exact
+							path="/admin/telefones_uteis"
+							element={<AdminTelefones />}
+						/>
+						<Route
+							exact
+							path="/admin/locais_uteis"
+							element={<AdminLocaisUteis />}
+						/>
+						<Route
+							exact
+							path="/admin/tumulos"
+							element={<AdminTumulos />}
+						/>
+						<Route
+							exact
+							path="/admin/programacao_cultural"
+							element={<AdminProgramacaoCultural />}
+						/>
+						<Route
+							exact
+							path="/admin/parques"
+							element={<AdminParques />}
+						/>
+						<Route
+							exact
+							path="/admin/pontes_em_estradas_rurais"
+							element={<AdminPontes />}
+						/>
+						<Route
+							exact
+							path="/admin/pracas"
+							element={<AdminPracas />}
+						/>
+						<Route
+							exact
+							path="/admin/iluminacao_publica"
+							element={<AdminIluminacao />}
+						/>
+						<Route
+							exact
+							path="/admin/fiscalizacao_de_instalacoes"
+							element={<AdminInstalacoes />}
+						/>
+						<Route
+							exact
+							path="/admin/monumentos_e_chafarizes"
+							element={<AdminMonumentos />}
+						/>
+						<Route
+							exact
+							path="/admin/pavimentacao"
+							element={<AdminPavimentacao />}
+						/>
+						<Route
+							exact
+							path="/admin/vias_publicas"
+							element={<AdminVias />}
+						/>
+						<Route
+							exact
+							path="/admin/diaristas"
+							element={<AdminDiaristas />}
+						/>
+						<Route
+							exact
+							path="/admin/feiras_livres"
+							element={<AdminFeiras />}
+						/>
+						<Route
+							exact
+							path="/admin/limpeza_de_piscinas"
+							element={<AdminPiscinas />}
+						/>
+						<Route
+							exact
+							path="/admin/limpeza_de_terreno"
+							element={<AdminTerreno />}
+						/>
+						<Route
+							exact
+							path="/admin/restaurantes"
+							element={<AdminAmbienteIrregular />}
+						/>
+						<Route
+							exact
+							path="/admin/foco_de_escorpiao"
+							element={<AdminEscorpiao />}
+						/>
+						<Route
+							exact
+							path="/admin/insetos_roedores_caramujos"
+							element={<AdminPragas />}
+						/>
+						<Route
+							exact
+							path="/admin/leishmaniose"
+							element={<AdminLeishmaniose />}
+						/>
+						<Route
+							exact
+							path="/admin/radar_da_dengue"
+							element={<AdminDengue />}
+						/>
+						<Route
+							exact
+							path="/admin/registro_roubos"
+							element={<AdminTheftRegister />}
+						/>
+						<Route
+							exact
+							path="/admin/registro-acidentes"
+							element={<AdminAccidentRecords />}
+						/>
+						<Route
+							exact
+							path="/admin/violencia-domestica"
+							element={<AdminVictimsOfDomesticViolence />}
+						/>
+						<Route
+							exact
+							path="/admin/moradores_rua"
+							element={<AdminHomelessPeople />}
+						/>
+						<Route
+							exact
+							path="/admin/familias-carentes-list"
+							element={<AdminNeedyFamilies />}
+						/>
+						<Route
+							exact
+							path="/admin/descarte_solidario"
+							element={<AdminDescarteSolidario />}
+						/>
+						<Route
+							exact
+							path="/admin/arvores"
+							element={<AdminInformationAboutTrees />}
+						/>
+						<Route
+							exact
+							path="/admin/coleta-de-lixo"
+							element={<AdminRefuseCollection />}
+						/>
+						<Route
+							exact
+							path="/admin/consultar-propostas-de-leis"
+							element={<AdminProposedLegislation />}
+						/>
+						<Route
+							exact
+							path="/admin/central-anticorrupcao"
+							element={<AdminAntiCorruptionCenter />}
+						/>
+						<Route
+							exact
+							path="/admin/animais-sinantropicos"
+							element={<AdminSynanthropicAnimals />}
+						/>
+						<Route
+							exact
+							path="/admin/comercio-local"
+							element={<AdminLocalTradeOffers />}
+						/>
+						<Route
+							exact
+							path="/admin/botao_panico"
+							element={<AdminPanicButton />}
+						/>
+					</Route>
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 					<Route exact path="/login" element={<Login />} />
 					<Route exact path="/localizacao" element={<BaseMap />} />
