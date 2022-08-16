@@ -111,7 +111,10 @@ const AccidentRecords = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Conte-nos acima a natureza do acidente, e se possível relate se houve vítimas." />
+					<ServiceOrderInformation
+						srcaddress="accidentrecords"
+						descriptionHelperText="Conte-nos acima a natureza do acidente, e se possível relate se houve vítimas."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

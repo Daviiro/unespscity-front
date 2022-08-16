@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -13,9 +13,10 @@ import TimePicker from "@material-ui/lab/TimePicker";
 import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
 import { Typography } from "@mui/material";
+import LocalContext from "../../../../user-location/Context";
 
 const Modal = (props) => {
-	const [operating_days, setOperating_days] = useState({
+	const [operatingDays, setoperatingDays] = useState({
 		dom: false,
 		seg: false,
 		ter: false,
@@ -24,32 +25,20 @@ const Modal = (props) => {
 		sex: false,
 		sab: false,
 	});
-	const [newFair, setNewFair] = useState({});
 	const { open, locations, handleClose, handleAdd, clickedCoordinates } =
 		props;
 	const [title, setTitle] = useState("");
 	const handleTitleChange = (event) => {
 		setTitle(event.target.value);
 	};
+	const [formValues, setFormValues] = useContext(LocalContext);
 	const handleDayChange = (event) => {
 		const { name, checked } = event.target;
-		setOperating_days({
-			...operating_days,
+		setoperatingDays({
+			...operatingDays,
 			[name]: checked,
 		});
 	};
-	useEffect(() => {
-		console.log("valor do dia Domingo: " + operating_days.dom);
-		console.log("valor do dia Segundo: " + operating_days.seg);
-		console.log("valor do dia Terça: " + operating_days.ter);
-		console.log("valor do dia Quarta: " + operating_days.qua);
-		console.log("valor do dia Quinta: " + operating_days.qui);
-		console.log("valor do dia Sexta: " + operating_days.sex);
-		console.log("valor do dia Sábado: " + operating_days.sab);
-
-		console.log("Hora Inicio: ", openingHour);
-		console.log("Hora Fim: ", closingHour);
-	}, [operating_days]);
 
 	const current = new Date();
 	const FormatMonth = () => {
@@ -66,13 +55,6 @@ const Modal = (props) => {
 			return "-";
 		}
 	};
-	const [value, setValue] = useState(
-		new Date(
-			`${current.getFullYear()}${FormatMonth()}${
-				current.getMonth() + 1
-			}${FormatDay()}${current.getDate()}T00:00:00.000Z`
-		)
-	);
 	const [openingHour, setOpeningHour] = useState(
 		new Date(
 			`${current.getFullYear()}${FormatMonth()}${
@@ -109,11 +91,11 @@ const Modal = (props) => {
 				<div style={{ display: "flex", flexDirection: "row" }}>
 					<FormGroup aria-label="position" column>
 						<FormControlLabel
-							checked={operating_days.dom}
+							checked={operatingDays.dom}
 							control={
 								<Switch
 									name="dom"
-									checked={operating_days.dom}
+									checked={operatingDays.dom}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -124,7 +106,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="seg"
-									checked={operating_days.seg}
+									checked={operatingDays.seg}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -137,7 +119,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="ter"
-									checked={operating_days.ter}
+									checked={operatingDays.ter}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -148,7 +130,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="qua"
-									checked={operating_days.qua}
+									checked={operatingDays.qua}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -161,7 +143,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="qui"
-									checked={operating_days.qui}
+									checked={operatingDays.qui}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -172,7 +154,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="sex"
-									checked={operating_days.sex}
+									checked={operatingDays.sex}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -185,7 +167,7 @@ const Modal = (props) => {
 							control={
 								<Switch
 									name="sab"
-									checked={operating_days.sab}
+									checked={operatingDays.sab}
 									onChange={handleDayChange}
 									inputProps={{ "aria-label": "controlled" }}
 								/>
@@ -240,9 +222,10 @@ const Modal = (props) => {
 					onClick={() => {
 						handleAdd({
 							id: locations[locations.length - 1].id + 1,
+							cityid: formValues.city,
 							name: title,
 							imgsrc: "/assets/img/fair-icon.png",
-							operating_days: operating_days,
+							operatingDays: operatingDays,
 							location: {
 								lat: clickedCoordinates.lat,
 								lng: clickedCoordinates.lng,
