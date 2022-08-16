@@ -1,4 +1,4 @@
-const KEY = "AIzaSyCBl7GozNIP2nwPnR6km2q914gUX3sR8EY";
+const KEY = process.env.REACT_APP_GOOGLEMAPSAPIKEY;
 const BASE_URL = "https://maps.googleapis.com/maps/api";
 const responseToJson = (response) => response.json();
 

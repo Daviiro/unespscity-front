@@ -151,6 +151,7 @@ const AdminFeiras = () => {
 			})
 			.then((res) => {
 				console.log("feira adicionada: " + res.data.name);
+				handleGet();
 			});
 	};
 
@@ -161,13 +162,15 @@ const AdminFeiras = () => {
 					"Content-Type": "application/json; charset=UTF-8",
 					Accept: "Token",
 					"Access-Control-Allow-Origin": "*",
+					Authorization: "*",
 				},
 				params: {
 					id: id,
 				},
 			})
 			.then((res) => {
-				console.log("feira excluida com sucesso");
+				console.log("feira excluida com sucesso: ", res.data);
+				handleGet();
 			});
 	};
 
