@@ -25,11 +25,11 @@ const Map = () => {
 				lng: location.coords.longitude,
 			});
 		});
-	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez //
+	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez // //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
 	});
 
 	const [map, setMap] = React.useState(null);

@@ -221,7 +221,6 @@ const Modal = (props) => {
 				<Button
 					onClick={() => {
 						handleAdd({
-							id: locations[locations.length - 1].id + 1,
 							cityid: formValues.city,
 							name: title,
 							imgsrc: "/assets/img/fair-icon.png",

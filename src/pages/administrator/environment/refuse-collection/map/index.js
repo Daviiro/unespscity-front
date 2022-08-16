@@ -19,17 +19,21 @@ const Map = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
-	});
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
 	useEffect(() => {
-		fetchCityForID(formValues.city).then((city) => {
-			setCityName(city);
-		});
-		fetchLatLong(cityName).then((data) => {
-			setCenter({
-				lat: data.results[0].geometry.location.lat,
-				lng: data.results[0].geometry.location.lng,
-			});
-		});
+		if (formValues.city !== undefined) {
+			fetchCityForID(formValues.city).then((city) => {
+				setCityName(city);
+			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+			if (cityName != "") {
+				fetchLatLong(cityName).then((data) => {
+					setCenter({
+						lat: data.results[0].geometry.location.lat,
+						lng: data.results[0].geometry.location.lng,
+					});
+				});
+			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+		}
 	}, [cityName]);
 	const containerStyle = {
 		width: "100%",
@@ -37,7 +41,7 @@ const Map = (props) => {
 	};
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
 		libraries: ["places"],
 	});
 
