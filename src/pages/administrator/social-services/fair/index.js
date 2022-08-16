@@ -19,6 +19,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import FairsMap from "./fairs-map";
 import Modal from "./modal";
+import axios from "axios";
 
 const AdminFeiras = () => {
 	const [street, setStreet] = useState();
@@ -51,7 +52,7 @@ const AdminFeiras = () => {
 			id: 1,
 			name: "Feira 1",
 			imgsrc: "/assets/img/fair-icon.png",
-			operating_days: {
+			operatingDays: {
 				dom: true,
 				seg: false,
 				ter: false,
@@ -61,7 +62,7 @@ const AdminFeiras = () => {
 				sab: true,
 			},
 			location: {
-				lat: -22.131951,
+				lat: -22.2,
 				lng: -51.40933,
 			},
 			openingHour: new Date(),
@@ -71,7 +72,7 @@ const AdminFeiras = () => {
 			id: 2,
 			name: "Feira 2",
 			imgsrc: "/assets/img/fair-icon.png",
-			operating_days: {
+			operatingDays: {
 				dom: true,
 				seg: false,
 				ter: false,
@@ -99,6 +100,29 @@ const AdminFeiras = () => {
 		setLocations([...locations, fair]); //adiciono a nova feira no array
 		console.log(fair.openingHour);
 		setOpen(false);
+		console.log("antes de mandar: " + fair.cityid);
+
+		//testando a conexao com o backend
+		axios
+			.post("http://localhost:4000/api/fair", {
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8",
+					Accept: "Token",
+					"Access-Control-Allow-Origin": "*",
+				},
+				data: {
+					cityid: fair.cityid,
+					name: fair.name,
+					imgsrc: fair.imgsrc,
+					operatingDays: fair.operatingDays,
+					location: fair.location,
+					openingHour: fair.openingHour,
+					closingHour: fair.closingHour,
+				},
+			})
+			.then((res) => {
+				console.log("feira adicionada: " + res.data.name);
+			});
 	};
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
@@ -144,74 +168,6 @@ const AdminFeiras = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{/**
-					 * <AddFair>
-						<Stack spacing={2} direction="row">
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Rua"
-								variant="outlined"
-								value={street}
-								onChange={handleStreetChange}
-							/>
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Bairro"
-								variant="outlined"
-								value={district}
-								onChange={handleDistrictChange}
-							/>
-						</Stack>
-						<br />
-						<Stack spacing={2} direction="row">
-							<Input
-								title="Dia / Horario:"
-								placeholder="Exemplo: Sexta - 6h15 às 12h"
-							/>
-						</Stack>
-						<br />
-						<Stack spacing={2} direction="row">
-							<TextField
-								fullWidth
-								id="outlined-basic"
-								label="Descrição"
-								variant="outlined"
-								multiline
-								rows={5}
-								value={description}
-								onChange={handleDescriptionChange}
-							/>
-						</Stack>
-						<br />
-						<Button fullWidth variant="contained">
-							+ Adicionar feira
-						</Button>
-					</AddFair>
-					<br />
-					<Details>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-					</Details>
-					<br />
-					 */}
 					<FairsMap
 						locations={locations}
 						icon="/assets/img/fair-icon.png"

@@ -1,4 +1,4 @@
-const KEY = "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8";
+const KEY = "AIzaSyCBl7GozNIP2nwPnR6km2q914gUX3sR8EY";
 const BASE_URL = "https://maps.googleapis.com/maps/api";
 const responseToJson = (response) => response.json();
 
