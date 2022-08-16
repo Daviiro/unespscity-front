@@ -52,8 +52,9 @@ const Map = (props) => {
 	const originRef = useRef();
 	const destinationRef = useRef();
 
-	async function calculateRoute() {
+	async function calculateRoute(e) {
 		console.log("TESTE" + destinationRef.current.value);
+		e.preventDefault();
 		if (
 			originRef.current.value === "" ||
 			destinationRef.current.value === ""

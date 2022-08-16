@@ -37,7 +37,7 @@ const Map = (props) => {
 	};
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyBQ7EzutsOQVslr8TE5Zh2s5XKK50Q4Oo8",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
 		libraries: ["places"],
 	});
 
