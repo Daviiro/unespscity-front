@@ -46,16 +46,14 @@ export default function useAuth() {
       });
       const { data } = response.data;
 
-      console.log(data)
-      /* setUser({
-        name,
-        email,
-        roles, 
-        photo, 
-        events
-      }) */
-
-      setUser(data);
+      setUser({
+        userId: data.id,
+        name: data.name,
+        email: data.email,
+        isAdmin: data.isAdmin, 
+        panicButton: data.panicButton, 
+        cityId: data.cityId
+      })
 
       /* localStorage.setItem('@unespscity/token', token);
       api.defaults.headers.Authorization = `Bearer ${token}`;

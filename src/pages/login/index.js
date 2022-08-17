@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "../../components/styled-components/form-button";
 import { Context } from "../../context/Auth/AuthContext";
+import { api } from '../../services/api';
 
 import {
 	ContainerBase,
@@ -27,7 +28,6 @@ const Login = () => {
 
     async function handleSubmitLogin(e) {
         e.preventDefault();
-
         const data = {
             email, 
             password
@@ -39,7 +39,8 @@ const Login = () => {
 
 	async function handleSubmitRegister(e) {
         e.preventDefault();
-        navigate('/');
+		api.post('/cidadao');
+        navigate('/');	
     }
 
 	useEffect(() => {
