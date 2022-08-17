@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
@@ -13,6 +14,21 @@ import {
 import Typography from "@mui/material/Typography";
 
 const AdminTumulos = () => {
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/tumulos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -63,18 +79,18 @@ const AdminTumulos = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<AdminListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome do Falecido"
-						sobrenome="Cemitério x, Túmulo y"
-						descricao="Falecido em xx/yy/zzzz."
-					/>
-					<AdminListCard
-						source="/assets/img/home_assistencia_social.png"
-						nome="Nome do Falecido"
-						sobrenome="Cemitério x, Túmulo y"
-						descricao="Falecido em xx/yy/zzzz."
-					/>
+					{
+						problems.map((problem) => (
+							<AdminListCard
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.userId}
+							/>
+						))
+					}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

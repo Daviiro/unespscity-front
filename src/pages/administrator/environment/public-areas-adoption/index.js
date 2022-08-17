@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -13,9 +14,20 @@ import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
 
 const AdminAdocaoAreas = () => {
-	const [nome, setName] = useState([]);
-	const [sobrenome, setSurname] = useState([]);
-	const [descricao, setDescription] = useState([]);
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/public_area_adoption');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
 
 	return (
 		<>
@@ -57,42 +69,18 @@ const AdminAdocaoAreas = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Disponível"
-						/>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Disponível"
-						/>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Disponível"
-						/>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Disponível"
-						/>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Adotado"
-						/>
-						<AdminListCard
-							source="/assets/img/meio_ambiente.png"
-							nome="[Nome]"
-							sobrenome="[localização]"
-							descricao="status: Adotado"
-						/>
+						{
+							problems.map((problem) => (
+								<AdminListCard
+									source={problem.images}
+									nome={problem.street}
+									sobrenome={problem.referencePoint}
+									descricao={problem.description}
+									report={true}
+									userId={problem.userId}
+								/>
+							))
+						}
 					</MidContentContainer>
 				</ContentContainer>
 				<Footer />

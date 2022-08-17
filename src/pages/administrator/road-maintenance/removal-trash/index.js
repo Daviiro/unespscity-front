@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -12,7 +13,22 @@ import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
 import Typography from "@mui/material/Typography";
 
-const AdminAnimaisMortos = () => {
+const AdminResiduosSolidos = () => {
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -48,35 +64,22 @@ const AdminAnimaisMortos = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							click="showDeleteConfirm"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
-						<AdminListCard
-							source="/assets/img/home_assistencia_social.png"
-							nome="Nome"
-							sobrenome="Telefone"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						/>
+						{
+							problems.map((problem) => (
+								<AdminListCard
+									source={problem.images}
+									nome={problem.street}
+									sobrenome={problem.referencePoint}
+									descricao={problem.description}
+									report={true}
+									userId={problem.userId}
+								/>
+							))
+						}
 					</MidContentContainer>
 				</ContentContainer>
 			<Footer />
 		</ContainerBase>
 	);
 };
-export default AdminAnimaisMortos;
+export default AdminResiduosSolidos;

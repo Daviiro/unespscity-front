@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import MiniCard from "../../../../components/mini-card";
 import {
 	ContainerBase,
@@ -12,34 +14,20 @@ import AdminListCard from "../../../../components/card-list-admin";
 import Typography from "@mui/material/Typography";
 
 const AdminSynanthropicAnimals = () => {
-	const mockupData = [
-		{
-			id: 1,
-			street: "Rua São Joaquim",
-			streetNumber: 189,
-			referencePoint: "Veterinario Barbosa",
-			latitude: 121223,
-			longitude: 123213,
-			description:
-				"animal da raca tal cor tal foi visto sendo mal tratado por tal",
-			images: "",
-			isResolved: false,
-			date: Date,
-		},
-		{
-			id: 2,
-			street: "Rua Maracanã",
-			streetNumber: 981,
-			referencePoint: "Veterinario Franciso",
-			latitude: 121223,
-			longitude: 123213,
-			description:
-				"animal da raca tal cor tal foi visto sendo mal tratado por tal",
-			images: "",
-			isResolved: true,
-			date: Date,
-		},
-	];
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/animais_sinantropicos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
 
 	return (
 		<ContainerBase>
@@ -86,14 +74,18 @@ const AdminSynanthropicAnimals = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{mockupData.map((data) => (
-						<AdminListCard
-							source="/assets/img/home_animais_domesticos.png"
-							nome={data.street + ", " + data.streetNumber}
-							sobrenome={data.referencePoint}
-							descricao={data.description}
-						/>
-					))}
+					{
+						problems.map((problem) => (
+							<AdminListCard
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.userId}
+							/>
+						))
+					}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

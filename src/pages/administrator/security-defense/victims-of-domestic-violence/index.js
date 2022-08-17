@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -14,6 +15,21 @@ import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 
 const AdminVictimsOfDomesticViolence = () => {
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -48,7 +64,7 @@ const AdminVictimsOfDomesticViolence = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
+							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU	
 						</DescriptionText>
 					</div>
 					<div></div>
