@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -11,7 +12,6 @@ import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
-import { api } from "../../../../services/api";
 
 const AdminIluminacao = () => {
 	const [problems, setProblems] = useState([]);

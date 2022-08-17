@@ -11,8 +11,6 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import { AiOutlineStar } from "react-icons/ai";
-import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 
 const AdminTheftRegister = () => {

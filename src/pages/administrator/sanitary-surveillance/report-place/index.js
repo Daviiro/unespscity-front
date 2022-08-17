@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -13,6 +14,21 @@ import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 
 const Restaurante = () => {
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [problems]);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -52,41 +68,18 @@ const Restaurante = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						<AdminListCard
-							source="/assets/img/home_fauna_flora.png"
-							nome="Denúncia de Comércio Ilegal"
-							sobrenome="[localização]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							report={true}
-						/>
-						<AdminListCard
-							source="/assets/img/home_fauna_flora.png"
-							nome="Ocorrência de animal silvestre preso/perdido/em cativeiro"
-							sobrenome="[localização]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							report={true}
-						/>
-						<AdminListCard
-							source="/assets/img/home_fauna_flora.png"
-							nome="Ocorrência de animal silvestre causando perturbação pública"
-							sobrenome="[localização]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							report={true}
-						/>
-						<AdminListCard
-							source="/assets/img/home_fauna_flora.png"
-							nome="Denúncia de Comércio Ilegal"
-							sobrenome="[localização]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							report={true}
-						/>
-						<AdminListCard
-							source="/assets/img/home_fauna_flora.png"
-							nome="Ocorrência de animal silvestre preso/perdido/em cativeiro"
-							sobrenome="[localização]"
-							descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-							report={true}
-						/>
+						{
+							problems.map((problem) => (
+								<AdminListCard
+									source={problem.images}
+									nome={problem.street}
+									sobrenome={problem.referencePoint}
+									descricao={problem.description}
+									report={true}
+									userId={problem.userId}
+								/>
+							))
+						}
 					</MidContentContainer>
 				</ContentContainer>
 			<Footer />
