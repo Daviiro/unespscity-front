@@ -161,6 +161,7 @@ import PanicButton from "./pages/panic-button";
 import AdminPanicButton from "./pages/administrator/panic-button";
 import Notifications from "./pages/notifications";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
+import AdminGuardian from "./pages/administrator/remote-sensing/guardian-monitoring";
 
 const AppRoutes = () => {
 	const [formValues, setFormValues] = useState({});
@@ -185,7 +186,7 @@ const AppRoutes = () => {
 						path="/"
 						element={
 							formValues.state === undefined ||
-								formValues.city === undefined ? (
+							formValues.city === undefined ? (
 								<Navigate to="/location" />
 							) : (
 								<Home data={favoritesData} />
@@ -503,6 +504,11 @@ const AppRoutes = () => {
 							exact
 							path="/admin/botao_panico"
 							element={<AdminPanicButton />}
+						/>
+						<Route
+							exact
+							path="/admin/monitoramento-guardinha"
+							element={<AdminGuardian />}
 						/>
 					</Route>
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
