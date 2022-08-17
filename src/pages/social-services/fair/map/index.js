@@ -46,6 +46,11 @@ const FairsMap = (props) => {
 		setSelected(item);
 	};
 
+	const dateFormater = (oldDate) => {
+		const newDate = new Date(oldDate);
+		return newDate.getHours();
+	};
+
 	return isLoaded ? (
 		<GoogleMap
 			mapContainerStyle={containerStyle}
@@ -55,7 +60,7 @@ const FairsMap = (props) => {
 		>
 			{props.locations.map((location) => (
 				<MarkerF
-					key={location.id}
+					key={location._id}
 					position={location.location}
 					onClick={() => onSelect(location)}
 					icon={{
@@ -81,37 +86,37 @@ const FairsMap = (props) => {
 							/>
 
 							<Typography variant="body2">Dias:</Typography>
-							{selected.operating_days.dom ? (
+							{selected.operatingDays.dom ? (
 								<Typography variant="body2">Domingo</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.seg ? (
+							{selected.operatingDays.seg ? (
 								<Typography variant="body2">Segunda</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.ter ? (
+							{selected.operatingDays.ter ? (
 								<Typography variant="body2">Terça</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.qua ? (
+							{selected.operatingDays.qua ? (
 								<Typography variant="body2">Quarta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.qui ? (
+							{selected.operatingDays.qui ? (
 								<Typography variant="body2">Quinta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.sex ? (
+							{selected.operatingDays.sex ? (
 								<Typography variant="body2">Sexta</Typography>
 							) : (
 								<></>
 							)}
-							{selected.operating_days.sab ? (
+							{selected.operatingDays.sab ? (
 								<Typography variant="body2">Sabádo</Typography>
 							) : (
 								<></>
@@ -119,8 +124,8 @@ const FairsMap = (props) => {
 						</div>
 
 						<Typography variant="body2">
-							Horário: {selected.operating_time.open}h00 às{" "}
-							{selected.operating_time.close}h00
+							Horário: {dateFormater(selected.openingHour)}h00 às{" "}
+							{dateFormater(selected.closingHour)}h00
 						</Typography>
 					</InfoWindowContainer>
 				</InfoWindow>

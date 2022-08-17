@@ -9,6 +9,7 @@ import Map from "./Map";
 import GrayLine from "../../styled-components/gray-line";
 import InputPhotos from "../../images-input";
 import axios from "axios";
+import { api } from "../../../services/api";
 
 const ServiceOrderInformation = (props) => {
 	const { srcaddress } = props;
@@ -31,37 +32,31 @@ const ServiceOrderInformation = (props) => {
 		//console.log("referencePoint " + referencePoint);
 		//console.log("description " + description);
 
-		/*
-		axios
-			.post(`http://localhost:4000/api/${srcaddress}`, {
-				headers: {
-					"Content-Type": "multipart/form-data; charset=UTF-8",
-					Accept: "Token",
-					"Access-Control-Allow-Origin": "*",
-				},
-				data: formData,
-			})
-			.then((res) => {
-				console.log("form foi enviado: " + res.data);
-			});
-			
-
-		
-		const config = { headers: { "Content-Type": "multipart/form-data" } };
-		axios
-			.post(`http://localhost:4000/api/${srcaddress}`, formData, config)
+		const res = api
+			.post(
+				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/upload/${srcaddress}`,
+				{
+					data: {
+						/*coloque aqui os dados que quer mandar na requisicao */
+					},
+				}
+			)
 			.then((response) => console.log(response))
-			.catch((errors) => console.log(errors));*/
+			.catch((e) => {
+				console.log(e);
+			});
+		console.log("Dados Enviados: ", res);
 
+		/*
 		const res = axios
-			.post(`http://localhost:4000/api/upload/${srcaddress}`, {
+			.post(`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/upload/${srcaddress}`, {
 				headers: {
 					"Content-Type": "application/json; charset=UTF-8",
 					Accept: "Token",
 					"Access-Control-Allow-Origin": "*",
 				},
 				data: {
-					/*coloque aqui os dados que quer mandar na requisicao */
+					//coloque aqui os dados que quer mandar na requisicao//
 				},
 			})
 			.then((response) => console.log(response))
@@ -69,6 +64,7 @@ const ServiceOrderInformation = (props) => {
 				console.log(e);
 			});
 		console.log(res);
+		*/
 
 		alert(`Forms foi enviado`);
 		event.preventDefault();

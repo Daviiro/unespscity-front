@@ -102,14 +102,17 @@ const AdminInformationAboutTrees = () => {
 	const handleGet = async () => {
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 		//console.log(formValues.city);
-		let fairdata;
+
 		try {
 			await axios
-				.get("http://localhost:4000/api/informationabouttrees/cityid", {
-					params: {
-						cityid: data.city,
-					},
-				})
+				.get(
+					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees/cityid`,
+					{
+						params: {
+							cityid: data.city,
+						},
+					}
+				)
 				.then((res) => {
 					setLocations(res.data);
 
@@ -130,12 +133,63 @@ const AdminInformationAboutTrees = () => {
 		setLocations([...locations, tree]); //adiciono a nova arvore no array
 		//console.log(locations);
 		setOpen(false);
+		console.log(
+			"Arvore: " +
+				tree.name +
+				" Cidade: " +
+				tree.cityid +
+				" img: " +
+				tree.imgsrc +
+				" specie: " +
+				tree.specie +
+				" idade: " +
+				tree.age +
+				"location: " +
+				tree.location
+		);
+
+		axios.post(
+			`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
+			{
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8",
+					Accept: "Token",
+					"Access-Control-Allow-Origin": "*",
+					Authorization: "*",
+				},
+				data: {
+					cityid: tree.cityid,
+					userid: tree.userid,
+					name: tree.name,
+					imgsrc: tree.imgsrc,
+					specie: tree.specie,
+					age: tree.age,
+					location: tree.location,
+				},
+			}
+		);
 	};
 
-	const handleDelete = (tree) => {
-		console.log(
-			"quero deletar a arvore id: " + tree.id + " nome: " + tree.name
-		);
+	const handleDelete = (id) => {
+		axios
+			.delete(
+				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
+				{
+					headers: {
+						"Content-Type": "application/json; charset=UTF-8",
+						Accept: "Token",
+						"Access-Control-Allow-Origin": "*",
+						Authorization: "*",
+					},
+					params: {
+						id: id,
+					},
+				}
+			)
+			.then((res) => {
+				console.log("feira excluida com sucesso: ", res.data);
+				handleGet();
+			});
 	};
 
 	if (isLoading) {

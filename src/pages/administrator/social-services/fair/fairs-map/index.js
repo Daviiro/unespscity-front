@@ -47,7 +47,7 @@ const FairsMap = (props) => {
 		setSelected(item);
 	};
 
-	const [delFlag, setDelFlag] = useState(false);
+	//const [delFlag, setDelFlag] = useState(false);
 
 	const dateFormater = (oldDate) => {
 		const newDate = new Date(oldDate);
@@ -80,7 +80,7 @@ const FairsMap = (props) => {
 					/>
 				))}
 
-			{selected.location && !delFlag && (
+			{selected.location && (
 				<InfoWindow
 					position={selected.location}
 					clickable={true}
@@ -147,7 +147,7 @@ const FairsMap = (props) => {
 							fulldwith
 							onClick={() => {
 								props.handleDel(selected._id);
-								setDelFlag(true);
+								//setDelFlag(true);
 							}}
 						>
 							Deletar

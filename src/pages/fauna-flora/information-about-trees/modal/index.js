@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -6,6 +6,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
+import LocalContext from "../../../user-location/Context";
 
 const TreesModal = (props) => {
 	//modal para adicao de uma nova arvore
@@ -23,6 +24,7 @@ const TreesModal = (props) => {
 	const handleSpecieChange = (event) => {
 		setSpecie(event.target.value);
 	};
+	const [formValues, setFormValues] = useContext(LocalContext);
 
 	return (
 		<Dialog open={open} onClose={handleClose}>
@@ -69,7 +71,8 @@ const TreesModal = (props) => {
 				<Button
 					onClick={() =>
 						handleAdd({
-							id: locations[locations.length - 1].id + 1,
+							cityid: formValues.city,
+							userid: 777,
 							name: title,
 							imgsrc: "/assets/img/default-tree.png",
 							specie: specie,
