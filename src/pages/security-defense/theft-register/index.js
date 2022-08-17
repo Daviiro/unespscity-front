@@ -110,7 +110,10 @@ const TheftRegister = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde você foi furtado e o que você perdeu." />
+					<ServiceOrderInformation
+						srcaddress="theftregister"
+						descriptionHelperText="Descreva com detalhes o local onde você foi furtado e o que você perdeu."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

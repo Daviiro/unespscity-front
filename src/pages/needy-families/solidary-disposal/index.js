@@ -118,7 +118,10 @@ const DescarteSolidario = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<SolidaryDisposal descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal." />
+					<SolidaryDisposal
+						srcaddress="solidarydisposal"
+						descriptionHelperText="Por favor, informe-nos acima a natureza dos itens a serem descartados. Nos ajudará a acionar o órgão ideal."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

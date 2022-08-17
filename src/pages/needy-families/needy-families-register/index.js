@@ -111,7 +111,10 @@ const NeedyFamiliesRegister = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre quais necessidades tal familía está passando." />
+					<ServiceOrderInformation
+						srcaddress="needyfamilies"
+						descriptionHelperText="Conte-nos em detalhes sobre quais necessidades tal familía está passando."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

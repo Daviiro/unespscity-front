@@ -20,7 +20,7 @@ const ServiceOrderInformation = (props) => {
 	const [Location, setLocation] = useState(!approximateLocation);
 	const [houseNumber, setHouseNumber] = useState(0);
 	const [street, setStreet] = useState("");
-	const [referencePoint, setReferencePoint] = useState("");
+	const [referencePoint, setReferencePoint] = useState("-");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
 

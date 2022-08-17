@@ -184,7 +184,10 @@ const AnimaisSilvestres = (props) => {
 						<Button text="Enviar" />
 					</Details>
 						 */}
-					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado (case se trata de um animal selvagem/silvestre causando perturbação pública, animal silvestre preso em cativeiro ou comércio ilegal de animais), descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
+					<ServiceOrderInformation
+						srcaddress="wildanimals"
+						descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado (case se trata de um animal selvagem/silvestre causando perturbação pública, animal silvestre preso em cativeiro ou comércio ilegal de animais), descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

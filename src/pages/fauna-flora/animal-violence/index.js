@@ -158,7 +158,10 @@ const MausTratosAnimais = (props) => {
 						<InputPhotos />
 						<Button text="Enviar" />
 					</Details>*/}
-					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
+					<ServiceOrderInformation
+						srcaddress="animalviolence"
+						descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
