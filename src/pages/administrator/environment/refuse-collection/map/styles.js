@@ -16,7 +16,7 @@ export const DirectionsContainer = styled.div`
 	display: flex;
 	align-items: center;
 	background-color: #ffffff;
-	height: 40%;
+	height: 60%;
 	width: 250px;
 	z-index: 1;
 `;
