@@ -102,7 +102,7 @@ const AdminFeiras = () => {
 
 	const handleGet = async () => {
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
-		console.log(formValues.city);
+		//console.log(formValues.city);
 		let fairdata;
 		try {
 			await axios

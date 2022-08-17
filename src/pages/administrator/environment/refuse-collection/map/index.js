@@ -47,10 +47,22 @@ const Map = (props) => {
 
 	const [map, setMap] = useState(null);
 	const [directionsResponse, setDirectionsResponse] = useState(null);
+
+	const [directionsResponseList, setDirectionsResponseList] = useState([]);
+
 	const [distance, setDistance] = useState("");
 	const [duration, setDuration] = useState("");
 	const originRef = useRef();
 	const destinationRef = useRef();
+
+	const handleAddRoute = () => {
+		if (directionsResponse != null) {
+			setDirectionsResponseList([
+				...directionsResponseList,
+				directionsResponse,
+			]);
+		}
+	};
 
 	async function calculateRoute(e) {
 		console.log("TESTE" + destinationRef.current.value);
@@ -98,12 +110,14 @@ const Map = (props) => {
 				onLoad={(map) => setMap(map)}
 			>
 				<Marker position={center} />
+
 				{directionsResponse && (
 					<DirectionsRenderer
 						directions={directionsResponse}
 						options={{ draggable: true }}
 					/>
 				)}
+
 				{/*{props.routes.map((route) => (
 				<h1>tste</h1>
 			))}*/}
@@ -131,6 +145,15 @@ const Map = (props) => {
 					</Button>
 					<MdClear size={35} onClick={clearRoute} />
 				</ButtonGroup>
+				<br />
+				<Button
+					fullwidth
+					variant="contained"
+					type="submit"
+					onClick={handleAddRoute}
+				>
+					Adicionar Rota
+				</Button>
 			</DirectionsContainer>
 		</Container>
 	) : (

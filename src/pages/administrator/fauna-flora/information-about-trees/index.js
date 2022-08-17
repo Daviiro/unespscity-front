@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -13,8 +13,10 @@ import TreesModal from "../../../fauna-flora/information-about-trees/modal";
 import TreesMap from "./map";
 import Footer from "../../../../components/footer";
 import LocalContext from "../../../user-location/Context";
+import axios from "axios";
 
 const AdminInformationAboutTrees = () => {
+	const [isLoading, setLoading] = useState(true);
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
 		lng: 0,
@@ -96,6 +98,32 @@ const AdminInformationAboutTrees = () => {
 		setClickedCoordinates(coords);
 		handleClickOpen();
 	};
+
+	const handleGet = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		//console.log(formValues.city);
+		let fairdata;
+		try {
+			await axios
+				.get("http://localhost:4000/api/informationabouttrees/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
+				.then((res) => {
+					setLocations(res.data);
+
+					console.log(res.data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	useEffect(() => {
+		handleGet();
+	}, []);
+
 	const handleAdd = (tree) => {
 		//console.log(locations);
 		//console.log(tree);
@@ -109,6 +137,10 @@ const AdminInformationAboutTrees = () => {
 			"quero deletar a arvore id: " + tree.id + " nome: " + tree.name
 		);
 	};
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<ContainerBase>
