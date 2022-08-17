@@ -44,8 +44,9 @@ export default function useAuth() {
         email,
         password
       });
-      const data = response.data.data.data;
-      console.log(response)
+      const { data } = response.data.data;
+      const status = response.status;
+
       setUser({
         userId: data.id,
         name: data.name,
@@ -54,6 +55,8 @@ export default function useAuth() {
         panicButton: data.panicButton,
         cityId: data.cityId
       })
+
+      return status; 
 
       /* localStorage.setItem('@unespscity/token', token);
       api.defaults.headers.Authorization = `Bearer ${token}`;

@@ -51,11 +51,11 @@ const AdminHomelessPeople = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Registro de Familias Carentes
+								Moradores de Rua
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU
+							Aqui temos a lista dos moradores de rua, as informações sobre eles e o historico. 
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -87,27 +87,6 @@ const AdminHomelessPeople = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
 					<ListCard
 						source="/assets/img/home_animais_domesticos.png"
 						nome="[última vez visto]"
