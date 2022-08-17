@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 const Login = () => {
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState("");
@@ -26,22 +26,25 @@ const Login = () => {
 	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
 	const { handleLogin } = useContext(Context);
 
-    async function handleSubmitLogin(e) {
-        e.preventDefault();
-        const data = {
-            email, 
-            password
-        }
+	async function handleSubmitLogin(e) {
+		e.preventDefault();
+		const data = {
+			email,
+			password
+		}
 
-        await handleLogin(data);
-        navigate('/');
-    }
+		const status = await handleLogin(data);
+		console.log(status)
+		if (status === 200) {
+			navigate('/');
+		}
+	}
 
 	async function handleSubmitRegister(e) {
-        e.preventDefault();
+		e.preventDefault();
 		api.post('/cidadao');
-        navigate('/');	
-    }
+		navigate('/');
+	}
 
 	useEffect(() => {
 		if (toggle) {
@@ -84,7 +87,7 @@ const Login = () => {
 					<GrayLine />
 					<MidContainer>
 						{toggle ? (
-							<Form  onSubmit={handleSubmitLogin}>
+							<Form onSubmit={handleSubmitLogin}>
 								<TextField
 									fullWidth
 									id="outlined-basic"
@@ -106,7 +109,7 @@ const Login = () => {
 								<Button text="Entrar" />
 							</Form>
 						) : (
-							<Form  onSubmit={handleSubmitRegister}>
+							<Form onSubmit={handleSubmitRegister}>
 								<TextField
 									fullWidth
 									id="outlined-basic"
