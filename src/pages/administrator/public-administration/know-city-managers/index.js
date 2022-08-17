@@ -21,7 +21,10 @@ import Typography from "@mui/material/Typography";
 
 const AdminGestores = () => {
 	const [problems, setProblems] = useState([]);
-
+	const [name, setName] = useState("");
+	const [cargo, setCargo] = useState("");
+	const [description, setDescription] = useState("");
+	
 	useEffect(() => {
 		async function getProblems() {
 			try {
