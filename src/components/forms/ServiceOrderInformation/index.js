@@ -1,15 +1,17 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Container } from "./styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../../pages/user-location/Context";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import Map from "./Map";
 import GrayLine from "../../styled-components/gray-line";
 import InputPhotos from "../../images-input";
 import axios from "axios";
 import { api } from "../../../services/api";
+import { fetchLocation } from "../../../services/GoogleMaps";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { Circle } from "@react-google-maps/api";
 
 const ServiceOrderInformation = (props) => {
 	const { srcaddress } = props;
@@ -21,6 +23,51 @@ const ServiceOrderInformation = (props) => {
 	const [referencePoint, setReferencePoint] = useState("");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
+
+	const containerStyle = {
+		width: "100%",
+		height: "500px",
+	};
+	const [center, setCenter] = useState({ lat: 0, lng: 0 });
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition((location) => {
+			fetchLocation(
+				location.coords.latitude,
+				location.coords.longitude
+			).then((data) => {
+				console.log("localizacao abaixo");
+				console.log(data);
+			});
+			setCenter({
+				lat: location.coords.latitude,
+				lng: location.coords.longitude,
+			});
+		});
+	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez // //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+	});
+	const [map, setMap] = useState(null);
+	const options = {
+		strokeColor: "#FF0000",
+		strokeOpacity: 1,
+		strokeWeight: 1.5,
+		fillColor: "#FF0000",
+		fillOpacity: 0.25,
+		clickable: false,
+		draggable: false,
+		editable: false,
+		visible: true,
+		radius: 100,
+		zIndex: 1,
+	};
+	const onLoad = (circle) => {
+		console.log("Circle onLoad circle: ", circle);
+	};
+	const onUnmount = (circle) => {
+		console.log("Circle onUnmount circle: ", circle);
+	};
 
 	const handleSubmit = (event) => {
 		//alert("Um nome foi enviado: " + this.state.value);
@@ -38,6 +85,15 @@ const ServiceOrderInformation = (props) => {
 				{
 					data: {
 						/*coloque aqui os dados que quer mandar na requisicao */
+						cityid: formValues.city,
+						userid: 777,
+						street: street,
+						streetNumber: houseNumber,
+						referencePoint: referencePoint,
+						latitude: center.lat,
+						longitude: center.lng,
+						description: description,
+						images: ["algoaqui", "outroaqui"],
 					},
 				}
 			)
@@ -46,25 +102,6 @@ const ServiceOrderInformation = (props) => {
 				console.log(e);
 			});
 		console.log("Dados Enviados: ", res);
-
-		/*
-		const res = axios
-			.post(`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/upload/${srcaddress}`, {
-				headers: {
-					"Content-Type": "application/json; charset=UTF-8",
-					Accept: "Token",
-					"Access-Control-Allow-Origin": "*",
-				},
-				data: {
-					//coloque aqui os dados que quer mandar na requisicao//
-				},
-			})
-			.then((response) => console.log(response))
-			.catch((e) => {
-				console.log(e);
-			});
-		console.log(res);
-		*/
 
 		alert(`Forms foi enviado`);
 		event.preventDefault();
@@ -85,10 +122,31 @@ const ServiceOrderInformation = (props) => {
 						Usar Localização Aproximada
 					</Button>
 				</div>
-				{approximateLocation && (
+				{approximateLocation && isLoaded && (
 					<>
 						<div className="centered-content">
-							<Map />
+							(
+							<GoogleMap
+								mapContainerStyle={containerStyle}
+								center={center}
+								radius={100}
+								zoom={15}
+								onLoad={onLoad}
+								onUnmount={onUnmount}
+							>
+								<Circle
+									// optional
+									onLoad={onLoad}
+									// optional
+									onUnmount={onUnmount}
+									// required
+									center={center}
+									// required
+									options={options}
+								/>
+								<></>
+							</GoogleMap>
+							)
 						</div>
 
 						<div className="inputs">
