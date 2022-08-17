@@ -44,14 +44,14 @@ export default function useAuth() {
         email,
         password
       });
-      const { data } = response.data;
-
+      const data = response.data.data.data;
+      console.log(response)
       setUser({
         userId: data.id,
         name: data.name,
         email: data.email,
-        isAdmin: data.isAdmin, 
-        panicButton: data.panicButton, 
+        isAdmin: data.isAdmin,
+        panicButton: data.panicButton,
         cityId: data.cityId
       })
 

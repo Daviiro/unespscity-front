@@ -6,11 +6,14 @@ import ChartHome from "./chart";
 import Footer from "../../components/footer";
 import LocalContext from "../user-location/Context";
 import Favorites from "../../components/favorites";
+import { Context } from "../../context/Auth/AuthContext";
 
 const Home = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [panicButtonIsActive, setPanicButtonIsActive] = useState(true);
+	const { user } = useContext(Context);
 
+	console.log(user);
 	return (
 		<>
 			<ContainerBase>
