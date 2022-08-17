@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Details, AddFair } from "./styles";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
-import Input from "../../../../components/input";
 import AdminListCard from "../../../../components/card-list-admin";
 import Typography from "@mui/material/Typography";
 import {
@@ -13,42 +11,12 @@ import {
 	DescriptionText,
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
-import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import FairsMap from "./fairs-map";
 import Modal from "./modal";
 import axios from "axios";
-import LocalContext from "../../../user-location/Context";
 
 const AdminFeiras = () => {
 	const [isLoading, setLoading] = useState(true);
-	const [formValues, setFormValues] = useContext(LocalContext);
-	const [street, setStreet] = useState();
-	const [district, setDistrict] = useState();
-	const [description, setDescription] = useState();
-	const handleStreetChange = (event) => {
-		setStreet(event.target.value);
-	};
-	const handleDistrictChange = (event) => {
-		setDistrict(event.target.value);
-	};
-	const handleDescriptionChange = (event) => {
-		setDescription(event.target.value);
-	};
-
-	/*
-	const feirasDadoMockup = [
-		{
-			street: "esplanada",
-			district: "Washington Luiz",
-			operatingDay: [
-				{ dia: "monday", horaInicio: 14, horaFim: 18 },
-				{ dia: "tuesday", horaInicio: 14, horaFim: 18 },
-			],
-			description: "EH uma feira com pastel muito gostoso",
-		},
-	];*/
 
 	const [locations, setLocations] = useState([
 		{
@@ -71,26 +39,6 @@ const AdminFeiras = () => {
 			openingHour: new Date(),
 			closingHour: new Date(),
 		},
-		{
-			_id: "2",
-			name: "Feira 2",
-			imgsrc: "/assets/img/fair-icon.png",
-			operatingDays: {
-				dom: true,
-				seg: false,
-				ter: false,
-				qua: false,
-				qui: false,
-				sex: false,
-				sab: true,
-			},
-			location: {
-				lat: -22.131951,
-				lng: -51.40933,
-			},
-			openingHour: new Date(),
-			closingHour: new Date(),
-		},
 	]);
 	const [open, setOpen] = useState(false);
 	const handleClickOpen = () => {
@@ -103,14 +51,17 @@ const AdminFeiras = () => {
 	const handleGet = async () => {
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 		//console.log(formValues.city);
-		let fairdata;
+		console.log(process.env.REACT_APP_GOOGLEMAPSAPIKEY);
 		try {
 			await axios
-				.get("http://localhost:4000/api/fair/cityid", {
-					params: {
-						cityid: data.city,
-					},
-				})
+				.get(
+					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair/cityid`,
+					{
+						params: {
+							cityid: data.city,
+						},
+					}
+				)
 				.then((res) => {
 					setLocations(res.data);
 					console.log("fdkhfalkha");
@@ -130,25 +81,27 @@ const AdminFeiras = () => {
 		//console.log(fair.openingHour);
 		setOpen(false);
 		//console.log("antes de mandar: " + fair.cityid);
-
 		//testando a conexao com o backend
 		axios
-			.post("http://localhost:4000/api/fair", {
-				headers: {
-					"Content-Type": "application/json; charset=UTF-8",
-					Accept: "Token",
-					"Access-Control-Allow-Origin": "*",
-				},
-				data: {
-					cityid: fair.cityid,
-					name: fair.name,
-					imgsrc: fair.imgsrc,
-					operatingDays: fair.operatingDays,
-					location: fair.location,
-					openingHour: fair.openingHour,
-					closingHour: fair.closingHour,
-				},
-			})
+			.post(
+				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair`,
+				{
+					headers: {
+						"Content-Type": "application/json; charset=UTF-8",
+						Accept: "Token",
+						"Access-Control-Allow-Origin": "*",
+					},
+					data: {
+						cityid: fair.cityid,
+						name: fair.name,
+						imgsrc: fair.imgsrc,
+						operatingDays: fair.operatingDays,
+						location: fair.location,
+						openingHour: fair.openingHour,
+						closingHour: fair.closingHour,
+					},
+				}
+			)
 			.then((res) => {
 				console.log("feira adicionada: " + res.data.name);
 				handleGet();
@@ -157,17 +110,20 @@ const AdminFeiras = () => {
 
 	const handleDel = (id) => {
 		axios
-			.delete("http://localhost:4000/api/fair", {
-				headers: {
-					"Content-Type": "application/json; charset=UTF-8",
-					Accept: "Token",
-					"Access-Control-Allow-Origin": "*",
-					Authorization: "*",
-				},
-				params: {
-					id: id,
-				},
-			})
+			.delete(
+				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair`,
+				{
+					headers: {
+						"Content-Type": "application/json; charset=UTF-8",
+						Accept: "Token",
+						"Access-Control-Allow-Origin": "*",
+						Authorization: "*",
+					},
+					params: {
+						id: id,
+					},
+				}
+			)
 			.then((res) => {
 				console.log("feira excluida com sucesso: ", res.data);
 				handleGet();

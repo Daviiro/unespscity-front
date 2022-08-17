@@ -74,7 +74,7 @@ const TreesMap = (props) => {
 		>
 			{props.locations.map((location) => (
 				<MarkerF
-					key={location.id}
+					key={location._id}
 					position={location.location}
 					onClick={() => onSelect(location)}
 					//icon={{ url: options.imagePath }}
@@ -107,7 +107,7 @@ const TreesMap = (props) => {
 						</Typography>
 						<Button
 							fulldwith
-							onClick={() => handleDelete(selected)}
+							onClick={() => handleDelete(selected._id)}
 						>
 							Deletar
 						</Button>

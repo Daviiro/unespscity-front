@@ -16,9 +16,11 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import { Typography } from "@mui/material";
 import FairsMap from "./map";
 import Favorites from "../../../components/favorites";
+import axios from "axios";
 
 const Feiras = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	const [isLoading, setLoading] = useState(true);
 	useEffect(() => {
 		props.data.find(
 			(favoriteX) => favoriteX.id === 41 && setIsFavorite(true)
@@ -56,10 +58,9 @@ const Feiras = (props) => {
 				sex: false,
 				sab: true,
 			},
-			operating_time: {
-				open: 7,
-				close: 12,
-			},
+
+			openingHour: new Date(),
+			closingHour: new Date(),
 			location: {
 				lat: -22.131951,
 				lng: -51.40933,
@@ -88,6 +89,38 @@ const Feiras = (props) => {
 			},
 		},
 	]);
+
+	const handleGet = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		//console.log(formValues.city);
+		console.log(process.env.REACT_APP_GOOGLEMAPSAPIKEY);
+		try {
+			await axios
+				.get(
+					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair/cityid`,
+					{
+						params: {
+							cityid: data.city,
+						},
+					}
+				)
+				.then((res) => {
+					setLocations(res.data);
+					console.log("fdkhfalkha");
+					console.log(res.data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	useEffect(() => {
+		handleGet();
+	}, []);
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<ContainerBase>
@@ -149,17 +182,17 @@ const Feiras = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
+					{/*<ListCard
 						source="/assets/img/home_servicos_sociais.png"
 						nome="Rua - Bairro"
 						sobrenome="Dia - Horario"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						/>*/}
+					<FairsMap
+						locations={locations}
+						icon="/assets/img/fair-icon.png"
 					/>
 				</MidContentContainer>
-				<FairsMap
-					locations={locations}
-					icon="/assets/img/fair-icon.png"
-				/>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

@@ -17,8 +17,10 @@ import Footer from "../../../components/footer";
 import TreesModal from "./modal";
 import Favorites from "../../../components/favorites";
 import LocalContext from "../../user-location/Context";
+import axios from "axios";
 
 const InformationAboutTrees = (props) => {
+	const [isLoading, setLoading] = useState(true);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -47,7 +49,7 @@ const InformationAboutTrees = (props) => {
 
 	const [locations, setLocations] = useState([
 		{
-			id: 1,
+			_id: 1,
 			cityid: formValues.city,
 			name: "Location 1",
 			imgsrc: "/assets/img/default-tree.png",
@@ -59,7 +61,7 @@ const InformationAboutTrees = (props) => {
 			},
 		},
 		{
-			id: 2,
+			_id: 2,
 			cityid: formValues.city,
 			name: "Location 2",
 			imgsrc: "/assets/img/default-tree.png",
@@ -71,7 +73,7 @@ const InformationAboutTrees = (props) => {
 			},
 		},
 		{
-			id: 3,
+			_id: 3,
 			cityid: formValues.city,
 			name: "Location 3",
 			imgsrc: "/assets/img/default-tree.png",
@@ -83,7 +85,7 @@ const InformationAboutTrees = (props) => {
 			},
 		},
 		{
-			id: 4,
+			_id: 4,
 			cityid: formValues.city,
 			name: "Location 4",
 			imgsrc: "/assets/img/default-tree.png",
@@ -95,7 +97,7 @@ const InformationAboutTrees = (props) => {
 			},
 		},
 		{
-			id: 5,
+			_id: 5,
 			cityid: formValues.city,
 			name: "Location 5",
 			imgsrc: "/assets/img/default-tree.png",
@@ -120,6 +122,30 @@ const InformationAboutTrees = (props) => {
 		setLocations([...locations, tree]); //adiciono a nova arvore no array
 		//console.log(locations);
 		setOpen(false);
+		axios
+			.post(
+				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
+				{
+					headers: {
+						"Content-Type": "application/json; charset=UTF-8",
+						Accept: "Token",
+						"Access-Control-Allow-Origin": "*",
+						Authorization: "*",
+					},
+					data: {
+						cityid: tree.cityid,
+						name: tree.name,
+						imgsrc: tree.imgsrc,
+						specie: tree.specie,
+						age: tree.age,
+						location: tree.location,
+					},
+				}
+			)
+			.then((response) => console.log(response))
+			.catch((e) => {
+				console.log(e);
+			});
 	};
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({
@@ -136,6 +162,37 @@ const InformationAboutTrees = (props) => {
 		//console.log("ta aqui oh " + clickedCoordinates.lng);
 		//console.log("ta aqui oh " + clickedCoordinates.lat);
 	}; //ao clicar no mapa quero abrir um dialog para adicionar uma árvore
+
+	const handleGet = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		//console.log(formValues.city);
+		try {
+			await axios
+				.get(
+					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees/cityid`,
+					{
+						params: {
+							cityid: data.city,
+						},
+					}
+				)
+				.then((res) => {
+					setLocations(res.data);
+
+					console.log(res.data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	useEffect(() => {
+		handleGet();
+	}, []);
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<ContainerBase>
