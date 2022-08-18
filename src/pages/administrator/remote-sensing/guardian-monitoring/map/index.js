@@ -6,9 +6,6 @@ import {
 	Marker,
 	Autocomplete,
 } from "@react-google-maps/api";
-import LocalContext from "../../../../user-location/Context";
-import { fetchLatLong } from "../../../../../services/GoogleMaps";
-import { fetchCityForID } from "../../../../../services/IBGE";
 import { Container, DirectionsContainer } from "./styles";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import { MdClear } from "react-icons/md";
@@ -16,30 +13,9 @@ import Modal from "./modal";
 
 const Map = (props) => {
 	const google = window.google;
-	const [center, setCenter] = useState({ lat: 0, lng: 0 });
-	const [cityName, setCityName] = useState("");
-	const [formValues, setFormValues] = useContext(LocalContext);
+	const { center } = props;
 	const [auxiliarWaypoint, setAuxiliarWaypoint] = useState([]);
 	const [flag, setFlag] = useState(false);
-
-	fetchCityForID(formValues.city).then((city) => {
-		setCityName(city);
-	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
-	useEffect(() => {
-		if (formValues.city !== undefined) {
-			fetchCityForID(formValues.city).then((city) => {
-				setCityName(city);
-			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
-			if (cityName != "") {
-				fetchLatLong(cityName).then((data) => {
-					setCenter({
-						lat: data.results[0].geometry.location.lat,
-						lng: data.results[0].geometry.location.lng,
-					});
-				});
-			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
-		}
-	}, [cityName]);
 
 	const containerStyle = {
 		width: "100%",
@@ -78,7 +54,7 @@ const Map = (props) => {
 		setDirectionsResponse(results);
 		setDistance(results.routes[0].legs[0].distance.text);
 		setDuration(results.routes[0].legs[0].duration.text);
-		setFlag(!flag);
+		setFlag(true);
 	}
 
 	function clearRoute() {
@@ -87,7 +63,7 @@ const Map = (props) => {
 		setDuration("");
 		originRef.current.value = "";
 		destinationRef.current.value = "";
-		setFlag(!flag);
+		setFlag(false);
 	}
 
 	const handleAddWayPoint = (coords) => {
@@ -116,9 +92,11 @@ const Map = (props) => {
 		setOpen(false);
 	};
 
-	const handleAddRoute = () => {
+	const handleAddRoute = (title) => {
 		//aqui eu mando pro backend usando o axios
-
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		console.log("Cidade: " + data.city);
+		console.log("Titulo: " + data.title);
 		console.log("Origem: " + originRef.current.value);
 		console.log("Destino: " + destinationRef.current.value);
 		console.log("Waypoints: " + auxiliarWaypoint);
