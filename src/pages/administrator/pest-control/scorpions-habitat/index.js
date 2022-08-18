@@ -11,10 +11,11 @@ import {
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import Footer from "../../../../components/footer";
 
 const AdminEscorpiao = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminEscorpiao = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -74,7 +75,7 @@ const AdminEscorpiao = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						{
+					{/*	{
 							problems.map((problem) => (
 								<AdminListCard
 									source={problem.images}
@@ -85,7 +86,42 @@ const AdminEscorpiao = () => {
 									userId={problem.userId}
 								/>
 							))
-						}
+						}	*/}
+						<AdminListCardAlt
+							source="/assets/backup/20.jpg"
+							titulo="Escorpião 1" 
+							nome="Rua Kotaro Takahashi, 78, Conjunto Habitacional Ana Jacinta"
+							sobrenome="Perto da E.e Antônio Moreira Lima."
+							descricao="Apareceu um escorpião na minha casa."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/21.jpg"
+							titulo="Escorpião 2" 
+							nome="Rua Luiz Olivetti, 790, Jardim Prudentino"
+							sobrenome="Perto do Espaço Leciana Oliveira."
+							descricao="Um escorpião invadiu a minha residência."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/22.jpg"
+							titulo="Escorpião 3" 
+							nome="Rua Maria Ângela de Oliveira Esterque, 8000, Jardim Santa Fé"
+							sobrenome="Perto da rodovia Júlio Budiski."
+							descricao="Encontramos um foco de escorpião aqui."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/23.jpg"
+							titulo="Escorpião 4" 
+							nome="Rua Nestor Guermandi, 810, Parque Shiraiwa"
+							sobrenome="Perto da RavelliDoces."
+							descricao="Apareceu um escorpião aqui."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/24.jpg"
+							titulo="Escorpião 5" 
+							nome="Rua Otorino Pereti, 8020, Jardim Itaipu"
+							sobrenome="Perto do Bar do Valcir."
+							descricao="Vimos um escorpião passando por aqui."
+						/>
 					</MidContentContainer>
 				</ContentContainer>
 			<Footer />

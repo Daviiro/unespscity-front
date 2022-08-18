@@ -12,9 +12,10 @@ import {
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 
 const AdminAdoptionAnimals = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminAdoptionAnimals = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -79,7 +80,7 @@ const AdminAdoptionAnimals = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
+				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
@@ -90,7 +91,42 @@ const AdminAdoptionAnimals = () => {
 								userId={problem.userId}
 							/>
 						))
-					}
+					}	*/}
+					<AdminListCardAlt
+						source="/assets/backup/01.jpg"
+						titulo="Animal 1" 
+						nome="Marcos Cardoso da Silva"
+						sobrenome="28/02/2022"
+						descricao="Estou doando este cachorro."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/02.jpg"
+						titulo="Animal 2" 
+						nome="Giovanna Marques"
+						sobrenome="28/02/2022"
+						descricao="Estou doando este gato."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/03.jpg"
+						titulo="Animal 3" 
+						nome="José Espinati"
+						sobrenome="02/04/2022"
+						descricao="Estou doando esta cadela."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/04.jpg"
+						titulo="Animal 4" 
+						nome="Andressa Valéria"
+						sobrenome="18/04/2022"
+						descricao="Estou doando esta gata."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/05.jpg"
+						titulo="Animal 5" 
+						nome="Juan Marques Jr."
+						sobrenome="20/05/2022"
+						descricao="Estou doando este pato."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

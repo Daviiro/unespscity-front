@@ -4,6 +4,7 @@ import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -14,7 +15,7 @@ import {
 import Typography from "@mui/material/Typography";
 
 const AdminTumulos = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminTumulos = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -79,7 +80,7 @@ const AdminTumulos = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
+				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
@@ -90,7 +91,42 @@ const AdminTumulos = () => {
 								userId={problem.userId}
 							/>
 						))
-					}
+					}	*/}
+					<AdminListCardAlt
+						source="/assets/backup/61.jpg"
+						titulo="Tumulo 1" 
+						nome="Falecimento: 19/04/2020"
+						sobrenome="Cemitério Municipal São João Batista"
+						descricao="Lápide 1130"
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/61.jpg"
+						titulo="Tumulo 2" 
+						nome="Falecimento: 20/02/2021"
+						sobrenome="Cemitério Municipal Campal Parque da Paz"
+						descricao="Lápide 1140"
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/61.jpg"
+						titulo="Tumulo 3" 
+						nome="Falecimento: 28/03/2022"
+						sobrenome="Cemitério Municipal Campal Parque da Paz"
+						descricao="Lápide 1150"
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/61.jpg"
+						titulo="Tumulo 4" 
+						nome="Falecimento: 05/05/2022"
+						sobrenome="Cemitério Municipal São João Batista"
+						descricao="Lápide 1160"
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/61.jpg"
+						titulo="Tumulo 5" 
+						nome="Falecimento: 05/10/2020"
+						sobrenome="Cemitério Municipal Campal Parque da Paz"
+						descricao="Lápide 1170"
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
