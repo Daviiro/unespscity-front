@@ -11,10 +11,11 @@ import {
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import Footer from "../../../../components/footer";
 
 const AdminDengue = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminDengue = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -74,7 +75,7 @@ const AdminDengue = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						{
+					{/*	{
 							problems.map((problem) => (
 								<AdminListCard
 									source={problem.images}
@@ -85,7 +86,42 @@ const AdminDengue = () => {
 									userId={problem.userId}
 								/>
 							))
-						}
+						}	*/}
+						<AdminListCardAlt
+							source="/assets/backup/56.jpg"
+							titulo="Dengue 1" 
+							nome="Rua Manoel de Jesus Rodrigues, 18, Uep4-S.3"
+							sobrenome="Perto da JCVM Materiais de Construção."
+							descricao="Encontramos um foco do mosquito da dengue."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/57.jpg"
+							titulo="Dengue 2" 
+							nome="Rua dos Abacateiros, 190, Jardim São Gabriel"
+							sobrenome="Perto da Restaurante e Marmitex Naiara."
+							descricao="Encontramos um foco do aedes aegypti."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/58.jpg"
+							titulo="Dengue 3" 
+							nome="Rua Imil Ésper, 1100, Jardim Cambui"
+							sobrenome="Perto da Transtec Comércio de Peças."
+							descricao="Encontramos um local propício para a reprodução do mosquito."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/59.jpg"
+							titulo="Dengue 4" 
+							nome="Rua Nestor Guermandi, 101, Parque Shiraiwa"
+							sobrenome="Perto da RavelliDoces."
+							descricao="Havistamos pernilongos da dengue. Deve haver um foco aqui nas redondezas."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/60.jpg"
+							titulo="Dengue 5" 
+							nome="Rua São Sebastião, 1020, Vila Machadinho"
+							sobrenome="Perto do Sabor e Cia."
+							descricao="Encontramos água parada com o que acreditamos ser larvas do aedes aegypti, além de termos visto uns dois voando."
+						/>
 					</MidContentContainer>
 				</ContentContainer>
 			<Footer />

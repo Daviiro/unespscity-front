@@ -136,45 +136,38 @@ const AnimaisPerdidosLista = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						source="/assets/backup/11.jpg"
+						nome="Rua Antônio Pereira Teles, 68, Parque Shiraiwa"
+						sobrenome="Perto do Bar Mercearia Fim de Tarde."
+						descricao="Perdi meu cachorro. Ele atende pelo nome de Max. Visto pela última vez dia 17 de outubro de 2022."
 						button="Falar com o dono"
 					/>
 					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						source="/assets/backup/12.jpg"
+						nome="Rua Bruna Krasucki, 690, Parque Central"
+						sobrenome="Perto da Pizzaria do Haroldo."
+						descricao="Perdi meu gato. Ele atende pelo nome de Spot. Visto pela última vez 22 de fevereiro de 2022."
 						button="Falar com o dono"
 					/>
 					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						source="/assets/backup/13.jpg"
+						nome="Rua César Audi, 7000, Jardim Jequitiba"
+						sobrenome="Perto da Quadra Municipal."
+						descricao="Perdi minha cadela. Ela atende pelo nome de Jeh. Vista pela última vez anteontem."
 						button="Falar com o dono"
 					/>
 					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						source="/assets/backup/14.jpg"
+						nome="Rua dos Abacateiros, 701, Jardim São Gabriel"
+						sobrenome="Perto da Restaurante e Marmitex Naiara."
+						descricao="Perdi minha gata. Ela atende pelo nome de Fifi. Vista pela última vez domingo passado."
 						button="Falar com o dono"
 					/>
 					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
+						source="/assets/backup/15.jpg"
+						nome="Rua Ernesto Brogiatto, 7002, Jardim Balneario"
+						sobrenome="Perto do Supermercado Transfiguração."
+						descricao="Perdi meu jabuti. Ele tem uma rachadura na casca. Visto pela última vez na virada do mês."
 						button="Falar com o dono"
 					/>
 				</MidContentContainer>

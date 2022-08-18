@@ -12,11 +12,12 @@ import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import UsefulLocationsModal from "../../../social-care/useful-locations/modal";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import UsefulLocationsMap from "./map";
 import Footer from "../../../../components/footer";
 
 const LocaisUteisAdmin = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -29,7 +30,7 @@ const LocaisUteisAdmin = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
@@ -39,6 +40,61 @@ const LocaisUteisAdmin = () => {
 	const [locations, setLocations] = useState([
 		{
 			id: 1,
+			name: "Prefeitura Municipal de Presidente Prudente",
+			imgsrc: "/assets/img/default-location.png",
+			phone: "(18)3902-4400",
+			opening_hours: "Segunda à Sexta, das 08:00 às 17:00",
+			location: {
+				lat: -22.1218172,
+				lng: -51.3881661,
+			},
+		},
+		{
+			id: 2,
+			name: "Hospital Regional (HR)",
+			imgsrc: "/assets/img/default-location.png",
+			phone: "(18)3229-1500",
+			opening_hours: "Aberto 24 horas",
+			location: {
+				lat: -22.1323390,
+				lng: -51.4073447,
+			},
+		},
+		{
+			id: 3,
+			name: "Prudenshopping",
+			imgsrc: "/assets/img/default-location.png",
+			phone: "(18)2101-9700",
+			opening_hours: "Todos os dias das 10:00 às 22:00",
+			location: {
+				lat: -22.1158252,
+				lng: -51.4071100,
+			},
+		},
+		{
+			id: 4,
+			name: "Centro",
+			imgsrc: "/assets/img/default-location.png",
+			phone: "(telefones variados)",
+			opening_hours: "Segunda a sábado, das 07:00 as 19:00",
+			location: {
+				lat: -22.1241906,
+				lng: -51.3858354,
+			},
+		},
+		{
+			id: 5,
+			name: "Câmara Municipal de Presidente Prudente",
+			imgsrc: "/assets/img/default-location.png",
+			phone: "(18)2104-4300",
+			opening_hours: "Segunda à Sexta, das 08:00 às 17:00",
+			location: {
+				lat: -22.1204230,
+				lng: -51.3870140,
+			},
+		},
+		{
+			id: 6,
 			name: "Cidade da Criança",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3902-9233",
@@ -49,7 +105,7 @@ const LocaisUteisAdmin = () => {
 			},
 		},
 		{
-			id: 2,
+			id: 7,
 			name: "Parque do Povo",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3902-9340",
@@ -60,7 +116,7 @@ const LocaisUteisAdmin = () => {
 			},
 		},
 		{
-			id: 3,
+			id: 8,
 			name: "Centro Histórico Cultural Matarazzo",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3226-3399",
@@ -71,7 +127,7 @@ const LocaisUteisAdmin = () => {
 			},
 		},
 		{
-			id: 4,
+			id: 9,
 			name: "Balneário da Amizade",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)99742-7655",
@@ -82,7 +138,7 @@ const LocaisUteisAdmin = () => {
 			},
 		},
 		{
-			id: 5,
+			id: 10,
 			name: "Museu e Arquivo Histórico Municipal",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3223-9404",
@@ -93,7 +149,7 @@ const LocaisUteisAdmin = () => {
 			},
 		},
 		{
-			id: 6,
+			id: 11,
 			name: "Catedral de São Sebastião",
 			imgsrc: "/assets/img/default-location.png",
 			phone: "(18)3223-2016",
@@ -172,7 +228,7 @@ const LocaisUteisAdmin = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
+				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
@@ -183,7 +239,84 @@ const LocaisUteisAdmin = () => {
 								userId={problem.userId}
 							/>
 						))
-					}
+					}	*/}
+					<AdminListCardAlt
+						source="/assets/backup/40.jpg"
+						titulo="Local 1" 
+						nome="Prefeitura Municipal de Presidente Prudente - Paço Municipal"
+						sobrenome="Avenida Coronel José Soares Marcondes, 1200, Centro"
+						descricao="Em frente à Caixa Econômica Federal, atravessando a avenida."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/41.jpg"
+						titulo="Local 2" 
+						nome="Hospital Regional (HR) de Presidente Prudente"
+						sobrenome="Rua José Bongiovani, 1279, Jardim Colina"
+						descricao="Em frente ao Pastelão."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/42.jpg"
+						titulo="Local 3" 
+						nome="Prudenshopping"
+						sobrenome="Avenida Manoel Goulart, 2400, Jardim das Rosas"
+						descricao="Ao lado do hipermercado Carrefour."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/43.jpg"
+						titulo="Local 4" 
+						nome="Centro"
+						sobrenome="Rua Major Felício Tarabay, Centro"
+						descricao="Perto do Consultório Dr. Ayres."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/44.jpg"
+						titulo="Local 5" 
+						nome="Câmara Municipal de Presidente Prudente"
+						sobrenome="Avenida Washington Luiz, 544, Centro"
+						descricao="Ao lado da Acessoria Digital Online."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/45.jpg"
+						titulo="Local 6" 
+						nome="Cidade da Criança"
+						sobrenome="Rodovia Raposo Tavares, S/N - Jardim Satélite"
+						descricao="cesso pela SOESP Advanced (filial Sementes Oeste Paulista)."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/46.jpeg"
+						titulo="Local 7" 
+						nome="Parque do Povo"
+						sobrenome="Avenida Quatorze de Setembro, Vila Formosa"
+						descricao="Ao lado da SEMEPP (Secretaria Municipal de Esportes)."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/47.jpg"
+						titulo="Local 8" 
+						nome="Centro Histórico Cultural Matarazzo"
+						sobrenome="Rua Quintino Bocaiúva, 749, Vila Marcondes"
+						descricao="Em frente à agência de Correios Quintino Bocaiúva."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/48.jpeg"
+						titulo="Local 9" 
+						nome="Balneário da Amizade"
+						sobrenome="Avenida João Gomes, Uep3-S.2"
+						descricao="Próximo à loja Suculentas e cactos amizade."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/49.jpg"
+						titulo="Local 10" 
+						nome="Museu e Arquivo Histórico Municipal"
+						sobrenome="Rua Doutor João Gonçalvez Foz, 2179, Jardim das Rosas"
+						descricao="Em frente ao posto AMG."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/50.jpg"
+						titulo="Local 11" 
+						nome="Catedral de São Sebastião"
+						sobrenome="Avenida Coronel José Soares Marcondes, 1200, Centro"
+						descricao="Ao lado da praça 9 de Julho."
+					/>
 					<UsefulLocationsMap
 						locations={locations}
 						icon="/assets/img/location-icon.png"

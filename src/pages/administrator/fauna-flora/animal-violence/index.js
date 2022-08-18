@@ -11,10 +11,11 @@ import {
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import Footer from "../../../../components/footer";
 
 const AdminMausTratosAnimais = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminMausTratosAnimais = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -69,7 +70,7 @@ const AdminMausTratosAnimais = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
+				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
@@ -80,7 +81,42 @@ const AdminMausTratosAnimais = () => {
 								userId={problem.userId}
 							/>
 						))
-					}
+					}	*/}
+					<AdminListCardAlt
+						source="/assets/backup/51.jpg"
+						titulo="Animal 1" 
+						nome="Rua Salim Macruz, 13, Vila Real"
+						sobrenome="Perto do Sr. Delivery."
+						descricao="Abuso de animal doméstico."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/52.jpg"
+						titulo="Animal 2" 
+						nome="Rua César Audi, 104, Jardim Jequitiba"
+						sobrenome="Perto da Quadra Municipal."
+						descricao="Cachorro sofrendo maus-tratos."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/53.jpg"
+						titulo="Animal 3" 
+						nome="Rua Hélio Pereti, 1500, Jardim Campo Belo"
+						sobrenome="Perto da loja Budin Ferramentas."
+						descricao="Toda noite ouvimos alguém gritando com um cachorro."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/54.jpg"
+						titulo="Animal 4" 
+						nome="Rua Maria Ângela de Oliveira Esterque, 160, Jardim Santa Fé"
+						sobrenome="Perto da rodovia Júlio Budiski."
+						descricao="Gato violentado."
+					/>
+					<AdminListCardAlt
+						source="/assets/backup/55.jpg"
+						titulo="Animal 5" 
+						nome="Rua Reverendo Coriolano, 1070, Jardim Aviação"
+						sobrenome="Perto do Prudesan Engenharia."
+						descricao="Um homem captura pássaros e os mantém em cativeiro."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

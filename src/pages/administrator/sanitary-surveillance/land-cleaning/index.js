@@ -11,11 +11,12 @@ import {
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
+import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import Footer from "../../../../components/footer";
 
 
 const AdminTerreno = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminTerreno = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [problems]);	*/
 
 	return (
 		<ContainerBase>
@@ -70,7 +71,7 @@ const AdminTerreno = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
-						{
+					{/*	{
 							problems.map((problem) => (
 								<AdminListCard
 									source={problem.images}
@@ -81,7 +82,42 @@ const AdminTerreno = () => {
 									userId={problem.userId}
 								/>
 							))
-						}
+						}	*/}
+						<AdminListCardAlt
+							source="/assets/backup/35.jpg"
+							titulo="Terreno 1" 
+							nome="Rua José Albertoni, 98, Jardim Tropical"
+							sobrenome="Perto da Sorveteria Nápoles."
+							descricao="Este terreno precisa de limpeza."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/36.jpg"
+							titulo="Terreno 2" 
+							nome="Rua Bruna Krasucki, 990, Parque Central"
+							sobrenome="Perto da Pizzaria do Haroldo."
+							descricao="Estamos precisando de que este terreno seja limpo."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/37.jpeg"
+							titulo="Terreno 3" 
+							nome="Rua Gioconda Puschiavo, 1000, Jardim Monte Alto"
+							sobrenome="Perto da Academia Templo."
+							descricao="Alguém precisa limpar este terreno."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/38.jpeg"
+							titulo="Terreno 4" 
+							nome="Rua Luiz Olivetti, 110, Jardim Prudentino"
+							sobrenome="Perto do Espaço Leciana Oliveira."
+							descricao="Nós temos interesse neste terreno, mas ele precisa de limpeza."
+						/>
+						<AdminListCardAlt
+							source="/assets/backup/39.jpg"
+							titulo="Terreno 5" 
+							nome="Rua Quinze de Novembro, 1020, Vila Dubus"
+							sobrenome="Perto do Feirão Oda."
+							descricao="Solicitamos a limpeza deste terreno."
+						/>
 					</MidContentContainer>
 				</ContentContainer>
 			<Footer />
