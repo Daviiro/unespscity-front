@@ -19,28 +19,41 @@ const AdminBotaoPanico = () => {
 	const [socketUrl, setSocketUrl] = useState('ws://localhost:3334');
 	const [messageHistory, setMessageHistory] = useState([]);
 	const { sendMessage, lastJsonMessage, lastMessage } = useWebSocket(socketUrl);
-	let totalResolvidos = 311;
-	let totalSolicitados = 406;
-
-	useEffect(() => {
-		/* const apiCall = {
-			event: "panic:subscribe",
-			data: { channel: "connection" },
-		};
-		sendMessage(JSON.stringify(apiCall)); */
-		handleClickSendMessage()
-	}, []);
+	const [totalUsuarios, setTotalUsuarios] = useState([]);
+	const [usuariosSemBotaoCadastrado, setUsuariosSemBotaoCadastrado] = useState([]);
+	const [totalBotaoPanicoCadastrados, setTotalBotaoPanicoCadastrados] = useState([]);
 
 	const handleClickSendMessage = useCallback(() => sendMessage('Hello'), []);
 
 	useEffect(() => {
-		console.log("Executou")
+		handleClickSendMessage()
+	}, []);
+
+	useEffect(() => {
 		if (lastMessage !== null) {
 			setMessageHistory((prev) => prev.concat(lastMessage));
 			console.log(lastMessage)
 			alert(lastMessage.data);
 		}
 	}, [lastMessage, setMessageHistory]);
+
+	useEffect( () => {
+		async function getTotalUsers() {
+			console.log("teste")
+			try {
+				const { data } = await api.get('/cidadao');
+				setTotalUsuarios(data.length);
+				const res = await api.get('/get_all_panic_button');
+				console.log(res.data.length)
+				setTotalBotaoPanicoCadastrados(res.data.length);
+				setUsuariosSemBotaoCadastrado(totalUsuarios - totalBotaoPanicoCadastrados)
+			}
+			catch(e) {
+				console.log(e);
+			}
+		}
+		getTotalUsers();
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -65,7 +78,7 @@ const AdminBotaoPanico = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<Typography>Total de Usuarios: 10</Typography>
+					<Typography>Total de Usuarios: {totalUsuarios}</Typography>
 					<div
 						style={{
 							width: "60%",
@@ -78,8 +91,8 @@ const AdminBotaoPanico = () => {
 						<PieChart
 							center={[50, 50]}
 							data={[
-								{ title: "Total Resolvidos: " + totalResolvidos, value: totalResolvidos, color: "#3282b8" },
-								{ title: "Total Solicitados: " + totalSolicitados, value: totalSolicitados, color: "#133d59" },
+								{ title: "Usuarios sem Cadastro no Botão do Panico: " + usuariosSemBotaoCadastrado, value: usuariosSemBotaoCadastrado, color: "#3282b8" },
+								{ title: "Usuarios com Cadastro no Botão do Pânico: " + totalBotaoPanicoCadastrados, value: totalBotaoPanicoCadastrados, color: "#133d59" },
 							]}
 							labelPosition={30}
 							lengthAngle={360}

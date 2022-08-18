@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Header from "../../components/header";
 import MiniCard from "../../components/mini-card";
 import Button from "@mui/material/Button";
@@ -24,11 +24,22 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { styled } from '@mui/material/styles';
+import { api } from '../../services/api';
+//import useWebSocket from 'react-use-websocket';
+import { Context } from "../../context/Auth/AuthContext";
 
 const PanicButton = (props) => {
-    const [isFavorite, setIsFavorite] = useState(false);
+    const { user } = useContext(Context);
+/*     const socketUrl = 'ws://localhost:3334';
+    const { sendMessage } = useWebSocket(socketUrl);
+ */    const [isFavorite, setIsFavorite] = useState(false);
     const [open, setOpen] = useState(false);
-    const [panicButtonIsActive, setPanicButtonIsActive] = useState(false);
+    const [panicButtonPhone, setPanicButtonPhone] = useState('');
+    const [message, setMessage] = useState('');
+    const [notifyPolice, setNotifyPolice] = useState(false);
+    const [street, setStreet] = useState('');
+    const [streetNumber, setStreetNumber] = useState(0);
+    const panicButtonIsActive = user.panicButton;
 
     const CustomButton = styled(Button)({
         padding: '50px 100px',
@@ -40,6 +51,25 @@ const PanicButton = (props) => {
 
     const handleClose = (event, reason) => {
         setOpen(false);
+    }
+
+    const handlePanicButton = async () => {
+        try {
+            const link = JSON.stringify(message).replace(/\\n/g, '%0a')
+            const text = JSON.parse(link)
+
+
+            if (notifyPolice) {
+                await api.post('/call_panic_button', {
+                    message: message
+                })
+                //sendMessage(message)
+            }
+            window.open(`https://web.whatsapp.com/send?phone=+5518991136880&text=${text}`, "_blank");
+            setOpen(false);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     const handleFavorite = () => {
@@ -65,6 +95,33 @@ const PanicButton = (props) => {
         props.data.find(
             (favoriteX) => favoriteX.id === 33 && setIsFavorite(true)
         );
+    }, []);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                console.log(user.userId)
+                const { data } = await api.get('/panic_button',
+                    {
+                        params: {
+                            userId: 1,
+                            //userId: user.userId,
+                        },
+                    });
+                console.log(data)
+                setPanicButtonPhone(data[0].panicButtonPhone);
+                setMessage(data[0].message);
+                setNotifyPolice(data[0].notifyPolice);
+                setStreet(data[0].street);
+                setStreetNumber(data[0].streetNumber);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        if (true) {
+            getData();
+        }
     }, []);
 
     return (
@@ -117,7 +174,7 @@ const PanicButton = (props) => {
                     <StyledHr />
                 </TopContentContainer>
                 <MidContentContainer>
-                    {panicButtonIsActive ? (
+                    {true ? (
                         <ButtonContainer>
                             <CustomButton variant="contained" color="error" onClick={handleClickOpen}>
                                 Estou em Pânico!
@@ -174,8 +231,8 @@ const PanicButton = (props) => {
                 </DialogContent>
                 <DialogActions>
                     <button onClick={handleClose}>Cancelar</button>
-                    <button onClick={handleClose} autoFocus>
-                        Excluir
+                    <button onClick={handlePanicButton} autoFocus>
+                        Acionar
                     </button>
                 </DialogActions>
             </Dialog>
