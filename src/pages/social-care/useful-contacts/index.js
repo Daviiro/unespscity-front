@@ -23,11 +23,16 @@ const Telefones = (props) => {
 
 	useEffect(() => {
 		async function getContacts() {
+			const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+
 			try {
-				const { data } = await api.get('/useful_contacts', {
-					idCity: 1
+				const response = await api.get('/useful_contacts', 
+				{
+					params: {
+						idCity: 1,
+					},
 				});
-				setContacts(data);
+				setContacts(response.data);
 			}
 			catch (e) {
 				console.log(e);

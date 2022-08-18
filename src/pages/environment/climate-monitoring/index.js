@@ -16,15 +16,32 @@ import Footer from "../../../components/footer";
 import Map from "./map";
 import Favorites from "../../../components/favorites";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
+import Chart from "react-apexcharts";
 
 const Monitoring = (props) => {
 	const [socketUrl, setSocketUrl] = useState('ws://localhost:3334');
 	const [messageHistory, setMessageHistory] = useState([]);
+	const [total, setTotal] = useState([]);
+	const [temperatureAverage, setTemperatureAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
 	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
 
 	useEffect(() => {
 		if (lastMessage !== null) {
-		setMessageHistory((prev) => prev.concat(lastMessage));
+			let string = lastMessage.data;
+			let array = string.split("===")
+			let newTemperatureAverage = parseFloat(array[1])
+			console.log(typeof newTemperatureAverage.toFixed(1))
+			setMessageHistory((prev) => prev.concat(lastMessage));
+			if (newTemperatureAverage !== undefined) {
+				setTemperatureAverage(
+					temperatureAverage.map((num, index) => {
+						/* console.log("011 - ", temperatureAverage)
+						console.log("013 - ", num)
+						console.log(newTemperatureAverage) */
+						return index + 1 < temperatureAverage.length ? temperatureAverage[index + 1] : (newTemperatureAverage.toFixed(1)).valueOf()
+					})
+				)
+			}
 		}
 	}, [lastMessage, setMessageHistory]);
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -34,7 +51,16 @@ const Monitoring = (props) => {
 		);
 	}, []);
 
-	useCallback(() => sendMessage('Hello'), []);
+	useEffect(() => {
+		/* const apiCall = {
+			event: "panic:subscribe",
+			data: { channel: "connection" },
+		};
+
+		sendMessage(JSON.stringify(apiCall)); */
+		handleClickSendMessage()
+		console.log("TESTANDO")
+	}, []);
 
 	const handleClickSendMessage = useCallback(() => sendMessage('Hello'), []);
 
@@ -99,6 +125,58 @@ const Monitoring = (props) => {
 			],
 		},
 	];
+
+	const state = {
+		series: [
+			{
+				name: "Media das Temperaturas", data: temperatureAverage
+			}
+		],
+
+		options: {
+			chart: {
+				height: 350,
+				type: 'line',
+				dropShadow: { enabled: true, color: '#000', top: 18, left: 7, blur: 10, opacity: 0.2 },
+				toolbar: { show: false }
+			},
+			colors: ['#3282b8', '#133d59'],
+			dataLabels: {
+				enabled: true,
+			},
+			stroke: {
+				curve: 'smooth'
+			},
+			title: {
+				text: 'Média dos sensores da Temperatura', align: 'left'
+			},
+			grid: {
+				borderColor: '#e7e7e7',
+				row: {
+					colors: ['transparent', 'transparent'], opacity: 0.5
+				},
+			},
+			markers: {
+				size: 1
+			},
+			xaxis: {
+				categories: ['-18 segundos', '-15 segundos', '-12 segundos', '-09 segundos', '-06 segundos', '-03 segundos', 'agora'],
+				title: { text: 'Segundos' }
+			},
+			yaxis: {
+				title: { text: 'Temperatura' },
+				min: 18,
+				max: 28
+			},
+			legend: {
+				position: 'top',
+				horizontalAlign: 'right',
+				floating: true,
+				offsetY: -25,
+				offsetX: -5
+			}
+		},
+	}
 
 	return (
 		<ContainerBase>
@@ -165,6 +243,15 @@ const Monitoring = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<Map routes={routes} />
+					<>
+						<Chart
+							options={state.options}
+							series={state.series}
+							type="line"
+							height={380}
+							width={760}
+						/>
+					</>
 					<div>
 						<button
 							onClick={handleClickSendMessage}
@@ -176,7 +263,7 @@ const Monitoring = (props) => {
 						{lastMessage ? <span>Last message: {lastMessage.data}</span> : null}
 						<ul>
 							{messageHistory.map((message, idx) => (
-							<span key={idx}>{message ? message.data : null}</span>
+								<span key={idx}>{message ? total : null}</span>
 							))}
 						</ul>
 					</div>
