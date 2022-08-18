@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useContext } from "react";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -10,8 +11,32 @@ import MiniCard from "../../../../components/mini-card";
 import AdminHeader from "../../../../components/header/admin";
 import Footer from "../../../../components/footer";
 import Map from "./map";
+import { fetchCityForID } from "../../../../services/IBGE";
+import { fetchLatLong } from "../../../../services/GoogleMaps";
+import LocalContext from "../../../user-location/Context";
 
 const AdminRefuseCollection = () => {
+	const [center, setCenter] = useState({ lat: 0, lng: 0 });
+	const [cityName, setCityName] = useState("");
+	const [formValues, setFormValues] = useContext(LocalContext);
+	fetchCityForID(formValues.city).then((city) => {
+		setCityName(city);
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+	useEffect(() => {
+		if (formValues.city !== undefined) {
+			fetchCityForID(formValues.city).then((city) => {
+				setCityName(city);
+			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+			if (cityName != "") {
+				fetchLatLong(cityName).then((data) => {
+					setCenter({
+						lat: data.results[0].geometry.location.lat,
+						lng: data.results[0].geometry.location.lng,
+					});
+				});
+			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+		}
+	}, [cityName]);
 	return (
 		<ContainerBase>
 			<AdminHeader />

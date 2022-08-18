@@ -19,7 +19,7 @@ const Map = (props) => {
 
 	const containerStyle = {
 		width: "100%",
-		height: `${process.env.REACT_APP_MAP_HEIGHT}px`,
+		height: "500px",
 	};
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
