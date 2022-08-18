@@ -31,7 +31,13 @@ const Modal = (props) => {
 			/>
 			<DialogActions>
 				<Button onClick={props.handleClose}>Cancelar</Button>
-				<Button onClick={props.handleAddRoute(title)}>Adicionar</Button>
+				{title != undefined ? (
+					<Button onClick={() => props.handleAddRoute()}>
+						Adicionar
+					</Button>
+				) : (
+					<Button disabled>Adicionar</Button>
+				)}
 			</DialogActions>
 		</Dialog>
 	);

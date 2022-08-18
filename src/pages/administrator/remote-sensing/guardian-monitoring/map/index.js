@@ -92,11 +92,11 @@ const Map = (props) => {
 		setOpen(false);
 	};
 
-	const handleAddRoute = (title) => {
+	const handleAddRoute = () => {
 		//aqui eu mando pro backend usando o axios
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 		console.log("Cidade: " + data.city);
-		console.log("Titulo: " + data.title);
+		console.log("Titulo: ");
 		console.log("Origem: " + originRef.current.value);
 		console.log("Destino: " + destinationRef.current.value);
 		console.log("Waypoints: " + auxiliarWaypoint);
