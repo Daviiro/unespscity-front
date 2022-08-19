@@ -21,8 +21,8 @@ import Favorites from "../../../components/favorites";
 
 const Terreno = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 37;
-	const totalResolvidos = 17;
+	const totalSolicitados = 5;
+	const totalResolvidos = 6;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

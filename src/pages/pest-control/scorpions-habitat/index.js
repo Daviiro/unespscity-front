@@ -21,8 +21,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Escorpiao = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 44;
-	const totalResolvidos = 19;
+	const totalSolicitados = 5;
+	const totalResolvidos = 4;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

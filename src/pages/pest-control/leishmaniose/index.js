@@ -23,8 +23,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Leishmaniose = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 92;
-	const totalResolvidos = 14;
+	const totalSolicitados = 5;
+	const totalResolvidos = 1;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

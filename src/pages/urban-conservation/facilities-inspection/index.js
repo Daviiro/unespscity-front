@@ -21,8 +21,8 @@ import Favorites from "../../../components/favorites";
 
 const Instalacoes = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 48;
-	const totalResolvidos = 47;
+	const totalSolicitados = 2;
+	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
+import GrayLine from "../../../components/styled-components/gray-line";
+import PagesPieChart from "../../../charts/types/donut";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import {
 	ContainerBase,
@@ -18,6 +21,9 @@ import ServiceOrderInformation from "../../../components/forms/ServiceOrderInfor
 import Favorites from "../../../components/favorites";
 
 const AnimaisSinantropicos = (props) => {
+	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+	const totalSolicitados = 5;
+	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -129,6 +135,14 @@ const AnimaisSinantropicos = (props) => {
 					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre os animais sinantrópicos e a situação em que os mesmos se encontram" />
 				</MidContentContainer>
 			</ContentContainer>
+			<GrayLine />
+			<ChartContainer>
+				<h3> Problemas com Animais Sinantrópicos solicitados e resolvidos: </h3>
+				<PagesPieChart
+					solved={totalResolvidos}
+					unsolved={totalSolicitados}
+				/>
+			</ChartContainer>
 			<Footer />
 		</ContainerBase>
 	);

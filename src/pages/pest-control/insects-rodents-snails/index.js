@@ -21,7 +21,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Pragas = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 14;
+	const totalSolicitados = 5;
 	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {

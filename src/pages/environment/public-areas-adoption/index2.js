@@ -23,8 +23,8 @@ const AdocaoAreasAdotadas = () => {
 	const [sobrenome, setSurname] = useState([]);
 	const [descricao, setDescription] = useState([]);
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalDisponiveis = 16;
-	const totalAdotadas = 2;
+	const totalDisponiveis = 1;
+	const totalAdotadas = 6;
 
 	return (
 		<>
