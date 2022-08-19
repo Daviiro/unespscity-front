@@ -80,23 +80,20 @@ const ServiceOrderInformation = (props) => {
 		//console.log("description " + description);
 
 		const res = api
-			.post(
-				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/upload/${srcaddress}`,
-				{
-					data: {
-						/*coloque aqui os dados que quer mandar na requisicao */
-						cityid: formValues.city,
-						userid: 777,
-						street: street,
-						streetNumber: houseNumber,
-						referencePoint: referencePoint,
-						latitude: center.lat,
-						longitude: center.lng,
-						description: description,
-						images: ["algoaqui", "outroaqui"],
-					},
-				}
-			)
+			.post("/${srcaddress}", {
+				data: {
+					/*coloque aqui os dados que quer mandar na requisicao */
+					cityid: formValues.city,
+					userid: 777,
+					street: street,
+					streetNumber: houseNumber,
+					referencePoint: referencePoint,
+					latitude: center.lat,
+					longitude: center.lng,
+					description: description,
+					images: ["algoaqui", "outroaqui"],
+				},
+			})
 			.then((response) => console.log(response))
 			.catch((e) => {
 				console.log(e);

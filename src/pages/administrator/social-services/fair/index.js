@@ -13,7 +13,7 @@ import {
 } from "../../../../components/styled-components/PageStyles";
 import FairsMap from "./fairs-map";
 import Modal from "./modal";
-import axios from "axios";
+import { api } from "../../../../services/api";
 
 const AdminFeiras = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -53,15 +53,12 @@ const AdminFeiras = () => {
 		//console.log(formValues.city);
 		console.log(process.env.REACT_APP_GOOGLEMAPSAPIKEY);
 		try {
-			await axios
-				.get(
-					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair/cityid`,
-					{
-						params: {
-							cityid: data.city,
-						},
-					}
-				)
+			await api
+				.get("/fair/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
 				.then((res) => {
 					setLocations(res.data);
 					console.log("fdkhfalkha");
@@ -82,52 +79,42 @@ const AdminFeiras = () => {
 		setOpen(false);
 		//console.log("antes de mandar: " + fair.cityid);
 		//testando a conexao com o backend
-		axios
-			.post(
-				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair`,
-				{
-					headers: {
-						"Content-Type": "application/json; charset=UTF-8",
-						Accept: "Token",
-						"Access-Control-Allow-Origin": "*",
-					},
-					data: {
-						cityid: fair.cityid,
-						name: fair.name,
-						imgsrc: fair.imgsrc,
-						operatingDays: fair.operatingDays,
-						location: fair.location,
-						openingHour: fair.openingHour,
-						closingHour: fair.closingHour,
-					},
-				}
-			)
-			.then((res) => {
-				console.log("feira adicionada: " + res.data.name);
-				handleGet();
-			});
+		api.post("/fair", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+			},
+			data: {
+				cityid: fair.cityid,
+				name: fair.name,
+				imgsrc: fair.imgsrc,
+				operatingDays: fair.operatingDays,
+				location: fair.location,
+				openingHour: fair.openingHour,
+				closingHour: fair.closingHour,
+			},
+		}).then((res) => {
+			console.log("feira adicionada: " + res.data.name);
+			handleGet();
+		});
 	};
 
 	const handleDel = (id) => {
-		axios
-			.delete(
-				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair`,
-				{
-					headers: {
-						"Content-Type": "application/json; charset=UTF-8",
-						Accept: "Token",
-						"Access-Control-Allow-Origin": "*",
-						Authorization: "*",
-					},
-					params: {
-						id: id,
-					},
-				}
-			)
-			.then((res) => {
-				console.log("feira excluida com sucesso: ", res.data);
-				handleGet();
-			});
+		api.delete("/fair", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			params: {
+				id: id,
+			},
+		}).then((res) => {
+			console.log("feira excluida com sucesso: ", res.data);
+			handleGet();
+		});
 	};
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({

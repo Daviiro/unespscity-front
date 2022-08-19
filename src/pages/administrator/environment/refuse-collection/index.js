@@ -14,11 +14,26 @@ import Map from "./map";
 import { fetchCityForID } from "../../../../services/IBGE";
 import { fetchLatLong } from "../../../../services/GoogleMaps";
 import LocalContext from "../../../user-location/Context";
+import ShowAllPolygons from "./show-all-polygons";
+import { ChoiceContainer, ChoiceSpan } from "./styles";
 
 const AdminRefuseCollection = () => {
+	const [toggle, setToggle] = useState(true);
 	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = useState("");
 	const [formValues, setFormValues] = useContext(LocalContext);
+	const [showRoutesTitleColor, setShowRoutesTitleColor] =
+		useState("var(--secondary)");
+	const [addRoutesTitleColor, setAddRoutesTitleColor] = useState("#000000");
+	useEffect(() => {
+		if (toggle) {
+			setShowRoutesTitleColor("#000000");
+			setAddRoutesTitleColor("var(--secondary)");
+		} else {
+			setShowRoutesTitleColor("var(--secondary)");
+			setAddRoutesTitleColor("#000000");
+		}
+	}, [toggle]);
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
 	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
@@ -75,7 +90,33 @@ const AdminRefuseCollection = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<Map />
+					<ChoiceContainer>
+						<div
+							style={{ cursor: "pointer" }}
+							onClick={() =>
+								toggle ? <></> : setToggle(!toggle)
+							}
+						>
+							<ChoiceSpan toggle={addRoutesTitleColor}>
+								Cadastrar Áreas
+							</ChoiceSpan>
+						</div>
+						<div
+							style={{ cursor: "pointer" }}
+							onClick={() =>
+								toggle ? setToggle(!toggle) : <></>
+							}
+						>
+							<ChoiceSpan toggle={showRoutesTitleColor}>
+								Mostrar Áreas Cadastradas
+							</ChoiceSpan>
+						</div>
+					</ChoiceContainer>
+					{toggle ? (
+						<Map center={center} />
+					) : (
+						<ShowAllPolygons center={center} />
+					)}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

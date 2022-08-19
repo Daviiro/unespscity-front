@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import FairsMap from "../../pages/social-services/fair/map";
 import { ContainerBase } from "./styles";
-import axios from "axios";
+import { api } from "../api";
 
 const MapPageFeiras = () => {
 	const [isLoading, setLoading] = useState(true);
-    const [locations, setLocations] = useState([
+	const [locations, setLocations] = useState([
 		{
 			id: 1,
 			name: "Feira 1",
@@ -56,19 +56,15 @@ const MapPageFeiras = () => {
 		//console.log(formValues.city);
 		console.log(process.env.REACT_APP_GOOGLEMAPSAPIKEY);
 		try {
-			await axios
-				.get(
-					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair/cityid`,
-					{
-						params: {
-							cityid: data.city,
-						},
-					}
-				)
+			await api
+				.get("/fair/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
 				.then((res) => {
-					setLocations(res.data);
-					console.log("fdkhfalkha");
 					console.log(res.data);
+					setLocations(res.data);
 					setLoading(false);
 				});
 		} catch (err) {
@@ -83,16 +79,16 @@ const MapPageFeiras = () => {
 		return <div>Loading...</div>;
 	}
 
-    return (
-        <>
-            <ContainerBase>
-                <FairsMap
+	return (
+		<>
+			<ContainerBase>
+				<FairsMap
 					locations={locations}
 					icon="/assets/img/fair-icon.png"
 				/>
-            </ContainerBase>
-        </>
-    );
+			</ContainerBase>
+		</>
+	);
 };
 
 export default MapPageFeiras;

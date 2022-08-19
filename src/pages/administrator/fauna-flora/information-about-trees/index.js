@@ -13,7 +13,7 @@ import TreesModal from "../../../fauna-flora/information-about-trees/modal";
 import TreesMap from "./map";
 import Footer from "../../../../components/footer";
 import LocalContext from "../../../user-location/Context";
-import axios from "axios";
+import { api } from "../../../../services/api";
 
 const AdminInformationAboutTrees = () => {
 	const [isLoading, setLoading] = useState(true);
@@ -104,15 +104,12 @@ const AdminInformationAboutTrees = () => {
 		//console.log(formValues.city);
 
 		try {
-			await axios
-				.get(
-					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees/cityid`,
-					{
-						params: {
-							cityid: data.city,
-						},
-					}
-				)
+			await api
+				.get("/informationabouttrees/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
 				.then((res) => {
 					setLocations(res.data);
 
@@ -148,48 +145,40 @@ const AdminInformationAboutTrees = () => {
 				tree.location
 		);
 
-		axios.post(
-			`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
-			{
-				headers: {
-					"Content-Type": "application/json; charset=UTF-8",
-					Accept: "Token",
-					"Access-Control-Allow-Origin": "*",
-					Authorization: "*",
-				},
-				data: {
-					cityid: tree.cityid,
-					userid: tree.userid,
-					name: tree.name,
-					imgsrc: tree.imgsrc,
-					specie: tree.specie,
-					age: tree.age,
-					location: tree.location,
-				},
-			}
-		);
+		api.post("/informationabouttrees", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			data: {
+				cityid: tree.cityid,
+				userid: tree.userid,
+				name: tree.name,
+				imgsrc: tree.imgsrc,
+				specie: tree.specie,
+				age: tree.age,
+				location: tree.location,
+			},
+		});
 	};
 
 	const handleDelete = (id) => {
-		axios
-			.delete(
-				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
-				{
-					headers: {
-						"Content-Type": "application/json; charset=UTF-8",
-						Accept: "Token",
-						"Access-Control-Allow-Origin": "*",
-						Authorization: "*",
-					},
-					params: {
-						id: id,
-					},
-				}
-			)
-			.then((res) => {
-				console.log("feira excluida com sucesso: ", res.data);
-				handleGet();
-			});
+		api.delete("/informationabouttrees", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			params: {
+				id: id,
+			},
+		}).then((res) => {
+			console.log("feira excluida com sucesso: ", res.data);
+			handleGet();
+		});
 	};
 
 	if (isLoading) {

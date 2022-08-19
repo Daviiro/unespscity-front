@@ -17,7 +17,7 @@ import Footer from "../../../components/footer";
 import TreesModal from "./modal";
 import Favorites from "../../../components/favorites";
 import LocalContext from "../../user-location/Context";
-import axios from "axios";
+import { api } from "../../../services/api";
 
 const InformationAboutTrees = (props) => {
 	const [isLoading, setLoading] = useState(true);
@@ -122,26 +122,22 @@ const InformationAboutTrees = (props) => {
 		setLocations([...locations, tree]); //adiciono a nova arvore no array
 		//console.log(locations);
 		setOpen(false);
-		axios
-			.post(
-				`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees`,
-				{
-					headers: {
-						"Content-Type": "application/json; charset=UTF-8",
-						Accept: "Token",
-						"Access-Control-Allow-Origin": "*",
-						Authorization: "*",
-					},
-					data: {
-						cityid: tree.cityid,
-						name: tree.name,
-						imgsrc: tree.imgsrc,
-						specie: tree.specie,
-						age: tree.age,
-						location: tree.location,
-					},
-				}
-			)
+		api.post("/informationabouttrees", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			data: {
+				cityid: tree.cityid,
+				name: tree.name,
+				imgsrc: tree.imgsrc,
+				specie: tree.specie,
+				age: tree.age,
+				location: tree.location,
+			},
+		})
 			.then((response) => console.log(response))
 			.catch((e) => {
 				console.log(e);
@@ -167,15 +163,12 @@ const InformationAboutTrees = (props) => {
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 		//console.log(formValues.city);
 		try {
-			await axios
-				.get(
-					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/informationabouttrees/cityid`,
-					{
-						params: {
-							cityid: data.city,
-						},
-					}
-				)
+			await api
+				.get("/informationabouttrees/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
 				.then((res) => {
 					setLocations(res.data);
 

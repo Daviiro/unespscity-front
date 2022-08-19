@@ -97,7 +97,11 @@ const AdminGuardian = () => {
 							</ChoiceSpan>
 						</div>
 					</ChoiceContainer>
-					{toggle ? <Map center={center} /> : <ShowAllRoutes />}
+					{toggle ? (
+						<Map center={center} />
+					) : (
+						<ShowAllRoutes center={center} />
+					)}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

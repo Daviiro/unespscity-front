@@ -6,6 +6,7 @@ import {
 	Marker,
 	Autocomplete,
 } from "@react-google-maps/api";
+import { api } from "../../../../../services/api";
 
 const ShowAllRoutes = (props) => {
 	const { center } = props;
@@ -31,9 +32,9 @@ const ShowAllRoutes = (props) => {
         const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 
         try {
-			await axios
+			await api
 				.get(
-					`http://localhost:${process.env.REACT_APP_PORT_NUMBER}/api/fair/cityid`,
+					"/guardian/showroutes",
 					{
 						params: {
 							cityid: data.city,
