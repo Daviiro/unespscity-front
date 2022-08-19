@@ -23,8 +23,8 @@ import ServiceOrderInformation from "../../../components/forms/ServiceOrderInfor
 
 const MausTratosAnimais = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 25;
-	const totalResolvidos = 4;
+	const totalSolicitados = 5;
+	const totalResolvidos = 8;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

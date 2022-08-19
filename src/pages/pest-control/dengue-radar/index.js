@@ -23,8 +23,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 //id deste servico eh 17
 const Dengue = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 93;
-	const totalResolvidos = 22;
+	const totalSolicitados = 5;
+	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -119,6 +119,41 @@ const Dengue = (props) => {
 			location: {
 				lat: -22.1234442,
 				lng: -51.4036667,
+			},
+		},
+		{
+			id: 11,
+			location: {
+				lat: -22.1019012,
+				lng: -51.4099006,
+			},
+		},
+		{
+			id: 12,
+			location: {
+				lat: -22.1076602,
+				lng: -51.4217717,
+			},
+		},
+		{
+			id: 13,
+			location: {
+				lat: -22.1042070,
+				lng: -51.4289610,
+			},
+		},
+		{
+			id: 14,
+			location: {
+				lat: -22.1085956,
+				lng: -51.3981554,
+			},
+		},
+		{
+			id: 15,
+			location: {
+				lat: -22.1063268,
+				lng: -51.3922527,
 			},
 		},
 	]);

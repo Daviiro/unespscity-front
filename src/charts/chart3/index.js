@@ -2,8 +2,8 @@ import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 const DashboardChart3 = () => {
-	let totalResolvidos = 311;
-	let totalSolicitados = 406;
+	let totalResolvidos = 135;
+	let totalSolicitados = 102;
 	return (
 		<>
 			<div

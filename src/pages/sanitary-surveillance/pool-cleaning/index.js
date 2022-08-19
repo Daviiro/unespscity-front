@@ -21,8 +21,8 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 const Piscinas = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 93;
-	const totalResolvidos = 27;
+	const totalSolicitados = 5;
+	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

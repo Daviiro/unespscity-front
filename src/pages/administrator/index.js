@@ -17,6 +17,7 @@ import DashboardChart3 from "../../charts/chart3";
 import DashboardChart4 from "../../charts/chart4";
 import { MidContentContainer } from "../../components/styled-components/PageStyles";
 import DengueDashboard from "./heat-maps/dengue";
+import FairsDashboard from "./heat-maps/feiras";
 import TreesDashboard from "./heat-maps/trees";
 import LeishmanioseDashboard from "./heat-maps/leishmaniose";
 import Footer from "../../components/footer";
@@ -142,9 +143,11 @@ const Dashboard = () => {
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
 				<DengueDashboard />
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
+				<LeishmanioseDashboard />
+				<GrayLine style={{ marginBottom: "-8.5vh" }} />
 				<TreesDashboard />
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
-				<LeishmanioseDashboard />
+				<FairsDashboard />
 			</MidContentContainer>
 			<GrayLine style={{ width: "100%" }} />
 			<Footer />

@@ -21,8 +21,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Lixos_Solidos = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 91;
-	const totalResolvidos = 45;
+	const totalSolicitados = 3;
+	const totalResolvidos = 4;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

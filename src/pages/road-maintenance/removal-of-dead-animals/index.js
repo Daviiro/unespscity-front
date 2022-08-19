@@ -21,8 +21,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Animais_Mortos = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 91;
-	const totalResolvidos = 45;
+	const totalSolicitados = 5;
+	const totalResolvidos = 8;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

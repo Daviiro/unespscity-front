@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PagesPieChart from "../../../charts/types/donut";
-import { ChartContainer } from "./styles";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
@@ -21,8 +21,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AnimaisAbandonados = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 79;
-	const totalResolvidos = 12;
+	const totalSolicitados = 5;
+	const totalResolvidos = 7;
 
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {

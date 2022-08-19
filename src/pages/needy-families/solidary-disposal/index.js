@@ -21,8 +21,8 @@ import SolidaryDisposal from "../../../components/forms/ServiceOrderInformation/
 
 const DescarteSolidario = (props) => {
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 19;
-	const totalResolvidos = 13;
+	const totalSolicitados = 2;
+	const totalResolvidos = 7;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

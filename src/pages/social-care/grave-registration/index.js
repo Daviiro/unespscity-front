@@ -22,7 +22,7 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Tumulos = (props) => {
 	// posteriormente passar o número de túmulos registrados por parâmetro //
-	const total = 36;
+	const total = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

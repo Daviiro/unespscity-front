@@ -5,7 +5,7 @@ import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
-import ListCard from "./card-list";
+import ListCard from "../../../components/card-list";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";
@@ -23,8 +23,8 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 const AnimaisPerdidosLista = (props) => {
 	const [gestores, setGestores] = useState([]);
 	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 84;
-	const totalResolvidos = 78;
+	const totalSolicitados = 5;
+	const totalResolvidos = 1;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -174,7 +174,10 @@ const AnimaisPerdidosLista = (props) => {
 			</ContentContainer>
 			<GrayLine />
 			<ChartContainer>
-				<h3>Buscas por animais solicitadas e buscas bem-sucedidas:</h3>
+				<h3>
+					{" "}
+					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
+				</h3>
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
+import GrayLine from "../../../components/styled-components/gray-line";
+import PagesPieChart from "../../../charts/types/donut";
+import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 import Favorites from "../../../components/favorites";
 import Typography from "@mui/material/Typography";
@@ -17,6 +20,9 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AdoptionAnimals = (props) => {
+	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+	const totalSolicitados = 5;
+	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -156,6 +162,17 @@ const AdoptionAnimals = (props) => {
 					/>
 				</MidContentContainer>
 			</ContentContainer>
+			<GrayLine />
+			<ChartContainer>
+				<h3>
+					{" "}
+					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
+				</h3>
+				<PagesPieChart
+					solved={totalResolvidos}
+					unsolved={totalSolicitados}
+				/>
+			</ChartContainer>
 			<Footer />
 		</ContainerBase>
 	);
