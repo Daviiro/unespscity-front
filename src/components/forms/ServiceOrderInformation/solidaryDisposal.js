@@ -1,16 +1,19 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Container } from "./styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../../pages/user-location/Context";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import Map from "./Map";
 import GrayLine from "../../styled-components/gray-line";
 import InputPhotos from "../../images-input";
 import { FormGroup } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { api } from "../../../services/api";
+import { fetchLocation } from "../../../services/GoogleMaps";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { Circle } from "@react-google-maps/api";
 
 const SolidaryDisposal = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -36,6 +39,51 @@ const SolidaryDisposal = (props) => {
 		});
 	};
 
+	const containerStyle = {
+		width: "100%",
+		height: "500px",
+	};
+	const [center, setCenter] = useState({ lat: 0, lng: 0 });
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition((location) => {
+			fetchLocation(
+				location.coords.latitude,
+				location.coords.longitude
+			).then((data) => {
+				console.log("localizacao abaixo");
+				console.log(data);
+			});
+			setCenter({
+				lat: location.coords.latitude,
+				lng: location.coords.longitude,
+			});
+		});
+	}, []); // Esse useEffect faz com que isto aqui seja executado somente uma vez // //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+	});
+	const [map, setMap] = useState(null);
+	const options = {
+		strokeColor: "#FF0000",
+		strokeOpacity: 1,
+		strokeWeight: 1.5,
+		fillColor: "#FF0000",
+		fillOpacity: 0.25,
+		clickable: false,
+		draggable: false,
+		editable: false,
+		visible: true,
+		radius: 100,
+		zIndex: 1,
+	};
+	const onLoad = (circle) => {
+		console.log("Circle onLoad circle: ", circle);
+	};
+	const onUnmount = (circle) => {
+		console.log("Circle onUnmount circle: ", circle);
+	};
+
 	return (
 		<Container>
 			<div className="centered-content">
@@ -53,7 +101,26 @@ const SolidaryDisposal = (props) => {
 			{approximateLocation && (
 				<>
 					<div className="centered-content">
-						<Map />
+						<GoogleMap
+							mapContainerStyle={containerStyle}
+							center={center}
+							radius={100}
+							zoom={15}
+							onLoad={onLoad}
+							onUnmount={onUnmount}
+						>
+							<Circle
+								// optional
+								onLoad={onLoad}
+								// optional
+								onUnmount={onUnmount}
+								// required
+								center={center}
+								// required
+								options={options}
+							/>
+							<></>
+						</GoogleMap>
 					</div>
 
 					<div className="inputs">

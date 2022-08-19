@@ -19,15 +19,14 @@ const AdminNeedyFamiliesRegister = () => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/');
+				const { data } = await api.get("/");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -69,18 +68,16 @@ const AdminNeedyFamiliesRegister = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
-						problems.map((problem) => (
-							<AdminListCard
-								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
-								report={true}
-								userId={problem.userId}
-							/>
-						))
-					}
+					{problems.map((problem) => (
+						<AdminListCard
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							descricao={problem.description}
+							report={true}
+							userId={problem.userId}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
