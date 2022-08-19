@@ -111,7 +111,7 @@ const TheftRegister = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="theftregister"
+						srcaddress="/theftregister"
 						descriptionHelperText="Descreva com detalhes o local onde você foi furtado e o que você perdeu."
 					/>
 				</MidContentContainer>

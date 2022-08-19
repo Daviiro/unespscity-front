@@ -109,7 +109,7 @@ const Animais_Mortos = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="removaldeadanimals"
+						srcaddress="/removaldeadanimals"
 						descriptionHelperText="Descreva com detalhes o local onde irá deixar o animal morto. De preferencia deixar em um saco Preto."
 					/>
 				</MidContentContainer>

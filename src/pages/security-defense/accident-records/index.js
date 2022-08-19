@@ -112,7 +112,7 @@ const AccidentRecords = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="accidentrecords"
+						srcaddress="/accidentrecords"
 						descriptionHelperText="Conte-nos acima a natureza do acidente, e se possível relate se houve vítimas."
 					/>
 				</MidContentContainer>

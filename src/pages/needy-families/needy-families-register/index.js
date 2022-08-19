@@ -112,7 +112,7 @@ const NeedyFamiliesRegister = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="needyfamilies"
+						srcaddress="/needyfamilies"
 						descriptionHelperText="Conte-nos em detalhes sobre quais necessidades tal familía está passando."
 					/>
 				</MidContentContainer>

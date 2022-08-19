@@ -110,7 +110,7 @@ const Lixos_Solidos = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="removetrash"
+						srcaddress="/removetrash"
 						descriptionHelperText="Descreva com detalhes o local onde está todo o resíduo sólido."
 					/>
 				</MidContentContainer>
