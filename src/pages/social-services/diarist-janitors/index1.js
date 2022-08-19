@@ -21,6 +21,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const DiaristasNovo = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -33,14 +34,14 @@ const DiaristasNovo = (props) => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
 				id: 39,
-				name: "Registro de Familias Carentes",
+				name: "Cadastro de Diaristas",
 				img: "/assets/img/home_servicos_sociais.png",
 				link: "/diaristas_novo",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 39,
-				name: "Registro de Familias Carentes",
+				name: "Cadastro de Diaristas",
 				img: "/assets/img/home_servicos_sociais.png",
 				link: "/diaristas_novo",
 			}); //se desfavoritou o servico
@@ -119,27 +120,11 @@ const DiaristasNovo = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<FormContainer>
-						<InputAddressContainer>
-							<Input title="Nome:" width="30vw" />
-							<Input title="Telefone:" width="13vw" />
-						</InputAddressContainer>
-						<InputLocalization />
-						<p style={{ marginTop: "2.5vh" }}> OU </p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Um local de referência proximo (Opcional)"
-						/>
-						<DescriptionInput
-							title="Descrição do serviço:"
-							placeholder="conte-nos em detalhes o seu serviço prestado, horários disponíveis, cálculo de pagamento e o que mais julgar importante."
-						/>
-						<Button text="Enviar" />
-					</FormContainer>
+					<ServiceOrderInformation
+						phoneOption={true}
+						srcaddress="/diaristjanitor"
+						descriptionHelperText="Conte-nos em detalhes o seu serviço prestado, horários disponíveis, cálculo de pagamento e o que mais julgar importante."
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

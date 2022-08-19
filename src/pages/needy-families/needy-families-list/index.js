@@ -15,6 +15,7 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import { api } from "../../../services/api";
 
 const NeedyFamiliesList = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -41,6 +42,20 @@ const NeedyFamiliesList = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get("/diaristjanitor");
+				setProblems(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -111,34 +126,32 @@ const NeedyFamiliesList = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
+					{/**
+					 * <ListCard
 						source="/assets/img/home_animais_domesticos.png"
 						nome="[última vez visto]"
 						sobrenome="[último local visto]"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						button="Falar com o dono"
 					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
+					 */}
+
+					{problems.length != 0 ? (
+						problems.map((problem) => (
+							<ListCard
+								source=""
+								nome={
+									problem.street +
+									", Contato: " +
+									problem.phoneNumber
+								}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+							/>
+						))
+					) : (
+						<div>Sem dados no banco de dados</div>
+					)}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

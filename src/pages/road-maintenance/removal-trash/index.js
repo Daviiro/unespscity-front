@@ -47,6 +47,7 @@ const Lixos_Solidos = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
 	return (
 		<ContainerBase>
 			<Header />

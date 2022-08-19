@@ -14,7 +14,7 @@ import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
 
 const ServiceOrderInformation = (props) => {
-	const { srcaddress } = props;
+	const { srcaddress, phoneOption } = props;
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -23,6 +23,7 @@ const ServiceOrderInformation = (props) => {
 	const [referencePoint, setReferencePoint] = useState("-");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
 
 	const containerStyle = {
 		width: "100%",
@@ -152,7 +153,7 @@ const ServiceOrderInformation = (props) => {
 									name="numero"
 									fullWidth
 									id="outlined-basic"
-									label="Número"
+									label="Número da Casa"
 									type="number"
 									variant="outlined"
 									value={houseNumber}
@@ -229,7 +230,7 @@ const ServiceOrderInformation = (props) => {
 								name="numero2"
 								fullWidth
 								id="outlined-basic"
-								label="Número"
+								label="Número da Casa"
 								type="number"
 								variant="outlined"
 								value={houseNumber}
@@ -254,6 +255,22 @@ const ServiceOrderInformation = (props) => {
 				)}
 				<GrayLine />
 				<div className="inputs">
+					{phoneOption && (
+						<Stack spacing={1} direction="row">
+							<TextField
+								name="phone"
+								type="number"
+								id="outlined-basic"
+								label="Número de Telefone"
+								variant="outlined"
+								multiline
+								rows={1}
+								value={phoneNumber}
+								onChange={(e) => setPhoneNumber(e.target.value)}
+							/>
+						</Stack>
+					)}
+					<br />
 					<Stack spacing={2} direction="row">
 						<TextField
 							name="descricao"

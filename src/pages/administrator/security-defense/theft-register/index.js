@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
-import ListCard from "../../../../components/card-list";
+//import ListCard from "../../../../components/card-list";
 import Footer from "../../../../components/footer";
 import Typography from "@mui/material/Typography";
 import {
@@ -12,8 +12,24 @@ import {
 	MidContentContainer,
 } from "../../../../components/styled-components/PageStyles";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
+import AdminListCard from "../../../../components/card-list-admin";
+import { api } from "../../../../services/api";
 
 const AdminTheftRegister = () => {
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get("/theftregister");
+				setProblems(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -47,41 +63,28 @@ const AdminTheftRegister = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todos os furtos ocorridos que foram registrados na plataforma. 
+							Lista com todos os furtos ocorridos que foram
+							registrados na plataforma.
 						</DescriptionText>
 					</div>
 					<div></div>
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
+					{problems.length != 0 ? (
+						problems.map((problem) => (
+							<AdminListCard
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.userId}
+							/>
+						))
+					) : (
+						<>Sem dados no banco de dados</>
+					)}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

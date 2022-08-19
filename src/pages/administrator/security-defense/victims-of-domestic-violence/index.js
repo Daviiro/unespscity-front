@@ -20,15 +20,14 @@ const AdminVictimsOfDomesticViolence = () => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/');
+				const { data } = await api.get("/");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -64,12 +63,30 @@ const AdminVictimsOfDomesticViolence = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você HUAHAUAHUAHAUHAUHAUAHAUHAUAHAU	
+							Aqui você pode conferir as denúncias de casos de
+							violência doméstica, podendo então entrar em contato
+							com as autoridades que possam resolver o problema em
+							questão.
 						</DescriptionText>
 					</div>
 					<div></div>
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					{problems.length != 0 ? (
+						problems.map((problem) => (
+							<AdminListCard
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.userId}
+							/>
+						))
+					) : (
+						<>Sem dados no banco de dados</>
+					)}
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

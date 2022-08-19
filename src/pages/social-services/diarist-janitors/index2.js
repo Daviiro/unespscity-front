@@ -5,7 +5,6 @@ import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Button from "../../../components/styled-components/form-button";
 import GrayLine from "../../../components/styled-components/gray-line";
-import ListCard from "../../domestic-animals/lost-animals/card-list";
 import Footer from "../../../components/footer";
 import Typography from "@mui/material/Typography";
 import {
@@ -18,6 +17,8 @@ import {
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
+import { api } from "../../../services/api";
+import ListCard from "../../../components/card-list";
 
 const DiaristasLista = (props) => {
 	const [gestores, setGestores] = useState([]);
@@ -48,6 +49,20 @@ const DiaristasLista = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
+	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get("/diaristjanitor");
+				setProblems(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -126,48 +141,31 @@ const DiaristasLista = (props) => {
 					>
 						<Button text="Ver localizações no mapa" />
 					</Link>
-					<ListCard
+					{/*<ListCard
 						source="/assets/img/home_servicos_sociais.png"
 						nome="[Nome e número]"
 						sobrenome="[localização]"
 						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
 						button="Entrar em contato"
 					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="[Nome e número]"
-						sobrenome="[localização]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Entrar em contato"
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="[Nome e número]"
-						sobrenome="[localização]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Entrar em contato"
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="[Nome e número]"
-						sobrenome="[localização]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Entrar em contato"
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="[Nome e número]"
-						sobrenome="[localização]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Entrar em contato"
-					/>
-					<ListCard
-						source="/assets/img/home_servicos_sociais.png"
-						nome="[Nome e número]"
-						sobrenome="[localização]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Entrar em contato"
-					/>
+					*/}
+
+					{problems.length != 0 ? (
+						problems.map((problem) => (
+							<ListCard
+								source=""
+								nome={
+									problem.street +
+									", Contato: " +
+									problem.phoneNumber
+								}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+							/>
+						))
+					) : (
+						<div>Sem dados no banco de dados</div>
+					)}
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
