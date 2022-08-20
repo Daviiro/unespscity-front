@@ -79,6 +79,10 @@ const AdminFeiras = () => {
 		setOpen(false);
 		//console.log("antes de mandar: " + fair.cityid);
 		//testando a conexao com o backend
+		let name;
+		if (fair.name === "") {
+			name = "Feira sem nome";
+		}
 		api.post("/fair", {
 			headers: {
 				"Content-Type": "application/json; charset=UTF-8",
@@ -87,7 +91,7 @@ const AdminFeiras = () => {
 			},
 			data: {
 				cityid: fair.cityid,
-				name: fair.name,
+				name: name,
 				imgsrc: fair.imgsrc,
 				operatingDays: fair.operatingDays,
 				location: fair.location,
