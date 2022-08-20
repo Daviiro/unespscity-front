@@ -100,6 +100,7 @@ const Header = () => {
 					<div
 						style={{ color: "white", cursor: "pointer" }}
 						onClick={() => /*setFormValues({ undefined })*/ {
+							localStorage.removeItem("locationLocalStorage");
 							setFormValues({
 								state: undefined,
 								city: undefined,

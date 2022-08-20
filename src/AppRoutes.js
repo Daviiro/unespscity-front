@@ -177,6 +177,28 @@ const AppRoutes = () => {
 		);
 	};
 
+	const [locationDataLS, setLocationDataLS] = useState();
+	useEffect(() => {
+		if (JSON.parse(localStorage.getItem("locationLocalStorage")) !== null) {
+			const data = JSON.parse(
+				localStorage.getItem("locationLocalStorage")
+			);
+
+			setLocationDataLS(
+				JSON.parse(localStorage.getItem("locationLocalStorage"))
+			);
+			console.log(data);
+
+			if (data.city !== undefined && data.state !== undefined) {
+				setFormValues({
+					...formValues,
+					state: data.state,
+					city: data.city,
+				});
+			}
+		}
+	}, []);
+
 	return (
 		<Router>
 			<LocalContext.Provider value={[formValues, setFormValues]}>

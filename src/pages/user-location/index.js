@@ -39,10 +39,6 @@ const YourLocation = () => {
 		}
 	});
 
-	useEffect(() => {
-		localStorage.clear();
-	}, []);
-
 	return (
 		<Page>
 			<Container>
