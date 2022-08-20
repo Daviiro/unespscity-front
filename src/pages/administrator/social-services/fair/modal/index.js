@@ -220,16 +220,6 @@ const Modal = (props) => {
 				<Button onClick={handleClose}>Cancelar</Button>
 				<Button
 					onClick={() => {
-						setoperatingDays({
-							dom: false,
-							seg: false,
-							ter: false,
-							qua: false,
-							qui: false,
-							sex: false,
-							sab: false,
-						});
-						setTitle("");
 						handleAdd({
 							cityid: formValues.city,
 							name: title,
@@ -242,6 +232,16 @@ const Modal = (props) => {
 							openingHour,
 							closingHour,
 						});
+						setoperatingDays({
+							dom: false,
+							seg: false,
+							ter: false,
+							qua: false,
+							qui: false,
+							sex: false,
+							sab: false,
+						});
+						setTitle("");
 					}}
 				>
 					Adicionar

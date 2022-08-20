@@ -70,9 +70,6 @@ const TreesModal = (props) => {
 				<Button onClick={handleClose}>Cancelar</Button>
 				<Button
 					onClick={() => {
-						setSpecie("");
-						setTitle("");
-						setAge(0);
 						handleAdd({
 							cityid: formValues.city,
 							userid: 777,
@@ -85,6 +82,9 @@ const TreesModal = (props) => {
 								lng: clickedCoordinates.lng,
 							},
 						});
+						setSpecie("");
+						setTitle("");
+						setAge(0);
 					}}
 				>
 					Adicionar

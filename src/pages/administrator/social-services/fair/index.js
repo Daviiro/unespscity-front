@@ -79,8 +79,8 @@ const AdminFeiras = () => {
 		setOpen(false);
 		//console.log("antes de mandar: " + fair.cityid);
 		//testando a conexao com o backend
-		let name;
-		if (fair.name === "") {
+		let name = fair.name;
+		if (name === "") {
 			name = "Feira sem nome";
 		}
 		api.post("/fair", {
