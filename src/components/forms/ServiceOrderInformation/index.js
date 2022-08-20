@@ -7,7 +7,6 @@ import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
 import GrayLine from "../../styled-components/gray-line";
 import InputPhotos from "../../images-input";
-import axios from "axios";
 import { api } from "../../../services/api";
 import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
@@ -23,7 +22,7 @@ const ServiceOrderInformation = (props) => {
 	const [referencePoint, setReferencePoint] = useState("-");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
-	const [phoneNumber, setPhoneNumber] = useState("");
+	const [mobilePhone, setMobilePhone] = useState("");
 
 	const containerStyle = {
 		width: "100%",
@@ -265,8 +264,8 @@ const ServiceOrderInformation = (props) => {
 								variant="outlined"
 								multiline
 								rows={1}
-								value={phoneNumber}
-								onChange={(e) => setPhoneNumber(e.target.value)}
+								value={mobilePhone}
+								onChange={(e) => setMobilePhone(e.target.value)}
 							/>
 						</Stack>
 					)}
