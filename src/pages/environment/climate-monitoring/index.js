@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -13,24 +13,59 @@ import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
-import Map from "./map";
+import TreesMap from "./map";
 import Favorites from "../../../components/favorites";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
-import Chart from "react-apexcharts";
+import { Context } from "../../../context/Auth/AuthContext";
+import Graphic from "./graphic";
 
 const Monitoring = (props) => {
-	const [socketUrl, setSocketUrl] = useState('ws://localhost:3334');
+	const socketUrl = 'ws://localhost:3334';
+	const [isFavorite, setIsFavorite] = useState(false);
 	const [messageHistory, setMessageHistory] = useState([]);
 	const [total, setTotal] = useState([]);
 	const [temperatureAverage, setTemperatureAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
+	const [humidityAverage, setHumidityAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
+	const [precipitationAverage, setPrecipitationAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
+	const [windAverage, setWindAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
 	const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl);
+	const { user } = useContext(Context);
+	let data = [
+		{
+			title: "Sensor localizado na Manoel Goulart - Frente ao Parque do Povo",
+			location: {
+				lat: -22.117968,
+				lng: -51.404495,
+			}
+		},
+		{
+			title: "Sensor localizado no Catedral da Cidade",
+			location: {
+				lat: -22.122900,
+				lng: -51.388858,
+			}
+		}
+	]
+	const [locations, setLocations] = useState(data);
 
 	useEffect(() => {
 		if (lastMessage !== null) {
 			let string = lastMessage.data;
+			let sensor = string.split("localizado n")
+			let sensor01 = sensor[1].substring(0, 1);
+			let updateSensor = sensor01 === 'o' ? 1 : 0
+			let getValues = string.split("temperature")
+			data[updateSensor].temperature = getValues[1].substring(3, 7)
+			data[updateSensor].humidity = getValues[1].substring(21, 25)
+			data[updateSensor].precipitation = getValues[1].substring(43, 44)
+			data[updateSensor].wind = getValues[1].substring(53, 56)
+			console.log(data)
+			setLocations(data);
 			let array = string.split("===")
 			let newTemperatureAverage = parseFloat(array[1])
-			console.log(typeof newTemperatureAverage.toFixed(1))
+			let newHumidityAverage = parseFloat(array[2])
+			let newPrecipitationAverage = parseFloat(array[3])
+			let newWindAverage = parseFloat(array[4])
 			setMessageHistory((prev) => prev.concat(lastMessage));
 			if (newTemperatureAverage !== undefined) {
 				setTemperatureAverage(
@@ -41,10 +76,25 @@ const Monitoring = (props) => {
 						return index + 1 < temperatureAverage.length ? temperatureAverage[index + 1] : (newTemperatureAverage.toFixed(1)).valueOf()
 					})
 				)
+				setHumidityAverage(
+					humidityAverage.map((num, index) => {
+						return index + 1 < humidityAverage.length ? humidityAverage[index + 1] : (newHumidityAverage.toFixed(1)).valueOf()
+					})
+				)
+				setPrecipitationAverage(
+					precipitationAverage.map((num, index) => {
+						return index + 1 < precipitationAverage.length ? precipitationAverage[index + 1] : (newPrecipitationAverage.toFixed(1)).valueOf()
+					})
+				)
+				setWindAverage(
+					windAverage.map((num, index) => {
+						return index + 1 < windAverage.length ? windAverage[index + 1] : (newWindAverage.toFixed(1)).valueOf()
+					})
+				)
 			}
 		}
 	}, [lastMessage, setMessageHistory]);
-	const [isFavorite, setIsFavorite] = useState(false);
+
 	useEffect(() => {
 		props.data.find(
 			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
@@ -64,14 +114,6 @@ const Monitoring = (props) => {
 
 	const handleClickSendMessage = useCallback(() => sendMessage('Hello'), []);
 
-	const connectionStatus = {
-		[ReadyState.CONNECTING]: 'Connecting',
-		[ReadyState.OPEN]: 'Open',
-		[ReadyState.CLOSING]: 'Closing',
-		[ReadyState.CLOSED]: 'Closed',
-		[ReadyState.UNINSTANTIATED]: 'Uninstantiated',
-	}[readyState];
-
 	const handleFavorite = () => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
@@ -90,93 +132,6 @@ const Monitoring = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
-
-	const routes = [
-		{
-			id: 1,
-			points: [
-				{
-					lat: -22.131951,
-					lng: -51.40933,
-				},
-				{
-					lat: -22.09763957730908,
-					lng: -51.41680879940989,
-				},
-				{
-					lat: -22.092304090035935,
-					lng: -51.40159869150531,
-				},
-			],
-			id: 2,
-			points: [
-				{
-					lat: -22.131951,
-					lng: -51.40933,
-				},
-				{
-					lat: -22.09764,
-					lng: -51.416807,
-				},
-				{
-					lat: -22.0923,
-					lng: -51.401594,
-				},
-			],
-		},
-	];
-
-	const state = {
-		series: [
-			{
-				name: "Media das Temperaturas", data: temperatureAverage
-			}
-		],
-
-		options: {
-			chart: {
-				height: 350,
-				type: 'line',
-				dropShadow: { enabled: true, color: '#000', top: 18, left: 7, blur: 10, opacity: 0.2 },
-				toolbar: { show: false }
-			},
-			colors: ['#3282b8', '#133d59'],
-			dataLabels: {
-				enabled: true,
-			},
-			stroke: {
-				curve: 'smooth'
-			},
-			title: {
-				text: 'Média dos sensores da Temperatura', align: 'left'
-			},
-			grid: {
-				borderColor: '#e7e7e7',
-				row: {
-					colors: ['transparent', 'transparent'], opacity: 0.5
-				},
-			},
-			markers: {
-				size: 1
-			},
-			xaxis: {
-				categories: ['-18 segundos', '-15 segundos', '-12 segundos', '-09 segundos', '-06 segundos', '-03 segundos', 'agora'],
-				title: { text: 'Segundos' }
-			},
-			yaxis: {
-				title: { text: 'Temperatura' },
-				min: 18,
-				max: 28
-			},
-			legend: {
-				position: 'top',
-				horizontalAlign: 'right',
-				floating: true,
-				offsetY: -25,
-				offsetX: -5
-			}
-		},
-	}
 
 	return (
 		<ContainerBase>
@@ -242,31 +197,44 @@ const Monitoring = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Map routes={routes} />
+					<TreesMap
+						locations={locations}
+						icon="/assets/img/humidity-sensor.png"
+					/>
 					<>
-						<Chart
-							options={state.options}
-							series={state.series}
-							type="line"
-							height={380}
-							width={760}
+						<br />
+						<Graphic
+							title="Media das Temperaturas"
+							data={temperatureAverage}
+							columnName="Temperatura (°C)"
+							min={20}
+							max={26}
+						/>
+						<br />
+						<Graphic
+							title="Media da Umidade"
+							data={humidityAverage}
+							columnName="Umidade (%)"
+							min={40}
+							max={45}
+						/>
+						<br />
+						<Graphic
+							title="Media das Precipitações"
+							data={precipitationAverage}
+							columnName="Precipitação (mm)"
+							min={0}
+							max={10}
+						/>
+						<br />
+						<Graphic
+							title="Media dos Ventos"
+							data={windAverage}
+							columnName="Velocidade do Vento (km/h)"
+							min={3}
+							max={8}
 						/>
 					</>
-					<div>
-						<button
-							onClick={handleClickSendMessage}
-							disabled={readyState !== ReadyState.OPEN}
-						>
-							Click Me to send 'Hello'
-						</button>
-						<span>The WebSocket is currently {connectionStatus}</span>
-						{lastMessage ? <span>Last message: {lastMessage.data}</span> : null}
-						<ul>
-							{messageHistory.map((message, idx) => (
-								<span key={idx}>{message ? total : null}</span>
-							))}
-						</ul>
-					</div>
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
