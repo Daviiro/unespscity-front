@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -20,7 +21,21 @@ import Favorites from "../../../components/favorites";
 import SolidaryDisposal from "../../../components/forms/ServiceOrderInformation/solidaryDisposal";
 
 const DescarteSolidario = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/solidarydisposal');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 2;
 	const totalResolvidos = 7;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -127,6 +142,14 @@ const DescarteSolidario = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Descartes informados e descartes recolhidos: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "solidary-disposal") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

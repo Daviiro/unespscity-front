@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Header from "../../../components/header";
@@ -20,7 +21,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AnimaisAbandonados = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/animais_abandonados');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 7;
 
@@ -133,6 +148,14 @@ const AnimaisAbandonados = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Resgastes solicitados e resolvidos: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "abandoned-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import { Details } from "./styles";
 import Header from "../../../components/header";
@@ -20,7 +21,21 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 const Piscinas = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/limpeza_piscinas');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 9;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -147,6 +162,14 @@ const Piscinas = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Limpezas solicitadas e efetuadas: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "pool-cleaning") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

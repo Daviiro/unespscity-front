@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
 	ContainerBase,
 	ContentContainer,
@@ -8,7 +7,6 @@ import {
 	DescriptionText,
 } from "../../../components/styled-components/PageStyles";
 import { FormContainer } from "./styles";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Typography from "@mui/material/Typography";

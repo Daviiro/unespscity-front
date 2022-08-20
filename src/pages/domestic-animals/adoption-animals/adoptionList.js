@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ListCard from "../../../components/card-list";
@@ -20,7 +21,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AdoptionAnimals = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/adocao_animais');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -125,6 +140,17 @@ const AdoptionAnimals = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
+				{/*	{
+						problems.map((problem) => (
+							<ListCard
+								source={problem.images}
+								nome={problem.owner}
+								sobrenome={problem.date}
+								descricao={problem.description}
+								button="Falar com o dono"
+							/>
+						))
+					}	*/}
 					<ListCard
 						source="/assets/backup/01.jpg"
 						nome="Marcos Cardoso da Silva"
@@ -168,6 +194,14 @@ const AdoptionAnimals = (props) => {
 					{" "}
 					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
 				</h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "adoption-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

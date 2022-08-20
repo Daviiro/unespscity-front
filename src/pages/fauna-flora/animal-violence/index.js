@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import { InputAddressContainer, Details } from "./styles";
 import Header from "../../../components/header";
@@ -7,7 +8,6 @@ import Favorites from "../../../components/favorites";
 import GrayLine from "../../../components/styled-components/gray-line";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
-
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -22,7 +22,21 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const MausTratosAnimais = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/maus_tratos_animais');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 8;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -167,6 +181,14 @@ const MausTratosAnimais = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e serviços efetuados: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "animal-violence") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

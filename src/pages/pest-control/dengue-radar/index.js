@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
@@ -22,7 +23,21 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 //id deste servico eh 17
 const Dengue = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/radar_dengue');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -261,6 +276,14 @@ const Dengue = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Eliminações solicitadas e efetuadas: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "dengue-radar") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

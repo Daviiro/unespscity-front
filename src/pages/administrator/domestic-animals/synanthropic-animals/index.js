@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import MiniCard from "../../../../components/mini-card";
 import {
 	ContainerBase,
@@ -59,6 +59,11 @@ const AdminSynanthropicAnimals = () => {
 								name: "Animais Sinantrópicos",
 								link: "/admin/animais-sinantropicos",
 							},
+                            {
+								id: 5,
+								name: "Adoção de Animais",
+								link: "/admin/adocao_animais",
+							},
 						]}
 					/>
 					<div style={{ marginTop: "14px" }}>
@@ -83,7 +88,7 @@ const AdminSynanthropicAnimals = () => {
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
-								userId={problem.userId}
+								userId={problem.idUser}
 							/>
 						))
 					}	*/}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../../services/api";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import Favorites from "../../../components/favorites";
@@ -21,8 +22,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AnimaisPerdidosLista = (props) => {
-	const [gestores, setGestores] = useState([]);
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/animais_perdidos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 1;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -135,6 +149,17 @@ const AnimaisPerdidosLista = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
+				{/*	{
+						problems.map((problem) => (
+							<ListCard
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								button="Falar com o dono"
+							/>
+						))
+					}	*/}
 					<ListCard
 						source="/assets/backup/11.jpg"
 						nome="Rua Antônio Pereira Teles, 68, Parque Shiraiwa"
@@ -178,6 +203,14 @@ const AnimaisPerdidosLista = (props) => {
 					{" "}
 					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
 				</h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "lost-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

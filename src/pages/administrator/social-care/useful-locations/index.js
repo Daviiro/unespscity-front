@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -232,11 +232,11 @@ const LocaisUteisAdmin = () => {
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
+								nome={problem.description}
+								sobrenome={problem.street}
+								descricao={problem.referencePoint}
 								report={true}
-								userId={problem.userId}
+								userId={1}
 							/>
 						))
 					}	*/}

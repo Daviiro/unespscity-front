@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -79,7 +79,7 @@ const AdminTerreno = () => {
 									sobrenome={problem.referencePoint}
 									descricao={problem.description}
 									report={true}
-									userId={problem.userId}
+									userId={problem.idUser}
 								/>
 							))
 						}	*/}
