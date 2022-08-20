@@ -14,8 +14,10 @@ import TreesMap from "./map";
 import Footer from "../../../../components/footer";
 import LocalContext from "../../../user-location/Context";
 import { api } from "../../../../services/api";
+import { Context } from "../../../../context/Auth/AuthContext";
 
 const AdminInformationAboutTrees = () => {
+	const { user } = useContext(Context);
 	const [isLoading, setLoading] = useState(true);
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
@@ -151,6 +153,23 @@ const AdminInformationAboutTrees = () => {
 				tree.location
 		);
 
+		let uid = user.userId;
+		if (uid === undefined) {
+			uid = -1;
+		}
+
+		let age = tree.age;
+		if (age <= 0 || age === undefined) {
+			age = 1;
+		}
+		let specie = tree.specie;
+		if (specie === "") {
+			specie = "Náo identificadda";
+		}
+		let name = tree.name;
+		if (name === "") {
+			name = "Não identificadda";
+		}
 		api.post("/informationabouttrees", {
 			headers: {
 				"Content-Type": "application/json; charset=UTF-8",
@@ -160,11 +179,11 @@ const AdminInformationAboutTrees = () => {
 			},
 			data: {
 				cityid: tree.cityid,
-				userid: tree.userid,
-				name: tree.name,
+				userid: uid,
+				name: name,
 				imgsrc: tree.imgsrc,
-				specie: tree.specie,
-				age: tree.age,
+				specie: specie,
+				age: age,
 				location: tree.location,
 			},
 		});

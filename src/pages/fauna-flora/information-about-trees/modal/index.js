@@ -69,7 +69,10 @@ const TreesModal = (props) => {
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
 				<Button
-					onClick={() =>
+					onClick={() => {
+						setSpecie("");
+						setTitle("");
+						setAge(0);
 						handleAdd({
 							cityid: formValues.city,
 							userid: 777,
@@ -81,8 +84,8 @@ const TreesModal = (props) => {
 								lat: clickedCoordinates.lat,
 								lng: clickedCoordinates.lng,
 							},
-						})
-					}
+						});
+					}}
 				>
 					Adicionar
 				</Button>

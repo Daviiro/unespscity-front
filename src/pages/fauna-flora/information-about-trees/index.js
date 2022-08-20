@@ -18,8 +18,10 @@ import TreesModal from "./modal";
 import Favorites from "../../../components/favorites";
 import LocalContext from "../../user-location/Context";
 import { api } from "../../../services/api";
+import { Context } from "../../../context/Auth/AuthContext";
 
 const InformationAboutTrees = (props) => {
+	const { user } = useContext(Context);
 	const [isLoading, setLoading] = useState(true);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -122,6 +124,22 @@ const InformationAboutTrees = (props) => {
 		setLocations([...locations, tree]); //adiciono a nova arvore no array
 		//console.log(locations);
 		setOpen(false);
+		let uid = user.userId;
+		if (uid === undefined) {
+			uid = -1;
+		}
+		let age = tree.age;
+		if (age <= 0 || age === undefined) {
+			age = 1;
+		}
+		let specie = tree.specie;
+		if (specie === "") {
+			specie = "Não identificadda";
+		}
+		let name = tree.name;
+		if (name === "") {
+			name = "Não identificadda";
+		}
 		api.post("/informationabouttrees", {
 			headers: {
 				"Content-Type": "application/json; charset=UTF-8",
@@ -131,10 +149,11 @@ const InformationAboutTrees = (props) => {
 			},
 			data: {
 				cityid: tree.cityid,
+				userid: uid,
 				name: tree.name,
 				imgsrc: tree.imgsrc,
-				specie: tree.specie,
-				age: tree.age,
+				specie: specie,
+				age: age,
 				location: tree.location,
 			},
 		})
