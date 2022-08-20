@@ -51,7 +51,13 @@ const FairsMap = (props) => {
 
 	const dateFormater = (oldDate) => {
 		const newDate = new Date(oldDate);
-		return newDate.getHours();
+		let resul = newDate.getMinutes();
+		if (resul === 0) {
+			resul = newDate.getHours() + "h" + newDate.getMinutes() + "0";
+		} else {
+			resul = newDate.getHours() + "h" + newDate.getMinutes();
+		}
+		return resul;
 	};
 
 	return isLoaded ? (
@@ -140,8 +146,8 @@ const FairsMap = (props) => {
 							{selected.openingHour.getMinutes()} às{" "}
 							{selected.closingHour.getHours()}h
 							{selected.closingHour.getMinutes()}*/}
-							Horário: {dateFormater(selected.openingHour)}h às
-							{dateFormater(selected.closingHour)}h
+							Horário: {dateFormater(selected.openingHour)} às{" "}
+							{dateFormater(selected.closingHour)}
 						</Typography>
 						<Button
 							fulldwith
