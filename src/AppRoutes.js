@@ -194,7 +194,7 @@ const AppRoutes = () => {
 				api.post("/favorites", {
 					data: {
 						userId: user.userId,
-						_id: favorite._id,
+						id: favorite.id,
 						name: favorite.name,
 						img: favorite.img,
 						link: favorite.link,
@@ -225,7 +225,7 @@ const AppRoutes = () => {
 		try {
 			api.delete("/favorites", {
 				params: {
-					id: Delfavorite.id,
+					_id: Delfavorite._id,
 				},
 			}).then(() => {
 				getFavorites();
