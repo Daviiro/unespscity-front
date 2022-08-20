@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
@@ -21,7 +22,21 @@ import ServiceOrderInformation from "../../../components/forms/ServiceOrderInfor
 import Favorites from "../../../components/favorites";
 
 const NovasDoacoesAnimais = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/adocao_animais');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+	
 	const totalSolicitados = 5;
 	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -144,6 +159,14 @@ const NovasDoacoesAnimais = (props) => {
 					{" "}
 					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
 				</h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "adoption-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
@@ -83,12 +83,12 @@ const AdminTumulos = () => {
 				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
-								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
+								source={problem.QRimage}
+								nome={problem.dateOfDeath}
+								sobrenome={problem.graveyardName}
+								descricao={problem.graveNumber}
 								report={true}
-								userId={problem.userId}
+								userId={problem.idUser}
 							/>
 						))
 					}	*/}

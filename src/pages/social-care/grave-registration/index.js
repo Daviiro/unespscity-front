@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import { FormContainer, InputAddressContainer, GrayLine2 } from "./styles";
 import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
@@ -21,7 +22,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Tumulos = (props) => {
-	// posteriormente passar o número de túmulos registrados por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/tumulos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const total = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -148,6 +163,11 @@ const Tumulos = (props) => {
 					</FormContainer>
 				</MidContentContainer>
 				<GrayLine />
+			{/*	{
+					problems.map((problem) => (problem.type === "insects-rodents-snails") (
+						<h3> Total de túmulos registrados no sistema: {problem.totalResolvidos} </h3>
+					))
+				}	*/}
 				<div>
 					<h3> Total de túmulos registrados no sistema: {total}</h3>
 				</div>

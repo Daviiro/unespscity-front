@@ -1,7 +1,28 @@
 import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
+// import { api } from "../../services/api";
 
 const DashboardChart3 = () => {
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/graficos_servicos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [ ]);
+
+	problems.map((problem) => (problem.type === "total") (
+		totalResolvidos = problem.totalResolvidos,
+		totalSolicitados = problem.totalSolicitados
+	))	*/
+	
 	let totalResolvidos = 135;
 	let totalSolicitados = 102;
 	return (

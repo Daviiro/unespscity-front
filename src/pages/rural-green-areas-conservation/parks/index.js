@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -20,7 +21,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Parques = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/parques');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 1;
 	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -120,6 +135,14 @@ const Parques = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e resolvidos: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "parks") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

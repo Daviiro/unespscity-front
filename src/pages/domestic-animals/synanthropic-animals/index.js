@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import Header from "../../../components/header";
 import GrayLine from "../../../components/styled-components/gray-line";
 import PagesPieChart from "../../../charts/types/donut";
@@ -16,12 +17,25 @@ import Typography from "@mui/material/Typography";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
-import Form from "../../../components/forms";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 import Favorites from "../../../components/favorites";
 
 const AnimaisSinantropicos = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/animais_sinantropicos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -138,6 +152,14 @@ const AnimaisSinantropicos = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Problemas com Animais Sinantrópicos solicitados e resolvidos: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "synanthropic-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

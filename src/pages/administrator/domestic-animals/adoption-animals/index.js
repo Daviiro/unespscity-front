@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
@@ -84,11 +84,11 @@ const AdminAdoptionAnimals = () => {
 						problems.map((problem) => (
 							<AdminListCard
 								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
+								nome={problem.owner}
+								sobrenome={problem.date}
 								descricao={problem.description}
 								report={true}
-								userId={problem.userId}
+								userId={problem.idUser}
 							/>
 						))
 					}	*/}

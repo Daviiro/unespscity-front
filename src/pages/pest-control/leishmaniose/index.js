@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
@@ -22,7 +22,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Leishmaniose = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/leishmaniose');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalSolicitados = 5;
 	const totalResolvidos = 1;
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -219,6 +233,14 @@ const Leishmaniose = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Eliminações solicitadas e efetuadas: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "leishmaniose") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

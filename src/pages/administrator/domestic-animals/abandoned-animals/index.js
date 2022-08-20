@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -47,7 +47,7 @@ const AnimaisAbandonados = () => {
 							{
 								id: 2,
 								name: "Animais Perdidos",
-								link: "/admin/animais_perdidos",
+								link: "/admin/animais_perdidos_opcoes",
 							},
 							{
 								id: 3,
@@ -58,6 +58,11 @@ const AnimaisAbandonados = () => {
 								id: 4,
 								name: "Animais Sinantrópicos",
 								link: "/admin/animais-sinantropicos",
+							},
+                            {
+								id: 5,
+								name: "Adoção de Animais",
+								link: "/admin/adocao_animais",
 							},
 						]}
 					/>
@@ -83,7 +88,7 @@ const AnimaisAbandonados = () => {
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
-								userId={problem.userId}
+								userId={problem.idUser}
 							/>
 						))
 					}	*/}

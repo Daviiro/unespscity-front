@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+// import { api } from "../../../services/api";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
-
 import {
 	ContainerBase,
 	ContentContainer,
@@ -9,7 +9,6 @@ import {
 	MidContentContainer,
 	DescriptionText,
 } from "../../../components/styled-components/PageStyles";
-
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
@@ -19,10 +18,21 @@ import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 const AdocaoAreasAdotadas = () => {
-	const [nome, setName] = useState([]);
-	const [sobrenome, setSurname] = useState([]);
-	const [descricao, setDescription] = useState([]);
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/public_area_adoption');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	*/
+
 	const totalDisponiveis = 1;
 	const totalAdotadas = 6;
 
@@ -123,6 +133,14 @@ const AdocaoAreasAdotadas = () => {
 						Áreas públicas disponíveis/resolvidas e Áreas públicas
 						adotadas/solicitadas:{" "}
 					</h3>
+				{/*	{
+						problems.map((problem) => (problem.type === "pubic-areas-adoption") (
+							<PagesPieChart
+								solved={problem.totalResolvidos}
+								unsolved={problem.totalSolicitados}
+							/>
+						))
+					}	*/}
 					<PagesPieChart
 						solved={totalDisponiveis}
 						unsolved={totalAdotadas}

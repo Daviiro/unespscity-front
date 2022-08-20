@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -126,6 +127,14 @@ const AnimaisSilvestres = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e serviços efetuados: </h3>
+			{/*	{
+					problems.map((problem) => (problem.type === "wild-animals") (
+						<PagesPieChart
+							solved={problem.totalResolvidos}
+							unsolved={problem.totalSolicitados}
+						/>
+					))
+				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
 					unsolved={totalSolicitados}

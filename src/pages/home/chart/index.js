@@ -1,10 +1,29 @@
 import React from "react";
+// import { api } from "../../../services/api";
 import ProgressBar from "../../../charts/types/progress";
 import { ContainerRow } from "./styles";
-// Dada a lista de problemas resolvidos para cada categoria (Conservação Urbana,
+
 const ChartHome = () => {
-	// Administração Pública...), maxValue deve receber o número de problemas resolvidos
-	const maxValue = 24; // da categoria com mais problemas resolvidos //
+/*	const [problems, setProblems] = useState([]);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/graficos_servicos');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);
+
+	problems.map((problem) => (problem.type === "urban-conservation") (
+		maxValue = problem.totalResolvidos
+	))	*/
+
+	const maxValue = 24;
 	return (
 		<>
 			<h3 style={{ marginTop: "0vh", marginBottom: "5.5vh" }}>
@@ -17,6 +36,11 @@ const ChartHome = () => {
 					alt="Conservação Urbana"
 				/>
 				<ProgressBar value={24} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "urban-conservation") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -24,6 +48,11 @@ const ChartHome = () => {
 					alt="Conservação Rural/Áreas Verdes"
 				/>
 				<ProgressBar value={17} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "rural-green-areas-conservation") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -31,6 +60,11 @@ const ChartHome = () => {
 					alt="Remoção de Detritos"
 				/>
 				<ProgressBar value={8} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "road-maintenance") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -38,6 +72,11 @@ const ChartHome = () => {
 					alt="Vigilância Sanitária"
 				/>
 				<ProgressBar value={17} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "sanitary-surveillance") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -45,6 +84,11 @@ const ChartHome = () => {
 					alt="Controle de Pragas"
 				/>
 				<ProgressBar value={13} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "pest-control") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -52,6 +96,11 @@ const ChartHome = () => {
 					alt="Animais Domésticos"
 				/>
 				<ProgressBar value={24} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "domestic-animals") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -59,6 +108,11 @@ const ChartHome = () => {
 					alt="Meio Ambiente"
 				/>
 				<ProgressBar value={6} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "environment") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -66,6 +120,11 @@ const ChartHome = () => {
 					alt="Fauna e Flora"
 				/>
 				<ProgressBar value={10} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "fauna-flora") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -73,6 +132,11 @@ const ChartHome = () => {
 					alt="Assistência Social"
 				/>
 				<ProgressBar value={5} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "social-care") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 			<ContainerRow>
 				<img
@@ -80,6 +144,11 @@ const ChartHome = () => {
 					alt="Famílias Carentes"
 				/>
 				<ProgressBar value={7} max={maxValue} />
+			{/*	{
+					problems.map((problem) => (problem.type === "needy-families") (
+						<ProgressBar value={problem.totalResolvidos} max={maxValue} />
+					)) 
+				}	*/}
 			</ContainerRow>
 		</>
 	);
