@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -163,18 +163,76 @@ import Notifications from "./pages/notifications";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 import AdminGuardian from "./pages/administrator/remote-sensing/guardian-monitoring";
 
-const AppRoutes = () => {
-	const [formValues, setFormValues] = useState({});
+import { api } from "./services/api";
+import { Context } from "./context/Auth/AuthContext";
 
+const AppRoutes = () => {
+	const { user } = useContext(Context);
+	const [formValues, setFormValues] = useState({});
 	const [favoritesData, setFavoritesData] = useState([]);
+
+	const getFavorites = async () => {
+		if (user.userId !== undefined) {
+			try {
+				const { data } = await api.get("/favorites");
+				setFavoritesData(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+	};
+	useEffect(() => {
+		getFavorites();
+	}, []);
 
 	const handleAddFavorite = (favorite) => {
 		setFavoritesData([...favoritesData, favorite]);
+
+		//adicionar no banco de dados os favoritos
+		if (user.userId !== undefined) {
+			try {
+				api.post("/favorites", {
+					data: {
+						userId: user.userId,
+						_id: favorite._id,
+						name: favorite.name,
+						img: favorite.img,
+						link: favorite.link,
+					},
+				}).then(() => {
+					getFavorites();
+				});
+			} catch (err) {
+				console.log(err);
+			}
+
+			console.log("USERID: " + user.userId);
+			console.log("Citiid: " + user.cityId);
+			console.log("Email: " + user.email);
+			console.log("Admin: " + user.isAdmin);
+			console.log("Name: " + user.name);
+			console.log("Button: " + user.panicButton);
+		} else {
+			alert(
+				"Você precisa estar logado para armazenar o favorito de forma definitiva!"
+			);
+		}
 	};
 	const handleSubFavorite = (Delfavorite) => {
 		setFavoritesData(
 			favoritesData.filter((favorite) => favorite.id !== Delfavorite.id)
 		);
+		try {
+			api.delete("/favorites", {
+				params: {
+					id: Delfavorite.id,
+				},
+			}).then(() => {
+				getFavorites();
+			});
+		} catch (e) {
+			console.log(e);
+		}
 	};
 
 	const [locationDataLS, setLocationDataLS] = useState();
