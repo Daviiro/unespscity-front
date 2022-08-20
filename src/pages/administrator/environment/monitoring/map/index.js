@@ -1,13 +1,13 @@
 import * as React from "react";
-import { fetchLatLong } from "../../../../services/GoogleMaps";
-import { fetchCityForID } from "../../../../services/IBGE";
+import { fetchLatLong } from "../../../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../../../services/IBGE";
 import {
 	GoogleMap,
 	useJsApiLoader,
 	MarkerF,
 	InfoWindow,
 } from "@react-google-maps/api";
-import LocalContext from "../../../user-location/Context";
+import LocalContext from "../../../../user-location/Context";
 import { InfoWindowContainer } from "./styles";
 import { Typography } from "@mui/material";
 
