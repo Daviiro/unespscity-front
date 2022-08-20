@@ -28,7 +28,7 @@ const AnimaisAbandonados = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, []);	*/
 
 	return (
 		<ContainerBase>

@@ -27,7 +27,7 @@ const AdminAnimaisSilvestres = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [ ]);
 
 	return (
 		<ContainerBase>

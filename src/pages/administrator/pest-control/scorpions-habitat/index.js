@@ -28,7 +28,7 @@ const AdminEscorpiao = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, [ ]);	*/
 
 	return (
 		<ContainerBase>

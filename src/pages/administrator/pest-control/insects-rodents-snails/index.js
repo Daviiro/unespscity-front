@@ -28,7 +28,7 @@ const AdminPragas = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, [ ]);	*/
 
 	return (
 		<ContainerBase>

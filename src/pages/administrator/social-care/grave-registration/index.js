@@ -28,7 +28,7 @@ const AdminTumulos = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, [ ]);	*/
 
 	return (
 		<ContainerBase>

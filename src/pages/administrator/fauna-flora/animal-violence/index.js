@@ -28,7 +28,7 @@ const AdminMausTratosAnimais = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, [ ]);	*/
 
 	return (
 		<ContainerBase>

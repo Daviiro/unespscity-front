@@ -27,7 +27,7 @@ const AdminVias = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [ ]);
 
 	return (
 		<ContainerBase>

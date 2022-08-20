@@ -27,7 +27,7 @@ const AdminIluminacao = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [ ]);
 
 	return (
 		<ContainerBase>

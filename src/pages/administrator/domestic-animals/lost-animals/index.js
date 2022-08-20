@@ -28,7 +28,7 @@ const AdminAnimaisPerdidos = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, []);	*/
 
 	return (
 		<ContainerBase>

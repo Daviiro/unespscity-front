@@ -27,7 +27,7 @@ const AdminAnimaisMortos = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [ ]);
 
 	return (
 		<ContainerBase>

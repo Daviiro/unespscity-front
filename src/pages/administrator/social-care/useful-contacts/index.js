@@ -32,7 +32,7 @@ const AdminTelefones = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	
+	}, [ ]);	
 
 	return (
 		<ContainerBase>

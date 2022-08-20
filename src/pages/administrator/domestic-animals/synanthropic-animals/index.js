@@ -28,7 +28,7 @@ const AdminSynanthropicAnimals = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, []);	*/
 
 	return (
 		<ContainerBase>

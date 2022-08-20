@@ -35,7 +35,7 @@ const AdminNoticias = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, []);
 
 	return (
 		<ContainerBase>

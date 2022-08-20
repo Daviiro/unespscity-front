@@ -30,7 +30,7 @@ const AdminLeishmaniose = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, [ ]);	*/
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,

@@ -27,7 +27,7 @@ const AdminAdocaoAreas = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);
+	}, [ ]);
 
 	return (
 		<>

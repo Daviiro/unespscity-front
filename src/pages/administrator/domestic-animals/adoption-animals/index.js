@@ -28,7 +28,7 @@ const AdminAdoptionAnimals = () => {
 			}
 		}
 		getProblems();
-	}, [problems]);	*/
+	}, []);	*/
 
 	return (
 		<ContainerBase>
