@@ -13,17 +13,20 @@ export const StyledDropdownMenu = styled.div`
 	transition: height 500ms ease;
 `;
 
-export const StyledDropdownItem = styled.div`
+export const StyledDropdownItem = styled.button`
 	height: 50px;
+	width: 100%;
 	display: flex;
 	align-items: center;
 	border-radius: 8px;
-	transition: background 500ms;
 	padding: 0.5rem;
 	color: #dadce1;
-
+	background-color: #1b262c;
+	border: none;
+	font-size: medium;
 	:hover {
 		background-color: #525357;
+		transition: background 500ms;
 	}
 `;
 
@@ -31,4 +34,5 @@ export const IconButton = styled.span`
 	width: 20px;
 	height: 20px;
 	color: #dadce1;
+	margin-right: 8px;
 `;

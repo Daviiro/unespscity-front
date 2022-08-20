@@ -1,17 +1,23 @@
 import React, { useContext, useState } from "react";
 import { StyledDropdownMenu, StyledDropdownItem, IconButton } from "./styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineAreaChart } from "react-icons/ai";
 import { Context } from "../../../context/Auth/AuthContext";
 
 const SlideDownMenu = () => {
 	const { user } = useContext(Context);
-	const token = false;
+	const { handleLogout } = useContext(Context);
+	const navigate = useNavigate();
+
+	const handleLogOut = async () => {
+		await handleLogout();
+		navigate('/');
+	}
 
 	const DropdownItem = (props) => {
 		return (
 			<>
-				<StyledDropdownItem>
+				<StyledDropdownItem onClick={props.onClick}>
 					<IconButton>{props.icon}</IconButton>
 					{props.children}
 				</StyledDropdownItem>
@@ -20,16 +26,17 @@ const SlideDownMenu = () => {
 	};
 	return (
 		<StyledDropdownMenu>
-			{ token ? (
-				<Link exact to="/" style={{ textDecoration: "none" }}>
-					<DropdownItem icon={<AiOutlineAreaChart />}>
-						Sair
-					</DropdownItem>
-				</Link>
+			{user.userId ? (
+				<DropdownItem
+					icon={<AiOutlineAreaChart />}
+					onClick={handleLogOut}
+				>
+					Sair
+				</DropdownItem>
 			) : (
 				<Link to="/login" style={{ textDecoration: "none" }}>
 					<DropdownItem icon={<AiOutlineAreaChart />}>
-						Login
+						Cadastrar-se/Login
 					</DropdownItem>
 				</Link>
 			)}

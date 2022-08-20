@@ -15,16 +15,27 @@ import {
 	MidContainer,
 	BottomContainer,
 } from "./styles";
+import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const [user, setUser] = useState("");
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
 	const [toggle, setToggle] = useState(true);
 	const [titleLoginColor, setTitleLoginColor] = useState("var(--secondary)");
 	const [titleSignupColor, setTitleSignupColor] = useState("#000000");
 	const { handleLogin } = useContext(Context);
+	const [state, setState] = React.useState({
+		open: false,
+		vertical: 'top',
+		horizontal: 'center',
+	});
+
+	const handleClose = () => {
+		setState({ ...state, open: false });
+	};
 
 	async function handleSubmitLogin(e) {
 		e.preventDefault();
@@ -42,8 +53,27 @@ const Login = () => {
 
 	async function handleSubmitRegister(e) {
 		e.preventDefault();
-		api.post('/cidadao');
-		navigate('/');
+
+		try {
+			api.post('/cidadao', {
+				name: user,
+				password,
+				email,
+				mobilePhone: phone,
+				cityId: 1,
+				panicButton: false,
+				isAdmin: false
+			});
+		}
+		catch (e) {
+			console.log(e);
+		}
+		setUser('')
+		setPassword('')
+		setEmail('')
+		setPhone('')
+		setState({ ...state, open: true});
+
 	}
 
 	useEffect(() => {
@@ -137,34 +167,28 @@ const Login = () => {
 									value={password}
 									onChange={(event) => setPassword(event.target.value)}
 								/>
+								<br />
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Telefone"
+									variant="outlined"
+									type="string"
+									value={phone}
+									onChange={(event) => setPhone(event.target.value)}
+								/>
 								<Button text="Cadastrar" />
 							</Form>
 						)}
 					</MidContainer>
-					<GrayLine />
-					<BottomContainer>
-						<Link
-							to="/password-reset"
-							style={{ textDecoration: "none" }}
-						>
-							{" "}
-							<h4> Esqueceu sua senha? </h4>{" "}
-						</Link>
-						<a
-							style={{
-								textDecoration: "none",
-								color: "#000000",
-								fontWeight: "550",
-								fontSize: "14px",
-							}}
-							href="mailto:unespscity@unesp.br"
-						>
-							Deseja se tornar um administrador na plataforma para
-							sua cidade?
-						</a>
-					</BottomContainer>
 				</Square>
 			</ContainerBase>
+			<Snackbar
+				open={state.open}
+				onClose={handleClose}
+				message= "Cadastro realizado com Sucesso! Vá em 'Entrar' e entre com sua conta!"
+				key={state.vertical + state.horizontal}
+			/>
 		</>
 	);
 };
