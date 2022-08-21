@@ -68,17 +68,17 @@ const AdminListCard = (props) => {
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                        {"Excluir Arquivo?"}
+                        {"O serviço solicitado foi realizado?"}
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            Você deseja excluir o arquivo permanentemente?
+                            O Serviço solicitado pelo usuario foi concluido? 
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose}>Cancelar</Button>
                         <Button onClick={handleDeleteProblem} autoFocus>
-                            Excluir
+                            Consertado
                         </Button>
                     </DialogActions>
                 </Dialog>
