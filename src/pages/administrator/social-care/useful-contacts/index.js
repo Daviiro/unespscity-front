@@ -4,7 +4,6 @@ import { Details, AddFair } from "./styles";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
-import Input from "../../../../components/input";
 import AdminListCard from "../../../../components/card-list-admin";
 import Typography from "@mui/material/Typography";
 import {
@@ -20,6 +19,7 @@ import Button from "@mui/material/Button";
 
 const AdminTelefones = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -32,7 +32,7 @@ const AdminTelefones = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);	
+	}, [refresh]);	
 
 	return (
 		<ContainerBase>
@@ -122,12 +122,16 @@ const AdminTelefones = () => {
 						{
 							problems.map((problem) => (
 								<AdminListCard
+									key={problem._id}
 									source={problem.images}
 									nome={problem.street}
 									sobrenome={problem.referencePoint}
 									descricao={problem.description}
 									report={true}
 									userId={problem.userId}
+									url="useful_contacts"
+									id={problem._id}
+									setRefresh={setRefresh}
 								/>
 							))
 						}

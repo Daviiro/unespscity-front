@@ -16,6 +16,7 @@ import Footer from "../../../../components/footer";
 
 const AdminMausTratosAnimais = () => {
 /*	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminMausTratosAnimais = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);	*/
+	}, [refresh]);	*/
 
 	return (
 		<ContainerBase>
@@ -73,12 +74,16 @@ const AdminMausTratosAnimais = () => {
 				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.idUser}
+								url="maus_tratos_animaisg"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}	*/}

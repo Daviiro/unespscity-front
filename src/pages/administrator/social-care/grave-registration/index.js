@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 
 const AdminTumulos = () => {
 /*	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminTumulos = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);	*/
+	}, [refresh]);	*/
 
 	return (
 		<ContainerBase>
@@ -83,12 +84,16 @@ const AdminTumulos = () => {
 				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.QRimage}
 								nome={problem.dateOfDeath}
 								sobrenome={problem.graveyardName}
 								descricao={problem.graveNumber}
 								report={true}
 								userId={problem.idUser}
+								url="tumulos"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}	*/}

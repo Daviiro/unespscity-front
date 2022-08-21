@@ -16,6 +16,7 @@ import Typography from "@mui/material/Typography";
 
 const AdminSynanthropicAnimals = () => {
 /*	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminSynanthropicAnimals = () => {
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, [refresh]);	*/
 
 	return (
 		<ContainerBase>
@@ -83,12 +84,18 @@ const AdminSynanthropicAnimals = () => {
 				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
+								source={problem.images}
+								nome={problem.street}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.idUser}
+								url="animais_sinantropicos"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}	*/}

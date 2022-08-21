@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../../../services/api";
+// import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -14,7 +14,8 @@ import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 
 const AdminNeedyFamiliesRegister = () => {
-	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -26,7 +27,7 @@ const AdminNeedyFamiliesRegister = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);	*/
 
 	return (
 		<ContainerBase>
@@ -68,16 +69,20 @@ const AdminNeedyFamiliesRegister = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{problems.map((problem) => (
+				{/*	{problems.map((problem) => (
 						<AdminListCard
+							key={problem._id}
 							source={problem.images}
 							nome={problem.street}
 							sobrenome={problem.referencePoint}
 							descricao={problem.description}
 							report={true}
 							userId={problem.userId}
+							url="/"
+							id={problem._id}
+							setRefresh={setRefresh}
 						/>
-					))}
+				))}	*/}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

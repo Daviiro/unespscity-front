@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { api } from "../../../../services/api";
+import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -12,12 +12,13 @@ import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
 import UsefulLocationsModal from "../../../social-care/useful-locations/modal";
 import AdminListCard from "../../../../components/card-list-admin";
-import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
+// import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import UsefulLocationsMap from "./map";
 import Footer from "../../../../components/footer";
 
 const LocaisUteisAdmin = () => {
-/*	const [problems, setProblems] = useState([]);
+	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -30,7 +31,7 @@ const LocaisUteisAdmin = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);	*/
+	}, [refresh]);
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
@@ -228,19 +229,23 @@ const LocaisUteisAdmin = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-				{/*	{
+					{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.description}
 								sobrenome={problem.street}
 								descricao={problem.referencePoint}
 								report={true}
 								userId={1}
+								url="locais_uteis"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
-					}	*/}
-					<AdminListCardAlt
+					}
+				{/*	<AdminListCardAlt
 						source="/assets/backup/40.jpg"
 						titulo="Local 1" 
 						nome="Prefeitura Municipal de Presidente Prudente - Paço Municipal"
@@ -316,7 +321,7 @@ const LocaisUteisAdmin = () => {
 						nome="Catedral de São Sebastião"
 						sobrenome="Avenida Coronel José Soares Marcondes, 1200, Centro"
 						descricao="Ao lado da praça 9 de Julho."
-					/>
+					/>	*/}
 					<UsefulLocationsMap
 						locations={locations}
 						icon="/assets/img/location-icon.png"
