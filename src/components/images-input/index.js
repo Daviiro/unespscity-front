@@ -3,30 +3,30 @@ import { Container } from "./styles";
 
 const InputPhotos = (props) => {
 
-    function handleFileInputChange(e){ 
+    function handleFileInputChange(e) {
         let reader = new FileReader();
         reader.readAsDataURL(e.currentTarget.files[0]);
         const hasPhoto = props.photos.find(photo => photo === reader.result)
         reader.onload = () => {
-            if(hasPhoto !== undefined)
-                return; 
+            if (hasPhoto !== undefined)
+                return;
             props.setPhotos((prevState) => [...prevState, reader.result]);
         };
-      }
-    
+    }
+
     return (
         <Container>
             <label>Insira as Fotos (Opcional): </label>
-            <input 
+            <input
                 type="file"
                 accept="image/*"
                 multiple
                 onChange={(e) => handleFileInputChange(e)}
             />
             <div>
-                {
-                    props.photos.map( (photo) => (                    
-                        <img 
+                {props.photos &&
+                    props.photos.map((photo) => (
+                        <img
                             src={photo}
                             alt="foto"
                             key={photo}
