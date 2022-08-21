@@ -36,6 +36,19 @@ const CardOffer = (props) => {
 				<br />
 				<span>N: {props.streetNumber} </span>
 				<br />
+				<a
+					href={
+						"https://maps.google.com/?q=<" +
+						props.street +
+						">" +
+						"<" +
+						props.store +
+						">"
+					}
+				>
+					Rotas
+				</a>
+				<br />
 				{props.admin ? (
 					<div>
 						<Button variant="contained" onClick={handleClickOpen}>
@@ -59,7 +72,13 @@ const CardOffer = (props) => {
 							</DialogContent>
 							<DialogActions>
 								<Button onClick={handleClose}>Cancelar</Button>
-								<Button onClick={handleClose} autoFocus>
+								<Button
+									onClick={() => {
+										props.HandleDelOffer(props.id);
+										handleClose();
+									}}
+									autoFocus
+								>
 									Excluir
 								</Button>
 							</DialogActions>

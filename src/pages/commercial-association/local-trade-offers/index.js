@@ -23,6 +23,7 @@ import { fetchCityForID } from "../../../services/IBGE";
 
 //id deste servico vai ser 52
 const LocalTradeOffers = (props) => {
+	const [isLoading, setLoading] = useState(true);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -61,6 +62,7 @@ const LocalTradeOffers = (props) => {
 				})
 				.then((res) => {
 					setOfertas(res.data);
+					setLoading(false);
 				});
 		} catch (e) {
 			console.log(e);
@@ -163,6 +165,9 @@ const LocalTradeOffers = (props) => {
 							streetNumber: streetNumber,
 							description: description,
  */
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<ContainerBase>
@@ -223,7 +228,7 @@ const LocalTradeOffers = (props) => {
 						<Button variant="contained">Adicionar Oferta</Button>
 					</div>
 					<br />
-					{mockupData.map((offer) => (
+					{ofertas.map((offer) => (
 						<CardOffer
 							img={offer.img}
 							title={offer.title}

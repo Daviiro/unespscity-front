@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import AdminHeader from "../../../../components/header/admin";
 import {
 	ContainerBase,
@@ -11,8 +12,10 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 import Footer from "../../../../components/footer";
 import CardOffer from "../../../../components/card-offer";
+import { api } from "../../../../services/api";
 
 const AdminLocalTradeOffers = () => {
+	const [isLoading, setLoading] = useState(true);
 	const mockupData = [
 		{
 			id: 1,
@@ -44,6 +47,50 @@ const AdminLocalTradeOffers = () => {
 		},
 	];
 
+	const [ofertas, setOfertas] = useState([]);
+	//carregar os dados do backend
+	const fetchData = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		try {
+			await api
+				.get("/offers", {
+					params: {
+						cityid: data.city,
+					},
+				})
+				.then((res) => {
+					setOfertas(res.data);
+					setLoading(false);
+				});
+		} catch (e) {
+			console.log(e);
+		}
+	};
+	useEffect(() => {
+		fetchData();
+	}, []);
+
+	const HandleDelOffer = async (id) => {
+		api.delete("/offers", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			params: {
+				id: id,
+			},
+		}).then((res) => {
+			console.log("Oferta excluida com sucesso: ", res.data);
+			fetchData();
+		});
+	};
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -74,7 +121,7 @@ const AdminLocalTradeOffers = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					{mockupData.map((offer) => (
+					{ofertas.map((offer) => (
 						<CardOffer
 							img={offer.img}
 							title={offer.title}
@@ -83,7 +130,9 @@ const AdminLocalTradeOffers = () => {
 							street={offer.street}
 							streetNumber={offer.streetNumber}
 							description={offer.description}
+							id={offer._id}
 							admin={true}
+							HandleDelOffer={HandleDelOffer}
 						/>
 					))}
 				</MidContentContainer>
