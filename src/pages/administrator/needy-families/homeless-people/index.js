@@ -69,32 +69,6 @@ const AdminHomelessPeople = () => {
 							Aqui temos a lista dos moradores de rua, as informações sobre eles e o historico. 
 						</DescriptionText>
 					</div>
-					{isFavorite ? (
-						<span>
-							<AiFillStar
-								style={{
-									cursor: "pointer",
-									margin: ".8rem",
-									stroke: "black",
-									strokeWidth: "5",
-								}}
-								color={"yellow"}
-								size={25}
-								onClick={() => handleFavorite()}
-							/>
-						</span>
-					) : (
-						<AiOutlineStar
-							style={{
-								cursor: "pointer",
-								margin: ".8rem",
-								stroke: "black",
-								strokeWidth: "5",
-							}}
-							size={25}
-							onClick={() => handleFavorite()}
-						/>
-					)}
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
