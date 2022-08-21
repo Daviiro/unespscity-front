@@ -16,6 +16,7 @@ import Footer from "../../../../components/footer";
 
 const AdminPragas = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminPragas = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>

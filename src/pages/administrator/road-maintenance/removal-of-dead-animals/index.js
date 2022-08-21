@@ -15,6 +15,7 @@ import Footer from "../../../../components/footer";
 
 const AdminAnimaisMortos = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminAnimaisMortos = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -53,12 +54,12 @@ const AdminAnimaisMortos = () => {
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
 							<Typography variant="h4">
-								Animais Mortos 
+								Animais Mortos
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências relacionadas 
-							a morte de animais. É necessário acionar o responsável para buscar 
+							Lista com todas as ocorrências relacionadas
+							a morte de animais. É necessário acionar o responsável para buscar
 							o corpo do animal no local.
 						</DescriptionText>
 					</div>
@@ -68,12 +69,16 @@ const AdminAnimaisMortos = () => {
 					{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.userId}
+								url="removaldeadanimals"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}

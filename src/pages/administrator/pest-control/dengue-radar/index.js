@@ -29,7 +29,7 @@ const AdminDengue = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>

@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 
 const AdminResiduosSolidos = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -26,7 +27,7 @@ const AdminResiduosSolidos = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -66,12 +67,16 @@ const AdminResiduosSolidos = () => {
 					{problems.length != 0 ? (
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.userId}
+								url="removetrash"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					) : (

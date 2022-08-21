@@ -28,7 +28,7 @@ const AdminParques = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>

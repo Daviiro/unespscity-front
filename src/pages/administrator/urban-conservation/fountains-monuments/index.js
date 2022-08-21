@@ -28,7 +28,7 @@ const AdminMonumentos = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>

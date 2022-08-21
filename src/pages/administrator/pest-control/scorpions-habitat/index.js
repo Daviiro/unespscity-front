@@ -29,66 +29,70 @@ const AdminEscorpiao = () => {
 			}
 		}
 		getProblems();
-	}, [refresh]);	
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
 			<AdminHeader />
-				<ContentContainer>
-					<TopContentContainer>
-						<MiniCard
-							source="/assets/img/home_controle_pragas.png"
-							titulo="Controle de Pragas"
-							linkItems={[
-								{
-									id: 1,
-									name: "Foco de Escorpião",
-									link: "/admin/foco_de_escorpiao",
-								},
-								{
-									id: 2,
-									name: "Insetos Roedores e Caramujos",
-									link: "/admin/insetos_roedores_caramujos",
-								},
-								{
-									id: 3,
-									name: "Leishmaniose",
-									link: "/admin/leishmaniose",
-								},
-								{
-									id: 4,
-									name: "Radar da Dengue",
-									link: "/admin/radar_da_dengue",
-								},
-							]}
-						/>
-						<div style={{ marginTop: "14px" }}>
-							<div style={{ textAlign: "center" }}>
-								<Typography variant="h4">
-									Foco de Escorpião
-								</Typography>
-							</div>
-							<DescriptionText>
-								Lista com todos os focos de escorpiões que são
-								relatados pelos usuarios.
-							</DescriptionText>
+			<ContentContainer>
+				<TopContentContainer>
+					<MiniCard
+						source="/assets/img/home_controle_pragas.png"
+						titulo="Controle de Pragas"
+						linkItems={[
+							{
+								id: 1,
+								name: "Foco de Escorpião",
+								link: "/admin/foco_de_escorpiao",
+							},
+							{
+								id: 2,
+								name: "Insetos Roedores e Caramujos",
+								link: "/admin/insetos_roedores_caramujos",
+							},
+							{
+								id: 3,
+								name: "Leishmaniose",
+								link: "/admin/leishmaniose",
+							},
+							{
+								id: 4,
+								name: "Radar da Dengue",
+								link: "/admin/radar_da_dengue",
+							},
+						]}
+					/>
+					<div style={{ marginTop: "14px" }}>
+						<div style={{ textAlign: "center" }}>
+							<Typography variant="h4">
+								Foco de Escorpião
+							</Typography>
 						</div>
-						<div></div>
-					</TopContentContainer>
-					<MidContentContainer>
-					{/*	{
-							problems.map((problem) => (
-								<AdminListCard
-									source={problem.images}
-									nome={problem.street}
-									sobrenome={problem.referencePoint}
-									descricao={problem.description}
-									report={true}
-									userId={problem.idUser}
-								/>
-							))
-						}	*/}
-						<AdminListCardAlt
+						<DescriptionText>
+							Lista com todos os focos de escorpiões que são
+							relatados pelos usuarios.
+						</DescriptionText>
+					</div>
+					<div></div>
+				</TopContentContainer>
+				<MidContentContainer>
+					{
+						problems.map((problem) => (
+							<AdminListCard
+								key={problem._id}
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.idUser}
+								url="foco_escorpiao"
+								id={problem._id}
+								setRefresh={setRefresh}
+							/>
+						))
+					}
+					{/* <AdminListCardAlt
 							source="/assets/backup/20.jpg"
 							titulo="Escorpião 1" 
 							nome="Rua Kotaro Takahashi, 78, Conjunto Habitacional Ana Jacinta"
@@ -122,9 +126,9 @@ const AdminEscorpiao = () => {
 							nome="Rua Otorino Pereti, 8020, Jardim Itaipu"
 							sobrenome="Perto do Bar do Valcir."
 							descricao="Vimos um escorpião passando por aqui."
-						/>
-					</MidContentContainer>
-				</ContentContainer>
+						/> */}
+				</MidContentContainer>
+			</ContentContainer>
 			<Footer />
 		</ContainerBase>
 	);
