@@ -14,8 +14,11 @@ import { api } from "../../../services/api";
 import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
+import Context from "@mui/base/TabsUnstyled/TabsContext";
 
 const SolidaryDisposal = (props) => {
+	const { user } = useContext(Context);
+	const { srcaddress, phoneOption } = props;
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -84,47 +87,248 @@ const SolidaryDisposal = (props) => {
 		console.log("Circle onUnmount circle: ", circle);
 	};
 
+	const handleSubmit = (event) => {
+		//alert("Um nome foi enviado: " + this.state.value);
+		event.preventDefault();
+
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+
+		//console.log("foi enviado para:");
+		//console.log(`http://localhost:4000/api${srcaddress}`);
+		console.log("cityid " + data.city);
+		console.log("street " + street);
+		console.log("streetNumber " + houseNumber);
+		console.log("referencePoint " + referencePoint);
+		console.log("description " + description);
+
+		const teste = ["tsete", "alo"];
+		let uid = user.userId;
+		if (uid === undefined) {
+			uid = -1;
+		}
+
+		if (approximateLocation) {
+			//caso a pessoa tenha escolhido mandar com a localizacao aproximada
+			if (houseNumber === 0) {
+				alert("É obrigatório enviar o número");
+				return;
+			}
+			if (street === "") {
+				//tenho que pegar a rua usando o geocode
+				fetchLocation(center.lat, center.lng).then((data) => {
+					console.log("localizacao abaixo");
+					console.log(data.results[0].address_components);
+					let parts = data.results[0].address_components;
+					parts.forEach((part) => {
+						if (part.types.includes("route")) {
+							setStreet(part.long_name);
+							console.log("RUA: " + part.long_name);
+						}
+						if (
+							part.types.includes(
+								"political",
+								"sublocality",
+								"sublocality_level_1"
+							)
+						) {
+							setDistrict(part.long_name);
+							console.log("Bairro: " + part.long_name);
+						}
+					});
+				});
+			}
+			if (district !== "") {
+				const endereco = `${street}, ${district}`;
+				setStreet(endereco);
+			}
+			if (referencePoint === "") {
+				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
+			}
+			if (description === "") {
+				alert("É necessário ter uma descrição");
+				return;
+			}
+			const res = api
+				.post(srcaddress, {
+					data: {
+						/*coloque aqui os dados que quer mandar na requisicao */
+						cityId: data.city,
+						userId: uid,
+						street: `${street}, ${district}`,
+						streetNumber: houseNumber,
+						referencePoint: referencePoint,
+						latitude: center.lat,
+						longitude: center.lng,
+						description: description,
+						images: teste,
+					},
+				})
+				.then((response) => {
+					console.log(response);
+					alert(`Forms foi enviado`);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		} else {
+			if (houseNumber === 0) {
+				alert("É obrigatório enviar o número");
+				return;
+			}
+			if (street === "") {
+				alert("É obrigatório enviar a rua");
+				return;
+			}
+			if (referencePoint === "") {
+				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
+			}
+			if (description === "") {
+				alert("É necessário ter uma descrição");
+				return;
+			}
+
+			const res = api
+				.post(srcaddress, {
+					data: {
+						/*coloque aqui os dados que quer mandar na requisicao */
+						cityId: data.city,
+						userId: uid,
+						street: `${street}, ${district}`,
+						streetNumber: houseNumber,
+						referencePoint: referencePoint,
+						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
+						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
+						description: description,
+						images: teste,
+					},
+				})
+				.then((response) => {
+					console.log(response);
+					alert(`Forms foi enviado`);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}
+
+		//console.log("Dados Enviados: ", res.data);
+	};
+
 	return (
 		<Container>
-			<div className="centered-content">
-				<Button
-					fullWidth
-					variant="outlined"
-					onClick={() => {
-						setApproximateLocation(true);
-						setLocation(false);
-					}}
-				>
-					Usar Localização Aproximada
-				</Button>
-			</div>
-			{approximateLocation && (
-				<>
-					<div className="centered-content">
-						<GoogleMap
-							mapContainerStyle={containerStyle}
-							center={center}
-							radius={100}
-							zoom={15}
-							onLoad={onLoad}
-							onUnmount={onUnmount}
-						>
-							<Circle
-								// optional
-								onLoad={onLoad}
-								// optional
-								onUnmount={onUnmount}
-								// required
+			<form onSubmit={handleSubmit}>
+				<div className="centered-content">
+					<Button
+						fullWidth
+						variant="outlined"
+						onClick={() => {
+							setApproximateLocation(true);
+							setLocation(false);
+						}}
+					>
+						Usar Localização Aproximada
+					</Button>
+				</div>
+				{approximateLocation && (
+					<>
+						<div className="centered-content">
+							<GoogleMap
+								mapContainerStyle={containerStyle}
 								center={center}
-								// required
-								options={options}
-							/>
-							<></>
-						</GoogleMap>
-					</div>
+								radius={100}
+								zoom={15}
+								onLoad={onLoad}
+								onUnmount={onUnmount}
+							>
+								<Circle
+									// optional
+									onLoad={onLoad}
+									// optional
+									onUnmount={onUnmount}
+									// required
+									center={center}
+									// required
+									options={options}
+								/>
+								<></>
+							</GoogleMap>
+						</div>
 
+						<div className="inputs">
+							<Stack spacing={2} direction="row">
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Número"
+									type="number"
+									variant="outlined"
+									value={houseNumber}
+									onChange={(e) =>
+										setHouseNumber(e.target.value)
+									}
+								/>
+								<TextField
+									fullWidth
+									id="outlined-basic"
+									label="Ponto de Referência (opcional)"
+									variant="outlined"
+									value={referencePoint}
+									onChange={(e) =>
+										setReferencePoint(e.target.value)
+									}
+								/>
+							</Stack>
+							<br />
+							<Typography variant="body2">
+								Caso o endereço desejado não se encontre dentro
+								do círculo vermelho no mapa, por favor, insira o
+								endereço manualmente após apertar o botão
+								abaixo.
+							</Typography>
+						</div>
+					</>
+				)}
+				<br />
+				<div className="centered-content">
+					<Typography variant="body1">Ou, caso preferir</Typography>
+				</div>
+
+				<br />
+				<div className="centered-content">
+					<Button
+						fullWidth
+						variant="outlined"
+						onClick={() => {
+							setApproximateLocation(false);
+							setLocation(true);
+						}}
+					>
+						Insira a exata localização manualmente
+					</Button>
+				</div>
+				<br />
+				{Location && (
 					<div className="inputs">
 						<Stack spacing={2} direction="row">
+							<TextField
+								fullWidth
+								id="outlined-basic"
+								label="Rua"
+								variant="outlined"
+								value={street}
+								onChange={(e) => setStreet(e.target.value)}
+							/>
+						</Stack>
+						<br />
+						<Stack spacing={2} direction="row">
+							<TextField
+								fullWidth
+								id="outlined-basic"
+								label="Bairro"
+								variant="outlined"
+								value={district}
+								onChange={(e) => setDistrict(e.target.value)}
+							/>
 							<TextField
 								fullWidth
 								id="outlined-basic"
@@ -134,6 +338,9 @@ const SolidaryDisposal = (props) => {
 								value={houseNumber}
 								onChange={(e) => setHouseNumber(e.target.value)}
 							/>
+						</Stack>
+						<br />
+						<Stack spacing={2} direction="row">
 							<TextField
 								fullWidth
 								id="outlined-basic"
@@ -145,157 +352,87 @@ const SolidaryDisposal = (props) => {
 								}
 							/>
 						</Stack>
-						<br />
-						<Typography variant="body2">
-							Caso o endereço desejado não se encontre dentro do
-							círculo vermelho no mapa, por favor, insira o
-							endereço manualmente após apertar o botão abaixo.
-						</Typography>
 					</div>
-				</>
-			)}
-			<br />
-			<div className="centered-content">
-				<Typography variant="body1">Ou, caso preferir</Typography>
-			</div>
-
-			<br />
-			<div className="centered-content">
-				<Button
-					fullWidth
-					variant="outlined"
-					onClick={() => {
-						setApproximateLocation(false);
-						setLocation(true);
-					}}
+				)}
+				<GrayLine />
+				<div
+					className="centered-content"
+					style={{ flexDirection: "column" }}
 				>
-					Insira a exata localização manualmente
-				</Button>
-			</div>
-			<br />
-			{Location && (
+					<Typography variant="h5">Tipo de Doação</Typography>
+					<br />
+					<FormGroup>
+						<FormControlLabel
+							label="Roupas/Calçados"
+							control={
+								<Checkbox
+									name="roupas"
+									checked={donationType.roupas}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+
+						<FormControlLabel
+							label="Eletrodomésticos"
+							control={
+								<Checkbox
+									name="eletro"
+									checked={donationType.eletro}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+						<FormControlLabel
+							label="Móveis"
+							control={
+								<Checkbox
+									name="moveis"
+									checked={donationType.moveis}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+						<FormControlLabel
+							label="Outros"
+							control={
+								<Checkbox
+									name="outros"
+									checked={donationType.outros}
+									onChange={handleDonationTypeChange}
+									inputProps={{ "aria-label": "controlled" }}
+								/>
+							}
+						/>
+					</FormGroup>
+				</div>
 				<div className="inputs">
 					<Stack spacing={2} direction="row">
 						<TextField
 							fullWidth
 							id="outlined-basic"
-							label="Rua"
+							label="Descrição"
 							variant="outlined"
-							value={street}
-							onChange={(e) => setStreet(e.target.value)}
-						/>
-					</Stack>
-					<br />
-					<Stack spacing={2} direction="row">
-						<TextField
-							fullWidth
-							id="outlined-basic"
-							label="Bairro"
-							variant="outlined"
-							value={district}
-							onChange={(e) => setDistrict(e.target.value)}
-						/>
-						<TextField
-							fullWidth
-							id="outlined-basic"
-							label="Número"
-							type="number"
-							variant="outlined"
-							value={houseNumber}
-							onChange={(e) => setHouseNumber(e.target.value)}
-						/>
-					</Stack>
-					<br />
-					<Stack spacing={2} direction="row">
-						<TextField
-							fullWidth
-							id="outlined-basic"
-							label="Ponto de Referência (opcional)"
-							variant="outlined"
-							value={referencePoint}
-							onChange={(e) => setReferencePoint(e.target.value)}
+							multiline
+							rows={5}
+							value={description}
+							helperText={props.descriptionHelperText}
+							onChange={(e) => setDescription(e.target.value)}
 						/>
 					</Stack>
 				</div>
-			)}
-			<GrayLine />
-			<div
-				className="centered-content"
-				style={{ flexDirection: "column" }}
-			>
-				<Typography variant="h5">Tipo de Doação</Typography>
 				<br />
-				<FormGroup>
-					<FormControlLabel
-						label="Roupas/Calçados"
-						control={
-							<Checkbox
-								name="roupas"
-								checked={donationType.roupas}
-								onChange={handleDonationTypeChange}
-								inputProps={{ "aria-label": "controlled" }}
-							/>
-						}
-					/>
-
-					<FormControlLabel
-						label="Eletrodomésticos"
-						control={
-							<Checkbox
-								name="eletro"
-								checked={donationType.eletro}
-								onChange={handleDonationTypeChange}
-								inputProps={{ "aria-label": "controlled" }}
-							/>
-						}
-					/>
-					<FormControlLabel
-						label="Móveis"
-						control={
-							<Checkbox
-								name="moveis"
-								checked={donationType.moveis}
-								onChange={handleDonationTypeChange}
-								inputProps={{ "aria-label": "controlled" }}
-							/>
-						}
-					/>
-					<FormControlLabel
-						label="Outros"
-						control={
-							<Checkbox
-								name="outros"
-								checked={donationType.outros}
-								onChange={handleDonationTypeChange}
-								inputProps={{ "aria-label": "controlled" }}
-							/>
-						}
-					/>
-				</FormGroup>
-			</div>
-			<div className="inputs">
-				<Stack spacing={2} direction="row">
-					<TextField
-						fullWidth
-						id="outlined-basic"
-						label="Descrição"
-						variant="outlined"
-						multiline
-						rows={5}
-						value={description}
-						helperText={props.descriptionHelperText}
-						onChange={(e) => setDescription(e.target.value)}
-					/>
-				</Stack>
-			</div>
-			<br />
-			<InputPhotos />
-			<br />
-			<div className="inputs">
-				<Button fullWidth variant="contained">
-					Enviar
-				</Button>
-			</div>
+				<InputPhotos />
+				<br />
+				<div className="inputs">
+					<Button fullWidth variant="contained">
+						Enviar
+					</Button>
+				</div>
+			</form>
 		</Container>
 	);
 };

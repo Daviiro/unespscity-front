@@ -122,6 +122,10 @@ const ServiceOrderInformation = (props) => {
 					});
 				});
 			}
+			if (district !== "") {
+				const endereco = `${street}, ${district}`;
+				setStreet(endereco);
+			}
 			if (referencePoint === "") {
 				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
 			}
@@ -135,7 +139,7 @@ const ServiceOrderInformation = (props) => {
 						/*coloque aqui os dados que quer mandar na requisicao */
 						cityId: data.city,
 						userId: uid,
-						street: street,
+						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
 						referencePoint: referencePoint,
 						latitude: center.lat,
@@ -174,7 +178,7 @@ const ServiceOrderInformation = (props) => {
 						/*coloque aqui os dados que quer mandar na requisicao */
 						cityId: data.city,
 						userId: uid,
-						street: street,
+						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
 						referencePoint: referencePoint,
 						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
