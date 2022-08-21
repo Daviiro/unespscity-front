@@ -112,7 +112,7 @@ const OfferModal = (props) => {
 					autoFocus
 					margin="dense"
 					id="outlined-basic"
-					label="Rua"
+					label="Endereço"
 					variant="standard"
 					onChange={handleStreetChange}
 					value={street}

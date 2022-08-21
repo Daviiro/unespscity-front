@@ -18,6 +18,8 @@ import CardOffer from "../../../components/card-offer";
 import OfferModal from "./modal";
 import { Button } from "@mui/material";
 import { api } from "../../../services/api";
+import { fetchLatLong } from "../../../services/GoogleMaps";
+import { fetchCityForID } from "../../../services/IBGE";
 
 //id deste servico vai ser 52
 const LocalTradeOffers = (props) => {
@@ -106,9 +108,25 @@ const LocalTradeOffers = (props) => {
 	const handleClose = () => {
 		setOpen(false);
 	};
-
+	const [latlng, setLatLng] = useState({ lat: 0, lng: 0 });
 	const HandleAddOffer = (offer) => {
 		//addiciono no back a oferta e fecho
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		const cityName = fetchCityForID(data.city);
+
+		try {
+			fetchLatLong(
+				`${offer.streetNumber}%20${offer.street}%20${cityName}%20Brazil`
+			).then((res) => {
+				setLatLng({
+					lat: res.results[0].geometry.location.lat,
+					lng: res.results[0].geometry.location.lng,
+				});
+			});
+		} catch (e) {
+			console.log(e);
+		}
+
 		try {
 			api.post("/offers", {
 				headers: {
@@ -117,14 +135,14 @@ const LocalTradeOffers = (props) => {
 					"Access-Control-Allow-Origin": "*",
 				},
 				data: {
-					cityid: offer.cityid,
+					cityid: data.city,
 					title: offer.title,
 					price: offer.price,
 					store: offer.store,
 					street: offer.street,
 					streetNumber: offer.streetNumber,
-					latitude: 777,
-					longitude: 999,
+					latitude: latlng.lat,
+					longitude: latlng.lng,
 					description: offer.description,
 					img: "offer.img",
 				},

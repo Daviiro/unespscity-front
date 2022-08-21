@@ -12,7 +12,6 @@ import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
 import { Context } from "../../../context/Auth/AuthContext";
-import { fetchLatLong } from "../../../services/GoogleMaps";
 
 const ServiceOrderInformation = (props) => {
 	const { user } = useContext(Context);
