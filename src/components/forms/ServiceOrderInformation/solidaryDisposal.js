@@ -14,7 +14,7 @@ import { api } from "../../../services/api";
 import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
-import Context from "@mui/base/TabsUnstyled/TabsContext";
+import { Context } from "../../../context/Auth/AuthContext";
 
 const SolidaryDisposal = (props) => {
 	const { user } = useContext(Context);

@@ -21,7 +21,7 @@ import Favorites from "../../../components/favorites";
 import SolidaryDisposal from "../../../components/forms/ServiceOrderInformation/solidaryDisposal";
 
 const DescarteSolidario = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	/*	const [problems, setProblems] = useState([]);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -142,7 +142,7 @@ const DescarteSolidario = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Descartes informados e descartes recolhidos: </h3>
-			{/*	{
+				{/*	{
 					problems.map((problem) => (problem.type === "solidary-disposal") (
 						<PagesPieChart
 							solved={problem.totalResolvidos}
