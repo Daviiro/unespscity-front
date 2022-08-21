@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -17,7 +17,7 @@ const OfferModal = (props) => {
 	const [title, setTitle] = useState("");
 	const [street, setStreet] = useState("");
 	const [streetNumber, setStreetNumber] = useState(0);
-	const [description, setDescription] = useState(0);
+	const [description, setDescription] = useState("");
 	const handleTitleChange = (event) => {
 		setTitle(event.target.value);
 	};
@@ -37,6 +37,34 @@ const OfferModal = (props) => {
 		setDescription(event.target.value);
 	};
 	const [formValues, setFormValues] = useContext(LocalContext);
+
+	const [selectedFile, setSelectedFile] = useState();
+	const [preview, setPreview] = useState();
+
+	useEffect(() => {
+		if (!selectedFile) {
+			setPreview(undefined);
+			return;
+		}
+
+		let reader = new FileReader();
+		reader.readAsDataURL(selectedFile);
+		console.log(reader.result);
+
+		const objectUrl = URL.createObjectURL(selectedFile);
+		setPreview(objectUrl);
+		console.log(objectUrl);
+		// free memory when ever this component is unmounted
+		return () => URL.revokeObjectURL(objectUrl);
+	}, [selectedFile]);
+
+	const onSelectFile = (e) => {
+		if (!e.target.files || e.target.files.length === 0) {
+			setSelectedFile(undefined);
+			return;
+		}
+		setSelectedFile(e.target.files[0]);
+	};
 
 	return (
 		<Dialog open={open} onClose={handleClose}>
@@ -110,11 +138,30 @@ const OfferModal = (props) => {
 					onChange={handleDescriptionChange}
 					value={description}
 				/>
+				<br />
+				<label>Insira a Foto (Opcional): </label>
+				<br />
+				<input
+					type="file"
+					accept="image/*"
+					multiple
+					onChange={(e) => onSelectFile(e)}
+				/>
+				{preview && (
+					<div>
+						<img
+							src={preview}
+							alt="foto"
+							key={preview}
+							width="50px"
+						/>
+					</div>
+				)}
 			</DialogContent>
 			<DialogActions>
 				<Button onClick={handleClose}>Cancelar</Button>
 				<Button
-					onClick={() =>
+					onClick={() => {
 						handleAdd({
 							cityID: formValues.city,
 							img: "",
@@ -124,8 +171,14 @@ const OfferModal = (props) => {
 							street: street,
 							streetNumber: streetNumber,
 							description: description,
-						})
-					}
+						});
+						setPrice(0);
+						setStore("");
+						setTitle("");
+						setStreet("");
+						setStreetNumber("");
+						setDescription("");
+					}}
 				>
 					Adicionar
 				</Button>

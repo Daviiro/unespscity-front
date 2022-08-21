@@ -16,6 +16,8 @@ import Footer from "../../../components/footer";
 import Favorites from "../../../components/favorites";
 import CardOffer from "../../../components/card-offer";
 import OfferModal from "./modal";
+import { Button } from "@mui/material";
+import { api } from "../../../services/api";
 
 //id deste servico vai ser 52
 const LocalTradeOffers = (props) => {
@@ -43,6 +45,28 @@ const LocalTradeOffers = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+
+	const [ofertas, setOfertas] = useState([]);
+	//carregar os dados do backend
+	const fetchData = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		try {
+			await api
+				.get("/offers", {
+					params: {
+						cityid: data.city,
+					},
+				})
+				.then((res) => {
+					setOfertas(res.data);
+				});
+		} catch (e) {
+			console.log(e);
+		}
+	};
+	useEffect(() => {
+		fetchData();
+	}, []);
 
 	const mockupData = [
 		{
@@ -85,8 +109,42 @@ const LocalTradeOffers = (props) => {
 
 	const HandleAddOffer = (offer) => {
 		//addiciono no back a oferta e fecho
+		try {
+			api.post("/offers", {
+				headers: {
+					"Content-Type": "application/json; charset=UTF-8",
+					Accept: "Token",
+					"Access-Control-Allow-Origin": "*",
+				},
+				data: {
+					cityid: offer.cityid,
+					title: offer.title,
+					price: offer.price,
+					store: offer.store,
+					street: offer.street,
+					streetNumber: offer.streetNumber,
+					latitude: 777,
+					longitude: 999,
+					description: offer.description,
+					img: "offer.img",
+				},
+			});
+		} catch (e) {
+			console.log(e);
+		}
 		setOpen(false);
 	};
+
+	/**
+ * cityID: formValues.city,
+							img: "",
+							title: title,
+							store: store,
+							price: price,
+							street: street,
+							streetNumber: streetNumber,
+							description: description,
+ */
 
 	return (
 		<ContainerBase>
@@ -144,7 +202,7 @@ const LocalTradeOffers = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<div onClick={handleClickOpen}>
-						<button>Adicionar Oferta</button>
+						<Button variant="contained">Adicionar Oferta</Button>
 					</div>
 					<br />
 					{mockupData.map((offer) => (

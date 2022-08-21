@@ -11,15 +11,18 @@ import { api } from "../../../services/api";
 import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
+import { Context } from "../../../context/Auth/AuthContext";
+import { fetchLatLong } from "../../../services/GoogleMaps";
 
 const ServiceOrderInformation = (props) => {
+	const { user } = useContext(Context);
 	const { srcaddress, phoneOption } = props;
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
 	const [houseNumber, setHouseNumber] = useState(0);
 	const [street, setStreet] = useState("");
-	const [referencePoint, setReferencePoint] = useState("-");
+	const [referencePoint, setReferencePoint] = useState("");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
 	const [mobilePhone, setMobilePhone] = useState("");
@@ -31,13 +34,13 @@ const ServiceOrderInformation = (props) => {
 	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition((location) => {
-			fetchLocation(
+			/*fetchLocation(
 				location.coords.latitude,
 				location.coords.longitude
 			).then((data) => {
 				console.log("localizacao abaixo");
 				console.log(data);
-			});
+			});*/
 			setCenter({
 				lat: location.coords.latitude,
 				lng: location.coords.longitude,
@@ -71,37 +74,125 @@ const ServiceOrderInformation = (props) => {
 
 	const handleSubmit = (event) => {
 		//alert("Um nome foi enviado: " + this.state.value);
-		//console.log("foi enviado para:");
-		//onsole.log(`http://localhost:4000/api/${srcaddress}`);
-		//console.log("cityid " + formValues.city);
-		//console.log("street " + street);
-		//console.log("streetNumber " + houseNumber);
-		//console.log("referencePoint " + referencePoint);
-		//console.log("description " + description);
-
-		const res = api
-			.post(`/${srcaddress}`, {
-				data: {
-					/*coloque aqui os dados que quer mandar na requisicao */
-					cityid: formValues.city,
-					userid: 777,
-					street: street,
-					streetNumber: houseNumber,
-					referencePoint: referencePoint,
-					latitude: center.lat,
-					longitude: center.lng,
-					description: description,
-					images: ["algoaqui", "outroaqui"],
-				},
-			})
-			.then((response) => console.log(response))
-			.catch((e) => {
-				console.log(e);
-			});
-		console.log("Dados Enviados: ", res);
-
-		alert(`Forms foi enviado`);
 		event.preventDefault();
+
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+
+		//console.log("foi enviado para:");
+		//console.log(`http://localhost:4000/api${srcaddress}`);
+		console.log("cityid " + data.city);
+		console.log("street " + street);
+		console.log("streetNumber " + houseNumber);
+		console.log("referencePoint " + referencePoint);
+		console.log("description " + description);
+
+		const teste = ["tsete", "alo"];
+		let uid = user.userId;
+		if (uid === undefined) {
+			uid = -1;
+		}
+
+		if (approximateLocation) {
+			//caso a pessoa tenha escolhido mandar com a localizacao aproximada
+			if (houseNumber === 0) {
+				alert("É obrigatório enviar o número");
+				return;
+			}
+			if (street === "") {
+				//tenho que pegar a rua usando o geocode
+				fetchLocation(center.lat, center.lng).then((data) => {
+					console.log("localizacao abaixo");
+					console.log(data.results[0].address_components);
+					let parts = data.results[0].address_components;
+					parts.forEach((part) => {
+						if (part.types.includes("route")) {
+							setStreet(part.long_name);
+							console.log("RUA: " + part.long_name);
+						}
+						if (
+							part.types.includes(
+								"political",
+								"sublocality",
+								"sublocality_level_1"
+							)
+						) {
+							setDistrict(part.long_name);
+							console.log("Bairro: " + part.long_name);
+						}
+					});
+				});
+			}
+			if (referencePoint === "") {
+				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
+			}
+			if (description === "") {
+				alert("É necessário ter uma descrição");
+				return;
+			}
+			const res = api
+				.post(srcaddress, {
+					data: {
+						/*coloque aqui os dados que quer mandar na requisicao */
+						cityId: data.city,
+						userId: uid,
+						street: street,
+						streetNumber: houseNumber,
+						referencePoint: referencePoint,
+						latitude: center.lat,
+						longitude: center.lng,
+						description: description,
+						images: teste,
+					},
+				})
+				.then((response) => {
+					console.log(response);
+					alert(`Forms foi enviado`);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		} else {
+			if (houseNumber === 0) {
+				alert("É obrigatório enviar o número");
+				return;
+			}
+			if (street === "") {
+				alert("É obrigatório enviar a rua");
+				return;
+			}
+			if (referencePoint === "") {
+				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
+			}
+			if (description === "") {
+				alert("É necessário ter uma descrição");
+				return;
+			}
+
+			const res = api
+				.post(srcaddress, {
+					data: {
+						/*coloque aqui os dados que quer mandar na requisicao */
+						cityId: data.city,
+						userId: uid,
+						street: street,
+						streetNumber: houseNumber,
+						referencePoint: referencePoint,
+						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
+						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
+						description: description,
+						images: teste,
+					},
+				})
+				.then((response) => {
+					console.log(response);
+					alert(`Forms foi enviado`);
+				})
+				.catch((e) => {
+					console.log(e);
+				});
+		}
+
+		//console.log("Dados Enviados: ", res.data);
 	};
 
 	return (
