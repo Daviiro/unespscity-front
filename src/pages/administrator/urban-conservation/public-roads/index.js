@@ -15,6 +15,7 @@ import {
 
 const AdminVias = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -80,12 +81,16 @@ const AdminVias = () => {
 					{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.userId}
+								url="public_roads"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}	
