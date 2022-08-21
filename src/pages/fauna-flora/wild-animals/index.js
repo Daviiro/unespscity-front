@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -21,9 +21,24 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const AnimaisSilvestres = (props) => {
-	// posteriormente passar o número de solicitados e de resolvidos por parâmetro //
-	const totalSolicitados = 5;
-	const totalResolvidos = 2;
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/wildanimals');
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, []);	
+
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -127,17 +142,9 @@ const AnimaisSilvestres = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e serviços efetuados: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "wild-animals") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

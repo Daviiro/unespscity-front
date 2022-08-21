@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -21,23 +21,24 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Pragas = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/insetos_roedores_caramujos');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -135,23 +136,18 @@ const Pragas = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes qual foco encontrado (Roedores, Insetos e/ou Caramujos)" />
+					<ServiceOrderInformation 
+						srcaddress="/insetos_roedores_caramujos"
+						descriptionHelperText="Descreva com detalhes qual foco encontrado (Roedores, Insetos e/ou Caramujos)" 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
 			<ChartContainer>
 				<h3> Eliminações solicitadas e efetuadas: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "insects-rodents-snails") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

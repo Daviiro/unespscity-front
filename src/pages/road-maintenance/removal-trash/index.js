@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
@@ -21,23 +21,24 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Lixos_Solidos = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/removaltrash');
-				setProblems(data);
+				const { data } = await api.get('/removetrash');
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);
 
-	const totalSolicitados = 3;
-	const totalResolvidos = 4;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -135,17 +136,9 @@ const Lixos_Solidos = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Remoções solicitadas e efetuadas: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "trash-removal") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

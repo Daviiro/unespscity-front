@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import Header from "../../../components/header";
 import GrayLine from "../../../components/styled-components/gray-line";
 import PagesPieChart from "../../../charts/types/donut";
@@ -21,23 +21,24 @@ import ServiceOrderInformation from "../../../components/forms/ServiceOrderInfor
 import Favorites from "../../../components/favorites";
 
 const AnimaisSinantropicos = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/animais_sinantropicos');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -146,23 +147,18 @@ const AnimaisSinantropicos = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Conte-nos em detalhes sobre os animais sinantrópicos e a situação em que os mesmos se encontram" />
+					<ServiceOrderInformation 
+						srcaddress="/animais_sinantropicos"
+						descriptionHelperText="Conte-nos em detalhes sobre os animais sinantrópicos e a situação em que os mesmos se encontram" 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
 			<ChartContainer>
 				<h3> Problemas com Animais Sinantrópicos solicitados e resolvidos: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "synanthropic-animals") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
@@ -23,23 +23,24 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 //id deste servico eh 17
 const Dengue = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/radar_dengue');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -263,7 +264,10 @@ const Dengue = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Dengue." />
+					<ServiceOrderInformation 
+						srcaddress="/radar_dengue"
+						descriptionHelperText="Descreva com detalhes o local onde foi encontrado o foco de Dengue." 
+					/>
 				</MidContentContainer>
 				<div style={{ textAlign: "center", marginTop: "11vh", marginBottom: "12vh" }}>
 					<Typography variant = "h6"> Abaixo, você também pode conferir os focos de dengue já registrados na sua cidade: </Typography>
@@ -276,17 +280,9 @@ const Dengue = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Eliminações solicitadas e efetuadas: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "dengue-radar") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

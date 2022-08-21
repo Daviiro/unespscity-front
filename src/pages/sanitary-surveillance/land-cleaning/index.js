@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
@@ -21,23 +21,24 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Favorites from "../../../components/favorites";
 
 const Terreno = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/limpeza_terreno');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 6;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -131,23 +132,18 @@ const Terreno = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está o Terreno." />
+					<ServiceOrderInformation 
+						srcaddress="/limpeza_terreno"
+						descriptionHelperText="Descreva com detalhes a situação que está o Terreno." 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
 			<ChartContainer>
 				<h3> Limpezas solicitadas e efetuadas: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "land-cleaning") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />
