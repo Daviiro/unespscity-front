@@ -27,6 +27,7 @@ const SolidaryDisposal = (props) => {
 	const [referencePoint, setReferencePoint] = useState("");
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
+	const [photos, setPhotos] = useState([]);
 	const [donationType, setDonationType] = useState({
 		roupas: false,
 		eletro: false,
@@ -101,7 +102,6 @@ const SolidaryDisposal = (props) => {
 		console.log("referencePoint " + referencePoint);
 		console.log("description " + description);
 
-		const teste = ["tsete", "alo"];
 		let uid = user.userId;
 		if (uid === undefined) {
 			uid = -1;
@@ -160,7 +160,7 @@ const SolidaryDisposal = (props) => {
 						latitude: center.lat,
 						longitude: center.lng,
 						description: description,
-						images: teste,
+						images: photos,
 					},
 				})
 				.then((response) => {
@@ -199,7 +199,7 @@ const SolidaryDisposal = (props) => {
 						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						description: description,
-						images: teste,
+						images: photos,
 					},
 				})
 				.then((response) => {
