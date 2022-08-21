@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
 	position: relative;
 	display: flex;
-	flex-direciont: column;
+	flex-direction: column;
 	align-items: center;
 	height: 100%;
 	width: 100%;
@@ -19,4 +19,15 @@ export const DirectionsContainer = styled.div`
 	height: 60%;
 	width: 250px;
 	z-index: 1;
+`;
+
+export const AddInfoContainer = styled.div`
+	margin: 0 auto;
+	display: block;
+	width: 500px;
+	height: auto;
+	text-align: center;
+	padding: 25px;
+	border-radius: 10px;
+	border: 1px solid lightgrey;
 `;

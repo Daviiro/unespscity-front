@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -15,9 +15,16 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Map from "./map";
 import Favorites from "../../../components/favorites";
+import ShowAllPolygons from "../../administrator/environment/refuse-collection/show-all-polygons";
+import { fetchCityForID } from "../../../services/IBGE";
+import { fetchLatLong } from "../../../services/GoogleMaps";
+import LocalContext from "../../user-location/Context";
 
 const RefuseCollection = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
+	const [cityName, setCityName] = useState("");
+	const [formValues, setFormValues] = useContext(LocalContext);
+	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	useEffect(() => {
 		props.data.find(
 			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
@@ -41,6 +48,24 @@ const RefuseCollection = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+	fetchCityForID(formValues.city).then((city) => {
+		setCityName(city);
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+	useEffect(() => {
+		if (formValues.city !== undefined) {
+			fetchCityForID(formValues.city).then((city) => {
+				setCityName(city);
+			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+			if (cityName != "") {
+				fetchLatLong(cityName).then((data) => {
+					setCenter({
+						lat: data.results[0].geometry.location.lat,
+						lng: data.results[0].geometry.location.lng,
+					});
+				});
+			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+		}
+	}, [cityName]);
 
 	const routes = [
 		{
@@ -149,7 +174,7 @@ const RefuseCollection = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Map routes={routes} />
+					<ShowAllPolygons center={center} />
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
