@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import { api } from "../../../services/api";
+import React, { useState, useEffect } from "react";
+import { api } from "../../../services/api";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import {
@@ -18,23 +18,25 @@ import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
 
 const AdocaoAreasAdotadas = () => {
-/*	const [problems, setProblems] = useState([]);
+/*	const [problems, setProblems] = useState([]);	*/
+const [totalAdotadas, setTotalAdotadas] = useState(0);
+const [totalDisponiveis, setTotalDisponiveis] = useState(0);
 
-	useEffect(() => {
-		async function getProblems() {
-			try {
-				const { data } = await api.get('/public_area_adoption');
-				setProblems(data);
-			}
-			catch (e) {
-				console.log(e);
-			}
+useEffect(() => {
+	async function getProblems() {
+		try {
+			const { data } = await api.get('/public_area_adoption');
+			/*setProblems(data);*/
+			let totalSolicitados = data.length;
+			setTotalDisponiveis(data.filter((service) => service.isAdopted === false).length);
+			setTotalAdotadas(totalSolicitados - totalDisponiveis);
 		}
-		getProblems();
-	}, []);	*/
-
-	const totalDisponiveis = 1;
-	const totalAdotadas = 6;
+		catch (e) {
+			console.log(e);
+		}
+	}
+	getProblems();
+}, []);
 
 	return (
 		<>
@@ -82,6 +84,17 @@ const AdocaoAreasAdotadas = () => {
 						<div></div>
 					</TopContentContainer>
 					<MidContentContainer>
+					{/*	{
+						problems.map((problem) => (
+							<ListCard
+								source={problem.images}
+								nome={problem.owner}
+								sobrenome={problem.date}
+								descricao={problem.description}
+								button="Falar com o dono"
+							/>
+						))
+					}	*/}
 						<ListCard
 							source="/assets/img/meio_ambiente.png"
 							nome="[Nome]"
@@ -133,14 +146,6 @@ const AdocaoAreasAdotadas = () => {
 						Áreas públicas disponíveis/resolvidas e Áreas públicas
 						adotadas/solicitadas:{" "}
 					</h3>
-				{/*	{
-						problems.map((problem) => (problem.type === "pubic-areas-adoption") (
-							<PagesPieChart
-								solved={problem.totalResolvidos}
-								unsolved={problem.totalSolicitados}
-							/>
-						))
-					}	*/}
 					<PagesPieChart
 						solved={totalDisponiveis}
 						unsolved={totalAdotadas}

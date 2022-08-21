@@ -21,22 +21,25 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Restaurante = (props) => {
-/*	const [problems, setProblems] = useState([]);
+/*	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/reportplace');
-				setProblems(data);
+				const { data } = await api.get('/report_place');
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);		*/
 
-	const totalSolicitados = 3;
+	const totalNaoResolvidos = 3;
 	const totalResolvidos = 2;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -136,17 +139,9 @@ const Restaurante = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Vistorias solicitadas e processadas/realizadas: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "report-place") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

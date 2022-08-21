@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import { Link } from "react-router-dom";
 import PagesPieChart from "../../../charts/types/donut";
 import Header from "../../../components/header";
@@ -22,23 +22,24 @@ import ServiceOrderInformation from "./ServiceOrderInformation";
 import Favorites from "../../../components/favorites";
 
 const AnimaisPerdidosNovo = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/animais_perdidos');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 1;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -150,7 +151,10 @@ const AnimaisPerdidosNovo = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." />
+					<ServiceOrderInformation 
+						srcaddress="/animais_perdidos"
+						descriptionHelperText="Conte-nos acima a raça, aparência, nome e tudo o que puder facilitar a identificação do seu animal." 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
@@ -159,17 +163,9 @@ const AnimaisPerdidosNovo = (props) => {
 					{" "}
 					Buscas por animais solicitadas e buscas bem-sucedidas:{" "}
 				</h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "lost-animals") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

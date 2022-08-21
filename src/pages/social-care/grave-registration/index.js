@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import { FormContainer, InputAddressContainer, GrayLine2 } from "./styles";
 import Favorites from "../../../components/favorites";
 import Header from "../../../components/header";
@@ -22,22 +22,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Tumulos = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	let total = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/tumulos');
-				setProblems(data);
+				total = data.length;
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const total = 5;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -163,11 +162,6 @@ const Tumulos = (props) => {
 					</FormContainer>
 				</MidContentContainer>
 				<GrayLine />
-			{/*	{
-					problems.map((problem) => (problem.type === "insects-rodents-snails") (
-						<h3> Total de túmulos registrados no sistema: {problem.totalResolvidos} </h3>
-					))
-				}	*/}
 				<div>
 					<h3> Total de túmulos registrados no sistema: {total}</h3>
 				</div>

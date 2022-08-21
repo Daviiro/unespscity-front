@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-// import { api } from "../../../services/api";
+import { api } from "../../../services/api";
 import PagesPieChart from "../../../charts/types/donut";
-import { InputAddressContainer, Details } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import Favorites from "../../../components/favorites";
@@ -22,23 +21,24 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ServiceOrderInformation from "../../../components/forms/ServiceOrderInformation";
 
 const MausTratosAnimais = (props) => {
-/*	const [problems, setProblems] = useState([]);
+	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
 				const { data } = await api.get('/maus_tratos_animais');
-				setProblems(data);
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	
 
-	const totalSolicitados = 5;
-	const totalResolvidos = 8;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -130,48 +130,6 @@ const MausTratosAnimais = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					{/*
-					<Details>
-						<InputLocalization />
-						<p>OU</p>
-						<InputAddressContainer>
-							<Input title="Endereço:" width="36vw" />
-							<Input title="Nº" width="7vw" />
-						</InputAddressContainer>
-						<Input
-							title="Ponto de Referência:"
-							placeholder="Opcional"
-						/>
-						<div>
-							<input
-								type="checkbox"
-								id="Maus tratos à Animais Silvestres"
-							/>
-							<label
-								for="Maus tratos à Animais Silvestres"
-								style={{ fontSize: "14px" }}
-							>
-								{" "}
-								Maus tratos à Animais Silvestres{" "}
-							</label>
-						</div>
-						<div>
-							<input
-								type="checkbox"
-								id="Maus tratos à Animais Domésticos"
-							/>
-							<label
-								for="Maus tratos à Animais Domésticos"
-								style={{ fontSize: "14px" }}
-							>
-								{" "}
-								Maus tratos à Animais Domésticos{" "}
-							</label>
-						</div>
-						<DescriptionInput placeholder="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema." />
-						<InputPhotos />
-						<Button text="Enviar" />
-					</Details>*/}
 					<ServiceOrderInformation
 						srcaddress="/animalviolence"
 						descriptionHelperText="Conte-nos em detalhes sobre o problema encontrado, descrevendo o animal também, se possível. Nos ajudará a acionar o serviço ideal para resolver o problema."
@@ -181,17 +139,9 @@ const MausTratosAnimais = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e serviços efetuados: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "animal-violence") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

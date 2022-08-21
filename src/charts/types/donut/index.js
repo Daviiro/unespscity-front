@@ -2,7 +2,7 @@ import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 
 const PagesPieChart = ({solved, unsolved}) => {
-    let title1 = "Solicitados: " + unsolved;
+    let title1 = "Não Resolvidos: " + unsolved;
     let title2 = "Resolvidos: " + solved;
     solved = parseInt(solved);
     unsolved = parseInt(unsolved);

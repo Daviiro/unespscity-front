@@ -21,22 +21,25 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 
 const Parques = (props) => {
-/*	const [problems, setProblems] = useState([]);
+/*	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/parques');
-				setProblems(data);
+				const { data } = await api.get('/parks');
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, []);	*/	
 
-	const totalSolicitados = 1;
+	const totalNaoResolvidos = 1;
 	const totalResolvidos = 3;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -91,7 +94,9 @@ const Parques = (props) => {
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">Parques</Typography>
+							<Typography variant="h4">
+								Parques
+							</Typography>
 						</div>
 						<DescriptionText>
 							Utilize este serviço para informar ocorrências em
@@ -135,17 +140,9 @@ const Parques = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e resolvidos: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "parks") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />

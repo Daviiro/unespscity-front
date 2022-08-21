@@ -21,13 +21,16 @@ import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Favorites from "../../../components/favorites";
 
 const Pontes = (props) => {
-/*	const [problems, setProblems] = useState([]);
+/*	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
+	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/pontes');
-				setProblems(data);
+				const { data } = await api.get('/bridges');
+				let totalSolicitados = data.length;
+				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
 			}
 			catch (e) {
 				console.log(e);
@@ -36,7 +39,7 @@ const Pontes = (props) => {
 		getProblems();
 	}, []);	*/
 
-	const totalSolicitados = 4;
+	const totalNaoResolvidos = 4;
 	const totalResolvidos = 6;
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -138,17 +141,9 @@ const Pontes = (props) => {
 			<GrayLine />
 			<ChartContainer>
 				<h3> Serviços solicitados e resolvidos: </h3>
-			{/*	{
-					problems.map((problem) => (problem.type === "rural-road-bridges") (
-						<PagesPieChart
-							solved={problem.totalResolvidos}
-							unsolved={problem.totalSolicitados}
-						/>
-					))
-				}	*/}
 				<PagesPieChart
 					solved={totalResolvidos}
-					unsolved={totalSolicitados}
+					unsolved={totalNaoResolvidos}
 				/>
 			</ChartContainer>
 			<Footer />
