@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ImageCarousel from "../images-carousel";
+import { api } from "../../services/api";
 
 const AdminListCard = (props) => {
     const [open, setOpen] = useState(false);
@@ -14,7 +15,18 @@ const AdminListCard = (props) => {
         setOpen(true);
     };
 
-    const handleClose = (event, reason) => {
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleDeleteProblem = async (event, reason) => {
+        try {
+            await api.delete(`/${props.url}/${props.id}`);
+            props.setRefresh((prev) => prev + 1);
+        }
+        catch (e) {
+            console.log(e);
+        }
         setOpen(false);
     }
 
@@ -22,9 +34,7 @@ const AdminListCard = (props) => {
         <ListCardContainer>
             <InfoContainer>
                 <ImageCarousel
-                    images={["https://ciclovivo.com.br/wp-content/uploads/2018/10/iStock-536613027.jpg",
-                        "https://st2.depositphotos.com/6544740/9337/i/600/depositphotos_93376372-stock-photo-sunset-over-sea-pier.jpg",
-                        "https://thumbs.dreamstime.com/b/paisagem-vertical-no-por-do-sol-63763253.jpg"]}
+                    images={props.source}
                 />
                 <ContainerColumn>
                     <h2> {props.nome} </h2>
@@ -67,7 +77,7 @@ const AdminListCard = (props) => {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose}>Cancelar</Button>
-                        <Button onClick={handleClose} autoFocus>
+                        <Button onClick={handleDeleteProblem} autoFocus>
                             Excluir
                         </Button>
                     </DialogActions>

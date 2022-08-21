@@ -14,5 +14,6 @@ export const Image = styled.img`
     height: 24vh;
     width: auto;
     margin-right: 2vw;
+    margin-left: 1vw;
     opacity: 0.85;
 `;
