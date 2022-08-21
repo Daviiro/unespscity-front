@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Container } from "./styles";
 
-const InputPhotos = () => {
-    const [photos, setPhotos] = useState([]);
+const InputPhotos = (props) => {
 
     function handleFileInputChange(e){ 
         let reader = new FileReader();
         reader.readAsDataURL(e.currentTarget.files[0]);
-        const hasPhoto = photos.find(photo => photo === reader.result)
+        const hasPhoto = props.photos.find(photo => photo === reader.result)
         reader.onload = () => {
             if(hasPhoto !== undefined)
                 return; 
-            setPhotos((prevState) => [...prevState, reader.result]);
+            props.setPhotos((prevState) => [...prevState, reader.result]);
         };
-        console.log(photos)
       }
     
     return (
@@ -27,7 +25,7 @@ const InputPhotos = () => {
             />
             <div>
                 {
-                    photos.map( (photo) => (                    
+                    props.photos.map( (photo) => (                    
                         <img 
                             src={photo}
                             alt="foto"

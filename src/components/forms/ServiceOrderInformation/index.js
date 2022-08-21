@@ -25,6 +25,7 @@ const ServiceOrderInformation = (props) => {
 	const [description, setDescription] = useState("");
 	const [district, setDistrict] = useState("");
 	const [mobilePhone, setMobilePhone] = useState("");
+	const [photos, setPhotos] = useState([]);
 
 	const containerStyle = {
 		width: "100%",
@@ -85,7 +86,6 @@ const ServiceOrderInformation = (props) => {
 		console.log("referencePoint " + referencePoint);
 		console.log("description " + description);
 
-		const teste = ["tsete", "alo"];
 		let uid = user.userId;
 		if (uid === undefined) {
 			uid = -1;
@@ -144,7 +144,7 @@ const ServiceOrderInformation = (props) => {
 						latitude: center.lat,
 						longitude: center.lng,
 						description: description,
-						images: teste,
+						images: photos,
 					},
 				})
 				.then((response) => {
@@ -183,7 +183,7 @@ const ServiceOrderInformation = (props) => {
 						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						description: description,
-						images: teste,
+						images: photos,
 					},
 				})
 				.then((response) => {
@@ -197,6 +197,8 @@ const ServiceOrderInformation = (props) => {
 
 		//console.log("Dados Enviados: ", res.data);
 	};
+
+	console.log(photos)
 
 	return (
 		<Container>
@@ -381,7 +383,10 @@ const ServiceOrderInformation = (props) => {
 				</div>
 				<br />
 
-				<InputPhotos />
+				<InputPhotos
+					photos={photos}
+					setPhotos={setPhotos}
+				/>
 
 				<br />
 				<div className="inputs">
