@@ -140,8 +140,10 @@ const Instalacoes = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Use o espaço de texto acima para descrever a razão pela qual você acha necessário a realização de uma inspeção." />
-					{/*<Form />*/}
+					<ServiceOrderInformation 
+						srcaddress="/facilities_inspection"
+						descriptionHelperText="Use o espaço de texto acima para descrever a razão pela qual você acha necessário a realização de uma inspeção." 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

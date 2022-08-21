@@ -139,7 +139,10 @@ const Pavimentacao = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está a pavimentação" />
+					<ServiceOrderInformation 
+						srcaddress="/create_paviment"
+						descriptionHelperText="Descreva com detalhes a situação que está a pavimentação" 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

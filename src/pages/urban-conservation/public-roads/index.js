@@ -139,7 +139,10 @@ const Vias = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está as vias publicas." />
+					<ServiceOrderInformation 
+						srcaddress="/public_roads"
+						descriptionHelperText="Descreva com detalhes a situação que está as vias publicas." 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

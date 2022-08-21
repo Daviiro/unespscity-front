@@ -142,7 +142,10 @@ const Iluminacao = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva com detalhes a situação que está a lampada (totalmente queimada, piscando, com a luz fraca, etc)." />
+					<ServiceOrderInformation 
+						srcaddress="/create_street_lighting"
+						descriptionHelperText="Descreva com detalhes a situação que está a lampada (totalmente queimada, piscando, com a luz fraca, etc)." 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />

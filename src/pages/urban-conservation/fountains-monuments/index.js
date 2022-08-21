@@ -141,7 +141,10 @@ const Monumentos = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation descriptionHelperText="Descreva a situação em que está os Monumentos e/ou Chafarizes. " />
+					<ServiceOrderInformation 
+						srcaddress="/monument"
+						descriptionHelperText="Descreva a situação em que está os Monumentos e/ou Chafarizes. " 
+					/>
 				</MidContentContainer>
 			</ContentContainer>
 			<GrayLine />
