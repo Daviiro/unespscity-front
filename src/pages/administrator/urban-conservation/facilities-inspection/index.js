@@ -28,7 +28,7 @@ const AdminInstalacoes = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>

@@ -15,7 +15,8 @@ import AdminListCardAlt from "../../../../components/card-list-admin/alternative
 import Footer from "../../../../components/footer";
 
 const AdminEscorpiao = () => {
-/*	const [problems, setProblems] = useState([]);
+	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminEscorpiao = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);	*/
+	}, [refresh]);	
 
 	return (
 		<ContainerBase>

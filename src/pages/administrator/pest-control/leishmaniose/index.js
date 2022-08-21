@@ -17,20 +17,21 @@ import LeishmanioseModal from "./modal";
 import Footer from "../../../../components/footer";
 
 const AdminLeishmaniose = () => {
-/*	const [problems, setProblems] = useState([]);
+		const [problems, setProblems] = useState([]);
+		const [refresh, setRefresh] = useState(0);
 
-	useEffect(() => {
-		async function getProblems() {
-			try {
-				const { data } = await api.get('/leishmaniose');
-				setProblems(data);
+		useEffect(() => {
+			async function getProblems() {
+				try {
+					const { data } = await api.get('/leishmaniose');
+					setProblems(data);
+				}
+				catch (e) {
+					console.log(e);
+				}
 			}
-			catch (e) {
-				console.log(e);
-			}
-		}
-		getProblems();
-	}, [ ]);	*/
+			getProblems();
+		}, [refresh]);	
 
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
@@ -114,7 +115,7 @@ const AdminLeishmaniose = () => {
 
 	const handleDelete = (Location) => {
 		console.log(
-			"quero deletar o local: " +  Location.name
+			"quero deletar o local: " + Location.name
 		);
 	};
 
@@ -162,19 +163,23 @@ const AdminLeishmaniose = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-				{/*	{
+					{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.idUser}
+								url="leishmaniose"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
-					}	*/}
-					<AdminListCardAlt
+					}
+					{/* <AdminListCardAlt
 						source="/assets/backup/01.jpg"
 						titulo="Animal 1" 
 						nome="Rua Ulysses Ramos de Castro, 88, Bairro do Bosque"
@@ -208,9 +213,9 @@ const AdminLeishmaniose = () => {
 						nome="Rua Zacarias Miguel, 9020, Vila Marina"
 						sobrenome="Perto do Capotas Jem."
 						descricao="Meu cachorro pegou Leishmaniose."
-					/>
+					/> */}
 					<div style={{ textAlign: "center", marginTop: "11vh", marginBottom: "12vh" }}>
-						<Typography variant = "h6"> Abaixo, você também editar os locais de vacinação contra a doença na cidade: </Typography>
+						<Typography variant="h6"> Abaixo, você também editar os locais de vacinação contra a doença na cidade: </Typography>
 					</div>
 					<LeishmanioseMap
 						locations={locations}

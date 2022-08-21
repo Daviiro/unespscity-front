@@ -28,7 +28,7 @@ const AdminPavimentacao = () => {
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
