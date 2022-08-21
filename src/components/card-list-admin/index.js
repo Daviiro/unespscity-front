@@ -37,15 +37,15 @@ const AdminListCard = (props) => {
                 {
                     props.report ? (
                         <Button variant="outlined" onClick={handleClickOpen}>
-                            Arrumado
+                            <h3>Arrumado</h3>
                         </Button>
                     ) : (
                         <>
                             <Button variant="outlined">
-                                Editar
+                                <h3>Editar</h3>
                             </Button>
                             <Button variant="outlined" onClick={handleClickOpen}>
-                                Excluir
+                                <h3>Excluir</h3>
                             </Button>
                         </>
                     )
