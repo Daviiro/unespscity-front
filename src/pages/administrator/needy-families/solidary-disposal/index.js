@@ -15,18 +15,19 @@ import Footer from "../../../../components/footer";
 
 const AdminDescarteSolidario = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get("/");
+				const { data } = await api.get("/solidarydisposal");
 				setProblems(data);
 			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -70,12 +71,16 @@ const AdminDescarteSolidario = () => {
 				<MidContentContainer>
 					{problems.map((problem) => (
 						<AdminListCard
+							key={problem._id}
 							source={problem.images}
 							nome={problem.street}
 							sobrenome={problem.referencePoint}
 							descricao={problem.description}
 							report={true}
 							userId={problem.userId}
+							url="solidarydisposal"
+							id={problem._id}
+							setRefresh={setRefresh}
 						/>
 					))}
 				</MidContentContainer>

@@ -16,6 +16,7 @@ import AdminListCardAlt from "../../../../components/card-list-admin/alternative
 
 const AdminAdoptionAnimals = () => {
 /*	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -28,7 +29,7 @@ const AdminAdoptionAnimals = () => {
 			}
 		}
 		getProblems();
-	}, []);	*/
+	}, [refresh]);	*/
 
 	return (
 		<ContainerBase>
@@ -83,12 +84,16 @@ const AdminAdoptionAnimals = () => {
 				{/*	{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.owner}
 								sobrenome={problem.date}
 								descricao={problem.description}
 								report={true}
 								userId={problem.idUser}
+								url="adocao_animais"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}	*/}

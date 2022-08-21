@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../../services/api";
 import AdminHeader from "../../../../components/header/admin";
 import MiniCard from "../../../../components/mini-card";
-import ListCard from "../../../../components/card-list";
+import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 import Typography from "@mui/material/Typography";
 import {
@@ -16,11 +17,21 @@ import { AiFillStar } from "react-icons/ai";
 import { StyledHr } from "../../../../components/styled-components/StyledHr";
 
 const AdminHomelessPeople = () => {
-	const [isFavorite, setIsFavorite] = useState(false);
-	const handleFavorite = () => {
-		setIsFavorite(!isFavorite);
-		console.log("você favoritou este serviço");
-	};
+	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
+
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get('/homelesspeople');
+				setProblems(data);
+			}
+			catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -87,13 +98,22 @@ const AdminHomelessPeople = () => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ListCard
-						source="/assets/img/home_animais_domesticos.png"
-						nome="[última vez visto]"
-						sobrenome="[último local visto]"
-						descricao="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet ipsum dolor. Vivamus imperdiet semper odio sed consequat. Praesent cursus dui a porta blandit. Aliquam erat volutpat. Morbi quis ex sapien. Aliquam efficitur lorem mattis, vehicula justo sed, porta mi. Nulla at pulvinar ligula, eu dapibus felis. Cras vel orci eu dolor hendrerit dictum aliquet sed orci. Aliquam ultricies dignissim diam ut ornare."
-						button="Falar com o dono"
-					/>
+					{
+						problems.map((problem) => (
+							<AdminListCard
+								key={problem._id}
+								source={problem.images}
+								nome={problem.street}
+								sobrenome={problem.referencePoint}
+								descricao={problem.description}
+								report={true}
+								userId={problem.userId}
+								url="homelesspeople"
+								id={problem._id}
+								setRefresh={setRefresh}
+							/>
+						))
+					}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

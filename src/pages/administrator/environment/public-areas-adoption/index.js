@@ -15,6 +15,7 @@ import AdminListCard from "../../../../components/card-list-admin";
 
 const AdminAdocaoAreas = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
@@ -27,7 +28,7 @@ const AdminAdocaoAreas = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);
+	}, [refresh]);
 
 	return (
 		<>
@@ -72,12 +73,16 @@ const AdminAdocaoAreas = () => {
 						{
 							problems.map((problem) => (
 								<AdminListCard
+									key={problem._id}
 									source={problem.images}
 									nome={problem.street}
 									sobrenome={problem.referencePoint}
 									descricao={problem.description}
 									report={true}
 									userId={problem.userId}
+									url="public_area_adoption"
+									id={problem._id}
+									setRefresh={setRefresh}
 								/>
 							))
 						}

@@ -19,11 +19,12 @@ import Button from "@mui/material/Button";
 
 const AdminCulturalProgram = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/');
+				const { data } = await api.get('/programacao');
 				setProblems(data);
 			}
 			catch (e) {
@@ -31,7 +32,7 @@ const AdminCulturalProgram = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);
+	}, [refresh]);
 
     return (
 		<ContainerBase>
@@ -109,12 +110,16 @@ const AdminCulturalProgram = () => {
 						{
 							problems.map((problem) => (
 								<AdminListCard
+									key={problem._id}
 									source={problem.images}
 									nome={problem.street}
 									sobrenome={problem.referencePoint}
 									descricao={problem.description}
 									report={true}
 									userId={problem.userId}
+									url="/programacao"
+									id={problem._id}
+									setRefresh={setRefresh}
 								/>
 							))
 						}

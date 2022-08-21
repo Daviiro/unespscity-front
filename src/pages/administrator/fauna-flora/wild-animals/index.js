@@ -15,11 +15,12 @@ import Footer from "../../../../components/footer";
 
 const AdminAnimaisSilvestres = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/');
+				const { data } = await api.get('/wildanimals');
 				setProblems(data);
 			}
 			catch (e) {
@@ -27,7 +28,7 @@ const AdminAnimaisSilvestres = () => {
 			}
 		}
 		getProblems();
-	}, [ ]);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -73,12 +74,16 @@ const AdminAnimaisSilvestres = () => {
 					{
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
 								nome={problem.street}
 								sobrenome={problem.referencePoint}
 								descricao={problem.description}
 								report={true}
 								userId={problem.userId}
+								url="wildanimals"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					}
