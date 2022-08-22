@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -13,13 +13,27 @@ import Footer from "../../../../components/footer";
 import LocalContext from "../../../user-location/Context";
 import TreesMap from "./map";
 import { api } from "../../../../services/api";
+import AdminListCard from "../../../../components/card-list-admin";
 
 const AdminAccidentRecords = () => {
+	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 	const [clickedCoordinates, setClickedCoordinates] = useState({
 		lat: 0,
 		lng: 0,
 	});
 	const [formValues, setFormValues] = useContext(LocalContext);
+	useEffect(() => {
+		async function getProblems() {
+			try {
+				const { data } = await api.get("/accidentrecords");
+				setProblems(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getProblems();
+	}, [refresh]);
 
 	const [locations, setLocations] = useState([
 		{
@@ -149,18 +163,33 @@ const AdminAccidentRecords = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você pode ver e marcar como resolvido os acidentes que ocorreram na cidade.
+							Aqui você pode ver e marcar como resolvido os
+							acidentes que ocorreram na cidade.
 						</DescriptionText>
 					</div>
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<TreesMap
+					{/*<TreesMap
 						locations={locations}
 						icon="/assets/img/tree-default-icon.png"
 						onMapClick={onMapClick}
 						handleDelete={handleDelete}
-					/>
+					/>*/}
+					{problems.map((problem) => (
+						<AdminListCard
+							key={problem._id}
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							descricao={problem.description}
+							report={true}
+							userId={problem.userId}
+							url="solidarydisposal"
+							id={problem._id}
+							setRefresh={setRefresh}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

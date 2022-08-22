@@ -90,6 +90,10 @@ const ServiceOrderInformation = (props) => {
 		if (uid === undefined) {
 			uid = -1;
 		}
+		let referencePointAux = referencePoint;
+		if (referencePointAux === "") {
+			referencePointAux = "Sem ponto de referência"; //dad NAO obrigatorio
+		}
 
 		if (approximateLocation) {
 			//caso a pessoa tenha escolhido mandar com a localizacao aproximada
@@ -125,9 +129,7 @@ const ServiceOrderInformation = (props) => {
 				const endereco = `${street}, ${district}`;
 				setStreet(endereco);
 			}
-			if (referencePoint === "") {
-				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
-			}
+
 			if (description === "") {
 				alert("É necessário ter uma descrição");
 				return;
@@ -140,7 +142,7 @@ const ServiceOrderInformation = (props) => {
 						userId: uid,
 						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
-						referencePoint: referencePoint,
+						referencePoint: referencePointAux,
 						latitude: center.lat,
 						longitude: center.lng,
 						description: description,
@@ -163,9 +165,6 @@ const ServiceOrderInformation = (props) => {
 				alert("É obrigatório enviar a rua");
 				return;
 			}
-			if (referencePoint === "") {
-				setReferencePoint("Sem ponto de referência"); //dad NAO obrigatorio
-			}
 			if (description === "") {
 				alert("É necessário ter uma descrição");
 				return;
@@ -179,7 +178,7 @@ const ServiceOrderInformation = (props) => {
 						userId: uid,
 						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
-						referencePoint: referencePoint,
+						referencePoint: referencePointAux,
 						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
 						description: description,
@@ -198,7 +197,7 @@ const ServiceOrderInformation = (props) => {
 		//console.log("Dados Enviados: ", res.data);
 	};
 
-	console.log(photos)
+	console.log(photos);
 
 	return (
 		<Container>
@@ -383,10 +382,7 @@ const ServiceOrderInformation = (props) => {
 				</div>
 				<br />
 
-				<InputPhotos
-					photos={photos}
-					setPhotos={setPhotos}
-				/>
+				<InputPhotos photos={photos} setPhotos={setPhotos} />
 
 				<br />
 				<div className="inputs">
