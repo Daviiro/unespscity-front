@@ -5,10 +5,12 @@ import { api } from "../../../../../services/api";
 import { InfoWindowContainer } from "./styles";
 import { InfoWindow } from "@react-google-maps/api";
 import Typography from "@mui/material/Typography";
+import { Button, setRef } from "@mui/material";
 
 const ShowAllPolygons = (props) => {
 	const google = window.google;
-	const { center } = props;
+	const { center, admin } = props;
+	const [refresh, setRefresh] = useState(false);
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
@@ -58,9 +60,6 @@ const ShowAllPolygons = (props) => {
 				.then((res) => {
 					setPolygons(res.data);
 					setLoading(false);
-					console.log("RES: " + res.data.cityId);
-					console.log("RES.DATA: " + res.data.polygon);
-					console.log("RES.DATA.POLYGON: " + res.data.polygon);
 				});
 		} catch (err) {
 			console.log(err);
@@ -70,24 +69,9 @@ const ShowAllPolygons = (props) => {
 		fetchData();
 	}, []);
 
-	const teste = [
-		{ lat: 25.774, lng: -80.19 },
-		{ lat: 18.466, lng: -66.118 },
-		{ lat: 32.321, lng: -64.757 },
-		{ lat: 25.774, lng: -80.19 },
-		{ lat: 35.774, lng: -70.19 },
-		{ lat: 34.774, lng: -60.19 },
-	];
-
-	const teste2 = [
-		{ lat: 25.774, lng: -80.19 },
-		{ lat: 18.466, lng: -66.118 },
-		{ lat: 32.321, lng: -64.757 },
-	];
-
-	const handleClick = () => {
-		console.log("THIS IS A TESTE");
-	};
+	useEffect(() => {
+		fetchData();
+	}, [refresh]);
 
 	const [selected, setSelected] = useState({});
 
@@ -100,6 +84,24 @@ const ShowAllPolygons = (props) => {
 			resul = newDate.getHours() + "h" + newDate.getMinutes();
 		}
 		return resul;
+	};
+
+	const handleDelete = async (id) => {
+		console.log("ID: " + id);
+		try {
+			await api
+				.delete("/refuse", {
+					params: {
+						id: id,
+					},
+				})
+				.then((res) => {
+					setRefresh(!refresh);
+					console.log(res.status);
+				});
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	if (isLoading) {
@@ -141,6 +143,7 @@ const ShowAllPolygons = (props) => {
 										title: poly.title,
 										start: poly.startTime,
 										finish: poly.finishTime,
+										id: poly._id,
 									});
 								}}
 							></Polygon>
@@ -159,6 +162,7 @@ const ShowAllPolygons = (props) => {
 										title: poly.title,
 										start: poly.startTime,
 										finish: poly.finishTime,
+										id: poly._id,
 									});
 								}}
 							></Polygon>
@@ -233,6 +237,14 @@ const ShowAllPolygons = (props) => {
 								Horário: {dateFormater(selected.start)} às{" "}
 								{dateFormater(selected.finish)}
 							</Typography>
+							<br />
+							{admin && (
+								<Button
+									onClick={() => handleDelete(selected.id)}
+								>
+									Deletar Polígono
+								</Button>
+							)}
 						</InfoWindowContainer>
 					</InfoWindow>
 				)}

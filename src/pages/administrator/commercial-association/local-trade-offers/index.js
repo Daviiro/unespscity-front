@@ -117,7 +117,7 @@ const AdminLocalTradeOffers = () => {
 						</DescriptionText>
 						<div></div>
 					</div>
-
+					<div></div>
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>

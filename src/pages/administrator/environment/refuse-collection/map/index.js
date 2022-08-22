@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
 	GoogleMap,
 	useJsApiLoader,
-	Marker,
-	Autocomplete,
 	DrawingManager,
-	Polygon,
 } from "@react-google-maps/api";
 import { Container } from "./styles";
 import { api } from "../../../../../services/api";
@@ -18,7 +15,6 @@ import TimePicker from "@material-ui/lab/TimePicker";
 import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
 import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
 import { Typography } from "@mui/material";
-import { DirectiveLocation } from "graphql";
 import NativeSelect from "@mui/material/NativeSelect";
 import { AddInfoContainer } from "./styles";
 

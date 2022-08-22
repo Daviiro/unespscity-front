@@ -115,7 +115,7 @@ const AdminRefuseCollection = () => {
 					{toggle ? (
 						<Map center={center} />
 					) : (
-						<ShowAllPolygons center={center} />
+						<ShowAllPolygons center={center} admin={true} />
 					)}
 				</MidContentContainer>
 			</ContentContainer>
