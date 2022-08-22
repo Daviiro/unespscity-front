@@ -152,13 +152,14 @@ const SolidaryDisposal = (props) => {
 				.post(srcaddress, {
 					data: {
 						/*coloque aqui os dados que quer mandar na requisicao */
-						cityId: data.city,
+						cityid: data.city,
 						userId: uid,
 						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
 						referencePoint: referencePoint,
 						latitude: center.lat,
 						longitude: center.lng,
+						donationType: donationType,
 						description: description,
 						images: photos,
 					},
@@ -191,13 +192,14 @@ const SolidaryDisposal = (props) => {
 				.post(srcaddress, {
 					data: {
 						/*coloque aqui os dados que quer mandar na requisicao */
-						cityId: data.city,
+						cityid: data.city,
 						userId: uid,
 						street: `${street}, ${district}`,
 						streetNumber: houseNumber,
 						referencePoint: referencePoint,
-						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
-						longitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
+						latitude: -1,
+						longitude: -1,
+						donationType: donationType,
 						description: description,
 						images: photos,
 					},
@@ -428,7 +430,12 @@ const SolidaryDisposal = (props) => {
 				<InputPhotos />
 				<br />
 				<div className="inputs">
-					<Button fullWidth variant="contained">
+					<Button
+						fullWidth
+						variant="contained"
+						type="submit"
+						value="Enviar"
+					>
 						Enviar
 					</Button>
 				</div>
