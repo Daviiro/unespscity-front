@@ -130,7 +130,6 @@ const GuardianMonitoring = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					fsdfsfs
 					<Map center={center} />
 				</MidContentContainer>
 			</ContentContainer>
