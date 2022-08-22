@@ -10,6 +10,7 @@ import { Container, DirectionsContainer } from "./styles";
 import { TextField, Button, ButtonGroup } from "@mui/material";
 import { MdClear } from "react-icons/md";
 import Modal from "./modal";
+import { api } from "../../../../../services/api";
 
 const Map = (props) => {
 	const google = window.google;
@@ -92,15 +93,37 @@ const Map = (props) => {
 		setOpen(false);
 	};
 
-	const handleAddRoute = () => {
+	const handleAddRoute = async (title) => {
 		//aqui eu mando pro backend usando o axios
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
 		console.log("Cidade: " + data.city);
-		console.log("Titulo: ");
+		console.log("Titulo: " + title);
 		console.log("Origem: " + originRef.current.value);
 		console.log("Destino: " + destinationRef.current.value);
 		console.log("Waypoints: " + auxiliarWaypoint);
-		alert("Rota adiciona com sucesso!");
+		console.log("Distancia: " + distance);
+		console.log("Duracao: " + duration);
+
+		try {
+			api.post("/guardian", {
+				data: {
+					cityid: data.city,
+					title: title,
+					origem: originRef.current.value,
+					destino: destinationRef.current.value,
+					waypoints: auxiliarWaypoint,
+					distancia: distance,
+					duracao: duration,
+				},
+			}).then((res) => {
+				console.log(res.status);
+				alert("Rota adiciona com sucesso!");
+			});
+		} catch (e) {
+			console.log(e);
+		}
+
+		setAuxiliarWaypoint([]);
 		clearRoute();
 		handleClose();
 	};
@@ -131,7 +154,7 @@ const Map = (props) => {
 				{directionsResponse && (
 					<DirectionsRenderer
 						directions={directionsResponse}
-						options={{ draggable: true }}
+						options={{ draggable: false }}
 					/>
 				)}
 			</GoogleMap>

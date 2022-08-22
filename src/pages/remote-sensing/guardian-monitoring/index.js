@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "../../../components/header";
 import {
 	ContainerBase,
@@ -14,8 +14,14 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Favorites from "../../../components/favorites";
+import Map from "./map";
+import { fetchCityForID } from "../../../services/IBGE";
+import { fetchLatLong } from "../../../services/GoogleMaps";
+import LocalContext from "../../user-location/Context";
 
 const GuardianMonitoring = (props) => {
+	const google = window.google;
+	const [formValues, setFormValues] = useContext(LocalContext);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -40,6 +46,26 @@ const GuardianMonitoring = (props) => {
 		}
 		setIsFavorite(!isFavorite);
 	};
+	const [cityName, setCityName] = useState("");
+	const [center, setCenter] = useState({ lat: 0, lng: 0 });
+	fetchCityForID(formValues.city).then((city) => {
+		setCityName(city);
+	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+	useEffect(() => {
+		if (formValues.city !== undefined) {
+			fetchCityForID(formValues.city).then((city) => {
+				setCityName(city);
+			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
+			if (cityName != "") {
+				fetchLatLong(cityName).then((data) => {
+					setCenter({
+						lat: data.results[0].geometry.location.lat,
+						lng: data.results[0].geometry.location.lng,
+					});
+				});
+			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+		}
+	}, [cityName]);
 
 	return (
 		<ContainerBase>
@@ -103,7 +129,10 @@ const GuardianMonitoring = (props) => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					fsdfsfs
+					<Map center={center} />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>

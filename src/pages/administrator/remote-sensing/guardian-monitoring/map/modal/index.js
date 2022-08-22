@@ -32,7 +32,12 @@ const Modal = (props) => {
 			<DialogActions>
 				<Button onClick={props.handleClose}>Cancelar</Button>
 				{title != undefined ? (
-					<Button onClick={() => props.handleAddRoute()}>
+					<Button
+						onClick={() => {
+							props.handleAddRoute(title);
+							setTitle("");
+						}}
+					>
 						Adicionar
 					</Button>
 				) : (
