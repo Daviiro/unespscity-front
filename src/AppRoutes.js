@@ -162,6 +162,7 @@ import AdminPanicButton from "./pages/administrator/panic-button";
 import Notifications from "./pages/notifications";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 import AdminGuardian from "./pages/administrator/remote-sensing/guardian-monitoring";
+import TrafficMonitoring from "./pages/administrator/remote-sensing/traffic-monitoring";
 
 import { api } from "./services/api";
 import { Context } from "./context/Auth/AuthContext";
@@ -589,6 +590,11 @@ const AppRoutes = () => {
 							exact
 							path="/admin/monitoramento-guardinha"
 							element={<AdminGuardian />}
+						/>
+						<Route
+							exact
+							path="/admin/monitoramento-pessoas-veiculos"
+							element={<TrafficMonitoring />}
 						/>
 					</Route>
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}

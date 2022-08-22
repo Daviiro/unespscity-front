@@ -11,6 +11,9 @@ const SensoriamentoRemotoOpcoes = () => {
 					<Link to="/admin/monitoramento-guardinha">
 						<Button text="Monitoramento do guardinha" />
 					</Link>
+					<Link to="/admin/monitoramento-pessoas-veiculos">
+						<Button text="Monitoramento do trânsito" />
+					</Link>
 				</ContainerColumn>
 			</ContainerBase>
 		</>

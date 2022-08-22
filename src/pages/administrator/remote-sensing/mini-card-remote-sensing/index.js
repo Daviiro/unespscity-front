@@ -11,6 +11,11 @@ const MiniCardRemoteSensing = () => {
 					name: "Monitoramento do Guardinha",
 					link: "/admin/monitoramento-guardinha",
 				},
+				{
+					id: 2,
+					name: "Monitoramento do Trânsito",
+					link: "/admin/monitoramento-pessoas-veiculos",
+				},
 			]}
 		/>
 	);

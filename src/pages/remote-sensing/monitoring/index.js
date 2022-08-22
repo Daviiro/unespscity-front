@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { StyledHr } from "../../../components/styled-components/StyledHr";
 import Footer from "../../../components/footer";
 import Favorites from "../../../components/favorites";
+import Map from "./maps";
 
 const Monitoring = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
@@ -107,7 +108,9 @@ const Monitoring = (props) => {
 					)}
 					<StyledHr />
 				</TopContentContainer>
-				<MidContentContainer></MidContentContainer>
+				<MidContentContainer>
+					<Map />
+				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
 		</ContainerBase>
