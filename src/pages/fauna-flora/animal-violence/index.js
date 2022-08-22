@@ -24,21 +24,6 @@ const MausTratosAnimais = (props) => {
 	const [totalNaoResolvidos, setTotalNaoResolvidos] = useState(0);
 	const [totalResolvidos, setTotalResolvidos] = useState(0);
 
-	useEffect(() => {
-		async function getProblems() {
-			try {
-				const { data } = await api.get('/maus_tratos_animais');
-				let totalSolicitados = data.length;
-				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
-				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
-			}
-			catch (e) {
-				console.log(e);
-			}
-		}
-		getProblems();
-	}, []);	
-
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(

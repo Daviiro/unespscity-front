@@ -11,11 +11,6 @@ const ShowAllPolygons = (props) => {
 	const google = window.google;
 	const { center, admin } = props;
 	const [refresh, setRefresh] = useState(false);
-	const { isLoaded } = useJsApiLoader({
-		id: "google-map-script",
-		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
-		libraries: ["drawing"],
-	});
 	const containerStyle = {
 		width: "100%",
 		height: "500px",
@@ -103,6 +98,12 @@ const ShowAllPolygons = (props) => {
 			console.log(err);
 		}
 	};
+
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		libraries: ["drawing"],
+	});
 
 	if (isLoading) {
 		return <div>Loading...</div>;

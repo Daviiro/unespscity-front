@@ -22,11 +22,7 @@ const Map = (props) => {
 	const google = window.google;
 	const { center } = props;
 	const [typeOfRefuse, setTypeOfRefuse] = useState("Orgânico");
-	const { isLoaded } = useJsApiLoader({
-		id: "google-map-script",
-		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
-		libraries: ["drawing"],
-	});
+
 	const containerStyle = {
 		width: "100%",
 		height: "500px",
@@ -160,21 +156,6 @@ const Map = (props) => {
 	};
 
 	const onPolygonComplete = (polygon) => {
-		//console.log("aqui: " + polygon.getPath().getArray());
-
-		//passar os caminhos para o array
-		/*const paths = polygon.getPath().getArray().map((p) => {
-				console.log("Lat: " + p.lat());
-				setPolygonss([
-					...polygonss,
-
-					{
-						lat: p.lat(),
-						lng: p.lng(),
-					},
-				]);
-				console.log("Long: " + p.lng());
-			});*/
 		let bounds = []; //variavel que vai conter o valor do ultimo polinomio desenhado
 		const paths = polygon.getPath();
 
@@ -186,71 +167,14 @@ const Map = (props) => {
 			bounds.push(point);
 		}
 
-		setPolygonss(bounds); /*
-
-		///acima teste do stack overflow
-		/*
-		const paths = polygon
-			.getPath()
-			.getArray()
-			.map((p) => {
-				setPolygonss((current) => [
-					...current,
-					{
-						lat: p.lat(),
-						lng: p.lng(),
-					},
-				]);
-			});
-		console.log("POLY: " + polygonss);
-		/*
-		let aux;
-		for (var i = 0; i < paths.length; i++) {
-			/*setPolygonss((current) => [
-				...current,
-				{
-					lat: paths[i].lat(),
-					lng: paths[i].lng(),
-				},
-			]);
-			const newPolygonss = [...polygonss];
-			aux = {
-				lat: paths[i].lat(),
-				lng: paths[i].lng(),
-			};
-			newPolygonss.push(aux);
-			setPolygonss(newPolygonss);
-			console.log(paths[i].lat());
-			console.log(paths[i].lng());
-		}*/
-
-		//tentar mandar o poligono completo para o backend
-		/*if (bounds) {
-			addPolygonToDatabase(bounds);
-		}*/
-		/*
-		try {
-			api.post("/refuse", {
-				data: {
-					cityId: data.city,
-					polygon: bounds,
-					operatingDays: operatingDays,
-					startTime: new Date(),
-					finishTime: new Date(),
-				},
-			}).then(setPolygonss([]));
-		} catch (e) {
-			console.log(e);
-		}
-
-		setPolygonss([
-			...polygonss,
-			{
-				id_polygon: 1,
-				coord: polygon.getPath().getArray(),
-			},
-		]);*/
+		setPolygonss(bounds);
 	};
+
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		libraries: ["drawing"],
+	});
 
 	return isLoaded ? (
 		<Container>

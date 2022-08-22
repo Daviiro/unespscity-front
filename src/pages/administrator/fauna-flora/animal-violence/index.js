@@ -13,23 +13,23 @@ import MiniCard from "../../../../components/mini-card";
 import AdminListCard from "../../../../components/card-list-admin";
 import AdminListCardAlt from "../../../../components/card-list-admin/alternative";
 import Footer from "../../../../components/footer";
+import { api } from "../../../../services/api";
 
 const AdminMausTratosAnimais = () => {
-/*	const [problems, setProblems] = useState([]);
+	const [problems, setProblems] = useState([]);
 	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/maus_tratos_animais');
+				const { data } = await api.get("/animalviolence");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, [refresh]);	*/
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -71,7 +71,7 @@ const AdminMausTratosAnimais = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-				{/*	{
+					{/*	{
 						problems.map((problem) => (
 							<AdminListCard
 								key={problem._id}
@@ -89,39 +89,54 @@ const AdminMausTratosAnimais = () => {
 					}	*/}
 					<AdminListCardAlt
 						source="/assets/backup/51.jpg"
-						titulo="Animal 1" 
+						titulo="Animal 1"
 						nome="Rua Salim Macruz, 13, Vila Real"
 						sobrenome="Perto do Sr. Delivery."
 						descricao="Abuso de animal doméstico."
 					/>
 					<AdminListCardAlt
 						source="/assets/backup/52.jpg"
-						titulo="Animal 2" 
+						titulo="Animal 2"
 						nome="Rua César Audi, 104, Jardim Jequitiba"
 						sobrenome="Perto da Quadra Municipal."
 						descricao="Cachorro sofrendo maus-tratos."
 					/>
 					<AdminListCardAlt
 						source="/assets/backup/53.jpg"
-						titulo="Animal 3" 
+						titulo="Animal 3"
 						nome="Rua Hélio Pereti, 1500, Jardim Campo Belo"
 						sobrenome="Perto da loja Budin Ferramentas."
 						descricao="Toda noite ouvimos alguém gritando com um cachorro."
 					/>
 					<AdminListCardAlt
 						source="/assets/backup/54.jpg"
-						titulo="Animal 4" 
+						titulo="Animal 4"
 						nome="Rua Maria Ângela de Oliveira Esterque, 160, Jardim Santa Fé"
 						sobrenome="Perto da rodovia Júlio Budiski."
 						descricao="Gato violentado."
 					/>
 					<AdminListCardAlt
 						source="/assets/backup/55.jpg"
-						titulo="Animal 5" 
+						titulo="Animal 5"
 						nome="Rua Reverendo Coriolano, 1070, Jardim Aviação"
 						sobrenome="Perto do Prudesan Engenharia."
 						descricao="Um homem captura pássaros e os mantém em cativeiro."
 					/>
+
+					{problems.map((problem) => (
+						<AdminListCard
+							key={problem._id}
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							descricao={problem.description}
+							report={true}
+							userId={problem.userId}
+							url="animalviolence"
+							id={problem._id}
+							setRefresh={setRefresh}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
