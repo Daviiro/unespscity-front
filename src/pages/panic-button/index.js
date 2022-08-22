@@ -27,12 +27,14 @@ import { styled } from '@mui/material/styles';
 import { api } from '../../services/api';
 //import useWebSocket from 'react-use-websocket';
 import { Context } from "../../context/Auth/AuthContext";
+import { fetchLocation } from "../../services/GoogleMaps";
 
 const PanicButton = (props) => {
-    const { user } = useContext(Context);
-/*     const socketUrl = 'ws://localhost:3334';
-    const { sendMessage } = useWebSocket(socketUrl);
- */    const [isFavorite, setIsFavorite] = useState(false);
+    const { user, handleUpdatePanicButton } = useContext(Context);
+    /*     
+    const socketUrl = 'ws://localhost:3334';
+    const { sendMessage } = useWebSocket(socketUrl);        */
+    const [isFavorite, setIsFavorite] = useState(false);
     const [open, setOpen] = useState(false);
     const [panicButtonPhone, setPanicButtonPhone] = useState('');
     const [message, setMessage] = useState('');
@@ -40,6 +42,7 @@ const PanicButton = (props) => {
     const [street, setStreet] = useState('');
     const [streetNumber, setStreetNumber] = useState(0);
     const panicButtonIsActive = user.panicButton;
+    const [center, setCenter] = useState({ lat: 0, lng: 0 });
 
     const CustomButton = styled(Button)({
         padding: '50px 100px',
@@ -53,20 +56,60 @@ const PanicButton = (props) => {
         setOpen(false);
     }
 
-    const handlePanicButton = async () => {
+    const handleCreatePanicButton = async () => {
         try {
-            const link = JSON.stringify(message).replace(/\\n/g, '%0a')
-            const text = JSON.parse(link)
+            /* await api.put('/update_cidadao', {
+                id: user.userId
+            }) */
+            handleUpdatePanicButton();
 
+            await api.post('/panic_button', {
+                data: {
+                    userId: user.userId,
+                    message,
+                    panicButtonPhone,
+                    notifyPolice: true,
+                    notifyAmbulance: true,
+                }
+            })
 
-            if (notifyPolice) {
-                await api.post('/call_panic_button', {
-                    message: message
-                })
-                //sendMessage(message)
-            }
-            window.open(`https://web.whatsapp.com/send?phone=+5518991136880&text=${text}`, "_blank");
-            setOpen(false);
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    }
+
+    const handlePanicButton = async () => {
+        let numero, rua, bairro;
+
+        try {
+            navigator.geolocation.getCurrentPosition((location) => {
+                fetchLocation(
+                    location.coords.latitude,
+                    location.coords.longitude
+                ).then((data) => {
+                    console.log(data)
+                    let parts = data.results[0].address_components;
+                    console.log(parts[0].long_name)
+                    numero = parts[0].long_name;
+                    rua = parts[1].long_name;
+                    bairro = parts[2].long_name;
+
+                    const link = JSON.stringify(message).replace(/\\n/g, '%0a')
+                    const text = JSON.parse(link)
+
+                    if (notifyPolice) {
+                        api.post('/call_panic_button', {
+                            message: `${message}===${bairro}===${rua}===${numero}`
+                        })
+                        //sendMessage(message)
+                    }
+                    window.open(`https://web.whatsapp.com/send?phone=${panicButtonPhone}&text=${text}`, "_blank");
+                    setOpen(false);
+                });
+            });
+
         } catch (e) {
             console.log(e);
         }
@@ -104,8 +147,8 @@ const PanicButton = (props) => {
                 const { data } = await api.get('/panic_button',
                     {
                         params: {
-                            userId: 1,
-                            //userId: user.userId,
+                            //userId: 1,
+                            userId: user.userId,
                         },
                     });
                 console.log(data)
@@ -174,7 +217,7 @@ const PanicButton = (props) => {
                     <StyledHr />
                 </TopContentContainer>
                 <MidContentContainer>
-                    {true ? (
+                    {panicButtonIsActive ? (
                         <ButtonContainer>
                             <CustomButton variant="contained" color="error" onClick={handleClickOpen}>
                                 Estou em Pânico!
@@ -182,7 +225,10 @@ const PanicButton = (props) => {
                         </ButtonContainer>
                     ) : (
                         <Container>
-                            <div className="inputs">
+                            <form
+                                className="inputs"
+                                onSubmit={handleCreatePanicButton}
+                            >
                                 <Stack spacing={2} direction="row">
                                     <TextField
                                         fullWidth
@@ -205,10 +251,11 @@ const PanicButton = (props) => {
                                 <br />
                                 <Button
                                     fullWidth variant="contained"
+                                    type="submit"
                                 >
-                                    Enviar
+                                    Cadastrar
                                 </Button>
-                            </div>
+                            </form>
                         </Container>
                     )}
                 </MidContentContainer>

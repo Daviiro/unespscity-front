@@ -12,6 +12,7 @@ import MiniCard from "../../../../components/mini-card";
 import Footer from "../../../../components/footer";
 import LocalContext from "../../../user-location/Context";
 import TreesMap from "./map";
+import { api } from "../../../../services/api";
 
 const AdminAccidentRecords = () => {
 	const [clickedCoordinates, setClickedCoordinates] = useState({
@@ -98,10 +99,21 @@ const AdminAccidentRecords = () => {
 		handleClickOpen();
 	};
 
-	const handleDelete = (tree) => {
-		console.log(
-			"quero deletar a arvore id: " + tree.id + " nome: " + tree.name
-		);
+	const handleDelete = (id) => {
+		api.delete("/informationabouttrees", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			params: {
+				id: id,
+			},
+		}).then((res) => {
+			console.log("feira excluida com sucesso: ", res.data);
+			//handleGet();
+		});
 	};
 
 	return (
@@ -137,7 +149,7 @@ const AdminAccidentRecords = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você pode ver e marcar como resolvido os acidentes que ocorreram na cidade. 
+							Aqui você pode ver e marcar como resolvido os acidentes que ocorreram na cidade.
 						</DescriptionText>
 					</div>
 					<div></div>

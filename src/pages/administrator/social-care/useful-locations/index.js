@@ -237,7 +237,6 @@ const LocaisUteisAdmin = () => {
 								nome={problem.description}
 								sobrenome={problem.street}
 								descricao={problem.referencePoint}
-								report={true}
 								userId={1}
 								url="locais_uteis"
 								id={problem._id}

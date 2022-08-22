@@ -20,8 +20,8 @@ const AdminBotaoPanico = () => {
 	const [messageHistory, setMessageHistory] = useState([]);
 	const { sendMessage, lastJsonMessage, lastMessage } = useWebSocket(socketUrl);
 	const [totalUsuarios, setTotalUsuarios] = useState([]);
-	const [usuariosSemBotaoCadastrado, setUsuariosSemBotaoCadastrado] = useState([]);
-	const [totalBotaoPanicoCadastrados, setTotalBotaoPanicoCadastrados] = useState([]);
+	const [usuariosSemBotaoCadastrado, setUsuariosSemBotaoCadastrado] = useState(0);
+	const [totalBotaoPanicoCadastrados, setTotalBotaoPanicoCadastrados] = useState(0);
 
 	const handleClickSendMessage = useCallback(() => sendMessage('Hello'), []);
 
@@ -32,8 +32,8 @@ const AdminBotaoPanico = () => {
 	useEffect(() => {
 		if (lastMessage !== null) {
 			setMessageHistory((prev) => prev.concat(lastMessage));
-			console.log(lastMessage)
-			alert(lastMessage.data);
+			let stringArray = lastMessage.data.split("===");
+			alert(`${stringArray[0]}. Bairro: ${stringArray[1]}. Rua: ${stringArray[2]}. Numero: ${stringArray[3]}`);
 		}
 	}, [lastMessage, setMessageHistory]);
 
@@ -44,7 +44,6 @@ const AdminBotaoPanico = () => {
 				const { data } = await api.get('/cidadao');
 				setTotalUsuarios(data.length);
 				const res = await api.get('/get_all_panic_button');
-				console.log(res.data.length)
 				setTotalBotaoPanicoCadastrados(res.data.length);
 				setUsuariosSemBotaoCadastrado(totalUsuarios - totalBotaoPanicoCadastrados)
 			}
@@ -54,7 +53,7 @@ const AdminBotaoPanico = () => {
 		}
 		getTotalUsers();
 	}, []);
-
+	console.log(totalBotaoPanicoCadastrados)
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -82,7 +81,7 @@ const AdminBotaoPanico = () => {
 					<div
 						style={{
 							width: "60%",
-							marginTop: "-14Vh",	
+							marginTop: "-10Vh",	
 							display: "flex",
 							alignItems: "center",
 							justifyContent: "center",
@@ -91,7 +90,7 @@ const AdminBotaoPanico = () => {
 						<PieChart
 							center={[50, 50]}
 							data={[
-								{ title: "Usuarios sem Cadastro no Botão do Panico: " + usuariosSemBotaoCadastrado, value: usuariosSemBotaoCadastrado, color: "#3282b8" },
+								{ title: "Usuarios sem Cadastro no Botão do Panico: " + (totalUsuarios - totalBotaoPanicoCadastrados), value: (totalUsuarios - totalBotaoPanicoCadastrados), color: "#3282b8" },
 								{ title: "Usuarios com Cadastro no Botão do Pânico: " + totalBotaoPanicoCadastrados, value: totalBotaoPanicoCadastrados, color: "#133d59" },
 							]}
 							labelPosition={30}

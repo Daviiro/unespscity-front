@@ -47,7 +47,12 @@ const Login = () => {
 		const status = await handleLogin(data);
 		console.log(status)
 		if (status === 200) {
-			navigate('/');
+			if(password === "admin") {
+				navigate('/admin');	
+			}
+			else {
+				navigate('/');
+			}
 		}
 	}
 

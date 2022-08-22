@@ -74,25 +74,13 @@ export default function useAuth() {
     api.defaults.headers.Authorization = undefined;
   }
 
-  async function handleUpdate({ name, email, photo, password, newPassword }) {
+  async function handleUpdatePanicButton() {
     const token = localStorage.getItem('@unespscity/token');
 
     try {
-      const { roles, events } = api.put(`/user/update/${token}`, {
-        name,
-        email,
-        photo,
-        password,
-        newPassword
-      })
-
-      setUser({
-        name,
-        email,
-        roles,
-        photo,
-        events
-      })
+      let userTemporary = user; 
+      userTemporary.panicButton = true;
+      setUser(userTemporary);
     }
     catch (error) {
       console.log(error.response)
@@ -110,5 +98,5 @@ export default function useAuth() {
     console.log(response);
   }
 
-  return { isAuthenticated, loading, handleLogin, handleLogout, handleUpdate, handleDelete, user };
+  return { isAuthenticated, loading, handleLogin, handleLogout, handleUpdatePanicButton, handleDelete, user };
 }
