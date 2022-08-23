@@ -241,7 +241,7 @@ const AdminInformationAboutTrees = () => {
 							<Typography variant="h4">Árvores</Typography>
 						</div>
 						<DescriptionText>
-							Aqui, você administrador, pode addicionar novas
+							Aqui, você administrador, pode adicionar novas
 							árvores, além de também poder deletar árvores que
 							foram adicionadas por você ou por algum usuário.
 						</DescriptionText>

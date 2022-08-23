@@ -141,15 +141,9 @@ const RefuseCollection = (props) => {
 							<Typography variant="h4">Coleta de Lixo</Typography>
 						</div>
 						<DescriptionText>
-							Neste serviço você terá informações sobre as rotas e
+							Neste serviço você terá informações sobre as áreas e
 							horários de circulação de cada um dos caminhões de
-							lixo. Assim, os usuários poderão inserir a
-							localização de sua estadia (CEP ou
-							georreferenciamento) e a plataforma calculará e
-							retornará os dias e horários aproximados em que um
-							caminhão passará para fazer coleta no local,
-							informando também se o mesmo é de lixo orgânico,
-							reciclável ou ambos.
+							lixo.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

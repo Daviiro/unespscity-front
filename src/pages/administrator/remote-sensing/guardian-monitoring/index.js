@@ -74,9 +74,9 @@ const AdminGuardian = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você pode cadastrar a rota de um guarda ou
-							vizualizar as rotas já existentes no nosso banco de
-							dados.
+							Aqui você pode cadastrar ou excluir a rota de um
+							guarda ou vizualizar as rotas já existentes no nosso
+							banco de dados.
 						</DescriptionText>
 					</div>
 					<div></div>

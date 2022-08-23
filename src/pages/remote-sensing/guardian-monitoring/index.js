@@ -103,9 +103,9 @@ const GuardianMonitoring = (props) => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Neste serviço você terá informações sobre o
-							monitoramento da movimentação diária do guardinha
-							que protege e cuida da sua residencia.
+							Neste serviço você terá informações sobre a rota de
+							movimentação do guardinha que protege e cuida da sua
+							residência.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (

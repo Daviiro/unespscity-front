@@ -238,13 +238,8 @@ const InformationAboutTrees = (props) => {
 							<Typography variant="h4">Árvores</Typography>
 						</div>
 						<DescriptionText>
-							Neste serviço você cadastrar, remover ou checar a
-							listagem de árvores no município (remoção quando a
-							árvore é cortada, ou arrancada e colocada em outro
-							lugar). As informações podem ser bem reduzidas pois
-							árvores são simples e existem em grande número. A
-							única informação de alta importância que se deve ter
-							é a espécie dela.
+							Neste serviço você pode cadastrar e checar a
+							listagem de árvores no município.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
