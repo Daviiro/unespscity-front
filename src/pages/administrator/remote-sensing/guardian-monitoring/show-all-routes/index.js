@@ -106,11 +106,17 @@ const ShowAllRoutes = (props) => {
 		}
 	};
 
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		libraries: ["places"],
+	});
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
 
-	return (
+	return isLoaded ? (
 		<Container>
 			<RoutesContainer>
 				{routes &&
@@ -204,6 +210,8 @@ const ShowAllRoutes = (props) => {
 				)}
 			</GoogleMap>
 		</Container>
+	) : (
+		<></>
 	);
 };
 

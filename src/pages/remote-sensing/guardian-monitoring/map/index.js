@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, DirectionsRenderer, Marker } from "@react-google-maps/api";
+import {
+	GoogleMap,
+	DirectionsRenderer,
+	Marker,
+	useJsApiLoader,
+} from "@react-google-maps/api";
 import { api } from "../../../../services/api";
 import { Container, RoutesContainer, SingleRouteContainer } from "./styles";
 import { TextField, Button, ButtonGroup } from "@mui/material";
@@ -78,11 +83,17 @@ const Map = (props) => {
 		setDirectionsResponse(results);
 	}
 
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		libraries: ["drawing"],
+	});
+
 	if (isLoading) {
 		return <div>Loading...</div>;
 	}
 
-	return (
+	return isLoaded ? (
 		<Container>
 			<RoutesContainer>
 				{routes &&
@@ -170,6 +181,8 @@ const Map = (props) => {
 				)}
 			</GoogleMap>
 		</Container>
+	) : (
+		<></>
 	);
 };
 

@@ -22,11 +22,6 @@ const Map = (props) => {
 		width: "100%",
 		height: "500px",
 	};
-	const { isLoaded } = useJsApiLoader({
-		id: "google-map-script",
-		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
-		libraries: ["places"],
-	});
 
 	const [map, setMap] = useState(null);
 	const [directionsResponse, setDirectionsResponse] = useState(null);
@@ -127,6 +122,12 @@ const Map = (props) => {
 		clearRoute();
 		handleClose();
 	};
+
+	const { isLoaded } = useJsApiLoader({
+		id: "google-map-script",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		libraries: ["places"],
+	});
 
 	return isLoaded ? (
 		<Container>
