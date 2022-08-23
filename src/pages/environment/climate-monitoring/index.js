@@ -18,12 +18,13 @@ import Favorites from "../../../components/favorites";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { Context } from "../../../context/Auth/AuthContext";
 import Graphic from "./graphic";
+import { PollutionDiv, Pollution } from "./styles";
 
 const Monitoring = (props) => {
 	const socketUrl = 'ws://localhost:3334';
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [messageHistory, setMessageHistory] = useState([]);
-	const [total, setTotal] = useState([]);
+	const [pollution, setPollution] = useState();
 	const [temperatureAverage, setTemperatureAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
 	const [humidityAverage, setHumidityAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
 	const [precipitationAverage, setPrecipitationAverage] = useState([0, 0, 0, 0, 0, 0, 0]);
@@ -55,11 +56,12 @@ const Monitoring = (props) => {
 			let sensor01 = sensor[1].substring(0, 1);
 			let updateSensor = sensor01 === 'o' ? 1 : 0
 			let getValues = string.split("temperature")
+			console.log(getValues[1])
+			setPollution(getValues[1].substring(70, 72))
 			data[updateSensor].temperature = getValues[1].substring(3, 7)
 			data[updateSensor].humidity = getValues[1].substring(21, 25)
 			data[updateSensor].precipitation = getValues[1].substring(43, 44)
 			data[updateSensor].wind = getValues[1].substring(53, 56)
-			console.log(data)
 			setLocations(data);
 			let array = string.split("===")
 			let newTemperatureAverage = parseFloat(array[1])
@@ -197,6 +199,12 @@ const Monitoring = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
+					<PollutionDiv>
+						<Pollution>
+							<h2>Poluição</h2>
+							<h3>{pollution} - Bom</h3>
+						</Pollution>
+					</PollutionDiv>
 					<TreesMap
 						locations={locations}
 						icon="/assets/img/humidity-sensor.png"
