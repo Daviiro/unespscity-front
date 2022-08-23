@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { api } from "../../../../services/api";
+import { api } from "../../../../services/api";
 import Typography from "@mui/material/Typography";
 import {
 	ContainerBase,
@@ -14,20 +14,20 @@ import AdminListCard from "../../../../components/card-list-admin";
 import Footer from "../../../../components/footer";
 
 const AdminNeedyFamiliesRegister = () => {
-/*	const [problems, setProblems] = useState([]);
+	const [problems, setProblems] = useState([]);
 	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get("/");
+				const { data } = await api.get("/needyfamilies");
 				setProblems(data);
 			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, [refresh]);	*/
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -69,7 +69,7 @@ const AdminNeedyFamiliesRegister = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-				{/*	{problems.map((problem) => (
+					{problems.map((problem) => (
 						<AdminListCard
 							key={problem._id}
 							source={problem.images}
@@ -78,11 +78,11 @@ const AdminNeedyFamiliesRegister = () => {
 							descricao={problem.description}
 							report={true}
 							userId={problem.userId}
-							url="/"
+							url="/needyfamilies"
 							id={problem._id}
 							setRefresh={setRefresh}
 						/>
-				))}	*/}
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

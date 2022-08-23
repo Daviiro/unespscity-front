@@ -197,11 +197,10 @@ const AdminHomelessPeople = () => {
 						<AdminListCard
 							key={problem._id}
 							source={problem.images}
-							nome={problem.street}
-							sobrenome={problem.referencePoint}
+							nome={problem.name}
+							sobrenome={problem.cpf}
 							descricao={problem.description}
 							report={true}
-							userId={problem.userId}
 							url="homelesspeople"
 							id={problem._id}
 							setRefresh={setRefresh}
