@@ -21,6 +21,7 @@ const AdminGuardian = () => {
 	const [toggle, setToggle] = useState(true);
 	const [showRoutesTitleColor, setShowRoutesTitleColor] =
 		useState("var(--secondary)");
+	const [showComponent, setShowComponent] = useState(false);
 	const [addRoutesTitleColor, setAddRoutesTitleColor] = useState("#000000");
 	useEffect(() => {
 		if (toggle) {
@@ -53,6 +54,12 @@ const AdminGuardian = () => {
 			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 		}
 	}, [cityName]);
+
+	useEffect(() => {
+		setInterval(() => {
+			setShowComponent(true);
+		}, 1000);
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -97,11 +104,9 @@ const AdminGuardian = () => {
 							</ChoiceSpan>
 						</div>
 					</ChoiceContainer>
-					{toggle ? (
-						<Map center={center} />
-					) : (
-						<ShowAllRoutes center={center} />
-					)}
+					{toggle
+						? showComponent && <Map center={center} />
+						: showComponent && <ShowAllRoutes center={center} />}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

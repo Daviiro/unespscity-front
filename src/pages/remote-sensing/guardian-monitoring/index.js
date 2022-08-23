@@ -22,6 +22,7 @@ import LocalContext from "../../user-location/Context";
 const GuardianMonitoring = (props) => {
 	const google = window.google;
 	const [formValues, setFormValues] = useContext(LocalContext);
+	const [showComponent, setShowComponent] = useState(false);
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
@@ -66,6 +67,12 @@ const GuardianMonitoring = (props) => {
 			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 		}
 	}, [cityName]);
+
+	useEffect(() => {
+		setInterval(() => {
+			setShowComponent(true);
+		}, 1000);
+	}, []);
 
 	return (
 		<ContainerBase>
@@ -130,7 +137,7 @@ const GuardianMonitoring = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<Map center={center} />
+					{showComponent && <Map center={center} />}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

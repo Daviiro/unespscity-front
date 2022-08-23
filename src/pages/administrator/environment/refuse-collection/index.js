@@ -21,6 +21,7 @@ const AdminRefuseCollection = () => {
 	const [toggle, setToggle] = useState(true);
 	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = useState("");
+	const [showComponent, setShowComponent] = useState(false);
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [showRoutesTitleColor, setShowRoutesTitleColor] =
 		useState("var(--secondary)");
@@ -52,6 +53,13 @@ const AdminRefuseCollection = () => {
 			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 		}
 	}, [cityName]);
+
+	useEffect(() => {
+		setInterval(() => {
+			setShowComponent(true);
+		}, 1000);
+	}, []);
+
 	return (
 		<ContainerBase>
 			<AdminHeader />
@@ -112,11 +120,11 @@ const AdminRefuseCollection = () => {
 							</ChoiceSpan>
 						</div>
 					</ChoiceContainer>
-					{toggle ? (
-						<Map center={center} />
-					) : (
-						<ShowAllPolygons center={center} admin={true} />
-					)}
+					{toggle
+						? showComponent && <Map center={center} />
+						: showComponent && (
+								<ShowAllPolygons center={center} admin={true} />
+						  )}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

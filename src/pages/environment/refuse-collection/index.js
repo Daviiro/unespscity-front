@@ -24,6 +24,7 @@ const RefuseCollection = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [cityName, setCityName] = useState("");
 	const [formValues, setFormValues] = useContext(LocalContext);
+	const [showComponent, setShowComponent] = useState(false);
 	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	useEffect(() => {
 		props.data.find(
@@ -102,6 +103,12 @@ const RefuseCollection = (props) => {
 		},
 	];
 
+	useEffect(() => {
+		setInterval(() => {
+			setShowComponent(true);
+		}, 1000);
+	}, []);
+
 	return (
 		<ContainerBase>
 			<Header />
@@ -174,7 +181,7 @@ const RefuseCollection = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ShowAllPolygons center={center} />
+					{showComponent && <ShowAllPolygons center={center} />}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
