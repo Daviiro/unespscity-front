@@ -41,7 +41,7 @@ const PanicButton = (props) => {
     const [notifyPolice, setNotifyPolice] = useState(false);
     const [street, setStreet] = useState('');
     const [streetNumber, setStreetNumber] = useState(0);
-    const panicButtonIsActive = user.panicButton;
+    const [panicButtonIsActive, setPanicButtonIsActive] = useState(false);
     const [center, setCenter] = useState({ lat: 0, lng: 0 });
 
     const CustomButton = styled(Button)({
@@ -56,12 +56,13 @@ const PanicButton = (props) => {
         setOpen(false);
     }
 
-    const handleCreatePanicButton = async () => {
+    const handleCreatePanicButton = async (e) => {
+        e.preventDefault();
         try {
             /* await api.put('/update_cidadao', {
                 id: user.userId
             }) */
-            handleUpdatePanicButton();
+            await handleUpdatePanicButton();
 
             await api.post('/panic_button', {
                 data: {
@@ -72,7 +73,7 @@ const PanicButton = (props) => {
                     notifyAmbulance: true,
                 }
             })
-
+            alert("Botão de Panico Cadastrado com Sucesso! Para usar, saia e volte a página!")
         }
         catch (e) {
             console.log(e);
@@ -105,7 +106,7 @@ const PanicButton = (props) => {
                         })
                         //sendMessage(message)
                     }
-                    window.open(`https://web.whatsapp.com/send?phone=${panicButtonPhone}&text=${text}`, "_blank");
+                    window.open(`https://web.whatsapp.com/send?phone=+55${panicButtonPhone}&text=${text}`, "_blank");
                     setOpen(false);
                 });
             });
@@ -147,7 +148,7 @@ const PanicButton = (props) => {
                 const { data } = await api.get('/panic_button',
                     {
                         params: {
-                            //userId: 1,
+                            //userId: 3,
                             userId: user.userId,
                         },
                     });
@@ -157,6 +158,7 @@ const PanicButton = (props) => {
                 setNotifyPolice(data[0].notifyPolice);
                 setStreet(data[0].street);
                 setStreetNumber(data[0].streetNumber);
+                setPanicButtonIsActive(true)
             } catch (e) {
                 console.log(e);
             }
@@ -235,6 +237,10 @@ const PanicButton = (props) => {
                                         id="outlined-basic"
                                         label="Número"
                                         variant="outlined"
+                                        value={panicButtonPhone}
+                                        onChange={(e) =>
+                                            setPanicButtonPhone(e.target.value)
+                                        }
                                     />
                                 </Stack>
                                 <br />
@@ -246,6 +252,10 @@ const PanicButton = (props) => {
                                         variant="outlined"
                                         multiline
                                         rows={5}
+                                        value={message}
+                                        onChange={(e) =>
+                                            setMessage(e.target.value)
+                                        }
                                     />
                                 </Stack>
                                 <br />

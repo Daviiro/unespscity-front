@@ -56,7 +56,7 @@ export default function useAuth() {
         cityId: data.cityId
       })
 
-      return status; 
+      return status;
 
       /* localStorage.setItem('@unespscity/token', token);
       api.defaults.headers.Authorization = `Bearer ${token}`;
@@ -77,14 +77,12 @@ export default function useAuth() {
   async function handleUpdatePanicButton() {
     const token = localStorage.getItem('@unespscity/token');
 
-    try {
-      let userTemporary = user; 
-      userTemporary.panicButton = true;
-      setUser(userTemporary);
-    }
-    catch (error) {
-      console.log(error.response)
-    }
+
+    let userTemporary = user;
+    userTemporary.panicButton = true;
+    console.log(userTemporary)
+    setUser(userTemporary);
+
   }
 
   async function handleDelete() {
