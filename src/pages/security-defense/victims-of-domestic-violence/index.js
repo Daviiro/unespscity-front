@@ -112,7 +112,7 @@ const VictimsOfDomesticViolence = (props) => {
 				</TopContentContainer>
 				<MidContentContainer>
 					<ServiceOrderInformation
-						srcaddress="/victims-of-domestic-violence"
+						srcaddress="/domesticviolence"
 						descriptionHelperText="Conte-nos em detalhes a denúncia de violência doméstica acima."
 					/>
 				</MidContentContainer>

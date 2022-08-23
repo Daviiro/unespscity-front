@@ -16,18 +16,19 @@ import Footer from "../../../../components/footer";
 
 const AdminVictimsOfDomesticViolence = () => {
 	const [problems, setProblems] = useState([]);
+	const [refresh, setRefresh] = useState(0);
 
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get("/");
+				const { data } = await api.get("/domesticviolence");
 				setProblems(data);
 			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);
+	}, [refresh]);
 
 	return (
 		<ContainerBase>
@@ -75,12 +76,15 @@ const AdminVictimsOfDomesticViolence = () => {
 					{problems.length != 0 ? (
 						problems.map((problem) => (
 							<AdminListCard
+								key={problem._id}
 								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
+								nome={problem.name}
+								sobrenome={problem.cpf}
 								descricao={problem.description}
 								report={true}
-								userId={problem.userId}
+								url="domesticviolence"
+								id={problem._id}
+								setRefresh={setRefresh}
 							/>
 						))
 					) : (
