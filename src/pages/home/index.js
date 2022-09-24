@@ -356,7 +356,7 @@ const Home = (props) => {
 								},
 								{
 									id: 2,
-									name: "Monitoramento de Pessoas ou veiculos",
+									name: "Monitoramento de Veiculos",
 									link: "/monitoramento-pessoas-veiculos",
 								},
 							]}

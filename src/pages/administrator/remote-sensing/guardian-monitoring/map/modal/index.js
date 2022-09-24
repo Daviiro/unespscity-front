@@ -24,7 +24,7 @@ const Modal = (props) => {
 				autoFocus
 				margin="dense"
 				id="outlined-basic"
-				label="Título da Feira"
+				label="Nome da Rota"
 				variant="standard"
 				onChange={handleTitleChange}
 				value={title}

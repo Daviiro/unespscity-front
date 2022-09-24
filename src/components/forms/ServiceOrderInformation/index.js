@@ -125,8 +125,8 @@ const ServiceOrderInformation = (props) => {
 					});
 				});
 			}
+			const endereco = `${street}, ${district}`;
 			if (district !== "") {
-				const endereco = `${street}, ${district}`;
 				setStreet(endereco);
 			}
 
@@ -140,7 +140,7 @@ const ServiceOrderInformation = (props) => {
 						/*coloque aqui os dados que quer mandar na requisicao */
 						cityId: data.city,
 						userId: uid,
-						street: `${street}, ${district}`,
+						street: endereco,
 						streetNumber: houseNumber,
 						referencePoint: referencePointAux,
 						latitude: center.lat,
@@ -169,6 +169,7 @@ const ServiceOrderInformation = (props) => {
 				alert("É necessário ter uma descrição");
 				return;
 			}
+			const endereco = `${street}, ${district}`;
 
 			const res = api
 				.post(srcaddress, {
@@ -176,7 +177,7 @@ const ServiceOrderInformation = (props) => {
 						/*coloque aqui os dados que quer mandar na requisicao */
 						cityId: data.city,
 						userId: uid,
-						street: `${street}, ${district}`,
+						street: endereco,
 						streetNumber: houseNumber,
 						referencePoint: referencePointAux,
 						latitude: -1, //mando menos 1 jah que nao foi usado o bang pra pegar a localizacao automaticamente
@@ -188,6 +189,12 @@ const ServiceOrderInformation = (props) => {
 				.then((response) => {
 					console.log(response);
 					alert(`Forms foi enviado`);
+					setPhotos([]);
+					setDescription("");
+					setReferencePoint("");
+					setStreet("");
+					setHouseNumber(0);
+					setDistrict("");
 				})
 				.catch((e) => {
 					console.log(e);
