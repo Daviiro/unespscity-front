@@ -13,22 +13,30 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+		/*	try {
 				data = await api.get('/paviment');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/facilities_inspection');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/monument');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/public_roads');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -42,12 +50,16 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/parques');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/praca');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -61,7 +73,9 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/removaldeadanimals');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -75,7 +89,9 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/limpeza_piscinas');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -89,17 +105,23 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/foco_escorpiao');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/leishmaniose');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/insetos_roedores_caramujos');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -113,22 +135,30 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/animais_sinantropicos');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/animais_perdidos');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/adocao_animais');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/maus_tratos_animais'); // ou animalviolence //
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -151,7 +181,9 @@ const DashboardChart3 = () => {
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/maus_tratos_animais');
 				resolvidosXnaoresolvidos[0] = resolvidosXnaoresolvidos[0] + data.filter((service) => service.isResolved === true).length;
 				resolvidosXnaoresolvidos[1] = resolvidosXnaoresolvidos[1] + data.filter((service) => service.isResolved === false).length;
@@ -167,7 +199,7 @@ const DashboardChart3 = () => {
 				data = null;
 			}
 			catch(e) { console.log(e); }
-		}
+	*/	}
 		getProblems();
 	}, []);
 	

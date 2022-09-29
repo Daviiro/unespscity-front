@@ -43,168 +43,190 @@ const DashboardChart2 = () => {
 				let { data } = await api.get('/get_all_street_lighting');
 				contagemConservacaoUrbana[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+		/*	try {
 				data = await api.get('/paviment');
 				contagemConservacaoUrbana[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/facilities_inspection');
 				contagemConservacaoUrbana[2] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/monument');
 				contagemConservacaoUrbana[3] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/public_roads');
 				contagemConservacaoUrbana[4] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[0] = contagemConservacaoUrbana[0] + contagemConservacaoUrbana[1] + contagemConservacaoUrbana[2] + 
-				contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[0] = contagemConservacaoUrbana[0] + contagemConservacaoUrbana[1] + contagemConservacaoUrbana[2] + 
+			contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];
 
 
 			try {	// Conservação Rural/Áreas Verdes //
 				let { data } = await api.get('/rurais');
 				contagemConservacaoRural[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/parques');
 				contagemConservacaoRural[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/praca');
 				contagemConservacaoRural[2] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[1] = contagemConservacaoRural[0] + contagemConservacaoRural[1] + contagemConservacaoRural[2];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[1] = contagemConservacaoRural[0] + contagemConservacaoRural[1] + contagemConservacaoRural[2];
 
 
 			try {	// Remoção de Detritos //
 				let { data } = await api.get('/removetrash');
 				contagemRemocaoDetritos[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/removaldeadanimals');
 				contagemRemocaoDetritos[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[2] = contagemRemocaoDetritos[0] + contagemRemocaoDetritos[1];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[2] = contagemRemocaoDetritos[0] + contagemRemocaoDetritos[1];
 
 
 			try {	// Vigilância Sanitária //
 				let { data } = await api.get('/limpeza_terreno');
 				contagemVigilanciaSanitaria[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/limpeza_piscinas');
 				contagemVigilanciaSanitaria[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[3] = contagemVigilanciaSanitaria[0] + contagemVigilanciaSanitaria[1];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[3] = contagemVigilanciaSanitaria[0] + contagemVigilanciaSanitaria[1];
 
 
 			try {	// Controle de Pragas //
 				let { data } = await api.get('/radar_dengue');
 				contagemControlePragas[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/foco_escorpiao');
 				contagemControlePragas[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/leishmaniose');
 				contagemControlePragas[2] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/insetos_roedores_caramujos');
 				contagemControlePragas[3] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[4] = contagemControlePragas[0] + contagemControlePragas[1] + contagemControlePragas[2] + 
-				contagemControlePragas[3];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[4] = contagemControlePragas[0] + contagemControlePragas[1] + contagemControlePragas[2] + 
+			contagemControlePragas[3];
 
 
 			try {	// Animais Domésticos //
 				let { data } = await api.get('/animais_abandonados');
 				contagemAnimaisDomesticos[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/animais_sinantropicos');
 				contagemAnimaisDomesticos[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/animais_perdidos');
 				contagemAnimaisDomesticos[2] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/adocao_animais');
 				contagemAnimaisDomesticos[3] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/maus_tratos_animais'); // ou animalviolence //
 				contagemAnimaisDomesticos[4] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[5] = contagemAnimaisDomesticos[0] + contagemAnimaisDomesticos[1] + contagemAnimaisDomesticos[2] + 
-				contagemAnimaisDomesticos[3] + contagemAnimaisDomesticos[4];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[5] = contagemAnimaisDomesticos[0] + contagemAnimaisDomesticos[1] + contagemAnimaisDomesticos[2] + 
+			contagemAnimaisDomesticos[3] + contagemAnimaisDomesticos[4];
 
 
 			try {	// Meio Ambiente //
 				let { data } = await api.get('/public_area_adoption');
 				contagemMeioAmbiente = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[6] = contagemMeioAmbiente;
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[6] = contagemMeioAmbiente;
 
 
 			try {	// Fauna e Flora //
 				let { data } = await api.get('/wildanimals');
 				contagemFaunaFlora[0] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
+			}
+			catch(e) { console.log(e); }
+			try {
 				data = await api.get('/maus_tratos_animais');
 				contagemFaunaFlora[1] = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[7] = contagemFaunaFlora[0] + contagemFaunaFlora[1];
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[7] = contagemFaunaFlora[0] + contagemFaunaFlora[1];
 
 
 			try {	// Assistência Social //
 				let { data } = await api.get('/tumulos');
 				contagemAssistenciaSocial = data.length;
 				data = null;
-
-				contagemTotal[8] = contagemAssistenciaSocial;
 			}
 			catch(e) { console.log(e); }
+			contagemTotal[8] = contagemAssistenciaSocial;
 
 
 			try {	// Famílias Carentes //
 				let { data } = await api.get('/solidarydisposal');
 				contagemFamiliasCarentes = data.filter((service) => service.isResolved === true).length;
 				data = null;
-
-				contagemTotal[9] = contagemFamiliasCarentes;
 			}
 			catch(e) { console.log(e); }
-		}
+			contagemTotal[9] = contagemFamiliasCarentes;
+	*/	}
 		getProblems();
 	}, []);
 	
