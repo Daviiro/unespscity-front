@@ -68,9 +68,9 @@ const DashboardChart1 = () => {
 				contagemConservacaoUrbana[4] = data.filter((service) => service.isResolved === false).length;
 				data = null;
 			}
-			catch(e) { console.log(e); }
+			catch(e) { console.log(e); }	*/
 			contagemTotal[0] = contagemConservacaoUrbana[0] + contagemConservacaoUrbana[1] + contagemConservacaoUrbana[2] + 
-			contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];
+			contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];	/*
 
 
 			try {	// Conservação Rural/Áreas Verdes //

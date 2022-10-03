@@ -68,9 +68,9 @@ const DashboardChart2 = () => {
 				contagemConservacaoUrbana[4] = data.filter((service) => service.isResolved === true).length;
 				data = null;
 			}
-			catch(e) { console.log(e); }
+			catch(e) { console.log(e); }	*/
 			contagemTotal[0] = contagemConservacaoUrbana[0] + contagemConservacaoUrbana[1] + contagemConservacaoUrbana[2] + 
-			contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];
+			contagemConservacaoUrbana[3] + contagemConservacaoUrbana[4];	/*
 
 
 			try {	// Conservação Rural/Áreas Verdes //
@@ -267,16 +267,16 @@ const DashboardChart2 = () => {
                 		{title: "Famílias Carentes: " + totalSolicitados[9], value: totalSolicitados[9], color: "#b86333"}
             		]}	*/
 					data = {[
-                		{title: "Conservação Urbana: " + contagemTotal[0], value: contagemTotal[0], color: "#b83333"},
-                		{title: "Conservação Rural/Áreas Verdes: " + contagemTotal[1], value: contagemTotal[1], color: "#b83386"},
-						{title: "Remoção de Detritos: " + contagemTotal[2], value: contagemTotal[2], color: "#7d33b8"},
-						{title: "Vigilância Sanitária: " + contagemTotal[3], value: contagemTotal[3], color: "#2a1b69"},
-						{title: "Controle de Pragas: " + contagemTotal[4], value: contagemTotal[4], color: "#3344b8"},
-                		{title: "Animais Domésticos: " + contagemTotal[5], value: contagemTotal[5], color: "#3282b8"},
-						{title: "Meio Ambiente: " + contagemTotal[6], value: contagemTotal[6], color: "#33b87b"},
-                		{title: "Fauna e Flora: " + contagemTotal[7], value: contagemTotal[7], color: "#33b834"},
-						{title: "Assistência Social: " + contagemTotal[8], value: contagemTotal[8], color: "#a8b833"},
-                		{title: "Famílias Carentes: " + contagemTotal[9], value: contagemTotal[9], color: "#b86333"}
+                		{title: "Conservação Urbana: " + contagemTotal[0], value: parseInt(contagemTotal[0]), color: "#b83333"},
+                		{title: "Conservação Rural/Áreas Verdes: " + contagemTotal[1], value: parseInt(contagemTotal[1]), color: "#b83386"},
+						{title: "Remoção de Detritos: " + contagemTotal[2], value: parseInt(contagemTotal[2]), color: "#7d33b8"},
+						{title: "Vigilância Sanitária: " + contagemTotal[3], value: parseInt(contagemTotal[3]), color: "#2a1b69"},
+						{title: "Controle de Pragas: " + contagemTotal[4], value: parseInt(contagemTotal[4]), color: "#3344b8"},
+                		{title: "Animais Domésticos: " + contagemTotal[5], value: parseInt(contagemTotal[5]), color: "#3282b8"},
+						{title: "Meio Ambiente: " + contagemTotal[6], value: parseInt(contagemTotal[6]), color: "#33b87b"},
+                		{title: "Fauna e Flora: " + contagemTotal[7], value: parseInt(contagemTotal[7]), color: "#33b834"},
+						{title: "Assistência Social: " + contagemTotal[8], value: parseInt(contagemTotal[8]), color: "#a8b833"},
+                		{title: "Famílias Carentes: " + contagemTotal[9], value: parseInt(contagemTotal[9]), color: "#b86333"}
             		]}
             		labelPosition = {50}
             		lengthAngle = {360}

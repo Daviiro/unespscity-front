@@ -229,8 +229,8 @@ const DashboardChart3 = () => {
                 		{title: "Total Solicitados: " + totalNaoResolvidos, value: totalNaoResolvidos, color: "#133d59"},
             		]}	*/
 					data = {[
-                		{title: "Total Resolvidos: " + resolvidosXnaoresolvidos[0], value: resolvidosXnaoresolvidos[0], color: "#3282b8"},
-                		{title: "Total Solicitados: " + resolvidosXnaoresolvidos[1], value: resolvidosXnaoresolvidos[1], color: "#133d59"},
+                		{title: "Total Resolvidos: " + resolvidosXnaoresolvidos[0], value: parseInt(resolvidosXnaoresolvidos[0]), color: "#3282b8"},
+                		{title: "Total Solicitados: " + resolvidosXnaoresolvidos[1], value: parseInt(resolvidosXnaoresolvidos[1]), color: "#133d59"},
             		]}
             		labelPosition = {50}
             		lengthAngle = {360}
