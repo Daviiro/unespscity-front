@@ -233,13 +233,13 @@ const ChartHome = () => {
 	}, []);
 
 
-//	const maxValue = 24;
-	let maxValue = 0;
+	const maxValue = 24;
+/*	let maxValue = 0;
 	for (var i = 0; i < 10; i++) {
 		if (contagemTotal[i] > maxValue) { 
 			maxValue = contagemTotal[i]; 
 		}
-	}
+	} */
 
 	
 	return (
@@ -253,80 +253,80 @@ const ChartHome = () => {
 					src="/assets/img/home_conservacao_urbana.png"
 					alt="Conservação Urbana"
 				/>
-			{/*	<ProgressBar value={24} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[0]} max={maxValue} />
+				<ProgressBar value={24} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[0]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_conservacao_rural.png"
 					alt="Conservação Rural/Áreas Verdes"
 				/>
-			{/*	<ProgressBar value={17} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[1]} max={maxValue} />
+				<ProgressBar value={17} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[1]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_remocao_detritos.png"
 					alt="Remoção de Detritos"
 				/>
-			{/*	<ProgressBar value={8} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[2]} max={maxValue} />
+				<ProgressBar value={8} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[2]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_vigilancia_sanitaria.png"
 					alt="Vigilância Sanitária"
 				/>
-			{/*	<ProgressBar value={17} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[3]} max={maxValue} />
+				<ProgressBar value={17} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[3]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_controle_pragas.png"
 					alt="Controle de Pragas"
 				/>
-			{/*	<ProgressBar value={13} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[4]} max={maxValue} />
+				<ProgressBar value={13} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[4]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_animais_domesticos.png"
 					alt="Animais Domésticos"
 				/>
-			{/*	<ProgressBar value={24} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[5]} max={maxValue} />
+				<ProgressBar value={24} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[5]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_meio_ambiente.png"
 					alt="Meio Ambiente"
 				/>
-			{/*	<ProgressBar value={6} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[6]} max={maxValue} />
+				<ProgressBar value={6} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[6]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_fauna_flora.png"
 					alt="Fauna e Flora"
 				/>
-			{/*	<ProgressBar value={10} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[7]} max={maxValue} />
+				<ProgressBar value={10} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[7]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_assistencia_social.png"
 					alt="Assistência Social"
 				/>
-			{/*	<ProgressBar value={5} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[8]} max={maxValue} />
+				<ProgressBar value={5} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[8]} max={maxValue} /> */}
 			</ContainerRow>
 			<ContainerRow>
 				<img
 					src="/assets/img/home_familias_carentes.png"
 					alt="Famílias Carentes"
 				/>
-			{/*	<ProgressBar value={7} max={maxValue} /> */}
-				<ProgressBar value={contagemTotal[9]} max={maxValue} />
+				<ProgressBar value={7} max={maxValue} /> 
+			{/*	<ProgressBar value={contagemTotal[9]} max={maxValue} /> */}
 			</ContainerRow>
 		</>
 	);
