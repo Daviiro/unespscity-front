@@ -2,9 +2,9 @@ import { useState, useContext } from "react";
 import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
-import MapPageDengue from "../../../services/map-pages/dengue";
+import MapPageFeiras from "../../../services/map-pages/feiras";
 
-const DengueDashboard = () => {
+const FairsDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -19,12 +19,17 @@ const DengueDashboard = () => {
 						setLocation(false);
 					}}
 				>
-					Mapa de Dengue:
+					Mapa das Feiras Livres:
 				</Button>
+			</div>
+			<div className="centered-content">
+				<Link to = "/admin/feiras_livres" style={{ textDecoration: "none", color: "#1b262c" }}>
+					Editar
+				</Link>
 			</div>
 			{approximateLocation && (
 				<div className="centered-content">
-					<MapPageDengue />
+					<MapPageFeiras />
 				</div>
 			)}
 			<br />
@@ -32,4 +37,4 @@ const DengueDashboard = () => {
 	);
 };
 
-export default DengueDashboard;
+export default FairsDashboard;

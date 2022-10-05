@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
-import MapPageFeiras from "../../../services/map-pages/feiras";
+import MapPageUsefulLocations from "../../../services/map-pages/locais_uteis";
 
-const FairsDashboard = () => {
+const UsefulLocationsDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -19,12 +20,17 @@ const FairsDashboard = () => {
 						setLocation(false);
 					}}
 				>
-					Mapa das Feiras Livres:
+					Mapa de Locais Úteis:
 				</Button>
+			</div>
+			<div className="centered-content">
+				<Link to = "/admin/locais_uteis" style={{ textDecoration: "none", color: "#1b262c" }}>
+					Editar
+				</Link>
 			</div>
 			{approximateLocation && (
 				<div className="centered-content">
-					<MapPageFeiras />
+					<MapPageUsefulLocations />
 				</div>
 			)}
 			<br />
@@ -32,4 +38,4 @@ const FairsDashboard = () => {
 	);
 };
 
-export default FairsDashboard;
+export default UsefulLocationsDashboard;

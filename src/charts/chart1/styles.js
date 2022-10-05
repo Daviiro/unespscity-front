@@ -37,7 +37,10 @@ export const Card = styled.div`
         margin-left: 0.05vw;
     }
 
-    :hover { border: 0.25vh solid #0f4c75; }
+    :hover { 
+        border: 0.25vh solid #0f4c75;
+        cursor: pointer; 
+    }
 `;
 
 export const GrayLine = styled.div`
