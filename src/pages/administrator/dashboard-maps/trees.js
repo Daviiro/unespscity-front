@@ -2,9 +2,9 @@ import { useState, useContext } from "react";
 import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
-import MapPageLeishmaniose from "../../../services/map-pages/leishmaniose";
+import MapPageArvores from "../../../services/map-pages/arvores";
 
-const LeishmanioseDashboard = () => {
+const TreesDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [approximateLocation, setApproximateLocation] = useState(false);
 	const [Location, setLocation] = useState(!approximateLocation);
@@ -19,12 +19,17 @@ const LeishmanioseDashboard = () => {
 						setLocation(false);
 					}}
 				>
-					Mapa de Leishmaniose:
+					Mapa de Árvores:
 				</Button>
+			</div>
+			<div className="centered-content">
+				<Link to = "/admin/arvores" style={{ textDecoration: "none", color: "#1b262c" }}>
+					Editar
+				</Link>
 			</div>
 			{approximateLocation && (
 				<div className="centered-content">
-					<MapPageLeishmaniose />
+					<MapPageArvores />
 				</div>
 			)}
 			<br />
@@ -32,4 +37,4 @@ const LeishmanioseDashboard = () => {
 	);
 };
 
-export default LeishmanioseDashboard;
+export default TreesDashboard;

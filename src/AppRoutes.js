@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import AdminRoutes from "./AdminRoutes";
 
-import Dashboard from "./pages/administrator"; // DASHBOARD PARA O ADMIN
+import Dashboard from "./pages/administrator/index"; // DASHBOARD PARA O ADMIN
+import Dashboard2 from "./pages/administrator/index2";
 import AllRequests from "./pages/administrator/requested-services/all-requests";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
 import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
@@ -276,6 +277,7 @@ const AppRoutes = () => {
 					/>
 					<Route element={<AdminRoutes />}>
 						<Route exact path="/admin" element={<Dashboard />} />
+						<Route exact path="/admin_details" element={<Dashboard2 />} />
 						<Route
 							exact
 							path="/todas_solicitacoes"

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TreesMap from "../../pages/fauna-flora/information-about-trees/map";
+import TreesModal from "../../pages/fauna-flora/information-about-trees/modal";
+import { Context } from "../../context/Auth/AuthContext";
+import { api } from "../../services/api";
 import { ContainerBase } from "./styles";
 
 const MapPageArvores = () => {
-
-    const [locations, setLocations] = useState([
+	const { user } = useContext(Context);
+	const [isLoading, setLoading] = useState(true);
+	const [locations, setLocations] = useState([
 		{
-			id: 1,
+			_id: 1,
+			cityid: formValues.city,
 			name: "Location 1",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Pata de Vaca",
@@ -17,7 +22,8 @@ const MapPageArvores = () => {
 			},
 		},
 		{
-			id: 2,
+			_id: 2,
+			cityid: formValues.city,
 			name: "Location 2",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna",
@@ -28,7 +34,8 @@ const MapPageArvores = () => {
 			},
 		},
 		{
-			id: 3,
+			_id: 3,
+			cityid: formValues.city,
 			name: "Location 3",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Manacá da Serra",
@@ -39,7 +46,8 @@ const MapPageArvores = () => {
 			},
 		},
 		{
-			id: 4,
+			_id: 4,
+			cityid: formValues.city,
 			name: "Location 4",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Quaresmeira ",
@@ -50,7 +58,8 @@ const MapPageArvores = () => {
 			},
 		},
 		{
-			id: 5,
+			_id: 5,
+			cityid: formValues.city,
 			name: "Location 5",
 			imgsrc: "/assets/img/default-tree.png",
 			specie: "Sibipiruna ",
@@ -61,13 +70,106 @@ const MapPageArvores = () => {
 			},
 		},
 	]);
+	const [open, setOpen] = useState(false);
+	const handleClickOpen = () => {
+		setOpen(true);
+	};
+	const handleClose = () => {
+		setOpen(false);
+	};
+	const handleAdd = (tree) => {
+		setLocations([...locations, tree]);
+		setOpen(false);
+		let uid = user.userId;
+		if (uid === undefined) {
+			uid = -1;
+		}
+		let age = tree.age;
+		if (age <= 0 || age === undefined) {
+			age = 1;
+		}
+		let specie = tree.specie;
+		if (specie === "") {
+			specie = "Não identificadda";
+		}
+		let name = tree.name;
+		if (name === "") {
+			name = "Não identificadda";
+		}
+		api.post("/informationabouttrees", {
+			headers: {
+				"Content-Type": "application/json; charset=UTF-8",
+				Accept: "Token",
+				"Access-Control-Allow-Origin": "*",
+				Authorization: "*",
+			},
+			data: {
+				cityid: tree.cityid,
+				userid: uid,
+				name: tree.name,
+				imgsrc: tree.imgsrc,
+				specie: specie,
+				age: age,
+				location: tree.location,
+			},
+		})
+			.then((response) => console.log(response))
+			.catch((e) => {
+				console.log(e);
+			});
+	};
+
+	const [clickedCoordinates, setClickedCoordinates] = useState({
+		lat: 0,
+		lng: 0,
+	});
+
+	const onMapClick = (coords) => {
+		setClickedCoordinates(coords);
+		handleClickOpen();
+	};
+
+	const handleGet = async () => {
+		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
+		try {
+			await api
+				.get("/informationabouttrees/cityid", {
+					params: {
+						cityid: data.city,
+					},
+				})
+				.then((res) => {
+					setLocations(res.data);
+
+					console.log(res.data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	useEffect(() => {
+		handleGet();
+	}, []);
+
+	if (isLoading) {
+		return <div>Loading...</div>;
+	}
 
     return (
         <>
             <ContainerBase>
-                <TreesMap
+				<TreesMap
 					locations={locations}
 					icon="/assets/img/tree-default-icon.png"
+					onMapClick={onMapClick}
+				/>
+				<TreesModal
+					locations={locations}
+					open={open}
+					clickedCoordinates={clickedCoordinates}
+					handleClose={handleClose}
+					handleAdd={handleAdd}
 				/>
             </ContainerBase>
         </>
