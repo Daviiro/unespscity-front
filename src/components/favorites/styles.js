@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	display: flex;
+	align-items: center;
 	height: 7rem;
 	margin-left: auto;
 	margin-right: auto;
@@ -11,6 +12,7 @@ export const Container = styled.div`
 	overflow-y: hidden;
 	margin-top: 30px;
 	margin-bottom: 30px;
+	padding: 0.5rem;
 
 	::-webkit-scrollbar {
 		width: 7px;

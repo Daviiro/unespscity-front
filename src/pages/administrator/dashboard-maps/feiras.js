@@ -3,6 +3,7 @@ import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
 import MapPageFeiras from "../../../services/map-pages/feiras";
+import { Link } from "react-router-dom";
 
 const FairsDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -23,7 +24,10 @@ const FairsDashboard = () => {
 				</Button>
 			</div>
 			<div className="centered-content">
-				<Link to = "/admin/feiras_livres" style={{ textDecoration: "none", color: "#1b262c" }}>
+				<Link
+					to="/admin/feiras_livres"
+					style={{ textDecoration: "none", color: "#1b262c" }}
+				>
 					Editar
 				</Link>
 			</div>

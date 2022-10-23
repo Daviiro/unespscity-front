@@ -3,6 +3,7 @@ import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
 import MapPageArvores from "../../../services/map-pages/arvores";
+import { Link } from "react-router-dom";
 
 const TreesDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -23,7 +24,10 @@ const TreesDashboard = () => {
 				</Button>
 			</div>
 			<div className="centered-content">
-				<Link to = "/admin/arvores" style={{ textDecoration: "none", color: "#1b262c" }}>
+				<Link
+					to="/admin/arvores"
+					style={{ textDecoration: "none", color: "#1b262c" }}
+				>
 					Editar
 				</Link>
 			</div>

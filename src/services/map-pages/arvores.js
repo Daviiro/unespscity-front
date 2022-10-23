@@ -4,10 +4,12 @@ import TreesModal from "../../pages/fauna-flora/information-about-trees/modal";
 import { Context } from "../../context/Auth/AuthContext";
 import { api } from "../../services/api";
 import { ContainerBase } from "./styles";
+import LocalContext from "../../pages/user-location/Context";
 
 const MapPageArvores = () => {
 	const { user } = useContext(Context);
 	const [isLoading, setLoading] = useState(true);
+	const [formValues, setFormValues] = useContext(LocalContext);
 	const [locations, setLocations] = useState([
 		{
 			_id: 1,
@@ -156,9 +158,9 @@ const MapPageArvores = () => {
 		return <div>Loading...</div>;
 	}
 
-    return (
-        <>
-            <ContainerBase>
+	return (
+		<>
+			<ContainerBase>
 				<TreesMap
 					locations={locations}
 					icon="/assets/img/tree-default-icon.png"
@@ -171,9 +173,9 @@ const MapPageArvores = () => {
 					handleClose={handleClose}
 					handleAdd={handleAdd}
 				/>
-            </ContainerBase>
-        </>
-    );
+			</ContainerBase>
+		</>
+	);
 };
 
 export default MapPageArvores;

@@ -3,6 +3,7 @@ import { MapContainer } from "../styles";
 import Button from "@mui/material/Button";
 import LocalContext from "../../user-location/Context";
 import MapPageLeishmaniose from "../../../services/map-pages/leishmaniose";
+import { Link } from "react-router-dom";
 
 const LeishmanioseDashboard = () => {
 	const [formValues, setFormValues] = useContext(LocalContext);
@@ -23,7 +24,10 @@ const LeishmanioseDashboard = () => {
 				</Button>
 			</div>
 			<div className="centered-content">
-				<Link to = "/admin/leishmaniose" style={{ textDecoration: "none", color: "#1b262c" }}>
+				<Link
+					to="/admin/leishmaniose"
+					style={{ textDecoration: "none", color: "#1b262c" }}
+				>
 					Editar
 				</Link>
 			</div>
