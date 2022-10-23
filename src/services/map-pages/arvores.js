@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import TreesMap from "../../pages/fauna-flora/information-about-trees/map";
 import TreesModal from "../../pages/fauna-flora/information-about-trees/modal";
-import { Context } from "../../context/Auth/AuthContext";
-import { api } from "../../services/api";
-import { ContainerBase } from "./styles";
 import LocalContext from "../../pages/user-location/Context";
+import { api } from "../../services/api";
+import { Context } from "../../context/Auth/AuthContext";
+import { ContainerBase } from "./styles";
 
 const MapPageArvores = () => {
 	const { user } = useContext(Context);
