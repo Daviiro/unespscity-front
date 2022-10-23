@@ -190,12 +190,6 @@ const AppRoutes = () => {
 		getFavorites();
 	}, []);
 
-	const notify = () => {
-		toast.success("Success Notification !", {
-			position: toast.POSITION.TOP_RIGHT,
-		});
-	};
-
 	const handleAddFavorite = (favorite) => {
 		setFavoritesData([...favoritesData, favorite]);
 
@@ -212,6 +206,9 @@ const AppRoutes = () => {
 					},
 				}).then(() => {
 					getFavorites();
+					toast.success("Favorito armazenado com sucesso", {
+						position: toast.POSITION.TOP_RIGHT,
+					});
 				});
 			} catch (err) {
 				console.log(err);

@@ -12,6 +12,8 @@ import { fetchLocation } from "../../../services/GoogleMaps";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Circle } from "@react-google-maps/api";
 import { Context } from "../../../context/Auth/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ServiceOrderInformation = (props) => {
 	const { user } = useContext(Context);
@@ -98,7 +100,9 @@ const ServiceOrderInformation = (props) => {
 		if (approximateLocation) {
 			//caso a pessoa tenha escolhido mandar com a localizacao aproximada
 			if (houseNumber === 0) {
-				alert("É obrigatório enviar o número");
+				toast.error("É obrigatório enviar o número", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 				return;
 			}
 			if (street === "") {
@@ -131,7 +135,9 @@ const ServiceOrderInformation = (props) => {
 			}
 
 			if (description === "") {
-				alert("É necessário ter uma descrição");
+				toast.error("É obrigatório enviar o número", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 				return;
 			}
 			const res = api
@@ -151,22 +157,38 @@ const ServiceOrderInformation = (props) => {
 				})
 				.then((response) => {
 					console.log(response);
-					alert(`Forms foi enviado`);
+					toast.success("Formulário enviado com sucesso", {
+						position: toast.POSITION.TOP_RIGHT,
+					});
 				})
 				.catch((e) => {
 					console.log(e);
+					if (e.response.status === 404) {
+						toast.error(
+							"Erro 404 ocorreu, servidor não pôde ser encontrado!",
+							{
+								position: toast.POSITION.TOP_RIGHT,
+							}
+						);
+					}
 				});
 		} else {
 			if (houseNumber === 0) {
-				alert("É obrigatório enviar o número");
+				toast.error("É obrigatório enviar o número", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 				return;
 			}
 			if (street === "") {
-				alert("É obrigatório enviar a rua");
+				toast.error("É obrigatório enviar o nome da rua", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 				return;
 			}
 			if (description === "") {
-				alert("É necessário ter uma descrição");
+				toast.error("É necessário ter uma descrição", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 				return;
 			}
 			const endereco = `${street}, ${district}`;
@@ -188,26 +210,36 @@ const ServiceOrderInformation = (props) => {
 				})
 				.then((response) => {
 					console.log(response);
-					alert(`Forms foi enviado`);
+
 					setPhotos([]);
 					setDescription("");
 					setReferencePoint("");
 					setStreet("");
 					setHouseNumber(0);
 					setDistrict("");
+					toast.success("Formulário enviado com sucesso", {
+						position: toast.POSITION.TOP_RIGHT,
+					});
 				})
 				.catch((e) => {
 					console.log(e);
+					if (e.response.status === 404) {
+						toast.error(
+							"Erro 404 ocorreu, servidor não pôde ser encontrado!",
+							{
+								position: toast.POSITION.TOP_RIGHT,
+							}
+						);
+					}
 				});
 		}
-
-		//console.log("Dados Enviados: ", res.data);
 	};
 
 	console.log(photos);
 
 	return (
 		<Container>
+			<ToastContainer autoClose={5000} hideProgressBar={true} />
 			<form onSubmit={handleSubmit}>
 				<div className="centered-content">
 					<Button
