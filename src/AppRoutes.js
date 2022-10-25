@@ -168,6 +168,9 @@ import TrafficMonitoring from "./pages/administrator/remote-sensing/traffic-moni
 import { api } from "./services/api";
 import { Context } from "./context/Auth/AuthContext";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AppRoutes = () => {
 	const { user } = useContext(Context);
 	const [formValues, setFormValues] = useState({});
@@ -203,21 +206,28 @@ const AppRoutes = () => {
 					},
 				}).then(() => {
 					getFavorites();
+					toast.success("Favorito armazenado com sucesso", {
+						position: toast.POSITION.TOP_RIGHT,
+					});
 				});
 			} catch (err) {
 				console.log(err);
 			}
 
-			console.log("USERID: " + user.userId);
-			console.log("Citiid: " + user.cityId);
-			console.log("Email: " + user.email);
-			console.log("Admin: " + user.isAdmin);
-			console.log("Name: " + user.name);
-			console.log("Button: " + user.panicButton);
+			//console.log("USERID: " + user.userId);
+			//console.log("Citiid: " + user.cityId);
+			//console.log("Email: " + user.email);
+			//console.log("Admin: " + user.isAdmin);
+			//console.log("Name: " + user.name);
+			//console.log("Button: " + user.panicButton);
 		} else {
-			alert(
-				"Você precisa estar logado para armazenar o favorito de forma definitiva!"
+			toast.warning(
+				"É necessário estar logado para armazenar o favorito de forma permanente!",
+				{
+					position: toast.POSITION.TOP_RIGHT,
+				}
 			);
+			console.log("teste");
 		}
 	};
 	const handleSubFavorite = (Delfavorite) => {
@@ -262,6 +272,7 @@ const AppRoutes = () => {
 	return (
 		<Router>
 			<LocalContext.Provider value={[formValues, setFormValues]}>
+				<ToastContainer autoClose={5000} hideProgressBar={true} />
 				<Routes>
 					<Route
 						exact
@@ -277,7 +288,11 @@ const AppRoutes = () => {
 					/>
 					<Route element={<AdminRoutes />}>
 						<Route exact path="/admin" element={<Dashboard />} />
-						<Route exact path="/admin_details" element={<Dashboard2 />} />
+						<Route
+							exact
+							path="/admin_details"
+							element={<Dashboard2 />}
+						/>
 						<Route
 							exact
 							path="/todas_solicitacoes"

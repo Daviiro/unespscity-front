@@ -3,11 +3,16 @@ import styled from "styled-components";
 export const FavCardContainer = styled.div`
 	height: 100%;
 	border-right: 3px solid lightgray;
-	min-width: 15rem;
+	min-width: 12rem;
 	margin-right: 5px;
-	padding: 0.2rem;
+	padding: 0.4rem;
 	display: flex;
 	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: 549;
 	.fav-nome {
 		margin-top: 10px;
 	}
