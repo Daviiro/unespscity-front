@@ -231,10 +231,10 @@ const DashboardChart2 = () => {
 	}, []);
 	
 	
-//	const totalSolicitados = new Array (24, 17, 8, 17, 13, 24, 6, 10, 5, 7);
-//	const totalTotal = 135;
-	const totalTotal = contagemTotal[0] + contagemTotal[1] + contagemTotal[2] + contagemTotal[3] + contagemTotal[4] + contagemTotal[5]
-	+ contagemTotal[6] + contagemTotal[7] + contagemTotal[8] + contagemTotal[9];
+	const totalSolicitados = new Array (24, 17, 8, 17, 13, 24, 6, 10, 5, 7);
+	const totalTotal = 135;
+//	const totalTotal = contagemTotal[0] + contagemTotal[1] + contagemTotal[2] + contagemTotal[3] + contagemTotal[4] + contagemTotal[5]
+//	+ contagemTotal[6] + contagemTotal[7] + contagemTotal[8] + contagemTotal[9];
 
 	return (
 		<>
@@ -254,7 +254,7 @@ const DashboardChart2 = () => {
 				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> {totalTotal} </span>
 				<PieChart
             		center = {[54, 50]}
-            	/*	data = {[
+            		data = {[
                 		{title: "Conservação Urbana: " + totalSolicitados[0], value: totalSolicitados[0], color: "#b83333"},
                 		{title: "Conservação Rural/Áreas Verdes: " + totalSolicitados[1], value: totalSolicitados[1], color: "#b83386"},
 						{title: "Remoção de Detritos: " + totalSolicitados[2], value: totalSolicitados[2], color: "#7d33b8"},
@@ -265,8 +265,8 @@ const DashboardChart2 = () => {
                 		{title: "Fauna e Flora: " + totalSolicitados[7], value: totalSolicitados[7], color: "#33b834"},
 						{title: "Assistência Social: " + totalSolicitados[8], value: totalSolicitados[8], color: "#a8b833"},
                 		{title: "Famílias Carentes: " + totalSolicitados[9], value: totalSolicitados[9], color: "#b86333"}
-            		]}	*/
-					data = {[
+            		]}	
+				/*	data = {[
                 		{title: "Conservação Urbana: " + contagemTotal[0], value: parseInt(contagemTotal[0]), color: "#b83333"},
                 		{title: "Conservação Rural/Áreas Verdes: " + contagemTotal[1], value: parseInt(contagemTotal[1]), color: "#b83386"},
 						{title: "Remoção de Detritos: " + contagemTotal[2], value: parseInt(contagemTotal[2]), color: "#7d33b8"},
@@ -277,7 +277,7 @@ const DashboardChart2 = () => {
                 		{title: "Fauna e Flora: " + contagemTotal[7], value: parseInt(contagemTotal[7]), color: "#33b834"},
 						{title: "Assistência Social: " + contagemTotal[8], value: parseInt(contagemTotal[8]), color: "#a8b833"},
                 		{title: "Famílias Carentes: " + contagemTotal[9], value: parseInt(contagemTotal[9]), color: "#b86333"}
-            		]}	
+            		]}	*/
             		labelPosition = {50}
             		lengthAngle = {360}
             		lineWidth = {30}

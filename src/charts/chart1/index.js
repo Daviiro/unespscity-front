@@ -238,62 +238,62 @@ const DashboardChart1 = () => {
 				<Card>
 					<img src="/assets/img/home_conservacao_urbana.png" alt="Conservação Urbana"/>
 					<GrayLine />
-				{/*	<h5> 16 </h5> */}
-					<h5> {contagemTotal[0]} </h5>
+					<h5> 16 </h5> 
+				{/*	<h5> {contagemTotal[0]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_conservacao_rural.png" alt="Conservação Rural/Áreas Verdes" />
 					<GrayLine />
-				{/*	<h5> 7 </h5> */}
-					<h5> {contagemTotal[1]} </h5> 
+					<h5> 7 </h5> 
+				{/*	<h5> {contagemTotal[1]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_remocao_detritos.png" alt="Remoção de Detritos" />
 					<GrayLine />
-				{/*	<h5> 8 </h5> */}
-					<h5> {contagemTotal[2]} </h5> 
+					<h5> 8 </h5> 
+				{/*	<h5> {contagemTotal[2]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_vigilancia_sanitaria.png" alt="Vigilância Sanitária"/>
 					<GrayLine />
-				{/*	<h5> 13 </h5> */}
-					<h5> {contagemTotal[3]} </h5> 
+					<h5> 13 </h5> 
+				{/*	<h5> {contagemTotal[3]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_controle_pragas.png" alt="Controle de Pragas" />
 					<GrayLine />
-				{/*	<h5> 20 </h5> */}
-				*	<h5> {contagemTotal[4]} </h5> 
+					<h5> 20 </h5> 
+				{/*	<h5> {contagemTotal[4]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_animais_domesticos.png" alt="Animais Domésticos" />
 					<GrayLine />
-				{/*	<h5> 25 </h5> */}
-					<h5> {contagemTotal[5]} </h5> 
+					<h5> 25 </h5> 
+				{/*	<h5> {contagemTotal[5]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_meio_ambiente.png" alt="Meio Ambiente" />
 					<GrayLine />
-				{/*	<h5> 1 </h5> */}
-					<h5> {contagemTotal[6]} </h5> 
+					<h5> 1 </h5> 
+				{/*	<h5> {contagemTotal[6]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_fauna_flora.png" alt="Fauna e Flora" />
 					<GrayLine />
-				{/*	<h5> 10 </h5> */}
-					<h5> {contagemTotal[7]} </h5> 
+					<h5> 10 </h5> 
+				{/*	<h5> {contagemTotal[7]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_assistencia_social.png" alt="Assistência Social" />
 					<GrayLine />
-				{/*	<h5> 5 </h5> */}
-					<h5> {contagemTotal[8]} </h5> 
+					<h5> 5 </h5> 
+				{/*	<h5> {contagemTotal[8]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_familias_carentes.png" alt="Famílias Carentes" />
 					<GrayLine />
-				{/*	<h5> 2 </h5> */}
-					<h5> {contagemTotal[9]} </h5> 
+					<h5> 2 </h5>
+				{/*	<h5> {contagemTotal[9]} </h5> */}
 				</Card>
 			</ContainerRow>
 			<GrayLine style = {{ marginTop: "7vh" }}/>
