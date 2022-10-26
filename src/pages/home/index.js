@@ -8,10 +8,46 @@ import LocalContext from "../user-location/Context";
 import Favorites from "../../components/favorites";
 import { Context } from "../../context/Auth/AuthContext";
 
+import CommercialAssociationPopUp from "./pop-up/services/commercial-association-popup";
+import CommunicationPopUp from "./pop-up/services/communication-popup";
+import DomesticAnimalsPopup from "./pop-up/services/domestic-animals-popup";
+import EnvironmentPopUp from "./pop-up/services/environment-popup";
+import FaunaFloraPopUp from "./pop-up/services/fauna-flora-popup";
+import NeedyFamiliesPopUp from "./pop-up/services/needy-families-popup";
+import PanicButtonPopUp from "./pop-up/services/panic-button-popup";
+import PestControlPopup from "./pop-up/services/pest-control-popup";
+import PublicAdministrationPopUp from "./pop-up/services/public-administration-popup";
+import RemoteSensingPopUp from "./pop-up/services/remote-sensing-popup";
+import RuralConservationPopUp from "./pop-up/services/rural-conservation-popup";
+import SanitarySurveillancePopUp from "./pop-up/services/sanitary-surveillance-popup";
+import SecurityDefensePopUp from "./pop-up/services/security-defense-popup";
+import SocialCarePopUp from "./pop-up/services/social-care-popup";
+import SocialServicesPopUp from "./pop-up/services/social-services-popup";
+import TrashRemovalPopUp from "./pop-up/services/trash-removal-popup";
+import UrbanConservationPopUp from "./pop-up/services/urban-conservation-popup";
+
 const Home = (props) => {
 	const [formValues, setFormValues] = useContext(LocalContext);
 	const [panicButtonIsActive, setPanicButtonIsActive] = useState(true);
 	const { user } = useContext(Context);
+
+	const [popup01, setPopup01] = useState(false);
+	const [popup02, setPopup02] = useState(false);
+	const [popup03, setPopup03] = useState(false);
+	const [popup04, setPopup04] = useState(false);
+	const [popup05, setPopup05] = useState(false);
+	const [popup06, setPopup06] = useState(false);
+	const [popup07, setPopup07] = useState(false);
+	const [popup08, setPopup08] = useState(false);
+	const [popup09, setPopup09] = useState(false);
+	const [popup10, setPopup10] = useState(false);
+	const [popup11, setPopup11] = useState(false);
+	const [popup12, setPopup12] = useState(false);
+	const [popup13, setPopup13] = useState(false);
+	const [popup14, setPopup14] = useState(false);
+	const [popup15, setPopup15] = useState(false);
+	const [popup16, setPopup16] = useState(false);
+	const [popup17, setPopup17] = useState(false);
 
 	console.log(user);
 	return (
@@ -21,357 +57,126 @@ const Home = (props) => {
 				<Favorites data={props.data} />
 				<Content>
 					<WrapContainer>
+						<div onClick = {() => setPopup01(true)}>
 						<Card
 							source="/assets/img/home_conservacao_urbana.png"
 							titulo="Conservação Urbana"
-							linkItems={[
-								{
-									id: 1,
-									name: "Fiscalização de Instalações",
-									link: "/fiscalizacao_de_instalacoes",
-								},
-								{
-									id: 2,
-									name: "Iluminação Pública",
-									link: "/iluminacao_publica",
-								},
-								{
-									id: 3,
-									name: "Monumentos e Chafarizes",
-									link: "/monumentos_e_chafarizes",
-								},
-								{
-									id: 4,
-									name: "Pavimentação",
-									link: "/pavimentacao",
-								},
-								{
-									id: 5,
-									name: "Vias Públicas",
-									link: "/vias_publicas",
-								},
-							]}
 						/>
+						</div>
+						<UrbanConservationPopUp trigger = {popup01} setTrigger = {setPopup01}/>
+						<div onClick = {() => setPopup02(true)}>
 						<Card
 							source="/assets/img/home_conservacao_rural.png"
 							titulo="Conservação Rural/Áreas Verdes"
-							linkItems={[
-								{
-									id: 1,
-									name: "Parques",
-									link: "/parques",
-								},
-								{
-									id: 2,
-									name: "Pontes em estradas rurais",
-									link: "/pontes_em_estradas_rurais",
-								},
-								{
-									id: 3,
-									name: "Praças",
-									link: "/pracas",
-								},
-							]}
 						/>
+						</div>
+						<RuralConservationPopUp trigger = {popup02} setTrigger = {setPopup02}/>
+						<div onClick = {() => setPopup03(true)}>
 						<Card
 							source="/assets/img/home_remocao_detritos.png"
 							titulo="Remoção de Detritos"
-							linkItems={[
-								{
-									id: 1,
-									name: "Animais Mortos",
-									link: "/animais_mortos",
-								},
-								{
-									id: 2,
-									name: "Resíduos Sólidos",
-									link: "/residuos_solidos",
-								},
-							]}
 						/>
+						</div>
+						<TrashRemovalPopUp trigger = {popup03} setTrigger = {setPopup03}/>
+						<div onClick = {() => setPopup04(true)}>
 						<Card
 							source="/assets/img/home_vigilancia_sanitaria.png"
 							titulo="Vigilância Sanitária"
-							linkItems={[
-								{
-									id: 1,
-									name: "Limpeza de Piscinas",
-									link: "/limpeza_de_piscinas",
-								},
-								{
-									id: 2,
-									name: "Limpeza de Terreno",
-									link: "/limpeza_de_terreno",
-								},
-								{
-									id: 3,
-									name: "Restaurantes/Ambientes Irregulares",
-									link: "/restaurantes",
-								},
-							]}
 						/>
+						</div>
+						<SanitarySurveillancePopUp trigger = {popup04} setTrigger = {setPopup04}/>
+						<div onClick = {() => setPopup05(true)}>
 						<Card
 							source="/assets/img/home_controle_pragas.png"
 							titulo="Controle de Pragas"
-							linkItems={[
-								{
-									id: 1,
-									name: "Foco de Escorpião",
-									link: "/foco_de_escorpiao",
-								},
-								{
-									id: 2,
-									name: "Insetos Roedores e Caramujos",
-									link: "/insetos_roedores_caramujos",
-								},
-								{
-									id: 3,
-									name: "Leishmaniose",
-									link: "/leishmaniose",
-								},
-								{
-									id: 4,
-									name: "Radar da Dengue",
-									link: "/radar_da_dengue",
-								},
-							]}
 						/>
-
+						</div>
+						<PestControlPopup trigger = {popup05} setTrigger = {setPopup05}/>
+						<div onClick = {() => setPopup06(true)}>
 						<Card
 							source="/assets/img/home_animais_domesticos.png"
 							titulo="Animais Domésticos"
-							linkItems={[
-								{
-									id: 1,
-									name: "Animais Abandonados",
-									link: "/animais_abandonados",
-								},
-								{
-									id: 2,
-									name: "Animais Perdidos",
-									link: "/animais_perdidos_opcoes",
-								},
-								{
-									id: 3,
-									name: "Maus tratos à Animais",
-									link: "/maus_tratos",
-								},
-								{
-									id: 4,
-									name: "Animais Sinantrópicos",
-									link: "/animais-sinantropicos",
-								},
-								{
-									id: 5,
-									name: "Adoção de Animais",
-									link: "/adocao_animais_opcoes",
-								},
-							]}
 						/>
+						</div>
+						<DomesticAnimalsPopup trigger = {popup06} setTrigger = {setPopup06}/>
+						<div onClick = {() => setPopup07(true)}>
 						<Card
 							source="/assets/img/home_meio_ambiente.png"
 							titulo="Meio Ambiente"
-							linkItems={[
-								{
-									id: 1,
-									name: "Adoção de Áreas Públicas",
-									link: "/adocao_areas_opcoes",
-								},
-								{
-									id: 2,
-									name: "Monitoramento do Tempo",
-									link: "/monitoramento",
-								},
-								{
-									id: 3,
-									name: "Coleta de Lixo",
-									link: "/coleta-de-lixo",
-								},
-							]}
 						/>
+						</div>
+						<EnvironmentPopUp trigger = {popup07} setTrigger = {setPopup07}/>
+						<div onClick = {() => setPopup08(true)}>
 						<Card
 							source="/assets/img/home_fauna_flora.png"
 							titulo="Fauna e Flora"
-							linkItems={[
-								{
-									id: 1,
-									name: "Fiscalização de Animais Silvestres",
-									link: "/animais_silvestres",
-								},
-								{
-									id: 2,
-									name: "Maus tratos à Animais",
-									link: "/maus_tratos",
-								},
-								{
-									id: 3,
-									name: "Árvores",
-									link: "/arvores",
-								},
-							]}
 						/>
+						</div>
+						<FaunaFloraPopUp trigger = {popup08} setTrigger = {setPopup08}/>
+						<div onClick = {() => setPopup09(true)}>
 						<Card
 							source="/assets/img/home_assistencia_social.png"
 							titulo="Assistência Social"
-							linkItems={[
-								{
-									id: 1,
-									name: "Locais Úteis",
-									link: "/locais_uteis",
-								},
-								{
-									id: 2,
-									name: "Telefones Úteis",
-									link: "/telefones_uteis",
-								},
-								{
-									id: 3,
-									name: "Programação Cultural",
-									link: "/programacao_cultural",
-								},
-								{
-									id: 4,
-									name: "Cadastro de Túmulos e Falecidos",
-									link: "/tumulos",
-								},
-							]}
 						/>
+						</div>
+						<SocialCarePopUp trigger = {popup09} setTrigger = {setPopup09}/>
+						<div onClick = {() => setPopup10(true)}>
 						<Card
 							source="/assets/img/home_familias_carentes.png"
 							titulo="Famílias Carentes"
-							linkItems={[
-								{
-									id: 1,
-									name: "Registro de Familias Carentes",
-									link: "/familia_carente_opcoes",
-								},
-								{
-									id: 2,
-									name: "Moradores de Rua",
-									link: "/moradores_rua",
-								},
-								{
-									id: 3,
-									name: "Descarte Solidário",
-									link: "/descarte_solidario",
-								},
-							]}
 						/>
-
+						</div>
+						<NeedyFamiliesPopUp trigger = {popup10} setTrigger = {setPopup10}/>
+						<div onClick = {() => setPopup11(true)}>
 						<Card
 							source="/assets/img/home_servicos_sociais.png"
 							titulo="Serviços Sociais"
-							linkItems={[
-								{
-									id: 1,
-									name: "Feiras Livres",
-									link: "/feiras_livres",
-								},
-								{
-									id: 2,
-									name: "Cadastro de Diaristas",
-									link: "/diaristas_opcoes",
-								},
-							]}
 						/>
+						</div>
+						<SocialServicesPopUp trigger = {popup11} setTrigger = {setPopup11}/>
+						<div onClick = {() => setPopup12(true)}>
 						<Card
 							source="/assets/img/home_seguranca_defesa_civil.png"
 							titulo="Segurança e Defesa Civil"
-							linkItems={[
-								{
-									id: 1,
-									name: "Registro de Acidentes",
-									link: "/registro-acidentes",
-								},
-								{
-									id: 2,
-									name: "Registro de Roubos e Furtos",
-									link: "/registro_roubos",
-								},
-								{
-									id: 3,
-									name: "Vítimas de violência doméstica",
-									link: "/violencia-domestica",
-								},
-							]}
 						/>
+						</div>
+						<SecurityDefensePopUp trigger = {popup12} setTrigger = {setPopup12}/>
+						<div onClick = {() => setPopup13(true)}>
 						<Card
 							source="/assets/img/home_botao_panico.png"
 							titulo="Botão do Pânico"
 							isActive = {panicButtonIsActive}
-							linkItems={[
-								{
-									id: 1,
-									name: "Cadastrar se no Botão do Panico",
-									link: "/botao_panico",
-								},
-							]}
 						/>
+						</div>
+						<PanicButtonPopUp trigger = {popup13} setTrigger = {setPopup13}/>
+						<div onClick = {() => setPopup14(true)}>
 						<Card
 							source="/assets/img/home_administracao_publica.png"
 							titulo="Administração Pública"
-							linkItems={[
-								{
-									id: 1,
-									name: "Conheça os Gestores",
-									link: "/conheca_os_gestores",
-								},
-								{
-									id: 2,
-									name: "Consultar as propostas dos vereadores",
-									link: "/consultar-propostas-de-leis",
-								},
-								{
-									id: 3,
-									name: "Central Anticorrupção",
-									link: "/central-anticorrupcao",
-								},
-							]}
 						/>
+						</div>
+						<PublicAdministrationPopUp trigger = {popup14} setTrigger = {setPopup14}/>
+						<div onClick = {() => setPopup15(true)}>
 						<Card
 							source="/assets/img/home_notificacao_comunicacao.png"
 							titulo="Central de Notificação e Comunicação"
-							linkItems={[
-								{
-									id: 1,
-									name: "Notícias da Cidade",
-									link: "/noticias",
-								},
-								{
-									id: 2,
-									name: "Sugestões e/ou Reclamações",
-									link: "/sugestoes",
-								},
-							]}
 						/>
-
+						</div>
+						<CommunicationPopUp trigger = {popup15} setTrigger = {setPopup15}/>
+						<div onClick = {() => setPopup16(true)}>
 						<Card
 							source="/assets/img/home_sensoriamento_movel_participativo.png"
 							titulo="Sensoriamento Móvel Participativo"
-							linkItems={[
-								{
-									id: 1,
-									name: "Monitoramento do Guardinha",
-									link: "/monitoramento-guardinha",
-								},
-								{
-									id: 2,
-									name: "Monitoramento de Veiculos",
-									link: "/monitoramento-pessoas-veiculos",
-								},
-							]}
 						/>
+						</div>
+						<RemoteSensingPopUp trigger = {popup16} setTrigger = {setPopup16}/>
+						<div onClick = {() => setPopup17(true)}>
 						<Card
 							source="/assets/img/home_assossiacao_comercial.png"
 							titulo="Assossiação Comercial"
-							linkItems={[
-								{
-									id: 1,
-									name: "Comércio Local",
-									link: "/comercio-local",
-								},
-							]}
 						/>
+						</div>
+						<CommercialAssociationPopUp trigger = {popup17} setTrigger = {setPopup17}/>
 					</WrapContainer>
 					<GrayLine />
 					<ChartHome />
