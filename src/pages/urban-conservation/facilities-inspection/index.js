@@ -27,12 +27,13 @@ const Instalacoes = (props) => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/facilities_inspection');
+				const { data } = await api.get("/facilities_inspection");
 				let totalSolicitados = data.length;
-				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalResolvidos(
+					data.filter((service) => service.isResolved === true).length
+				);
 				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
@@ -42,7 +43,7 @@ const Instalacoes = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
 		props.data.find(
-			(favoriteX) => favoriteX.id === 49 && setIsFavorite(true)
+			(favoriteX) => favoriteX.id === 1 && setIsFavorite(true)
 		);
 	}, []);
 	const handleFavorite = () => {
@@ -141,9 +142,9 @@ const Instalacoes = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation 
+					<ServiceOrderInformation
 						srcaddress="/facilities_inspection"
-						descriptionHelperText="Use o espaço de texto acima para descrever a razão pela qual você acha necessário a realização de uma inspeção." 
+						descriptionHelperText="Use o espaço de texto acima para descrever a razão pela qual você acha necessário a realização de uma inspeção."
 					/>
 				</MidContentContainer>
 			</ContentContainer>
