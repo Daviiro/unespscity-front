@@ -1,3 +1,4 @@
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../../components/header";
 import {
 	ContainerBase,
@@ -9,9 +10,15 @@ import Footer from "../../components/footer";
 import { Typography } from "@mui/material";
 import NotificationList from "../../components/notificationList";
 import { StyledHr } from "../../components/styled-components/StyledHr";
+import { api } from "../../services/api";
+import { Context } from "../../context/Auth/AuthContext";
 
 const Notifications = () => {
-	const notificationData = [
+	const { user } = useContext(Context);
+	const [notificationData, setNotificationData] = useState([]);
+	{
+		/**
+const notificationData2 = [
 		{
 			id: 1,
 			title: "Notificação 1",
@@ -37,6 +44,25 @@ const Notifications = () => {
 			date: new Date(),
 		},
 	];
+*/
+	}
+
+	useEffect(() => {
+		async function getNotifications() {
+			try {
+				const { data } = await api.get("/notify-by-user", {
+					data: {
+						id: user.userId,
+					},
+				});
+				setNotificationData(data);
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getNotifications();
+	}, []);
+
 	return (
 		<ContainerBase>
 			<Header />
