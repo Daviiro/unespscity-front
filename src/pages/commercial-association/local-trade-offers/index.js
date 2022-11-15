@@ -96,7 +96,7 @@ const LocalTradeOffers = (props) => {
 			store: "Loja do Sao Joaquim",
 			street: "Rua Caramelo",
 			streetNumber: 43224,
-			description: "Eh puta ar",
+			description: "Eh um otimo ar",
 			latitude: 2423,
 			longitude: 9229,
 			date: Date,

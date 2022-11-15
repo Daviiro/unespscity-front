@@ -93,37 +93,42 @@ const notificationData2 = [
 					{notificationData.length !== 0 ? (
 						notificationData.map((notif) => {
 							if (notif.userId === user.userId) {
-								<Card key={notif._id}>
-									<span>{notif.name}</span>
-									<div
-										style={{
-											display: "flex",
-											flexDirection: "column",
-										}}
-									>
-										<span className="description-style">
-											{notif.description}
-										</span>
-										<br />
+								return (
+									<Card key={notif._id}>
+										<span>{notif.name}</span>
+										<div
+											style={{
+												display: "flex",
+												flexDirection: "column",
+											}}
+										>
+											<span className="description-style">
+												{notif.description}
+											</span>
+											<br />
 
-										{notif.status === 1 && (
-											<span>Status: Não lido</span>
-										)}
-										{notif.status === 2 && (
-											<span>Status: Lido</span>
-										)}
-									</div>
-									<div>
-										<span>{notif.date.getUTCDate()}</span>/
-										<span>
-											{notif.date.getUTCMonth() + 1}
-										</span>
-										/
-										<span>
-											{notif.date.getUTCFullYear()}
-										</span>
-									</div>
-								</Card>;
+											{notif.status === 1 && (
+												<span>Status: Não lido</span>
+											)}
+											{notif.status === 2 && (
+												<span>Status: Lido</span>
+											)}
+										</div>
+										<div>
+											<span>
+												{notif.date.getUTCDate()}
+											</span>
+											/
+											<span>
+												{notif.date.getUTCMonth() + 1}
+											</span>
+											/
+											<span>
+												{notif.date.getUTCFullYear()}
+											</span>
+										</div>
+									</Card>
+								);
 							}
 						})
 					) : (

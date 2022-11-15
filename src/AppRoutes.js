@@ -171,6 +171,8 @@ import { Context } from "./context/Auth/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Profile from "./pages/profile";
+
 const AppRoutes = () => {
 	const { user } = useContext(Context);
 	const [formValues, setFormValues] = useState({});
@@ -614,8 +616,11 @@ const AppRoutes = () => {
 							element={<TrafficMonitoring />}
 						/>
 					</Route>
+
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
+
 					<Route exact path="/login" element={<Login />} />
+					<Route exact path="/profile" element={<Profile />} />
 					<Route exact path="/localizacao" element={<BaseMap />} />
 					<Route
 						exact

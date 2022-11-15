@@ -11,8 +11,8 @@ const SlideDownMenu = () => {
 
 	const handleLogOut = async () => {
 		await handleLogout();
-		navigate('/');
-	}
+		navigate("/");
+	};
 
 	const DropdownItem = (props) => {
 		return (
@@ -39,6 +39,16 @@ const SlideDownMenu = () => {
 						Cadastrar-se/Login
 					</DropdownItem>
 				</Link>
+			)}
+			{user.userId ? (
+				<DropdownItem
+					icon={<AiOutlineAreaChart />}
+					onClick={handleLogOut}
+				>
+					Perfil
+				</DropdownItem>
+			) : (
+				<></>
 			)}
 			{user.isAdmin && (
 				<>
