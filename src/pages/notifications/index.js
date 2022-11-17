@@ -13,10 +13,24 @@ import { Card } from "../../components/notificationList/styles";
 import { StyledHr } from "../../components/styled-components/StyledHr";
 import { api } from "../../services/api";
 import { Context } from "../../context/Auth/AuthContext";
+import NotificationCard from "./card";
 
 const Notifications = () => {
 	const { user } = useContext(Context);
-	const [notificationData, setNotificationData] = useState([]);
+	const [notificationData, setNotificationData] = useState([
+		{
+			_id: 1,
+			serviceId: 1,
+			userId: 1,
+			serviceName: "Iluminacao",
+			description:
+				"Esta notificação avisa que tu fez algo ou que algo ou que algo aconteceu",
+			street: "Rua Faria Lima",
+			streetNumber: 5757,
+			status: 1,
+			date: new Date(),
+		},
+	]);
 	{
 		/**
 const notificationData2 = [
@@ -94,40 +108,17 @@ const notificationData2 = [
 						notificationData.map((notif) => {
 							if (notif.userId === user.userId) {
 								return (
-									<Card key={notif._id}>
-										<span>{notif.name}</span>
-										<div
-											style={{
-												display: "flex",
-												flexDirection: "column",
-											}}
-										>
-											<span className="description-style">
-												{notif.description}
-											</span>
-											<br />
-
-											{notif.status === 1 && (
-												<span>Status: Não lido</span>
-											)}
-											{notif.status === 2 && (
-												<span>Status: Lido</span>
-											)}
-										</div>
-										<div>
-											<span>
-												{notif.date.getUTCDate()}
-											</span>
-											/
-											<span>
-												{notif.date.getUTCMonth() + 1}
-											</span>
-											/
-											<span>
-												{notif.date.getUTCFullYear()}
-											</span>
-										</div>
-									</Card>
+									<NotificationCard
+										key={notif._id}
+										data={notif}
+									/>
+								);
+							} else {
+								return (
+									<h4>
+										Você ainda não possui nenhuma
+										notificação
+									</h4>
 								);
 							}
 						})
