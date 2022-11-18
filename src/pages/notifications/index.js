@@ -99,7 +99,7 @@ const notificationData2 = [
 						minHeight: "100px",
 					}}
 				>
-					<Typography variant="h4">Nofiticações</Typography>
+					<Typography variant="h4">Notificações</Typography>
 					<StyledHr />
 				</TopContentContainer>
 

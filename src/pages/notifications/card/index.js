@@ -22,13 +22,13 @@ const NotificationCard = (props) => {
 					</Typography>
 					<Typography variant="subtitle1">
 						{props.data.status === 1 && (
-							<span>Status: Requisição enviada</span>
+							<span>Status: Não atendido </span>
 						)}
 						{props.data.status === 2 && (
-							<span>Status: Requisição recebida</span>
+							<span>Status: Em andamento</span>
 						)}
 						{props.data.status === 3 && (
-							<span>Status: Requisição realizada</span>
+							<span>Status: Concluído</span>
 						)}
 					</Typography>
 				</div>
