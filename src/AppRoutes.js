@@ -290,7 +290,7 @@ const AppRoutes = () => {
 							)
 						}
 					/>
-				{/*	<Route element={<AdminRoutes />}>	*/}
+					<Route element={<AdminRoutes />}>
 						<Route exact path="/admin" element={<Dashboard />} />
 						<Route
 							exact
@@ -622,7 +622,7 @@ const AppRoutes = () => {
 							path="/admin/monitoramento-pessoas-veiculos"
 							element={<TrafficMonitoring />}
 						/>
-				{/*	</Route>	*/}
+					</Route>
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 
