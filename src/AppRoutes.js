@@ -11,6 +11,7 @@ import AdminRoutes from "./AdminRoutes";
 import Dashboard from "./pages/administrator/index"; // DASHBOARD PARA O ADMIN
 import Dashboard2 from "./pages/administrator/index2";
 import AllRequests from "./pages/administrator/requested-services/all-requests";
+import AdminHistoric from "./pages/administrator/historic";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
 import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
 import AnimaisDomesticosOpcoes from "./pages/administrator/requested-services/domestic-animals";
@@ -161,6 +162,7 @@ import AdminSynanthropicAnimals from "./pages/administrator/domestic-animals/syn
 import PanicButton from "./pages/panic-button";
 import AdminPanicButton from "./pages/administrator/panic-button";
 import Notifications from "./pages/notifications";
+import UserHistoric from "./pages/historic";
 import AdminLocalTradeOffers from "./pages/administrator/commercial-association/local-trade-offers";
 import AdminGuardian from "./pages/administrator/remote-sensing/guardian-monitoring";
 import TrafficMonitoring from "./pages/administrator/remote-sensing/traffic-monitoring";
@@ -288,7 +290,7 @@ const AppRoutes = () => {
 							)
 						}
 					/>
-					<Route element={<AdminRoutes />}>
+				{/*	<Route element={<AdminRoutes />}>	*/}
 						<Route exact path="/admin" element={<Dashboard />} />
 						<Route
 							exact
@@ -299,6 +301,11 @@ const AppRoutes = () => {
 							exact
 							path="/todas_solicitacoes"
 							element={<AllRequests />}
+						/>
+						<Route
+							exact
+							path="/admin_historico"
+							element={<AdminHistoric />}
 						/>
 						<Route
 							exact
@@ -615,7 +622,7 @@ const AppRoutes = () => {
 							path="/admin/monitoramento-pessoas-veiculos"
 							element={<TrafficMonitoring />}
 						/>
-					</Route>
+				{/*	</Route>	*/}
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 
@@ -626,6 +633,11 @@ const AppRoutes = () => {
 						exact
 						path="/notifications"
 						element={<Notifications />}
+					/>
+					<Route
+						exact
+						path="/historico"
+						element={<UserHistoric />}
 					/>
 					<Route
 						exact

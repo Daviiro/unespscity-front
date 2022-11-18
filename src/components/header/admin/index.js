@@ -14,7 +14,7 @@ import { BiUser } from "react-icons/bi";
 import SlideDownMenu from "../slide-down-menu";
 import LocalContext from "../../../pages/user-location/Context";
 import { fetchCityForID } from "../../../services/IBGE";
-import { IoIosNotificationsOutline } from "react-icons/io";
+import { IoIosNotificationsOutline, IoIosFolder } from "react-icons/io";
 
 const AdminHeader = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -119,9 +119,8 @@ const AdminHeader = () => {
 
 				{windowDimenion.winWidth >= 958 ? (
 					<ContainerActions>
-						<div>
-							<Notifications />
-						</div>
+						<div> <Notifications /> </div>
+						<div> <Historic /> </div>
 						<div>
 							<UserClickHandle>
 								<SlideDownMenu />
@@ -171,6 +170,20 @@ const Notifications = () => {
 				style={{ cursor: "pointer" }}
 				color={"white"}
 				size={30}
+				className="glow-effect"
+			/>
+		</div>
+	);
+};
+
+const Historic = () => {
+	const navigate = useNavigate();
+	return (
+		<div href="#" onClick={() => navigate("/admin_historico")}>
+			<IoIosFolder
+				style={{ cursor: "pointer" }}
+				color={"white"}
+				size={23}
 				className="glow-effect"
 			/>
 		</div>
