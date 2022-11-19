@@ -20,10 +20,9 @@ const AdminIluminacao = () => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/get_all_street_lighting');
+				const { data } = await api.get("/get_all_street_lighting");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
@@ -80,22 +79,25 @@ const AdminIluminacao = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
-						problems.map((problem) => (
-							<AdminListCard
-								key={problem._id}
-								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
-								report={true}
-								userId={problem.userId}
-								url="del_street_lighting"
-								id={problem._id}
-								setRefresh={setRefresh}
-							/>
-						))
-					}
+					{problems.map((problem) => (
+						<AdminListCard
+							key={problem._id}
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							streetNumber={problem.streetNumber}
+							descricao={problem.description}
+							report={true}
+							status={true}
+							problemStatus={problem.serviceStatus}
+							userId={problem.userId}
+							serviceName="Problemas na Iluminação Publica"
+							url="del_street_lighting"
+							url_put_status="street_lighting/update-status"
+							id={problem._id}
+							setRefresh={setRefresh}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

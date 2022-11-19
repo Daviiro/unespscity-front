@@ -24,7 +24,7 @@ const UserHistoric = () => {
 			try {
 				const { data } = await api.get("/get-historic-by-user", {
 					params: {
-						userId: -1, //user.userId,
+						userId: user.userId,
 					},
 				});
 				setUserHistoricData(data);
@@ -55,13 +55,12 @@ const UserHistoric = () => {
 
 				<MidContentContainer>
 					{userHistoricData.length !== 0 ? (
-						userHistoricData.map((notif) => {
-							if (notif.userId == -1) {
-								//user.userId)
+						userHistoricData.map((item) => {
+							if (item.userId == user.userId) {
 								return (
 									<UserHistoricCard
-										key={notif._id}
-										data={notif}
+										key={item._id}
+										data={item}
 									/>
 								);
 							} else {

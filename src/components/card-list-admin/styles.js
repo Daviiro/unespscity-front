@@ -1,4 +1,4 @@
-import styled from "styled-components";	
+import styled from "styled-components";
 
 export const ListCardContainer = styled.div`
 	display: flex;
@@ -21,7 +21,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const ButtonDiv = styled.div`
-    width: 100%;
+	width: 100%;
 	height: 8vh;
 	display: flex;
 	align-items: center;
@@ -29,7 +29,7 @@ export const ButtonDiv = styled.div`
 `;
 
 export const Button = styled.button`
-	width: 7rem;
+	width: auto;
 	height: 5.25vh;
 	margin-right: 2rem;
 	background: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
@@ -52,14 +52,14 @@ export const Button = styled.button`
 
 export const ContainerColumn = styled.div`
 	display: flex;
-	width: 75%;	
+	width: 75%;
 	flex-direction: column;
 	overflow-y: auto;
 
-	h2 { 
+	h2 {
 		margin-top: 7vh;
 		color: #133d59;
-		text-align: left; 
+		text-align: left;
 	}
 
 	h3 {
@@ -82,7 +82,7 @@ export const ContainerColumn = styled.div`
 	}
 
 	::-webkit-scrollbar {
-		width: 8px; 
+		width: 8px;
 	}
 	::-webkit-scrollbar-track {
 		background: lightgray;
@@ -92,4 +92,23 @@ export const ContainerColumn = styled.div`
 		background: gray;
 		border-radius: 30px;
 	}
+`;
+
+export const StatusContainer = styled.div`
+	display: flex;
+	height: auto;
+	overflow: hidden;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: space-between;
+	padding: 30px;
+`;
+
+export const StatusContainerButtons = styled.div`
+	margin-top: 10px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
 `;

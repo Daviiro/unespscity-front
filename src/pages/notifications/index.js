@@ -17,20 +17,7 @@ import NotificationCard from "./card";
 
 const Notifications = () => {
 	const { user } = useContext(Context);
-	const [notificationData, setNotificationData] = useState([
-		{
-			_id: 1,
-			serviceId: 1,
-			userId: 1,
-			serviceName: "Iluminacao",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo ou que algo aconteceu",
-			street: "Rua Faria Lima",
-			streetNumber: 5757,
-			status: 1,
-			date: new Date(),
-		},
-	]);
+	const [notificationData, setNotificationData] = useState([]);
 
 	useEffect(() => {
 		async function getNotifications() {

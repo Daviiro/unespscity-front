@@ -20,6 +20,7 @@ const UserHistoricCard = (props) => {
 	const [openDialog, setOpenDialog] = useState(false);
 	const [newNumber, setNewNumber] = useState(props.data.streetNumber);
 	const [newStatus, setNewStatus] = useState(props.data.serviceStatus);
+	const [newReferencePoint, setNewReferencePoint] = useState("");
 	const [newStreet, setNewStreet] = useState(props.data.street);
 	const [newDescription, setNewDescription] = useState(
 		props.data.description
@@ -46,45 +47,34 @@ const UserHistoricCard = (props) => {
 		return day + "/" + month + "/" + year;
 	};
 
-	const handleEdit = (id, serviceName) => {
+	const handleEdit = () => {
 		let adress;
-		if (serviceName === "Problemas na Iluminação Publica") {
+		if (props.data.serviceName === "Problemas na Iluminação Publica") {
 			adress = "/street_lighting";
 		}
-		if (serviceName === "Problemas com Monumentos") {
+		if (props.data.serviceName === "Problemas com Monumentos") {
 			adress = "/monument";
 		}
-		if (serviceName === "Problemas com Pavimentação") {
+		if (props.data.serviceName === "Problemas com Pavimentação") {
 			adress = "/paviment";
 		}
 
 		try {
-			const res = api.put("/update-historic", {
+			const res2 = api.put(`${adress}/${props.data._id}`, {
 				data: {
-					serviceId: id,
-					serviceName: serviceName,
+					id: props.data._id,
+					serviceName: props.data.serviceName,
 					description: newDescription,
 					street: newStreet,
+					referencePoint: newReferencePoint,
+					latitude: -1,
+					longitude: -1,
 					streetNumber: newNumber,
-					serviceStatus: props.data.serviceStatus,
+					//serviceStatus: props.data.serviceStatus,
+					images: [],
 				},
 			});
-			console.log(res);
-			try {
-				const res2 = api.put(`${adress}/${id}`, {
-					data: {
-						serviceId: id,
-						serviceName: serviceName,
-						description: newDescription,
-						street: newStreet,
-						streetNumber: newNumber,
-						serviceStatus: props.data.serviceStatus,
-					},
-				});
-				console.log(res2);
-			} catch (e) {
-				console.log(e);
-			}
+			console.log(res2);
 		} catch (e) {
 			console.log(e);
 		}
@@ -100,6 +90,9 @@ const UserHistoricCard = (props) => {
 	};
 	const handleNewDescriptionChange = (evt) => {
 		setNewDescription(evt.target.value);
+	};
+	const handleNewReferencePointChange = (evt) => {
+		setNewReferencePoint(evt.target.value);
 	};
 
 	return (
@@ -189,15 +182,20 @@ const UserHistoricCard = (props) => {
 						onChange={handleNewNumberChange}
 						value={newNumber}
 					/>
+					<TextField
+						fullWidth
+						autoFocus
+						margin="dense"
+						type="text"
+						id="outlined-basic"
+						label="Ponto de Referência"
+						variant="standard"
+						onChange={handleNewReferencePointChange}
+						value={newReferencePoint}
+					/>
 				</DialogContent>
 				<DialogActions>
-					<Button
-						onClick={() =>
-							handleEdit(props.data._id, props.data.serviceName)
-						}
-					>
-						Confirmar
-					</Button>
+					<Button onClick={() => handleEdit()}>Confirmar</Button>
 					<Button onClick={handleClose}>Cancelar</Button>
 				</DialogActions>
 			</Dialog>

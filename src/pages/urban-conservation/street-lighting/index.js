@@ -27,17 +27,18 @@ const Iluminacao = (props) => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/get_all_street_lighting');
+				const { data } = await api.get("/get_all_street_lighting");
 				let totalSolicitados = data.length;
-				setTotalResolvidos(data.filter((service) => service.isResolved === true).length);
+				setTotalResolvidos(
+					data.filter((service) => service.isResolved === true).length
+				);
 				setTotalNaoResolvidos(totalSolicitados - totalResolvidos);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
 		getProblems();
-	}, []);	
+	}, []);
 
 	const [isFavorite, setIsFavorite] = useState(false);
 	useEffect(() => {
@@ -142,9 +143,9 @@ const Iluminacao = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					<ServiceOrderInformation 
+					<ServiceOrderInformation
 						srcaddress="/create_street_lighting"
-						descriptionHelperText="Descreva com detalhes a situação que está a lampada (totalmente queimada, piscando, com a luz fraca, etc)." 
+						descriptionHelperText="Descreva com detalhes a situação que está a lampada (totalmente queimada, piscando, com a luz fraca, etc)."
 					/>
 				</MidContentContainer>
 			</ContentContainer>
