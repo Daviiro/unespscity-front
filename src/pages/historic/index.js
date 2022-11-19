@@ -17,52 +17,14 @@ import UserHistoricCard from "./card";
 
 const UserHistoric = () => {
 	const { user } = useContext(Context);
-	const [userHistoricData, setUserHistoricData] = useState([
-		{
-			_id: 1,
-			serviceId: 1,
-			userId: 1,
-			serviceName: "Iluminacao",
-			description: "Há uma sequência de três postes queimados nesta rua.",
-			street: "Rua Faria Lima",
-			streetNumber: 5757,
-			date: new Date(),
-		},
-	]);
-	{
-		/**
-const userHistoricData2 = [
-		{
-			id: 1,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo ou que algo aconteceu",
-			date: new Date(),
-		},
-		{
-			id: 2,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			date: new Date(),
-		},
-		{
-			id: 3,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			date: new Date(),
-		},
-	];
-*/
-	}
+	const [userHistoricData, setUserHistoricData] = useState([]);
 
 	useEffect(() => {
 		async function getNotifications() {
 			try {
 				const { data } = await api.get("/get-historic-by-user", {
 					params: {
-						userId: user.userId,
+						userId: -1, //user.userId,
 					},
 				});
 				setUserHistoricData(data);
@@ -94,7 +56,8 @@ const userHistoricData2 = [
 				<MidContentContainer>
 					{userHistoricData.length !== 0 ? (
 						userHistoricData.map((notif) => {
-							if (notif.userId == user.userId) {
+							if (notif.userId == -1) {
+								//user.userId)
 								return (
 									<UserHistoricCard
 										key={notif._id}
@@ -108,7 +71,10 @@ const userHistoricData2 = [
 							}
 						})
 					) : (
-						<h4> O seu histórico ainda está vazio. </h4>
+						<h4>
+							O seu histórico ainda está vazio ou você não está
+							logado.
+						</h4>
 					)}
 					{/**
 					 * <HistoricList data = {userHistoricData} />

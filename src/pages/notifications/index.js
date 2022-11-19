@@ -31,56 +31,19 @@ const Notifications = () => {
 			date: new Date(),
 		},
 	]);
-	{
-		/**
-const notificationData2 = [
-		{
-			id: 1,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo ou que algo aconteceu",
-			status: -1,
-			date: new Date(),
-		},
-		{
-			id: 2,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			status: 1,
-			date: new Date(),
-		},
-		{
-			id: 3,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			status: 2,
-			date: new Date(),
-		},
-	];
-*/
-	}
 
 	useEffect(() => {
 		async function getNotifications() {
 			try {
 				const { data } = await api.get("/notify-by-user", {
-					data: {
+					params: {
 						userId: user.userId,
 					},
 				});
-				setNotificationData(data);
-				//atualizar todas como "lidas"
-				try {
-					api.put("/notify", {
-						userId: user.userId,
-					}).then((res) => {
-						console.log(res);
-					});
-				} catch (e) {
-					console.log(e);
+				if (data !== false) {
+					setNotificationData(data);
 				}
+				//atualizar todas como "lidas"
 			} catch (e) {
 				console.log(e);
 			}

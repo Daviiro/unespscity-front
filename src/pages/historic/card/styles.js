@@ -32,4 +32,17 @@ export const SubContainer = styled.div`
 		padding: 0px;
 		justify-content: space-around;
 	}
+
+	.buttons {
+		justify-content: center;
+	}
+`;
+
+export const ButtonsContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
 `;

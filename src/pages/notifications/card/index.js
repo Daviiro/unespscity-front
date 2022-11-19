@@ -10,6 +10,15 @@ const NotificationCard = (props) => {
 	const handleOpen = () => {
 		setOpen(!open);
 	};
+
+	const formatDate = (input) => {
+		var datePart = input.match(/\d+/g),
+			year = datePart[0].substring(2),
+			month = datePart[1],
+			day = datePart[2];
+
+		return day + "/" + month + "/" + year;
+	};
 	return (
 		<Container onClick={() => handleOpen()}>
 			<SubContainer>
@@ -46,14 +55,12 @@ const NotificationCard = (props) => {
 					<SubContainer style={{ padding: 0 }}>
 						<div className="collapsed">
 							<Typography variant="subtitle1">
-								Rua: {props.data.street}, Número:{" "}
+								Rua: {props.data.street}, Número:
 								{props.data.streetNumber}
 							</Typography>
 							<Typography variant="subtitle1">
 								Data da requisição:
-								<span>{props.data.date.getUTCDate()}</span>/
-								<span>{props.data.date.getUTCMonth() + 1}</span>
-								/<span>{props.data.date.getUTCFullYear()}</span>
+								<span>{formatDate(props.data.date)}</span>
 							</Typography>
 						</div>
 					</SubContainer>
