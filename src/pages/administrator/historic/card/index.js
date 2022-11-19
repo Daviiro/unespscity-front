@@ -10,6 +10,15 @@ const AdminHistoricCard = (props) => {
 	const handleOpen = () => {
 		setOpen(!open);
 	};
+
+	const formatDate = (input) => {
+		var datePart = input.match(/\d+/g),
+			year = datePart[0].substring(2), // get only two digits
+			month = datePart[1],
+			day = datePart[2];
+
+		return day + "/" + month + "/" + year;
+	};
 	return (
 		<Container onClick={() => handleOpen()}>
 			<SubContainer>
@@ -40,9 +49,7 @@ const AdminHistoricCard = (props) => {
 							</Typography>
 							<Typography variant="subtitle1">
 								Data da requisição:
-								<span>{props.data.date.getUTCDate()}</span>/
-								<span>{props.data.date.getUTCMonth() + 1}</span>
-								/<span>{props.data.date.getUTCFullYear()}</span>
+								<span>{formatDate(props.data.date)}</span>
 							</Typography>
 						</div>
 					</SubContainer>

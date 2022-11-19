@@ -17,66 +17,14 @@ import AdminHistoricCard from "./card";
 
 const AdminHistoric = () => {
 	const { user } = useContext(Context);
-	const [adminHistoricData, setAdminHistoricData] = useState([
-		{
-			_id: 1,
-			serviceId: 1,
-			userId: 1,
-			serviceName: "Iluminacao",
-			description:
-				"Há uma sequência de três postes queimados nesta rua.",
-			street: "Rua Faria Lima",
-			streetNumber: 5757,
-			date: new Date(),
-		},
-	]);
-	{
-		/**
-const adminHistoricData2 = [
-		{
-			id: 1,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo ou que algo aconteceu",
-			date: new Date(),
-		},
-		{
-			id: 2,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			date: new Date(),
-		},
-		{
-			id: 3,
-			title: "Notificação 1",
-			description:
-				"Esta notificação avisa que tu fez algo ou que algo aconteceu",
-			date: new Date(),
-		},
-	];
-*/
-	}
+	const [adminHistoricData, setAdminHistoricData] = useState([]);
 
 	useEffect(() => {
 		async function getNotifications() {
 			try {
-				const { data } = await api.get("/notify-by-user", {
-					data: {
-						userId: user.userId,
-					},
-				});
+				const { data } = await api.get("/get-all-historic", {});
 				setAdminHistoricData(data);
-				//atualizar todas como "lidas"
-				try {
-					api.put("/notify", {
-						userId: user.userId,
-					}).then((res) => {
-						console.log(res);
-					});
-				} catch (e) {
-					console.log(e);
-				}
+				console.log(data);
 			} catch (e) {
 				console.log(e);
 			}
@@ -102,18 +50,12 @@ const adminHistoricData2 = [
 				<MidContentContainer>
 					{adminHistoricData.length !== 0 ? (
 						adminHistoricData.map((notif) => {
-							if (notif.userId === user.userId) {
-								return (
-									<AdminHistoricCard
-										key={notif._id}
-										data={notif}
-									/>
-								);
-							} else {
-								return (
-									<h4> O histórico ainda está vazio.  </h4>
-								);
-							}
+							return (
+								<AdminHistoricCard
+									key={notif._id}
+									data={notif}
+								/>
+							);
 						})
 					) : (
 						<h4> O histórico ainda está vazio. </h4>
