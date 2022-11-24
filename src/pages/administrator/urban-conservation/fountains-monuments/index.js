@@ -20,10 +20,9 @@ const AdminMonumentos = () => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/monument');
+				const { data } = await api.get("/monument");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
@@ -73,29 +72,31 @@ const AdminMonumentos = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências de monumentos e chafarizes da cidade com
-							vandalização, solicitação de limpeza, destruição e/ou outras irregularidades."
+							Lista com todas as ocorrências de monumentos e
+							chafarizes da cidade com vandalização, solicitação
+							de limpeza, destruição e/ou outras irregularidades."
 						</DescriptionText>
 					</div>
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
-						problems.map((problem) => (
-							<AdminListCard
-								key={problem._id}
-								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
-								report={true}
-								userId={problem.userId}
-								url="monument"
-								id={problem._id}
-								setRefresh={setRefresh}
-							/>
-						))
-					}
+					{problems.map((problem) => (
+						<AdminListCard
+							key={problem._id}
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							descricao={problem.description}
+							report={true}
+							status={true}
+							problemStatus={problem.serviceStatus}
+							userId={problem.userId}
+							url="monument"
+							url_put_status="monument/update_resolved"
+							id={problem._id}
+							setRefresh={setRefresh}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

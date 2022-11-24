@@ -20,10 +20,9 @@ const AdminPavimentacao = () => {
 	useEffect(() => {
 		async function getProblems() {
 			try {
-				const { data } = await api.get('/paviment');
+				const { data } = await api.get("/paviment");
 				setProblems(data);
-			}
-			catch (e) {
+			} catch (e) {
 				console.log(e);
 			}
 		}
@@ -68,34 +67,33 @@ const AdminPavimentacao = () => {
 					/>
 					<div style={{ marginTop: "14px" }}>
 						<div style={{ textAlign: "center" }}>
-							<Typography variant="h4">
-								Pavimentação
-							</Typography>
+							<Typography variant="h4">Pavimentação</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as pavimentações em
-							situações ruins relatadas pelos usuarios.
+							Lista com todas as pavimentações em situações ruins
+							relatadas pelos usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					{
-						problems.map((problem) => (
-							<AdminListCard
-								key={problem._id}
-								source={problem.images}
-								nome={problem.street}
-								sobrenome={problem.referencePoint}
-								descricao={problem.description}
-								report={true}
-								userId={problem.userId}
-								url="del_paviment"
-								id={problem._id}
-								setRefresh={setRefresh}
-							/>
-						))
-					}
+					{problems.map((problem) => (
+						<AdminListCard
+							key={problem._id}
+							source={problem.images}
+							nome={problem.street}
+							sobrenome={problem.referencePoint}
+							descricao={problem.description}
+							report={true}
+							status={true}
+							problemStatus={problem.serviceStatus}
+							userId={problem.userId}
+							url="del_paviment"
+							url_put_status="paviment/update_resolved"
+							id={problem._id}
+							setRefresh={setRefresh}
+						/>
+					))}
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

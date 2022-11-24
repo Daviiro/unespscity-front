@@ -97,3 +97,19 @@ export const ContainerLogo = styled.div`
 		padding-right: 1rem;
 	}
 `;
+
+export const ButtonBadge = styled.button`
+	background-color: #f04040;
+	border: none;
+	color: #ffffff;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 100%;
+	margin-left: -8px;
+`;
+
+export const NotificationContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+`;

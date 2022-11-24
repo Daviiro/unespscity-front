@@ -24,13 +24,24 @@ const Notifications = () => {
 			try {
 				const { data } = await api.get("/notify-by-user", {
 					params: {
-						userId: user.userId,
+						userId: -1, //user.userId,
 					},
 				});
 				if (data !== false) {
 					setNotificationData(data);
+					console.log(data);
 				}
 				//atualizar todas como "lidas"
+				try {
+					const res = await api.put("/update-is-read", {
+						params: {
+							userId: -1, //user.userId,
+						},
+					});
+					console.log("res" + res.status);
+				} catch (e) {
+					console.log(e);
+				}
 			} catch (e) {
 				console.log(e);
 			}
@@ -56,7 +67,8 @@ const Notifications = () => {
 				<MidContentContainer>
 					{notificationData.length !== 0 ? (
 						notificationData.map((notif) => {
-							if (notif.userId === user.userId) {
+							if (notif.userId === -1) {
+								//user.userId) {
 								return (
 									<NotificationCard
 										key={notif._id}

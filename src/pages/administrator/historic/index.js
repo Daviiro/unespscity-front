@@ -16,7 +16,6 @@ import { Context } from "../../../context/Auth/AuthContext";
 import AdminHistoricCard from "./card";
 
 const AdminHistoric = () => {
-	const { user } = useContext(Context);
 	const [adminHistoricData, setAdminHistoricData] = useState([]);
 
 	useEffect(() => {

@@ -21,11 +21,12 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { TextField } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
 
 const AdminListCard = (props) => {
 	const [open, setOpen] = useState(false);
 	const [openStatus, setOpenStatus] = useState(false);
-	const [newDesc, setNewDesc] = useState(false);
+	const [newDesc, setNewDesc] = useState("");
 	const handleNewDescChange = (evt) => {
 		setNewDesc(evt.target.value);
 		console.log(newDesc);
@@ -75,9 +76,22 @@ const AdminListCard = (props) => {
 					street: props.nome,
 					streetNumber: props.streetNumber,
 				},
+			}).then((response) => {
+				console.log(response);
+				toast.success("Alteração de status realizada com sucesso", {
+					position: toast.POSITION.TOP_RIGHT,
+				});
 			});
 		} catch (e) {
 			console.log(e);
+			if (e.response.status === 404) {
+				toast.error(
+					"Erro 404 ocorreu, servidor não pôde ser encontrado!",
+					{
+						position: toast.POSITION.TOP_RIGHT,
+					}
+				);
+			}
 		}
 		setOpenStatus(false);
 	};
@@ -96,6 +110,7 @@ const AdminListCard = (props) => {
 
 	return (
 		<ListCardContainer>
+			<ToastContainer autoClose={5000} hideProgressBar={true} />
 			<InfoContainer>
 				<ImageCarousel images={props.source} />
 				<ContainerColumn>
@@ -103,7 +118,7 @@ const AdminListCard = (props) => {
 					<h3> {props.sobrenome} </h3>
 					<h4> {props.descricao} </h4>
 
-					{props.status ? (
+					{props.status && props.problemStatus ? (
 						<h4>
 							Status: {returnFormatedStatus(props.problemStatus)}
 						</h4>
@@ -170,7 +185,7 @@ const AdminListCard = (props) => {
 							</FormLabel>
 							<RadioGroup
 								aria-labelledby="demo-radio-buttons-group-label"
-								defaultValue="1"
+								defaultValue={props.problemStatus.toString()}
 								name="radio-buttons-group"
 								onChange={handleChangeStatus}
 							>

@@ -4,6 +4,8 @@ import {
 	ContainerActions,
 	ContainerLogo,
 	ContainerCenter,
+	ButtonBadge,
+	NotificationContainer,
 } from "./styles";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -15,6 +17,8 @@ import SlideDownMenu from "./slide-down-menu";
 import LocalContext from "../../pages/user-location/Context";
 import { fetchCityForID } from "../../services/IBGE";
 import { IoIosNotificationsOutline, IoIosFolder } from "react-icons/io";
+import { api } from "../../services/api";
+import { Context } from "../../context/Auth/AuthContext";
 
 const Header = () => {
 	const [windowDimenion, detectHW] = useState({
@@ -41,6 +45,8 @@ const Header = () => {
 	}, [windowDimenion]);
 
 	const [sidebar, setSidebar] = useState(false);
+	const { user } = useContext(Context);
+	const [showBadge, setShowBadge] = useState(false);
 
 	const showSidebar = () => {
 		setSidebar(!sidebar);
@@ -82,13 +88,35 @@ const Header = () => {
 
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		async function getNotifications() {
+			try {
+				const { data } = await api.get("/notify-by-user", {
+					params: {
+						userId: -1, //user.userId,
+					},
+				});
+				if (data !== false) {
+					data.map((notif) => {
+						if (notif.isRead === 1) {
+							setShowBadge(true);
+						}
+					});
+				}
+				//atualizar todas como "lidas"
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		getNotifications();
+	}, []);
+
 	return (
 		<>
 			<Sidebar sidebar={sidebar} showSidebar={showSidebar} />
 			<HeaderContainer>
 				<ContainerLogo>
 					<Link to="/" className="logo">
-						{" "}
 						<img
 							src={
 								process.env.PUBLIC_URL +
@@ -120,8 +148,15 @@ const Header = () => {
 
 				{windowDimenion.winWidth >= 958 ? (
 					<ContainerActions>
-						<div> <Notifications /> </div>
-						<div> <Historic /> </div>
+						<div>
+							<NotificationContainer>
+								<Notifications />
+								{showBadge && <ButtonBadge />}
+							</NotificationContainer>
+						</div>
+
+						<Historic />
+
 						<div>
 							<UserClickHandle>
 								<SlideDownMenu />
