@@ -1,25 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../../../../components/styled-components/form-button";
-import { ContainerBase, ContainerColumn } from "../components/styles";
+import { PopupBackground, PopupContainer } from "../../../home/pop-up/styles";
+import MiniCard from "../../../home/pop-up/mini-card";
+import Button from "@mui/material/Button";
 
-const MeioAmbienteOpcoes = () => {
-	return (
-		<>
-			<ContainerBase>
-				<ContainerColumn>
-					<Link to="/admin/adocao_areas_publicas">
-						<Button text="Adoção de Áreas Públicas" />
-					</Link>
-					<Link to="/admin/monitoramento">
-						<Button text="Monitoramento do Tempo" />
-					</Link>
-					<Link to="/admin/coleta-de-lixo">
-						<Button text="Coleta de Lixo" />
-					</Link>
-				</ContainerColumn>
-			</ContainerBase>
-		</>
-	);
-};
-export default MeioAmbienteOpcoes;
+const EnvironmentPopUp = (props) => {
+    return (props.trigger) ? (
+        <PopupBackground>
+            <PopupContainer style = {{ width: "45%" }} >
+                <Link to = "/admin/adocao_areas_publicas" style={{ textDecoration: "none", color: "#1b262c" }}>
+                    <MiniCard
+						source="/assets/img/home_pracas.png"
+						titulo="Adoção de Áreas Públicas"
+                    />
+                </Link>
+                <Link to = "/admin/monitoramento" style={{ textDecoration: "none", color: "#1b262c" }}>
+                    <MiniCard
+						source="/assets/img/home_monitoramento_tempo.png"
+						titulo="Monitoramento do Tempo"
+                    />
+                </Link>
+                <Link to = "/admin/coleta-de-lixo" style={{ textDecoration: "none", color: "#1b262c" }}>
+                    <MiniCard
+						source="/assets/img/home_coleta_lixo.png"
+						titulo="Coleta de Lixo"
+                    />
+                </Link>
+                <Button onClick = {() => props.setTrigger(false)} 
+                variant = "contained" 
+                style = {{ position: "absolute", bottom: "2vh", right: "2vh" }}>
+                    Fechar
+                </Button>
+            </PopupContainer>
+        </PopupBackground>
+    ) : "";
+}
+
+export default EnvironmentPopUp;

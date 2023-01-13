@@ -15,8 +15,6 @@ export const HeaderContainer = styled.div`
 
 	img {
 		width: auto;
-		max-height: 2.5rem;
-		max-width: 2.5rem;
 		opacity: 1;
 	}
 
@@ -78,11 +76,17 @@ export const ContainerActions = styled.div`
 `;
 
 export const ContainerCenter = styled.div`
-	width: 10rem;
+	width: 12rem;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+
+	img {
+		height: 8.5rem;
+		width: auto;
+		margin-left: -3.5vw;
+	}
 `;
 
 export const ContainerLogo = styled.div`
@@ -93,8 +97,14 @@ export const ContainerLogo = styled.div`
 	justify-content: space-around;
 	align-items: center;
 	font-size: 14px;
+
 	.logo {
 		padding-right: 1rem;
+	}
+
+	img {
+		width: 2.5rem;
+		height: auto;
 	}
 `;
 

@@ -10,7 +10,7 @@ import AdminRoutes from "./AdminRoutes";
 
 import Dashboard from "./pages/administrator/index"; // DASHBOARD PARA O ADMIN
 import Dashboard2 from "./pages/administrator/index2";
-import AllRequests from "./pages/administrator/requested-services/all-requests";
+import Microsservices from "./pages/administrator/requested-services";
 import AdminHistoric from "./pages/administrator/historic";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
 import ComunicacaoOpcoes from "./pages/administrator/requested-services/communication";
@@ -290,7 +290,7 @@ const AppRoutes = () => {
 							)
 						}
 					/>
-					<Route element={<AdminRoutes />}>
+					<Route element={<AdminRoutes />}>	
 						<Route exact path="/admin" element={<Dashboard />} />
 						<Route
 							exact
@@ -299,8 +299,8 @@ const AppRoutes = () => {
 						/>
 						<Route
 							exact
-							path="/todas_solicitacoes"
-							element={<AllRequests />}
+							path="/microsservicos"
+							element={<Microsservices />}
 						/>
 						<Route
 							exact
@@ -622,7 +622,7 @@ const AppRoutes = () => {
 							path="/admin/monitoramento-pessoas-veiculos"
 							element={<TrafficMonitoring />}
 						/>
-					</Route>
+					</Route>	
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 

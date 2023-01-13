@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonStyle = styled.div`
-height: 7.5vh;
+height: 4.25vh;
 width: 26vw;
 background: linear-gradient(to right, #0f4c75, #3282b8, #0f4c75);
 border: none;
@@ -11,9 +11,9 @@ margin-left: 18.5vw;
 text-align: center;
 
 h3 {
+    font-size: 17pt;
     color: #ffffff;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    margin-top: 2.35vh;
 }
 
 :hover {

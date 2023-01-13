@@ -122,7 +122,7 @@ const Header = () => {
 								process.env.PUBLIC_URL +
 								"/assets/img/home_logo_branco.png"
 							}
-							alt="Logo"
+							alt="Home"
 						/>
 					</Link>
 					<div
@@ -143,7 +143,7 @@ const Header = () => {
 				</ContainerLogo>
 
 				<ContainerCenter>
-					<h1 style={{ cursor: "default" }}> UnespSCity </h1>
+					<img src = {process.env.PUBLIC_URL + "/assets/img/UnespSCity_Logo.png"} alt = "Logo"/>
 				</ContainerCenter>
 
 				{windowDimenion.winWidth >= 958 ? (
