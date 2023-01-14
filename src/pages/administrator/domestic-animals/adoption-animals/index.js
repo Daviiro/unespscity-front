@@ -74,7 +74,7 @@ const AdminAdoptionAnimals = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista de todas as notificações sobre doações de animais 
+							Lista de todas as evidências sobre doações de animais 
 							feitas pelo usuario.
 						</DescriptionText>
 					</div>

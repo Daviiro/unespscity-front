@@ -74,7 +74,7 @@ const AdminAnimaisPerdidos = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências de animais perdidos
+							Lista com todas as evidências de animais perdidos
 							no município.
 						</DescriptionText>
 					</div>

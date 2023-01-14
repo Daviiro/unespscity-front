@@ -63,7 +63,7 @@ const AdminPracas = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências em
+							Lista com todas as evidências de
 							praças públicas da cidade, como solicitação de
 							limpeza, informações sobre ocupação indevida, queimadas e
 							demais irregularidades e/ou sugestões.

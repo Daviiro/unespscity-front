@@ -10,6 +10,7 @@ import DomesticAnimalsPopup from "./domestic-animals/index";
 import EnvironmentPopUp from "./environment/index";
 import FaunaFloraPopUp from "./fauna-flora/index";
 import NeedyFamiliesPopUp from "./needy-families/index";
+import PanicButtonPopUp from "./panic-button/index";
 import PestControlPopup from "./pest-control/index";
 import PublicAdministrationPopUp from "./public-aministration/index";
 import RemoteSensingPopUp from "./remote-sensing/index";
@@ -39,6 +40,7 @@ const Microsservices = (props) => {
 	const [popup14, setPopup14] = useState(false);
 	const [popup15, setPopup15] = useState(false);
 	const [popup16, setPopup16] = useState(false);
+	const [popup17, setPopup17] = useState(false);
 
 	return (
 		<>
@@ -132,32 +134,39 @@ const Microsservices = (props) => {
 						<SecurityDefensePopUp trigger = {popup12} setTrigger = {setPopup12}/>
 						<div onClick = {() => setPopup13(true)}>
 						<Card
+							source="/assets/img/home_botao_panico.png"
+							titulo="Botão do Pânico"
+						/>
+						</div>
+						<PanicButtonPopUp trigger = {popup13} setTrigger = {setPopup13}/>
+						<div onClick = {() => setPopup14(true)}>
+						<Card
 							source="/assets/img/home_administracao_publica.png"
 							titulo="Administração Pública"
 						/>
 						</div>
-						<PublicAdministrationPopUp trigger = {popup13} setTrigger = {setPopup13}/>
-						<div onClick = {() => setPopup14(true)}>
+						<PublicAdministrationPopUp trigger = {popup14} setTrigger = {setPopup14}/>
+						<div onClick = {() => setPopup15(true)}>
 						<Card
 							source="/assets/img/home_notificacao_comunicacao.png"
 							titulo="Central de Notificação e Comunicação"
 						/>
 						</div>
-						<CommunicationPopUp trigger = {popup14} setTrigger = {setPopup14}/>
-						<div onClick = {() => setPopup15(true)}>
+						<CommunicationPopUp trigger = {popup15} setTrigger = {setPopup15}/>
+						<div onClick = {() => setPopup16(true)}>
 						<Card
 							source="/assets/img/home_sensoriamento_movel_participativo.png"
 							titulo="Sensoriamento Móvel Participativo"
 						/>
 						</div>
-						<RemoteSensingPopUp trigger = {popup15} setTrigger = {setPopup15}/>
-						<div onClick = {() => setPopup16(true)}>
+						<RemoteSensingPopUp trigger = {popup16} setTrigger = {setPopup16}/>
+						<div onClick = {() => setPopup17(true)}>
 						<Card
 							source="/assets/img/home_assossiacao_comercial.png"
 							titulo="Assossiação Comercial"
 						/>
 						</div>
-						<CommercialAssociationPopUp trigger = {popup16} setTrigger = {setPopup16}/>
+						<CommercialAssociationPopUp trigger = {popup17} setTrigger = {setPopup17}/>
 					</WrapContainer>
 					<GrayLine />
 				</Content>

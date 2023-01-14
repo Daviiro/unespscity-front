@@ -74,7 +74,7 @@ const AdminSynanthropicAnimals = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Consulte aqui a lista de denúncias contra Animais
+							Consulte aqui a lista de evidências contra Animais
 							Sinantrópicos.
 						</DescriptionText>
 					</div>

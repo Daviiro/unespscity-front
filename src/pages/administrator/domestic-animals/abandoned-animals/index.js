@@ -74,7 +74,7 @@ const AnimaisAbandonados = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista de todas as notificações sobre animais
+							Lista de todas as evidências sobre animais
 							Abandonados na rua.
 						</DescriptionText>
 					</div>

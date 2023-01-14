@@ -58,7 +58,7 @@ const AdminAnimaisMortos = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências relacionadas
+							Lista com todas as evidências relacionadas
 							a morte de animais. É necessário acionar o responsável para buscar
 							o corpo do animal no local.
 						</DescriptionText>

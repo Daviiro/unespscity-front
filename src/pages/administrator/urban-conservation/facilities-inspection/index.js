@@ -73,8 +73,8 @@ const AdminInstalacoes = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as reclamações sobre Instalações
-							que estão pela cidade.
+							Lista com todas as evidências sobre instalações
+							com problemas que estão pela cidade.
 						</DescriptionText>
 					</div>
 					<div></div>

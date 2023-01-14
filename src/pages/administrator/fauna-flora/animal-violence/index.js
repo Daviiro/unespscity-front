@@ -64,7 +64,7 @@ const AdminMausTratosAnimais = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as denúncias de maus tratos à
+							Lista com todas as evidências de maus tratos à
 							animais silvestres e domésticos.
 						</DescriptionText>
 					</div>

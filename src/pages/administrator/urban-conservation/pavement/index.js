@@ -71,7 +71,7 @@ const AdminPavimentacao = () => {
 						</div>
 						<DescriptionText>
 							Lista com todas as pavimentações em situações ruins
-							relatadas pelos usuarios.
+							evidenciadas pelos usuários.
 						</DescriptionText>
 					</div>
 					<div></div>

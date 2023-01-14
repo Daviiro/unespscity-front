@@ -44,7 +44,7 @@ const AdminAntiCorruptionCenter = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Consulte aqui a lista de denúncias contra atos de
+							Consulte aqui a lista de evidências contra atos de
 							corrupção e improbidade administrativa.
 						</DescriptionText>
 					</div>

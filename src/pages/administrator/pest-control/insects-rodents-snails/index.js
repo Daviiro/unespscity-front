@@ -70,7 +70,7 @@ const AdminPragas = () => {
 						</div>
 						<DescriptionText>
 							Lista com todos os focos de insetos, roedores e
-							caramujos que são relatados pelos usuarios.
+							caramujos evidenciados pelos usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>

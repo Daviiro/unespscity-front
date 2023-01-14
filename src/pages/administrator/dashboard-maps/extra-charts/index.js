@@ -1,20 +1,15 @@
 import React, { useEffect } from "react";
 import { PieChart } from "react-minimal-pie-chart";
-import { api } from "../../services/api";
+import { api } from "../../../../services/api";
 import {
 	ContainerBase,
-	Content,
-	GrayLine,
 	ChartContainer,
 	ContainerColumn,
-	ContainerRow,
-} from "./styles";
-import AdminHeader from "../../components/header/admin";
-import MiniCard from "../../components/mini-card";
-import { StyledHr } from "../../components/styled-components/StyledHr";
-import { MidContentContainer, DescriptionText } from "../../components/styled-components/PageStyles";
-import DashboardDescription from "../../components/styled-components/dashboard-description";
-import Footer from "../../components/footer";
+	ContainerRow
+} from "../../styles";
+import MiniCard from "../../../../components/mini-card";
+import { MidContentContainer } from "../../../../components/styled-components/PageStyles";
+import DashboardDescription from "../../../../components/styled-components/dashboard-description";
 
 const Dashboard2 = () => {
     let contagemConservacaoUrbana = new Array(5).fill(0);
@@ -240,18 +235,8 @@ const Dashboard2 = () => {
 
 	return (
 		<ContainerBase>
-			<AdminHeader />
-			<Content style={{ marginBottom: "-231vh" }}>
-				<ContainerColumn>
-					<h1> Dashboard </h1>
-					<StyledHr style={{ width: "95%", marginLeft: "-2vw" }} />
-				</ContainerColumn>
-			</Content>
 			<MidContentContainer>
-                <DescriptionText style={{ textAlign: "center" }}>
-                    Aqui você pode checar individualmente a quantidade total de ocorrências de cada serviço do município.
-                </DescriptionText>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
                 		<MiniCard
 							source="/assets/img/home_conservacao_urbana.png"
@@ -281,7 +266,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_conservacao_rural.png"
@@ -307,7 +292,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_remocao_detritos.png"
@@ -331,7 +316,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_vigilancia_sanitaria.png"
@@ -355,7 +340,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_controle_pragas.png"
@@ -383,7 +368,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_animais_domesticos.png"
@@ -413,7 +398,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_meio_ambiente.png"
@@ -435,7 +420,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_fauna_flora.png"
@@ -459,7 +444,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_assistencia_social.png"
@@ -481,7 +466,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<ChartContainer style={{ height: "50vh", width: "67%" }}>
+				<ChartContainer style={{ height: "50vh", width: "77%", marginLeft: "-3.5vw", marginBottom: "15vh" }}>
             		<ContainerRow>
             			<MiniCard
 							source="/assets/img/home_familias_carentes.png"
@@ -503,9 +488,7 @@ const Dashboard2 = () => {
 						</ContainerColumn>
             		</ContainerRow>
 				</ChartContainer>
-				<GrayLine style={{ width: "100%", marginBottom: "10vh" }} />
 			</MidContentContainer>
-			<Footer />
 		</ContainerBase>
 	);
 };

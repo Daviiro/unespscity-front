@@ -63,7 +63,7 @@ const AdminPontes = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as pontes em estradas rurais em
+							Lista com todas as evidências de estradas rurais em
 							situações ruins relatadas pelos usuarios.
 						</DescriptionText>
 					</div>

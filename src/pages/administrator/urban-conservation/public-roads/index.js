@@ -72,7 +72,7 @@ const AdminVias = () => {
 						</div>
 						<DescriptionText>
 							Lista com todas as vias publicas em situações ruins
-							relatadas pelos usuarios.
+							evidenciadas pelos usuários.
 						</DescriptionText>
 					</div>
 					<div></div>

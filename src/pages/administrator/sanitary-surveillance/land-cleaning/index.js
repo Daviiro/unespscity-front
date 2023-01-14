@@ -65,7 +65,7 @@ const AdminTerreno = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências de terrenos Publicos
+							Lista com todas as evidências de terrenos públicos
 							e/ou privados com irregularidades.
 						</DescriptionText>
 					</div>

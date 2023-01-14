@@ -163,8 +163,8 @@ const AdminAccidentRecords = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Aqui você pode ver e marcar como resolvido os
-							acidentes que ocorreram na cidade.
+							Aqui você pode ver e marcar como resolvido as
+							evidências de acidentes ocorridos na cidade.
 						</DescriptionText>
 					</div>
 					<div></div>

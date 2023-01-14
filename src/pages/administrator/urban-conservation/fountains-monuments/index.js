@@ -72,7 +72,7 @@ const AdminMonumentos = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências de monumentos e
+							Lista com todas as evidências de monumentos e
 							chafarizes da cidade com vandalização, solicitação
 							de limpeza, destruição e/ou outras irregularidades."
 						</DescriptionText>

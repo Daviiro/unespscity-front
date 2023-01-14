@@ -42,7 +42,7 @@ const AdminHistoric = () => {
 						minHeight: "100px",
 					}}
 				>
-					<Typography variant="h4"> Histórico da Cidade </Typography>
+					<Typography variant="h4"> Histórico de evidências da cidade </Typography>
 					<StyledHr />
 				</TopContentContainer>
 

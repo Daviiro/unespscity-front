@@ -15,6 +15,7 @@ import DashboardButton from "./index-button";
 import DashboardChart1 from "../../charts/chart1";
 import DashboardChart2 from "../../charts/chart2";
 import DashboardChart3 from "../../charts/chart3";
+import ExtraDashboard from "./dashboard-maps/extra-charts/extra-charts";
 import DashboardChart4 from "../../charts/chart4";
 import { MidContentContainer } from "../../components/styled-components/PageStyles";
 import DengueDashboard from "./dashboard-maps/dengue";
@@ -32,25 +33,24 @@ const Dashboard = () => {
 				<ContainerColumn>
 					<h1> Dashboard </h1>
 					<StyledHr style={{ width: "95%", marginLeft: "-2vw" }} />
-					<Link to = "/admin_details" style={{ textDecoration: "none", color: "#1b262c" }}>
-						<DashboardChart1 />
-					</Link>
+					<DashboardChart1 />
 					<Link to = "/microsservicos" style={{ textDecoration: "none", color: "#1b262c" }}>
 						<DashboardButton description="Acessar Microsserviços"/>
 					</Link>
 					<GrayLine />
-					<ChartContainer>
+					<ChartContainer style = {{ marginBottom: "-12vh" }}>
 						<ContainerRow>
 							<DashboardChart2 />
 							<DashboardChart3 />
 						</ContainerRow>
 					</ChartContainer>
-					<ChartContainer style={{ paddingTop: "2vh" }}>
+					<ExtraDashboard />
+					<ChartContainer style={{ paddingTop: "2vh", marginTop: "0", marginBottom: "-100vh" }}>
 						<DashboardChart4 />
 					</ChartContainer>
 				</ContainerColumn>
 			</Content>
-			<MidContentContainer>
+			<MidContentContainer style = {{ marginTop: "115vh" }}>
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
 				<TreesDashboard />
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
