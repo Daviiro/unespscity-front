@@ -64,7 +64,7 @@ const AdminTheftRegister = () => {
 						</div>
 						<DescriptionText>
 							Lista com todos os furtos ocorridos que foram
-							registrados na plataforma.
+							evidenciados na plataforma.
 						</DescriptionText>
 					</div>
 					<div></div>

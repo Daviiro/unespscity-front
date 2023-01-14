@@ -63,7 +63,7 @@ const AdminAnimaisSilvestres = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as ocorrências de Animais Silvestres
+							Lista com todas as evidências de Animais Silvestres
 							que incluem comércio ilegal, animal perdido/preso/em
 							cativeiro ou perturbação pública.
 						</DescriptionText>

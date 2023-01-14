@@ -48,7 +48,7 @@ const UserHistoric = () => {
 				>
 					<Typography variant="h4">
 						{" "}
-						Histórico de Solicitações{" "}
+						Histórico de Evidências (Solicitações) {" "}
 					</Typography>
 					<StyledHr />
 				</TopContentContainer>

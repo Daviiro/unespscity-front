@@ -69,8 +69,8 @@ const AdminEscorpiao = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todos os focos de escorpiões que são
-							relatados pelos usuarios.
+							Lista com todos os focos de escorpiões
+							evidenciados pelos usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>

@@ -9,7 +9,6 @@ import {
 import AdminRoutes from "./AdminRoutes";
 
 import Dashboard from "./pages/administrator/index"; // DASHBOARD PARA O ADMIN
-import Dashboard2 from "./pages/administrator/index2";
 import Microsservices from "./pages/administrator/requested-services";
 import AdminHistoric from "./pages/administrator/historic";
 import AssociacaoComercialOpcoes from "./pages/administrator/requested-services/commercial-association";
@@ -292,11 +291,6 @@ const AppRoutes = () => {
 					/>
 					<Route element={<AdminRoutes />}>	
 						<Route exact path="/admin" element={<Dashboard />} />
-						<Route
-							exact
-							path="/admin_details"
-							element={<Dashboard2 />}
-						/>
 						<Route
 							exact
 							path="/microsservicos"
@@ -622,7 +616,7 @@ const AppRoutes = () => {
 							path="/admin/monitoramento-pessoas-veiculos"
 							element={<TrafficMonitoring />}
 						/>
-					</Route>	
+					</Route>
 
 					{/** FIM DAS ROTAS DO ADMIN, COMECO DAS ROTAS DOS USUÁRIOS */}
 

@@ -157,7 +157,7 @@ const AdminLeishmaniose = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todos os focos de leishmaniose que são relatados pelos usuarios.
+							Lista com todos os focos de leishmaniose evidenciados pelos usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>

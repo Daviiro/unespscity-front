@@ -65,7 +65,7 @@ const AdminPiscinas = () => {
 						</div>
 						<DescriptionText>
 							Lista com todas as piscinas que precisam ser
-							limpas segundo relatadas pelos usuarios.
+							limpas evidenciadas usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>

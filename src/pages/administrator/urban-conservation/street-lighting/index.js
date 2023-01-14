@@ -72,7 +72,7 @@ const AdminIluminacao = () => {
 							</Typography>
 						</div>
 						<DescriptionText>
-							Lista com todas as reclamações de lampadas de postes
+							Lista com todas as evidências de lâmpadas de postes
 							queimados.
 						</DescriptionText>
 					</div>

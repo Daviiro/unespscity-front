@@ -70,7 +70,7 @@ const AdminDengue = () => {
 						</div>
 						<DescriptionText>
 							Lista com todos os focos de Dengue
-							que são relatados pelos usuarios.
+							evidenciados pelos usuarios.
 						</DescriptionText>
 					</div>
 					<div></div>
