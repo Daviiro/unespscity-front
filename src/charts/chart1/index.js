@@ -238,7 +238,7 @@ const DashboardChart1 = () => {
 				<Card>
 					<img src="/assets/img/home_conservacao_urbana.png" alt="Conservação Urbana"/>
 					<GrayLine />
-					<h5> 16 </h5> 
+					<h5> 6 </h5> 
 				{/*	<h5> {contagemTotal[0]} </h5> */}
 				</Card>
 				<Card>
@@ -256,19 +256,19 @@ const DashboardChart1 = () => {
 				<Card>
 					<img src="/assets/img/home_vigilancia_sanitaria.png" alt="Vigilância Sanitária"/>
 					<GrayLine />
-					<h5> 13 </h5> 
+					<h5> 1 </h5> 
 				{/*	<h5> {contagemTotal[3]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_controle_pragas.png" alt="Controle de Pragas" />
 					<GrayLine />
-					<h5> 20 </h5> 
+					<h5> 5 </h5> 
 				{/*	<h5> {contagemTotal[4]} </h5> */}
 				</Card>
 				<Card>
 					<img src="/assets/img/home_animais_domesticos.png" alt="Animais Domésticos" />
 					<GrayLine />
-					<h5> 25 </h5> 
+					<h5> 4 </h5> 
 				{/*	<h5> {contagemTotal[5]} </h5> */}
 				</Card>
 				<Card>
@@ -280,7 +280,7 @@ const DashboardChart1 = () => {
 				<Card>
 					<img src="/assets/img/home_fauna_flora.png" alt="Fauna e Flora" />
 					<GrayLine />
-					<h5> 10 </h5> 
+					<h5> 2 </h5> 
 				{/*	<h5> {contagemTotal[7]} </h5> */}
 				</Card>
 				<Card>

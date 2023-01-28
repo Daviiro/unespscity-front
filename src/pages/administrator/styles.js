@@ -1,20 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerBase = styled.div`
-	display: block;
-	justify-content: space-around;
 	height: 100vh;
 	width: 100%;
 `;
 
 export const Content = styled.div`
+	height: 90vh;
 	display: flex;
-	width: 92.5%;
-	margin-bottom: -45vh;
-	flex-direction: row;
-	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	margin-left: 7.5vw;
 `;
 
 export const GrayLine = styled.div`
