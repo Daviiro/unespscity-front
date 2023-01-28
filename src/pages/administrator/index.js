@@ -12,11 +12,9 @@ import {
 import AdminHeader from "../../components/header/admin";
 import { StyledHr } from "../../components/styled-components/StyledHr";
 import DashboardButton from "./index-button";
-import DashboardChart1 from "../../charts/chart1";
 import DashboardChart2 from "../../charts/chart2";
 import DashboardChart3 from "../../charts/chart3";
 import ExtraDashboard from "./dashboard-maps/extra-charts/extra-charts";
-import DashboardChart4 from "../../charts/chart4";
 import { MidContentContainer } from "../../components/styled-components/PageStyles";
 import DengueDashboard from "./dashboard-maps/dengue";
 import FairsDashboard from "./dashboard-maps/feiras";
@@ -85,7 +83,7 @@ const Dashboard = () => {
 
 	const options = {
 		series: [{
-			data: [14, 13, 11, 10, 8, 7, 5]
+			data: [7, 7, 7, 6, 6, 6, 5]
 		}],
 		title: {
 			text: 'Serviços mais solicitados', align: 'left'
@@ -104,18 +102,18 @@ const Dashboard = () => {
 			enabled: false
 		},
 		xaxis: {
-			categories: ['Iluminação Pública', 'Praças', 'Asfaltos', 'Animais perdidos', 'Acidentes', 'Pavimentação', 'Monumentos'],
+			categories: ["Animais Mortos", "Limpeza de Terreno", "Maus-tratos Animais", "Iluminação Pública", "Fiscalização de Instalações", "Limpeza de Piscinas", "Pontes em Estradas Rurais"],
 		}
 	};
 	return (
 		<ContainerBase>
 			<AdminHeader />
-			<Content>
+			<Content style = {{ marginBottom: "187.5vh" }}>
 				<div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginBottom: '40px' }}>
-					<Card title="Total de usuarios" value={"25"} />
-					<Card title="Total de serviços solicitados" value={"70"} />
-					<Card title="Total de serviços solucionados" value={"46"} />
-					<Card title="% dos serviços solucionados" value={'65,71%'} />
+					<Card title="Total de usuários:" value={"25"} />
+					<Card title="Total de serviços solicitados:" value={"115"} />
+					<Card title="Total de serviços solucionados:" value={"76"} />
+					<Card title="% dos serviços solucionados:" value={'66,08%'} />
 				</div>
 				<div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
 					<div style={{ width: '45%', paddingLeft: '30px' }}>
@@ -127,7 +125,6 @@ const Dashboard = () => {
 				</div>
 				<ContainerColumn>
 					<StyledHr style={{ width: "95%", marginLeft: "-2vw" }} />
-					<DashboardChart1 />
 					<Link to = "/microsservicos" style={{ textDecoration: "none", color: "#1b262c" }}>
 						<DashboardButton description="Acessar Microsserviços"/>
 					</Link>
@@ -139,12 +136,9 @@ const Dashboard = () => {
 						</ContainerRow>
 					</ChartContainer>
 					<ExtraDashboard />
-					<ChartContainer style={{ paddingTop: "2vh", marginTop: "0", marginBottom: "-100vh" }}>
-						<DashboardChart4 />
-					</ChartContainer>
 				</ContainerColumn>
 			</Content>
-			<MidContentContainer style = {{ marginTop: "115vh" }}>
+			<MidContentContainer>
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />
 				<TreesDashboard />
 				<GrayLine style={{ marginBottom: "-8.5vh" }} />

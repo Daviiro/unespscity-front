@@ -21,11 +21,11 @@ export const Card = (props) => (
                 alignItems="center"
                 justifyContent="center"
             >
-                <Typography color='#3282b8' fontSize="18px">
+                <Typography color='#133d59' fontSize="18px">
                     {props.title}
                 </Typography>
             </Box>
         </Box>
-        <Box ml={'45px'} display='flex' justifyContent={'flex-end'} marginRight='20px'><span style={{ fontSize: '60px', fontWeight: 'bold', color: '#3282b8' }}>{props.value}</span></Box>
+        <Box ml={'45px'} display='flex' justifyContent={'flex-end'} marginRight='20px'><span style={{ fontSize: '60px', fontWeight: 'bold', color: '#133d59' }}>{props.value}</span></Box>
     </Box>
 );

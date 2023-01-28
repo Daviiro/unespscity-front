@@ -222,16 +222,16 @@ const Dashboard2 = () => {
 		getProblems();
 	}, []);
 
-    contagemConservacaoUrbana = [11, 6, 11, 7, 5];
-    contagemConservacaoRural = [10, 4, 10];
-    contagemRemocaoDetritos = [7, 13];
-    contagemVigilanciaSanitaria = [14, 11];
-    contagemControlePragas = [8, 9, 6, 10];
-    contagemAnimaisDomesticos = [12, 8, 6, 10, 13];
-    contagemMeioAmbiente = 7;
-    contagemFaunaFlora = [7, 13];
-    contagemAssistenciaSocial = 5;
-    contagemFamiliasCarentes = 9;
+    contagemConservacaoUrbana = [6, 3, 6, 4, 3];
+    contagemConservacaoRural = [5, 2, 5];
+    contagemRemocaoDetritos = [4, 7];
+    contagemVigilanciaSanitaria = [7, 6];
+    contagemControlePragas = [4, 5, 3, 5];
+    contagemAnimaisDomesticos = [6, 4, 3, 5, 7];
+    contagemMeioAmbiente = 4;
+    contagemFaunaFlora = [4, 7];
+    contagemAssistenciaSocial = 3;
+    contagemFamiliasCarentes = 5;
 
 	return (
 		<ContainerBase>

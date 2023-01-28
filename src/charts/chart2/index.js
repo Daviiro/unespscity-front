@@ -231,8 +231,8 @@ const DashboardChart2 = () => {
 	}, []);
 	
 	
-	const totalSolicitados = new Array (24, 17, 8, 17, 13, 24, 6, 10, 5, 7);
-	const totalTotal = 135;
+	const totalSolicitados = new Array (14, 10, 5, 10, 7, 14, 3, 6, 3, 4);
+	const totalTotal = 76;
 //	const totalTotal = contagemTotal[0] + contagemTotal[1] + contagemTotal[2] + contagemTotal[3] + contagemTotal[4] + contagemTotal[5]
 //	+ contagemTotal[6] + contagemTotal[7] + contagemTotal[8] + contagemTotal[9];
 

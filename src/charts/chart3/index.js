@@ -203,8 +203,9 @@ const DashboardChart3 = () => {
 		getProblems();
 	}, []);
 	
-	let totalResolvidos = 135;
-	let totalNaoResolvidos = 102;
+	let totalSolicitados = 115;
+	let totalResolvidos = 76;
+	let totalNaoResolvidos = (115 - 76);
 	return (
 		<>
 			<div
@@ -221,12 +222,12 @@ const DashboardChart3 = () => {
 					{" "}
 					Índice de Eficiência: {" "}
 				</h3>
-				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> Serviços solicitados/resolvidos </span>
+				<span style={{ marginBottom: "3vh", marginLeft: "-2.75vw" }}> Serviços resolvidos e não-resolvidos </span>
 				<PieChart
             		center = {[54, 50]}
             		data = {[
                 		{title: "Total Resolvidos: " + totalResolvidos, value: totalResolvidos, color: "#3282b8"},
-                		{title: "Total Solicitados: " + totalNaoResolvidos, value: totalNaoResolvidos, color: "#133d59"},
+                		{title: "Total Não-Resolvidos: " + totalNaoResolvidos, value: totalNaoResolvidos, color: "#133d59"},
             		]}
 				/*	data = {[
                 		{title: "Total Resolvidos: " + resolvidosXnaoresolvidos[0], value: parseInt(resolvidosXnaoresolvidos[0]), color: "#3282b8"},
