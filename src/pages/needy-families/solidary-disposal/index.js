@@ -50,14 +50,14 @@ const DescarteSolidario = (props) => {
 			props.handleAddFavorite({
 				id: 35,
 				name: "Descarte Solidário",
-				img: "/assets/img/home_familias_carentes.png",
+				img: "/assets/img/home_descarte_solidario.png",
 				link: "/descarte_solidario",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 35,
 				name: "Descarte Solidário",
-				img: "/assets/img/home_familias_carentes.png",
+				img: "/assets/img/home_descarte_solidario.png",
 				link: "/descarte_solidario",
 			}); //se desfavoritou o servico
 		}

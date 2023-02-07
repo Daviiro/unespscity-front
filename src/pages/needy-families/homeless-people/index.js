@@ -31,14 +31,14 @@ const HomelessPeople = (props) => {
 			props.handleAddFavorite({
 				id: 36,
 				name: "Moradores de Rua",
-				img: "/assets/img/home_familias_carentes.png",
+				img: "/assets/img/home_moradores_rua.png",
 				link: "/moradores_rua",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 36,
 				name: "Moradores de Rua",
-				img: "/assets/img/home_familias_carentes.png",
+				img: "/assets/img/home_moradores_rua.png",
 				link: "/moradores_rua",
 			}); //se desfavoritou o servico
 		}

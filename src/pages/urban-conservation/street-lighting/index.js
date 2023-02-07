@@ -51,14 +51,14 @@ const Iluminacao = (props) => {
 			props.handleAddFavorite({
 				id: 2,
 				name: "Iluminação Pública",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_iluminacao_publica.png",
 				link: "/iluminacao_publica",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 2,
 				name: "Iluminação Pública",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_iluminacao_publica.png",
 				link: "/iluminacao_publica",
 			}); //se desfavoritou o servico
 		}

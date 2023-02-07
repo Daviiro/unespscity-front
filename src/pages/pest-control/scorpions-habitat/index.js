@@ -50,14 +50,14 @@ const Escorpiao = (props) => {
 			props.handleAddFavorite({
 				id: 14,
 				name: "Foco de Escorpião",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_foco_escorpiao.png",
 				link: "/foco_de_escorpiao",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 14,
 				name: "Foco de Escorpião",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_foco_escorpiao.png",
 				link: "/foco_de_escorpiao",
 			}); //se desfavoritou o servico
 		}

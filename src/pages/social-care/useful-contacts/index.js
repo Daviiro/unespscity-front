@@ -52,14 +52,14 @@ const Telefones = (props) => {
 			props.handleAddFavorite({
 				id: 34,
 				name: "Telefones Úteis",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_telefones_uteis.png",
 				link: "/telefones_uteis",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 34,
 				name: "Telefones Úteis",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_telefones_uteis.png",
 				link: "/telefones_uteis",
 			}); //se desfavoritou o servico
 		}

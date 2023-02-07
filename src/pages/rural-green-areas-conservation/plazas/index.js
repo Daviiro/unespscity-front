@@ -52,14 +52,14 @@ const Pracas = (props) => {
 			props.handleAddFavorite({
 				id: 8,
 				name: "Praças",
-				img: "/assets/img/home_conservacao_rural.png",
+				img: "/assets/img/home_pracas.png",
 				link: "/pracas",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 8,
 				name: "Praças",
-				img: "/assets/img/home_conservacao_rural.png",
+				img: "/assets/img/home_pracas.png",
 				link: "/pracas",
 			}); //se desfavoritou o servico
 		}

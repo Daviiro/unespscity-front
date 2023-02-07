@@ -36,14 +36,14 @@ const RefuseCollection = (props) => {
 			props.handleAddFavorite({
 				id: 27,
 				name: "Coleta de Lixo",
-				img: "/assets/img/home_meio_ambiente.png",
+				img: "/assets/img/home_coleta_lixo.png",
 				link: "/coleta-de-lixo",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 27,
 				name: "Coleta de Lixo",
-				img: "/assets/img/home_meio_ambiente.png",
+				img: "/assets/img/home_coleta_lixo.png",
 				link: "/coleta-de-lixo",
 			}); //se desfavoritou o servico
 		}

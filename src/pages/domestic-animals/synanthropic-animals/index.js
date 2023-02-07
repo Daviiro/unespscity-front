@@ -50,14 +50,14 @@ const AnimaisSinantropicos = (props) => {
 			props.handleAddFavorite({
 				id: 23,
 				name: "Animais Sinantrópicos",
-				img: "assets/img/home_animais_domesticos.png",
+				img: "assets/img/home_animais_sinantropicos.png",
 				link: "/animais-sinantropicos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 23,
 				name: "Animais Sinantrópicos",
-				img: "assets/img/home_animais_domesticos.png",
+				img: "assets/img/home_animais_sinantropicos.png",
 				link: "/animais-sinantropicos",
 			}); //se desfavoritou o servico
 		}

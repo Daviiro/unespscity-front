@@ -51,14 +51,14 @@ const Leishmaniose = (props) => {
 			props.handleAddFavorite({
 				id: 16,
 				name: "Leishmaniose",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_leishmaniose.png",
 				link: "/leishmaniose",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 16,
 				name: "Leishmaniose",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_leishmaniose.png",
 				link: "/leishmaniose",
 			}); //se desfavoritou o servico
 		}

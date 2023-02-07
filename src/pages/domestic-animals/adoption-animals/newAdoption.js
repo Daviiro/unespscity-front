@@ -51,15 +51,15 @@ const NovasDoacoesAnimais = (props) => {
 			props.handleAddFavorite({
 				id: 19,
 				name: "Doação de Animais",
-				img: "assets/img/home_animais_domesticos.png",
-				link: "/adocao_animais_lista",
+				img: "assets/img/home_adocao_animais.png",
+				link: "/adocao_animais_opcoes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 19,
 				name: "Doação de Animais",
-				img: "assets/img/home_animais_domesticos.png",
-				link: "/adocao_animais_lista",
+				img: "assets/img/home_adocao_animais.png",
+				link: "/adocao_animais_opcoes",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

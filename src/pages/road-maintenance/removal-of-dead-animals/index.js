@@ -50,14 +50,14 @@ const Animais_Mortos = (props) => {
 			props.handleAddFavorite({
 				id: 9,
 				name: "Animais Mortos",
-				img: "/assets/img/home_remocao_detritos.png",
+				img: "/assets/img/home_animais_mortos.png",
 				link: "/animais_mortos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 9,
 				name: "Animais Mortos",
-				img: "/assets/img/home_remocao_detritos.png",
+				img: "/assets/img/home_animais_mortos.png",
 				link: "/animais_mortos",
 			}); //se desfavoritou o servico
 		}

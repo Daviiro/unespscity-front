@@ -51,15 +51,15 @@ const Pontes = (props) => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
 				id: 7,
-				name: "Parques",
-				img: "/assets/img/home_conservacao_rural.png",
+				name: "Pontes em Estradas Rurais",
+				img: "/assets/img/home_pontes_estradas_rurais.png",
 				link: "/pontes_em_estradas_rurais",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 7,
-				name: "Parques",
-				img: "/assets/img/home_conservacao_rural.png",
+				name: "Pontes em Estradas Rurais",
+				img: "/assets/img/home_pontes_estradas_rurais.png",
 				link: "/pontes_em_estradas_rurais",
 			}); //se desfavoritou o servico
 		}

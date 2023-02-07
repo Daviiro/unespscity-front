@@ -50,14 +50,14 @@ const Pavimentacao = (props) => {
 			props.handleAddFavorite({
 				id: 4,
 				name: "Pavimentação",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_pavimentacao.png",
 				link: "/pavimentacao",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 4,
 				name: "Pavimentação",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_pavimentacao.png",
 				link: "/pavimentacao",
 			}); //se desfavoritou o servico
 		}

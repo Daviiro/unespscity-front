@@ -34,14 +34,14 @@ const GuardianMonitoring = (props) => {
 			props.handleAddFavorite({
 				id: 51,
 				name: "Monitoramento do Guardinha",
-				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				img: "/assets/img/home_monitoramento_guardinha.png",
 				link: "/monitoramento-guardinha",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 51,
 				name: "Monitoramento do Guardinha",
-				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				img: "/assets/img/home_monitoramento_guardinha.png",
 				link: "/monitoramento-guardinha",
 			}); //se desfavoritou o servico
 		}

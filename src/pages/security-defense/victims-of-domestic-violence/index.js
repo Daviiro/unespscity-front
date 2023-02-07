@@ -28,14 +28,14 @@ const VictimsOfDomesticViolence = (props) => {
 			props.handleAddFavorite({
 				id: 44,
 				name: "Vítimas de violência doméstica",
-				img: "/assets/img/home_seguranca_defesa_civil.png",
+				img: "/assets/img/home_violencia_domestica.png",
 				link: "/violencia-domestica",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 44,
 				name: "Vítimas de violência doméstica",
-				img: "/assets/img/home_seguranca_defesa_civil.png",
+				img: "/assets/img/home_violencia_domestica.png",
 				link: "/violencia-domestica",
 			}); //se desfavoritou o servico
 		}

@@ -52,14 +52,14 @@ const Parques = (props) => {
 			props.handleAddFavorite({
 				id: 6,
 				name: "Parques",
-				img: "/assets/img/home_conservacao_rural.png",
+				img: "/assets/img/home_meio_ambiente.png",
 				link: "/parques",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 6,
 				name: "Parques",
-				img: "/assets/img/home_conservacao_rural.png",
+				img: "/assets/img/home_meio_ambiente.png",
 				link: "/parques",
 			}); //se desfavoritou o servico
 		}

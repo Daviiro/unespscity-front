@@ -14,6 +14,9 @@ const AdocaoAreasOpcoes = () => {
                     <Link to = "/adocao_areas_adotadas">
                         <Button text = "Ver áreas já adotadas no município" />
                     </Link>
+                    <Link to = "/adocao_areas_regras">
+                        <Button text = "Ver legislação" />
+                    </Link>
                 </ContainerColumn>
             </ContainerBase>
         </>
