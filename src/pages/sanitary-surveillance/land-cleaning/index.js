@@ -50,14 +50,14 @@ const Terreno = (props) => {
 			props.handleAddFavorite({
 				id: 12,
 				name: "Limpeza de Terreno",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_terrenos.png",
 				link: "/limpeza_de_terreno",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 12,
 				name: "Limpeza de Terreno",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_terrenos.png",
 				link: "/limpeza_de_terreno",
 			}); //se desfavoritou o servico
 		}

@@ -48,14 +48,14 @@ const Tumulos = (props) => {
 			props.handleAddFavorite({
 				id: 31,
 				name: "Cadastro de Túmulos e Falecidos",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_cadastro_tumulos_falecidos.png",
 				link: "/tumulos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 31,
 				name: "Cadastro de Túmulos e Falecidos",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_cadastro_tumulos_falecidos.png",
 				link: "/tumulos",
 			}); //se desfavoritou o servico
 		}

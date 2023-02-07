@@ -12,17 +12,25 @@ import {
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
 import GrayLine from "../../../components/styled-components/gray-line";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
 import ListCard from "../../domestic-animals/lost-animals/card-list";
 import { ChartContainer } from "../../../charts/types/donut/chart";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const AdocaoAreasDisponiveis = () => {
+const AdocaoAreasDisponiveis = (props) => {
 /*	const [problems, setProblems] = useState([]);	*/
+const [isFavorite, setIsFavorite] = useState(false);
 const [totalAdotadas, setTotalAdotadas] = useState(0);
 const [totalDisponiveis, setTotalDisponiveis] = useState(0);
 
-useEffect(() => {
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 53 && setIsFavorite(true)
+		);
 	async function getProblems() {
 		try {
 			const { data } = await api.get('/public_area_adoption');
@@ -36,12 +44,31 @@ useEffect(() => {
 		}
 	}
 	getProblems();
-}, []);
+	}, []);
+	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 53,
+				name: "Adoção de Áreas Públicas",
+				img: "/assets/img/home_pracas.png",
+				link: "/adocao_areas_opcoes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 53,
+				name: "Adoção de Áreas Públicas",
+				img: "/assets/img/home_pracas.png",
+				link: "/adocao_areas_opcoes",
+			}); //se desfavoritou o servico
+		}
+		setIsFavorite(!isFavorite);
+	};
 
 	return (
 		<>
 			<ContainerBase>
 				<Header />
+				<Favorites data={props.data} />
 				<ContentContainer>
 					<TopContentContainer>
 						<MiniCard
@@ -81,7 +108,33 @@ useEffect(() => {
 								</DescriptionText>
 							</Link>
 						</div>
-						<div></div>
+						{isFavorite ? (
+							<span>
+								<AiFillStar
+									style={{
+										cursor: "pointer",
+										margin: ".8rem",
+										stroke: "black",
+										strokeWidth: "5",
+									}}
+									color={"yellow"}
+									size={25}
+									onClick={() => handleFavorite()}
+								/>
+							</span>
+						) : (
+							<AiOutlineStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						)}
+						<StyledHr />
 					</TopContentContainer>
 					<MidContentContainer>
 					{/*	{

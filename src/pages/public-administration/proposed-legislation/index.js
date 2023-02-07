@@ -27,14 +27,14 @@ const ProposedLegislation = (props) => {
 			props.handleAddFavorite({
 				id: 47,
 				name: "Consultar propostas dos vereadores",
-				img: "/assets/img/home_administracao_publica.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/consultar-propostas-de-leis",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 47,
 				name: "Consultar propostas dos vereadores",
-				img: "/assets/img/home_administracao_publica.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/consultar-propostas-de-leis",
 			}); //se desfavoritou o servico
 		}

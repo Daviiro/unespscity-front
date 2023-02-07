@@ -50,14 +50,14 @@ const Piscinas = (props) => {
 			props.handleAddFavorite({
 				id: 11,
 				name: "Limpeza de Piscinas",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_piscinas.png",
 				link: "/limpeza_de_piscinas",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 11,
 				name: "Limpeza de Piscinas",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_piscinas.png",
 				link: "/limpeza_de_piscinas",
 			}); //se desfavoritou o servico
 		}

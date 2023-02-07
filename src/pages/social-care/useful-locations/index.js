@@ -29,14 +29,14 @@ const LocaisUteis = (props) => {
 			props.handleAddFavorite({
 				id: 32,
 				name: "Locais Úteis",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_conservacao_urbana.png",
 				link: "/locais_uteis",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 32,
 				name: "Locais Úteis",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_conservacao_urbana.png",
 				link: "/locais_uteis",
 			}); //se desfavoritou o servico
 		}

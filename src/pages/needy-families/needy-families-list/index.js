@@ -30,14 +30,14 @@ const NeedyFamiliesList = (props) => {
 				id: 38,
 				name: "Registro de Familias Carentes",
 				img: "/assets/img/home_familias_carentes.png",
-				link: "/familias_carentes_lista",
+				link: "/familia_carente_opcoes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 38,
 				name: "Registro de Familias Carentes",
 				img: "/assets/img/home_familias_carentes.png",
-				link: "/familias_carentes_lista",
+				link: "/familia_carente_opcoes",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

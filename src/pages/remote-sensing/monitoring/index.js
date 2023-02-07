@@ -28,14 +28,14 @@ const Monitoring = (props) => {
 			props.handleAddFavorite({
 				id: 50,
 				name: "Monitoramento Remoto",
-				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				img: "/assets/img/home_monitoramento_veiculos.png",
 				link: "/monitoramento-pessoas-veiculos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 50,
 				name: "Monitoramento Remoto",
-				img: "/assets/img/home_sensoriamento_movel_participativo.png",
+				img: "/assets/img/home_monitoramento_veiculos.png",
 				link: "/monitoramento-pessoas-veiculos",
 			}); //se desfavoritou o servico
 		}

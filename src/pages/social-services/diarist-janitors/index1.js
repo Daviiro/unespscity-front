@@ -35,15 +35,15 @@ const DiaristasNovo = (props) => {
 			props.handleAddFavorite({
 				id: 39,
 				name: "Cadastro de Diaristas",
-				img: "/assets/img/home_servicos_sociais.png",
-				link: "/diaristas_novo",
+				img: "/assets/img/home_cadastro_diaristas.png",
+				link: "/diaristas_opcoes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 39,
 				name: "Cadastro de Diaristas",
-				img: "/assets/img/home_servicos_sociais.png",
-				link: "/diaristas_novo",
+				img: "/assets/img/home_cadastro_diaristas.png",
+				link: "/diaristas_opcoes",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

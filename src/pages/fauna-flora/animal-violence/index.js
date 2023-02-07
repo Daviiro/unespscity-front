@@ -35,14 +35,14 @@ const MausTratosAnimais = (props) => {
 			props.handleAddFavorite({
 				id: 24,
 				name: "Maus tratos à Animais",
-				img: "assets/img/home_animais_domesticos.png",
+				img: "assets/img/home_maus_tratos.png",
 				link: "/maus_tratos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 24,
 				name: "Maus tratos à Animais",
-				img: "assets/img/home_animais_domesticos.png",
+				img: "assets/img/home_maus_tratos.png",
 				link: "/maus_tratos",
 			}); //se desfavoritou o servico
 		}

@@ -28,14 +28,14 @@ const TheftRegister = (props) => {
 			props.handleAddFavorite({
 				id: 43,
 				name: "Registro de Roubos e Furtos",
-				img: "/assets/img/home_seguranca_defesa_civil.png",
+				img: "/assets/img/home_registro_roubos_furtos.png",
 				link: "/registro_roubos",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 43,
 				name: "Registro de Roubos e Furtos",
-				img: "/assets/img/home_seguranca_defesa_civil.png",
+				img: "/assets/img/home_registro_roubos_furtos.png",
 				link: "/registro_roubos",
 			}); //se desfavoritou o servico
 		}

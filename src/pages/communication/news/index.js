@@ -31,14 +31,14 @@ const Noticias = (props) => {
 			props.handleAddFavorite({
 				id: 48,
 				name: "Notícias da Cidade",
-				img: "/assets/img/home_notificacao_comunicacao.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/noticias",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 48,
 				name: "Notícias da Cidade",
-				img: "/assets/img/home_notificacao_comunicacao.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/noticias",
 			}); //se desfavoritou o servico
 		}

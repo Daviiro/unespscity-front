@@ -53,15 +53,15 @@ const AnimaisPerdidosLista = (props) => {
 			props.handleAddFavorite({
 				id: 22,
 				name: "Animais Perdidos",
-				img: "assets/img/home_animais_domesticos.png",
-				link: "/animais_perdidos_lista",
+				img: "assets/img/home_animais_perdidos.png",
+				link: "/animais_perdidos_opcoes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 22,
 				name: "Animais Perdidos",
-				img: "assets/img/home_animais_domesticos.png",
-				link: "/animais_perdidos_lista",
+				img: "assets/img/home_animais_perdidos.png",
+				link: "/animais_perdidos_opcoes",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

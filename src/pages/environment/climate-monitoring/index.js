@@ -120,16 +120,16 @@ const Monitoring = (props) => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
 				id: 27,
-				name: "Coleta de Lixo",
-				img: "/assets/img/home_meio_ambiente.png",
-				link: "/coleta-de-lixo",
+				name: "Monitoramento do Tempo",
+				img: "/assets/img/home_monitoramento_tempo.png",
+				link: "/monitoramento",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 27,
-				name: "Coleta de Lixo",
-				img: "/assets/img/home_meio_ambiente.png",
-				link: "/coleta-de-lixo",
+				name: "Monitoramento do Tempo",
+				img: "/assets/img/home_monitoramento_tempo.png",
+				link: "/monitoramento",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

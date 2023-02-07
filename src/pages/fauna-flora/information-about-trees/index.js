@@ -35,14 +35,14 @@ const InformationAboutTrees = (props) => {
 			props.handleAddFavorite({
 				id: 29,
 				name: "Árvores",
-				img: "/assets/img/home_fauna_flora.png",
+				img: "/assets/img/home_meio_ambiente.png",
 				link: "/arvores",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 29,
 				name: "Árvores",
-				img: "/assets/img/home_fauna_flora.png",
+				img: "/assets/img/home_meio_ambiente.png",
 				link: "/arvores",
 			}); //se desfavoritou o servico
 		}

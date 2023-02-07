@@ -28,14 +28,14 @@ const CulturalProgram = (props) => {
 			props.handleAddFavorite({
 				id: 33,
 				name: "Programação Cultural",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/programacao_cultural",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 33,
 				name: "Programação Cultural",
-				img: "/assets/img/home_assistencia_social.png",
+				img: "/assets/img/home_noticias.png",
 				link: "/programacao_cultural",
 			}); //se desfavoritou o servico
 		}

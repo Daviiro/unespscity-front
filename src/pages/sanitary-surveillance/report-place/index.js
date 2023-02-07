@@ -52,14 +52,14 @@ const Restaurante = (props) => {
 			props.handleAddFavorite({
 				id: 13,
 				name: "Restaurantes / Ambientes Irregulares",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_restaurantes.png",
 				link: "/restaurantes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 13,
 				name: "Restaurantes / Ambientes Irregulares",
-				img: "/assets/img/home_vigilancia_sanitaria.png",
+				img: "/assets/img/home_restaurantes.png",
 				link: "/restaurantes",
 			}); //se desfavoritou o servico
 		}

@@ -52,14 +52,14 @@ const Dengue = (props) => {
 			props.handleAddFavorite({
 				id: 17,
 				name: "Radar da Dengue",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_radar_dengue.png",
 				link: "/radar_da_dengue",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 17,
 				name: "Radar da Dengue",
-				img: "/assets/img/home_controle_pragas.png",
+				img: "/assets/img/home_radar_dengue.png",
 				link: "/radar_da_dengue",
 			}); //se desfavoritou o servico
 		}

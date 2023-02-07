@@ -50,15 +50,15 @@ const Vias = (props) => {
 			props.handleAddFavorite({
 				id: 5,
 				name: "Vias Públicas",
-				img: "/assets/img/home_conservacao_urbana.png",
-				link: "/vias_publicas/vias_publicas",
+				img: "/assets/img/home_vias_publicas.png",
+				link: "/vias_publicas",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 5,
 				name: "Vias Públicas",
-				img: "/assets/img/home_conservacao_urbana.png",
-				link: "/vias_publicas/vias_publicas",
+				img: "/assets/img/home_vias_publicas.png",
+				link: "/vias_publicas",
 			}); //se desfavoritou o servico
 		}
 		setIsFavorite(!isFavorite);

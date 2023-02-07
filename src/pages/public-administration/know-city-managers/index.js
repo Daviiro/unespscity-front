@@ -29,14 +29,14 @@ const Gestores = (props) => {
 			props.handleAddFavorite({
 				id: 46,
 				name: "Conheça os Gestores",
-				img: "/assets/img/home_administracao_publica.png",
+				img: "/assets/img/home_conheca_os_gestores.png",
 				link: "/conheca_os_gestores",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 46,
 				name: "Conheça os Gestores",
-				img: "/assets/img/home_administracao_publica.png",
+				img: "/assets/img/home_conheca_os_gestores.png",
 				link: "/conheca_os_gestores",
 			}); //se desfavoritou o servico
 		}

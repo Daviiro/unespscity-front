@@ -50,14 +50,14 @@ const Monumentos = (props) => {
 			props.handleAddFavorite({
 				id: 3,
 				name: "Monumentos e Chafarizes",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_monumentos_chafarizes.png",
 				link: "/monumentos_e_chafarizes",
 			}); //se favoritou o servico
 		} else {
 			props.handleSubFavorite({
 				id: 3,
 				name: "Monumentos e Chafarizes",
-				img: "/assets/img/home_conservacao_urbana.png",
+				img: "/assets/img/home_monumentos_chafarizes.png",
 				link: "/monumentos_e_chafarizes",
 			}); //se desfavoritou o servico
 		}

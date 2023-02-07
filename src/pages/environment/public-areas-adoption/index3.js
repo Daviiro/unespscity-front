@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
 	ContainerBase,
 	ContentContainer,
@@ -9,16 +9,47 @@ import {
 import { FormContainer } from "./styles";
 import Header from "../../../components/header";
 import MiniCard from "../../../components/mini-card";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import Typography from "@mui/material/Typography";
+import { StyledHr } from "../../../components/styled-components/StyledHr";
 import GrayLine from "../../../components/styled-components/gray-line";
 import Footer from "../../../components/footer";
+import Favorites from "../../../components/favorites";
 
-const AdocaoAreasRegras = () => {
+const AdocaoAreasRegras = (props) => {
+	const [isFavorite, setIsFavorite] = useState(false);
+
+	useEffect(() => {
+		props.data.find(
+			(favoriteX) => favoriteX.id === 55 && setIsFavorite(true)
+		);
+	}, []);
+	const handleFavorite = () => {
+		if (!isFavorite) {
+			props.handleAddFavorite({
+				id: 55,
+				name: "Adoção de Áreas Públicas",
+				img: "/assets/img/home_pracas.png",
+				link: "/adocao_areas_opcoes",
+			}); //se favoritou o servico
+		} else {
+			props.handleSubFavorite({
+				id: 55,
+				name: "Adoção de Áreas Públicas",
+				img: "/assets/img/home_pracas.png",
+				link: "/adocao_areas_opcoes",
+			}); //se desfavoritou o servico
+		}
+		setIsFavorite(!isFavorite);
+	};
+
 	// posteriormente, cada secretaria modificaria esta página de acordo com as suas leis locais //
 	return (
 		<>
 			<ContainerBase>
 				<Header />
+				<Favorites data={props.data} />
 				<ContentContainer>
 					<TopContentContainer>
 						<MiniCard
@@ -54,12 +85,38 @@ const AdocaoAreasRegras = () => {
 								href="https://www.prefeitura.sp.gov.br/cidade/secretarias/subprefeituras/upload/ipiranga/arquivos/Termo.pdf"
 							>
 								<DescriptionText>
-									Nesta página, você pode conhecer as regras de adoção de Áreas Públicas, adaptadas do 
+									Nesta página, você pode conhecer a legislação de adoção de Áreas Públicas, adaptadas do 
 									decreto de São Paulo Nº 57.583 (23/01/2017). Clique AQUI para acessar o documento original.
 								</DescriptionText>
 							</a>
-						</div>
-						<div></div>
+							</div>
+							{isFavorite ? (
+								<span>
+									<AiFillStar
+										style={{
+											cursor: "pointer",
+											margin: ".8rem",
+											stroke: "black",
+											strokeWidth: "5",
+										}}
+										color={"yellow"}
+										size={25}
+										onClick={() => handleFavorite()}
+									/>
+								</span>
+							) : (
+							<AiOutlineStar
+								style={{
+									cursor: "pointer",
+									margin: ".8rem",
+									stroke: "black",
+									strokeWidth: "5",
+								}}
+								size={25}
+								onClick={() => handleFavorite()}
+							/>
+						)}
+						<StyledHr />
 					</TopContentContainer>
 					<MidContentContainer>
 					<FormContainer>
