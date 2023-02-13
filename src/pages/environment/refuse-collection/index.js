@@ -19,18 +19,21 @@ import ShowAllPolygons from "../../administrator/environment/refuse-collection/s
 import { fetchCityForID } from "../../../services/IBGE";
 import { fetchLatLong } from "../../../services/GoogleMaps";
 import LocalContext from "../../user-location/Context";
+import LeafLetMap from "./leaflet-map/leaflet-map";
+import AdmLeafLetMap from "../../administrator/environment/refuse-collection/leaflet-map/leaflet-map";
+
 
 const RefuseCollection = (props) => {
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [cityName, setCityName] = useState("");
 	const [formValues, setFormValues] = useContext(LocalContext);
-	const [showComponent, setShowComponent] = useState(false);
-	const [center, setCenter] = useState({ lat: 0, lng: 0 });
-	useEffect(() => {
-		props.data.find(
-			(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
-		);
-	}, []);
+	// useEffect(() => {
+	// 	initMap();
+
+	// 	// props.data.find(
+	// 	// 	(favoriteX) => favoriteX.id === 27 && setIsFavorite(true)
+	// 	// );
+	// }, []);
 	const handleFavorite = () => {
 		if (!isFavorite) {
 			props.handleAddFavorite({
@@ -57,57 +60,9 @@ const RefuseCollection = (props) => {
 			fetchCityForID(formValues.city).then((city) => {
 				setCityName(city);
 			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
-			if (cityName != "") {
-				fetchLatLong(cityName).then((data) => {
-					setCenter({
-						lat: data.results[0].geometry.location.lat,
-						lng: data.results[0].geometry.location.lng,
-					});
-				});
-			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+				//DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
 		}
 	}, [cityName]);
-
-	const routes = [
-		{
-			id: 1,
-			points: [
-				{
-					lat: -22.131951,
-					lng: -51.40933,
-				},
-				{
-					lat: -22.09763957730908,
-					lng: -51.41680879940989,
-				},
-				{
-					lat: -22.092304090035935,
-					lng: -51.40159869150531,
-				},
-			],
-			id: 2,
-			points: [
-				{
-					lat: -22.131951,
-					lng: -51.40933,
-				},
-				{
-					lat: -22.09764,
-					lng: -51.416807,
-				},
-				{
-					lat: -22.0923,
-					lng: -51.401594,
-				},
-			],
-		},
-	];
-
-	useEffect(() => {
-		setInterval(() => {
-			setShowComponent(true);
-		}, 1000);
-	}, []);
 
 	return (
 		<ContainerBase>
@@ -144,6 +99,10 @@ const RefuseCollection = (props) => {
 							Neste serviço você terá informações sobre as áreas e
 							horários de circulação de cada um dos caminhões de
 							lixo.
+							<br></br>
+							Para pegar a localização aproximada clique no botão. Ou insira seu Endereço no campo abaixo.
+							<br></br>
+							Para saber informações da rota, clique na área desejada no mapa.
 						</DescriptionText>
 					</div>
 					{isFavorite ? (
@@ -175,7 +134,9 @@ const RefuseCollection = (props) => {
 					<StyledHr />
 				</TopContentContainer>
 				<MidContentContainer>
-					{showComponent && <ShowAllPolygons center={center} />}
+					
+					<LeafLetMap/>
+
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />

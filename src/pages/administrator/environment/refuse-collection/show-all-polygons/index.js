@@ -41,6 +41,7 @@ const ShowAllPolygons = (props) => {
 	};
 	const [isLoading, setLoading] = useState(true);
 	const [polygons, setPolygons] = useState([]);
+	
 	//recuperar dados do backend
 	const fetchData = async () => {
 		const data = JSON.parse(localStorage.getItem("locationLocalStorage"));
@@ -101,7 +102,7 @@ const ShowAllPolygons = (props) => {
 
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPSAPIKEY,
+		googleMapsApiKey: "AIzaSyCWnTER-hlbvhy9WhYip95-4RFfcIg7hTI",
 		libraries: ["drawing"],
 	});
 

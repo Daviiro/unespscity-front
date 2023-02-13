@@ -16,7 +16,7 @@ export const InputPontosContainer = styled.div`
 	display: flex;
 	align-items: center;
 	background-color: #ffffff;
-	height: 80%;
+	height: 78%;
 	width: 300px;
 	z-index: 1;
 `;

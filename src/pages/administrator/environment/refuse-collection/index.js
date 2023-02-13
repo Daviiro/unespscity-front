@@ -10,31 +10,16 @@ import {
 import MiniCard from "../../../../components/mini-card";
 import AdminHeader from "../../../../components/header/admin";
 import Footer from "../../../../components/footer";
-import Map from "./map";
 import { fetchCityForID } from "../../../../services/IBGE";
-import { fetchLatLong } from "../../../../services/GoogleMaps";
+import AdmLeafLetMap from "./leaflet-map/leaflet-map";
 import LocalContext from "../../../user-location/Context";
-import ShowAllPolygons from "./show-all-polygons";
-import { ChoiceContainer, ChoiceSpan } from "./styles";
+
 
 const AdminRefuseCollection = () => {
-	const [toggle, setToggle] = useState(true);
-	const [center, setCenter] = useState({ lat: 0, lng: 0 });
 	const [cityName, setCityName] = useState("");
 	const [showComponent, setShowComponent] = useState(false);
 	const [formValues, setFormValues] = useContext(LocalContext);
-	const [showRoutesTitleColor, setShowRoutesTitleColor] =
-		useState("var(--secondary)");
-	const [addRoutesTitleColor, setAddRoutesTitleColor] = useState("#000000");
-	useEffect(() => {
-		if (toggle) {
-			setShowRoutesTitleColor("#000000");
-			setAddRoutesTitleColor("var(--secondary)");
-		} else {
-			setShowRoutesTitleColor("var(--secondary)");
-			setAddRoutesTitleColor("#000000");
-		}
-	}, [toggle]);
+
 	fetchCityForID(formValues.city).then((city) => {
 		setCityName(city);
 	}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
@@ -43,22 +28,10 @@ const AdminRefuseCollection = () => {
 			fetchCityForID(formValues.city).then((city) => {
 				setCityName(city);
 			}); //API DO IBGE, SEM PROBLEMAS DE COBRANCA
-			if (cityName != "") {
-				fetchLatLong(cityName).then((data) => {
-					setCenter({
-						lat: data.results[0].geometry.location.lat,
-						lng: data.results[0].geometry.location.lng,
-					});
-				});
-			} //DENTRO DESTE TEM A API DO GEOCODE, DE JEITO NENHUM CRIE UM LOOP NESTE USEEFFECT
+
 		}
 	}, [cityName]);
 
-	useEffect(() => {
-		setInterval(() => {
-			setShowComponent(true);
-		}, 1000);
-	}, []);
 
 	return (
 		<ContainerBase>
@@ -98,33 +71,9 @@ const AdminRefuseCollection = () => {
 					<div></div>
 				</TopContentContainer>
 				<MidContentContainer>
-					<ChoiceContainer>
-						<div
-							style={{ cursor: "pointer" }}
-							onClick={() =>
-								toggle ? <></> : setToggle(!toggle)
-							}
-						>
-							<ChoiceSpan toggle={addRoutesTitleColor}>
-								Cadastrar Áreas
-							</ChoiceSpan>
-						</div>
-						<div
-							style={{ cursor: "pointer" }}
-							onClick={() =>
-								toggle ? setToggle(!toggle) : <></>
-							}
-						>
-							<ChoiceSpan toggle={showRoutesTitleColor}>
-								Mostrar Áreas Cadastradas
-							</ChoiceSpan>
-						</div>
-					</ChoiceContainer>
-					{toggle
-						? showComponent && <Map center={center} />
-						: showComponent && (
-								<ShowAllPolygons center={center} admin={true} />
-						  )}
+
+					<AdmLeafLetMap />
+
 				</MidContentContainer>
 			</ContentContainer>
 			<Footer />
