@@ -24,6 +24,7 @@
     "react-collapse": "^5.1.1",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
+    "react-leaflet": "^4.2.1",
     "react-material-ui-carousel": "^3.4.2",
     "react-minimal-pie-chart": "^8.3.0",
     "react-modal": "^3.15.1",
